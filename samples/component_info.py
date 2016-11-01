@@ -65,6 +65,7 @@ for ss in ssr:
         print "Controller type: " + controller.board_id
         print "Firmware Version: " + controller.app_version
 
+    # Get object bundle
     object_graph = storage_system.get_object_graph(system_id=ss.id)
     component_bundle = object_graph.component_bundle
 
@@ -88,3 +89,10 @@ for ss in ssr:
         print "\n##################################\n" \
               "Fan info for :" + fan.fan_ref
         pprint(fan)
+
+    # Get battery info
+    batteries = component_bundle.battery
+    for battery in batteries:
+        print "\n##################################\n" \
+              "Battery info for :" + battery.battery_ref
+        pprint(battery)
