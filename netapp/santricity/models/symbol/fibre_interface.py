@@ -70,7 +70,8 @@ class FibreInterface(object):
             'protection_information_capable': 'bool',  # (required parameter)
             'one_way_max_rate': 'int',  # (required parameter)
             'bidirectional_max_rate': 'int',  # (required parameter)
-            'id': 'str'
+            'id': 'str',
+            'nice_address_id': 'str'
         }
 
         self.attribute_map = {
@@ -106,6 +107,7 @@ class FibreInterface(object):
             'trunk_miswire': 'trunkMiswire',  # (required parameter)
             'protection_information_capable': 'protectionInformationCapable',  # (required parameter)
             'one_way_max_rate': 'oneWayMaxRate',  # (required parameter)
+            'nice_address_id': 'niceAddressId',
             'bidirectional_max_rate': 'bidirectionalMaxRate',  # (required parameter)
             'id': 'id'
         }
@@ -144,6 +146,7 @@ class FibreInterface(object):
         self._one_way_max_rate = None
         self._bidirectional_max_rate = None
         self._id = None
+        self._nice_address_id = None
 
     @property
     def channel(self):
@@ -956,6 +959,29 @@ class FibreInterface(object):
         :type: str
         """
         self._id = id
+
+    @property
+    def nice_address_id(self):
+        """
+        Gets the nice address id (WWN) of this FibreInterface.
+
+
+        :return: The WWN of this FibreInterface.
+        :rtype: str
+        :required/optional: optional
+        """
+        return self._nice_address_id
+
+    @nice_address_id.setter
+    def nice_address_id(self, nice_address_id):
+        """
+        Sets the nice address id (WWN) of this FibreInterface.
+
+
+        :param id: The WWN of this FibreInterface.
+        :type: str
+        """
+        self._nice_address_id = nice_address_id
 
     def to_dict(self):
         """

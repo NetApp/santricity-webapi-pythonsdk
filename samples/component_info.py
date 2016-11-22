@@ -9,7 +9,7 @@ from netapp.santricity.api.v2.hardware_api import HardwareApi
 from pprint import pprint
 
 config = Configuration()
-config.host = "http://localhost:8080" # Add ip address of the proxy here
+config.host = "http://localhost:8080"  # Add ip address of the proxy here
 config.username = "rw"
 config.password = "rw"
 
@@ -49,11 +49,11 @@ for ss in ssr:
               "Drive data for driveWwn: " + drive.world_wide_name
         pprint(drive)
 
-    # Get drive cabling info for each storage system
-    cables = hardware_api.get_drive_connection_info(system_id=ss.id)
-    print "\n##################################\n" \
-          "Cabling info: "
-    pprint(cables)
+    # Get FC Port WWN:
+    hardware_inventory = hardware_api.get_hardware_information(system_id=ss.id)
+    fibre_ports = hardware_inventory.fibre_ports
+    for fiber_port in fibre_ports:
+        print "fiber Port WWN: " + fiber_port.nice_address_id
 
     # Get controller & product info
     controllers = hardware_api.get_all_controllers(system_id=ss.id)
@@ -64,6 +64,11 @@ for ss in ssr:
         print "Controller status: " + controller.status
         print "Controller type: " + controller.board_id
         print "Firmware Version: " + controller.app_version
+
+        print "\n##################################\n" \
+              "Controller host interfaces:  "
+        for host_interface in controller.host_interfaces:
+            print "Port WWN: " + host_interface.fibre.nice_address_id
 
     # Get object bundle
     object_graph = storage_system.get_object_graph(system_id=ss.id)
