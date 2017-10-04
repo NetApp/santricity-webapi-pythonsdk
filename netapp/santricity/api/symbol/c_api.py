@@ -61,7 +61,7 @@ class CApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param VolumeExpansionDescriptor body: This object contains information used for a DVE or DCE/DVE combination. (required)
     
@@ -185,7 +185,7 @@ class CApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param AsyncMirrorGroupRoleChangeCancelDescriptor body:  (required)
     
@@ -309,7 +309,7 @@ class CApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str controller: Controller selection
     
@@ -422,7 +422,7 @@ class CApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str controller: Controller selection
     
@@ -535,7 +535,7 @@ class CApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str controller: Controller selection
     
@@ -648,7 +648,7 @@ class CApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str controller: Controller selection
     
@@ -761,7 +761,7 @@ class CApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: The drive on which to cancel an evacuation. (required)
     
@@ -885,7 +885,7 @@ class CApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str controller: Controller selection
     
@@ -998,7 +998,7 @@ class CApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: A reference to the volume group for which the import is to be canceled. (required)
     
@@ -1122,7 +1122,7 @@ class CApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: A reference to the PiT Consistency Group for which you want to cancel a pending creation. (required)
     
@@ -1246,7 +1246,7 @@ class CApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: A reference to the PiT Group for which you want to cancel a pending creation. (required)
     
@@ -1370,7 +1370,7 @@ class CApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: A reference to the PiT rollback to be canceled. (required)
     
@@ -1494,7 +1494,7 @@ class CApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param RawDataTransferCancelDesc body: The transfer type and controller reference. (required)
     
@@ -1618,7 +1618,7 @@ class CApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param RawDataTransferCancelDesc body: The raw data transfer type and controller reference. (required)
     
@@ -1742,7 +1742,7 @@ class CApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: A reference to the snapshot on which to cancel the rollback. (required)
     
@@ -1866,7 +1866,7 @@ class CApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param AsyncMirrorGroupRoleChangeDescriptor body: A reference to the Asynchronous Mirror Group on which to change roles and some change attributes. (required)
     
@@ -1990,7 +1990,7 @@ class CApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param MirrorWriteModeDescriptor body: This object contains information used for changing the mirror write mode. (required)
     
@@ -2114,7 +2114,7 @@ class CApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param MirrorSyncPriorityDescriptor body: This object contains information used for changing the synchronization priority level for a mirror volume. (required)
     
@@ -2238,7 +2238,7 @@ class CApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param AsyncMirrorGroupFaultIndicationClearDescriptor body: A reference to the Asynchronous Mirror Group with the condition to acknowledge/clear and the type of indication to clear. (required)
     
@@ -2362,7 +2362,7 @@ class CApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param AsyncMirrorGroupMemberFaultIndicationClearDescriptor body: A reference to the Asynchronous Mirror Group member with the condition to acknowledge/clear and the type of indication to clear. (required)
     
@@ -2486,7 +2486,7 @@ class CApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param int body: A DdcTag value identifying the DDC data set that triggered the Needs Attention. (required)
     
@@ -2610,7 +2610,7 @@ class CApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str controller: Controller selection
     
@@ -2723,7 +2723,7 @@ class CApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str controller: Controller selection
     
@@ -2836,7 +2836,7 @@ class CApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param AbstractVolRefList body: The list AbstractVolRefList of volumes to be cleared. (required)
     
@@ -2960,7 +2960,7 @@ class CApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str controller: Controller selection
     
@@ -3073,7 +3073,7 @@ class CApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str controller: Controller selection
     
@@ -3186,7 +3186,7 @@ class CApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: A reference to the controller for which statistics are to be cleared on all accessible SOC devices. (required)
     
@@ -3310,7 +3310,7 @@ class CApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: This object contains information for the specific volume. (required)
     
@@ -3434,7 +3434,7 @@ class CApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param RemoteCommunicationCheckDescriptor body: This object performs a user requested communication check for a remote volume. (required)
     
@@ -3558,7 +3558,7 @@ class CApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param PendingHost body: A PendngHost structure describing a host and its related objects. (required)
     
@@ -3682,7 +3682,7 @@ class CApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param RawDataRestoreContinueDesc body: The controller ref, type of transfer, final sequence number of the transfer, the sequence number of the chunk currently being delivered, and the restore details for the chunk. (required)
     
@@ -3806,7 +3806,7 @@ class CApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param RawDataRetrieveContinueDesc body: The controller ref, raw data transfer type and the sequence number for this chunk. (required)
     
@@ -3930,7 +3930,7 @@ class CApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param PITViewRWConversionDescriptor body: Descriptor to PiT View to be converted. (required)
     
@@ -4054,7 +4054,7 @@ class CApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param SnapshotConversionDescriptor body:  (required)
     
@@ -4178,7 +4178,7 @@ class CApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: The drive on which to perform the operation. (required)
     
@@ -4302,7 +4302,7 @@ class CApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param CopyThenReplaceDescriptor body: Indicates both the drive to replace and the replacement drive. (required)
     
@@ -4426,7 +4426,7 @@ class CApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param HostPortCreateDescriptor body: A HostPortCreateDescriptor object containing a set of attributes to assign to the new host port. (required)
     
@@ -4550,7 +4550,7 @@ class CApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param AsyncMirrorGroupCreationDescriptor body: An object that contains all of the required attributes for the new mirror group. (required)
     
@@ -4674,7 +4674,7 @@ class CApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param AutoConfigCandidateList body: This object contains a list of automatic configuration templates. (required)
     
@@ -4798,7 +4798,7 @@ class CApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: Reference to consistency group. (required)
     
@@ -4922,7 +4922,7 @@ class CApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: The user-assigned label to be used for the new cluster. (required)
     
@@ -5046,7 +5046,7 @@ class CApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param DiskPoolCreationDescriptor body: Information about the intended disk pool. (required)
     
@@ -5170,7 +5170,7 @@ class CApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param FlashCacheCreationDescriptor body: The attributes for creation of a flash cache object. (required)
     
@@ -5294,7 +5294,7 @@ class CApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param FlashCacheAnalyticsCreationDescriptor body:  (required)
     
@@ -5418,7 +5418,7 @@ class CApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param HostCreationDescriptor body: A HostCreationDescriptor object that contains all required attributes for the new Host object. (required)
     
@@ -5542,7 +5542,7 @@ class CApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param HostPortCreationDescriptor body: A HostPortCreationDescriptor object that contains all required attributes for the new HostPort object. (required)
     
@@ -5666,7 +5666,7 @@ class CApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param InitiatorCreationDescriptor body: An InitiatorCreationDescriptor object that contains all required properties for the new Initiator object. (required)
     
@@ -5790,7 +5790,7 @@ class CApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param KeyValueTagCreationDescriptorList body: The input is an array of key-value descriptors. The content of each is two opaque, fixed length byte arrays. (required)
     
@@ -5914,7 +5914,7 @@ class CApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param KeyIDInfo body: This is used to generate the WrappedLockKey that this procedure returns. (required)
     
@@ -6038,7 +6038,7 @@ class CApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param LUNMappingCreationDescriptor body: A LUNMappingCreationDescriptor object that contains all required attributes for the new LUNMapping object. (required)
     
@@ -6162,7 +6162,7 @@ class CApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param MetadataVolCreationDescriptor body: A MetadataVolCreationDescriptor object that contains all required attributes for the new MetadataVolume object. (required)
     
@@ -6286,7 +6286,7 @@ class CApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param MirrorCreationDescriptor body: A MirrorCreationDescriptor object that contains all required attributes for the new Mirror Volume object. (required)
     
@@ -6410,7 +6410,7 @@ class CApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param PITGroupRefList body: Structure containing a list of PiT groups. (required)
     
@@ -6534,7 +6534,7 @@ class CApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param PITConsistencyGroupCreationDescriptor body: Descriptor for the consistency group to be created. (required)
     
@@ -6658,7 +6658,7 @@ class CApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param PITConsistencyGroupViewCreationDescriptor body: An object containing all of the attributes required to create a PiT Consistency Group View. (required)
     
@@ -6782,7 +6782,7 @@ class CApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param PITGroupCreationDescriptor body: Structure containing Pit group creation data. (required)
     
@@ -6906,7 +6906,7 @@ class CApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param PITViewCreationDescriptor body: Structure containing information about the PiT View to create. (required)
     
@@ -7030,7 +7030,7 @@ class CApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body:  (required)
     
@@ -7154,7 +7154,7 @@ class CApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param ScheduleCreationDescriptorList body: A list of schedule creation descriptors. (required)
     
@@ -7278,7 +7278,7 @@ class CApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param SnapshotCreationDescriptor body: This object contains information about how a new snapshot volume is to be created including the size of the repository, the repository utilization warning threshold and the REPOSITORY full policy. (required)
     
@@ -7402,7 +7402,7 @@ class CApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param ThinVolumeCreationDescriptor body: An object containing all of the required attributes for a Thin Provisioned Volume. (required)
     
@@ -7526,7 +7526,7 @@ class CApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param VolumeCreationDescriptor body: A VolumeCreationDescriptor object that provides attributes and properties of the volume to be created. (required)
     
@@ -7650,7 +7650,7 @@ class CApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param VolumeGroupCreationDescriptor body: A VolumeGroupCreationDescriptor structure containing the volume group creation parameters. The information about the volume group drive composition, RAID level, etc. is conveyed in an embedded VolumeCandidate structure. (required)
     
@@ -7774,7 +7774,7 @@ class CApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param WorkloadCreationDescriptorList body: A list of the WorkloadCreationDescriptors used as an input to the createWorkload procedure. (required)
     
@@ -7898,7 +7898,7 @@ class CApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param WorkloadVolumeCreateMappingDescriptorList body: The input descriptor is a list of workload and volume pairs, each pair is to be mapped. (required)
     

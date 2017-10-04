@@ -313,7 +313,7 @@ class CVCandidateResponse(object):
         :param candidate_type: The candidate_type of this CVCandidateResponse.
         :type: str
         """
-        allowed_values = ["unknown", "newVol", "existingVols", "expansion", "__UNDEFINED"]
+        allowed_values = ["unknown", "newVol", "existingVols", "expansion", "__UNDEFINED", None]
         if candidate_type not in allowed_values:
             raise ValueError(
                 "Invalid value for `candidate_type`, must be one of {0}"

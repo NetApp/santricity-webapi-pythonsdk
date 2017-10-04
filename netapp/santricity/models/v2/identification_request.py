@@ -65,7 +65,7 @@ class IdentificationRequest(object):
     def channels(self):
         """
         Gets the channels of this IdentificationRequest.
-        A list of channel ids.
+        A list of channel ids. There must be an expansion drive tray attached to identify a channel.
 
         :return: The channels of this IdentificationRequest.
         :rtype: list[int]
@@ -77,7 +77,7 @@ class IdentificationRequest(object):
     def channels(self, channels):
         """
         Sets the channels of this IdentificationRequest.
-        A list of channel ids.
+        A list of channel ids. There must be an expansion drive tray attached to identify a channel.
 
         :param channels: The channels of this IdentificationRequest.
         :type: list[int]

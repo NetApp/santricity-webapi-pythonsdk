@@ -148,7 +148,7 @@ class ConsistencyGroupCreateRequest(object):
         :param repository_full_policy: The repository_full_policy of this ConsistencyGroupCreateRequest.
         :type: str
         """
-        allowed_values = ["unknown", "failbasewrites", "purgepit", "__UNDEFINED"]
+        allowed_values = ["unknown", "failbasewrites", "purgepit", "__UNDEFINED", None]
         if repository_full_policy not in allowed_values:
             raise ValueError(
                 "Invalid value for `repository_full_policy`, must be one of {0}"
@@ -177,7 +177,7 @@ class ConsistencyGroupCreateRequest(object):
         :param rollback_priority: The rollback_priority of this ConsistencyGroupCreateRequest.
         :type: str
         """
-        allowed_values = ["highest", "high", "medium", "low", "lowest", "__UNDEFINED"]
+        allowed_values = ["highest", "high", "medium", "low", "lowest", "__UNDEFINED", None]
         if rollback_priority not in allowed_values:
             raise ValueError(
                 "Invalid value for `rollback_priority`, must be one of {0}"

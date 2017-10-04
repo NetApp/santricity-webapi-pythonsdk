@@ -41,7 +41,10 @@ class X509CertInfo(object):
             'subject_dn': 'str',  
             'issuer_dn': 'str',  
             'start': 'datetime',  
-            'expire': 'datetime'
+            'expire': 'datetime',  
+            'truststore': 'bool',  
+            'is_user_installed': 'bool',  
+            'is_key_entry': 'bool'
         }
 
         self.attribute_map = {
@@ -49,7 +52,10 @@ class X509CertInfo(object):
             'subject_dn': 'subjectDN',  
             'issuer_dn': 'issuerDN',  
             'start': 'start',  
-            'expire': 'expire'
+            'expire': 'expire',  
+            'truststore': 'truststore',  
+            'is_user_installed': 'isUserInstalled',  
+            'is_key_entry': 'isKeyEntry'
         }
 
         self._alias = None
@@ -57,6 +63,9 @@ class X509CertInfo(object):
         self._issuer_dn = None
         self._start = None
         self._expire = None
+        self._truststore = None
+        self._is_user_installed = None
+        self._is_key_entry = None
 
     @property
     def alias(self):
@@ -172,6 +181,75 @@ class X509CertInfo(object):
         :type: datetime
         """
         self._expire = expire
+
+    @property
+    def truststore(self):
+        """
+        Gets the truststore of this X509CertInfo.
+
+
+        :return: The truststore of this X509CertInfo.
+        :rtype: bool
+        :required/optional: optional
+        """
+        return self._truststore
+
+    @truststore.setter
+    def truststore(self, truststore):
+        """
+        Sets the truststore of this X509CertInfo.
+
+
+        :param truststore: The truststore of this X509CertInfo.
+        :type: bool
+        """
+        self._truststore = truststore
+
+    @property
+    def is_user_installed(self):
+        """
+        Gets the is_user_installed of this X509CertInfo.
+
+
+        :return: The is_user_installed of this X509CertInfo.
+        :rtype: bool
+        :required/optional: optional
+        """
+        return self._is_user_installed
+
+    @is_user_installed.setter
+    def is_user_installed(self, is_user_installed):
+        """
+        Sets the is_user_installed of this X509CertInfo.
+
+
+        :param is_user_installed: The is_user_installed of this X509CertInfo.
+        :type: bool
+        """
+        self._is_user_installed = is_user_installed
+
+    @property
+    def is_key_entry(self):
+        """
+        Gets the is_key_entry of this X509CertInfo.
+
+
+        :return: The is_key_entry of this X509CertInfo.
+        :rtype: bool
+        :required/optional: optional
+        """
+        return self._is_key_entry
+
+    @is_key_entry.setter
+    def is_key_entry(self, is_key_entry):
+        """
+        Sets the is_key_entry of this X509CertInfo.
+
+
+        :param is_key_entry: The is_key_entry of this X509CertInfo.
+        :type: bool
+        """
+        self._is_key_entry = is_key_entry
 
     def to_dict(self):
         """

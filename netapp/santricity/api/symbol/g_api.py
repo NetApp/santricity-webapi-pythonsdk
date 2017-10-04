@@ -42,6 +42,130 @@ class GApi(object):
             self.api_client = config.api_client
     
     
+    def symbol_generate_certificate_signing_request(self, system_id, body, **kwargs):
+            """
+            Generates a Key Management Server (KMS) Client Certificate Signing Request (CSR) that needs to be signed by a Certificate Authority (CA). The resulting signed certificate or client certificate is installed on the storage array for authenticating with the KMIP server.
+            Documented return codes: ok. 
+
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please define a `callback` function
+            to be invoked when receiving the response.
+            >>> def callback_function(response):
+            >>>     pprint(response)
+            >>>
+    
+            >>> thread = api.symbol_generate_certificate_signing_request(system_id, body, callback=callback_function)
+    
+    
+
+            :param callback function: The callback function
+                for asynchronous request. (optional)
+    
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
+    
+            :param KMSClientCSRDescriptor body:  (required)
+    
+            :param str controller: Controller selection
+    
+            :param bool verbose_error_response: 
+    
+            :return: KMSCertificateFileReturn
+                     If the method is called asynchronously,
+                     returns the request thread.
+            :raises: ValueError
+                       If the required params are not provided or if the response data format is unknown.
+                     TypeError:
+                        When the data type of response data is different from what we are expecting
+                     ApiException:
+                        Occurs when we get a HTTP error code (422 and above).
+
+            """
+
+            all_params = ['system_id', 'body', 'controller', 'verbose_error_response']
+            all_params.append('callback')
+
+            params = locals()
+            for key, val in iteritems(params['kwargs']):
+                if key not in all_params:
+                    raise TypeError(
+                        "Got an unexpected keyword argument '%s'"
+                        " to method symbol_generate_certificate_signing_request" % key
+                    )
+                params[key] = val
+            del params['kwargs']
+
+    
+    
+            # verify the required parameter 'system_id' is set
+            if ('system_id' not in params) or (params['system_id'] is None):
+                raise ValueError("Missing the required parameter `system_id` when calling `symbol_generate_certificate_signing_request`")
+    
+    
+    
+            # verify the required parameter 'body' is set
+            if ('body' not in params) or (params['body'] is None):
+                raise ValueError("Missing the required parameter `body` when calling `symbol_generate_certificate_signing_request`")
+    
+    
+    
+    
+    
+    
+
+            resource_path = '/storage-systems/{system-id}/symbol/generateCertificateSigningRequest'.replace('{format}', 'json')
+            path_params = {}
+    
+            if 'system_id' in params:
+                path_params['system-id'] = params['system_id']
+    
+
+            query_params = {}
+    
+            if 'controller' in params:
+                query_params['controller'] = params['controller']
+    
+            if 'verbose_error_response' in params:
+                query_params['verboseErrorResponse'] = params['verbose_error_response']
+    
+
+            header_params = {}
+    
+
+            form_params = []
+            local_var_files = {}
+    
+
+            body_params = None
+    
+            if 'body' in params:
+                body_params = params['body']
+    
+
+            # HTTP header `Accept`
+            header_params['Accept'] = self.api_client.\
+                select_header_accept(['application/json'])
+            if not header_params['Accept']:
+                del header_params['Accept']
+
+            # HTTP header `Content-Type`
+            header_params['Content-Type'] = self.api_client.\
+                select_header_content_type(['application/json'])
+
+            # Authentication setting
+            auth_settings = ['basicAuth']
+
+            response = self.api_client.call_api(resource_path, 'POST',
+                                                path_params,
+                                                query_params,
+                                                header_params,
+                                                body=body_params,
+                                                post_params=form_params,
+                                                files=local_var_files,
+                                                response_type='KMSCertificateFileReturn',
+                                                auth_settings=auth_settings,
+                                                callback=params.get('callback'))
+            return response
+    
     def symbol_get_alertable_mel_entries(self, system_id, body, **kwargs):
             """
             Allows a client to fetch a set of entries that have the alertable, needs attention, or collect support bundle flag set from the array's MEL for analysis or display.
@@ -61,7 +185,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param MelExtent body: The range of MEL entries. (required)
     
@@ -185,7 +309,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str controller: Controller selection
     
@@ -298,7 +422,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body:  (required)
     
@@ -422,7 +546,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param AsyncMirrorGroupRefList body: A list of Asynchronous Mirror Group references. (required)
     
@@ -546,7 +670,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param AsyncMirrorGroupMemberRefList body: A list of Asynchronous Mirror Group member references. (required)
     
@@ -670,7 +794,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param AsyncMirrorSyncStatisticsRequestDescriptor body:  (required)
     
@@ -794,7 +918,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param AutoConfigTemplateList body: This object contains a list of automatic configuration templates. (required)
     
@@ -918,7 +1042,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str controller: Controller selection
     
@@ -1031,7 +1155,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str controller: Controller selection
     
@@ -1144,7 +1268,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str controller: Controller selection
     
@@ -1257,7 +1381,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param ChangeQueryDescriptor body: A ChangeQueryDescriptor object that identifies the caller's current understanding of the storage array's state, along with an indication of the maximum hold time for this request. (required)
     
@@ -1381,7 +1505,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str controller: Controller selection
     
@@ -1494,7 +1618,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: This procedure takes a cluster reference as an input parameter. (required)
     
@@ -1618,7 +1742,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param DebugInfoExtent body: A DebugInfoExtent structure containing three pieces of information: a reference to the controller that is to return the data, a \"handle\" identifying a single mutually-consistent set of chunks, and a chunk number that identifies the specific chunk to be returned. On the request for the initial chunk (chunk zero), the handle is not significant. (required)
     
@@ -1742,7 +1866,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str controller: Controller selection
     
@@ -1855,7 +1979,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: A reference to the controller for which the I/O interface information is desired. (required)
     
@@ -1979,7 +2103,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: An NVSRAMRegionId value that identifies the region whose data is to be retrieved. The caller is allowed to specify that all NVSRAM regions be obtained, if desired. (required)
     
@@ -2103,7 +2227,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str controller: Controller selection
     
@@ -2216,7 +2340,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param MelExtent body: A MelExtent object that provides the sequence number of the first and last MEL entries to be retrieved. All critical entries between these two numbers (inclusive) will be transferred to the caller as the result of the operation. (required)
     
@@ -2340,7 +2464,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str controller: Controller selection
     
@@ -2453,7 +2577,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param CumulativeStatisticsDescriptor body: A CumulativeStatisticsDescriptor structure describing the statistics of interest. (required)
     
@@ -2577,7 +2701,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param CumulativeStatisticsListDescriptor body: An object containing all of the required elements for the procedure. (required)
     
@@ -2682,6 +2806,130 @@ class GApi(object):
                                                 callback=params.get('callback'))
             return response
     
+    def symbol_get_current_ssd_wear_life_stats(self, system_id, body, **kwargs):
+            """
+            This procedure collects the wear life statistic information for the requested devices and returns this up to date information.
+            Documented return codes: ok. 
+
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please define a `callback` function
+            to be invoked when receiving the response.
+            >>> def callback_function(response):
+            >>>     pprint(response)
+            >>>
+    
+            >>> thread = api.symbol_get_current_ssd_wear_life_stats(system_id, body, callback=callback_function)
+    
+    
+
+            :param callback function: The callback function
+                for asynchronous request. (optional)
+    
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
+    
+            :param CurrentSSDWearLifeStatsDescriptor body: Descriptor specifying details of the get current SSD wear life statistics request. (required)
+    
+            :param str controller: Controller selection
+    
+            :param bool verbose_error_response: 
+    
+            :return: CurrentSSDWearLifeStatsResults
+                     If the method is called asynchronously,
+                     returns the request thread.
+            :raises: ValueError
+                       If the required params are not provided or if the response data format is unknown.
+                     TypeError:
+                        When the data type of response data is different from what we are expecting
+                     ApiException:
+                        Occurs when we get a HTTP error code (422 and above).
+
+            """
+
+            all_params = ['system_id', 'body', 'controller', 'verbose_error_response']
+            all_params.append('callback')
+
+            params = locals()
+            for key, val in iteritems(params['kwargs']):
+                if key not in all_params:
+                    raise TypeError(
+                        "Got an unexpected keyword argument '%s'"
+                        " to method symbol_get_current_ssd_wear_life_stats" % key
+                    )
+                params[key] = val
+            del params['kwargs']
+
+    
+    
+            # verify the required parameter 'system_id' is set
+            if ('system_id' not in params) or (params['system_id'] is None):
+                raise ValueError("Missing the required parameter `system_id` when calling `symbol_get_current_ssd_wear_life_stats`")
+    
+    
+    
+            # verify the required parameter 'body' is set
+            if ('body' not in params) or (params['body'] is None):
+                raise ValueError("Missing the required parameter `body` when calling `symbol_get_current_ssd_wear_life_stats`")
+    
+    
+    
+    
+    
+    
+
+            resource_path = '/storage-systems/{system-id}/symbol/getCurrentSSDWearLifeStats'.replace('{format}', 'json')
+            path_params = {}
+    
+            if 'system_id' in params:
+                path_params['system-id'] = params['system_id']
+    
+
+            query_params = {}
+    
+            if 'controller' in params:
+                query_params['controller'] = params['controller']
+    
+            if 'verbose_error_response' in params:
+                query_params['verboseErrorResponse'] = params['verbose_error_response']
+    
+
+            header_params = {}
+    
+
+            form_params = []
+            local_var_files = {}
+    
+
+            body_params = None
+    
+            if 'body' in params:
+                body_params = params['body']
+    
+
+            # HTTP header `Accept`
+            header_params['Accept'] = self.api_client.\
+                select_header_accept(['application/json'])
+            if not header_params['Accept']:
+                del header_params['Accept']
+
+            # HTTP header `Content-Type`
+            header_params['Content-Type'] = self.api_client.\
+                select_header_content_type(['application/json'])
+
+            # Authentication setting
+            auth_settings = ['basicAuth']
+
+            response = self.api_client.call_api(resource_path, 'POST',
+                                                path_params,
+                                                query_params,
+                                                header_params,
+                                                body=body_params,
+                                                post_params=form_params,
+                                                files=local_var_files,
+                                                response_type='CurrentSSDWearLifeStatsResults',
+                                                auth_settings=auth_settings,
+                                                callback=params.get('callback'))
+            return response
+    
     def symbol_get_dacstore_incompatible_volumes(self, system_id, body, **kwargs):
             """
             This procedure gets a list of volumes encroaching the requested Dacstore area.
@@ -2701,7 +2949,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param int body: A number representing the size of a Dacstore in bytes. (required)
     
@@ -2825,7 +3073,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str controller: Controller selection
     
@@ -2938,7 +3186,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param DdcExtent body: A DdcExtent structure specifying the chunk to be retrieved. (required)
     
@@ -3062,7 +3310,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param int body: A StatStreamId object that identifies the discrete time series statistics to return. (required)
     
@@ -3186,7 +3434,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: A reference to the Disk Pool to be expanded. (required)
     
@@ -3310,7 +3558,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: A reference to the Disk Pool for which you want the maximum reserved drive count. (required)
     
@@ -3434,7 +3682,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body:  (required)
     
@@ -3558,7 +3806,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param int body: The integer value of the dplCoreDumpTag for which you are requesting information. (required)
     
@@ -3682,7 +3930,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str controller: Controller selection
     
@@ -3795,7 +4043,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str controller: Controller selection
     
@@ -3908,7 +4156,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: This object contains information identifying all drives that are affected by this operation. (required)
     
@@ -4032,7 +4280,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str controller: Controller selection
     
@@ -4145,7 +4393,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: The ref corresponding to the enclosure for which the data is requested. (required)
     
@@ -4269,7 +4517,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str controller: Controller selection
     
@@ -4382,7 +4630,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str controller: Controller selection
     
@@ -4495,7 +4743,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str controller: Controller selection
     
@@ -4608,7 +4856,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: The argument is a component reference indicating the environmental card which is to have its log data returned. (required)
     
@@ -4732,7 +4980,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: A SYMbol VolumeGroupRef identifying the volume group for which export dependencies are to be reported. (required)
     
@@ -4856,7 +5104,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body:  (required)
     
@@ -4980,7 +5228,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body:  (required)
     
@@ -5104,7 +5352,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param int body: A StatStreamId object that identifies the histogram statistics to return. (required)
     
@@ -5228,7 +5476,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str controller: Controller selection
     
@@ -5341,7 +5589,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param NVSRAMRegionIdAndHostIndex body: An NVSRAMRegionIDAndHostIndex object that specifies the region ID (in this case 0xF2) and the host index for a specific host. (required)
     
@@ -5465,7 +5713,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: This object contains information describing the physical drive types supported. (required)
     
@@ -5589,7 +5837,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str controller: Controller selection
     
@@ -5702,7 +5950,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str controller: Controller selection
     
@@ -5815,7 +6063,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str controller: Controller selection
     
@@ -5928,7 +6176,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str controller: Controller selection
     
@@ -6041,7 +6289,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str controller: Controller selection
     
@@ -6154,7 +6402,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: A SYMbol VolumeGroupRef identifying the volume group for which import dependencies are to be reported. (required)
     
@@ -6278,7 +6526,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param int body:  (required)
     
@@ -6402,7 +6650,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param IscsiCableDiagnosticsDescriptor body: Information used to start iSCSI cable diagnostics. (required)
     
@@ -6526,7 +6774,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str controller: Controller selection
     
@@ -6639,7 +6887,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param GetIscsiSessionsFilter body: A GetIscsiSessionsFilter object that indicates that either all or a subset of the session data should be returned. (required)
     
@@ -6763,7 +7011,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: An IscsiStatisticsReportType object that indicates if the reported statistics should be the raw or baseline-relative counters. (required)
     
@@ -6887,7 +7135,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str controller: Controller selection
     
@@ -7000,7 +7248,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: The SYMbolRef value of the entity for which applicable LUN mappings are to be returned. For example, to find all LUN mappings that apply to a particular Cluster object, the associated ClusterRef would be used as the argument. (required)
     
@@ -7124,7 +7372,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param MelExtent body: A MelExtent object that provides the sequence number of the first and last MEL entries to be retrieved. All entries between these two numbers (inclusive) will be transferred to the caller as a result of this operation. (required)
     
@@ -7248,7 +7496,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str controller: Controller selection
     
@@ -7361,7 +7609,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: The metadata volume type e.g. remote volume mirror metadata. (required)
     
@@ -7466,6 +7714,119 @@ class GApi(object):
                                                 callback=params.get('callback'))
             return response
     
+    def symbol_get_nvmeof_statistics(self, system_id, **kwargs):
+            """
+            This procedure returns the NVMeoF statistics, which consist of start-of-day-relative interface/queue statistics and baseline-relative interface/queue statistics.
+            Documented return codes: ok. 
+
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please define a `callback` function
+            to be invoked when receiving the response.
+            >>> def callback_function(response):
+            >>>     pprint(response)
+            >>>
+    
+            >>> thread = api.symbol_get_nvmeof_statistics(system_id, callback=callback_function)
+    
+    
+
+            :param callback function: The callback function
+                for asynchronous request. (optional)
+    
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
+    
+            :param str controller: Controller selection
+    
+            :param bool verbose_error_response: 
+    
+            :return: NVMeoFStatisticsReturned
+                     If the method is called asynchronously,
+                     returns the request thread.
+            :raises: ValueError
+                       If the required params are not provided or if the response data format is unknown.
+                     TypeError:
+                        When the data type of response data is different from what we are expecting
+                     ApiException:
+                        Occurs when we get a HTTP error code (422 and above).
+
+            """
+
+            all_params = ['system_id', 'controller', 'verbose_error_response']
+            all_params.append('callback')
+
+            params = locals()
+            for key, val in iteritems(params['kwargs']):
+                if key not in all_params:
+                    raise TypeError(
+                        "Got an unexpected keyword argument '%s'"
+                        " to method symbol_get_nvmeof_statistics" % key
+                    )
+                params[key] = val
+            del params['kwargs']
+
+    
+    
+            # verify the required parameter 'system_id' is set
+            if ('system_id' not in params) or (params['system_id'] is None):
+                raise ValueError("Missing the required parameter `system_id` when calling `symbol_get_nvmeof_statistics`")
+    
+    
+    
+    
+    
+    
+
+            resource_path = '/storage-systems/{system-id}/symbol/getNVMeoFStatistics'.replace('{format}', 'json')
+            path_params = {}
+    
+            if 'system_id' in params:
+                path_params['system-id'] = params['system_id']
+    
+
+            query_params = {}
+    
+            if 'controller' in params:
+                query_params['controller'] = params['controller']
+    
+            if 'verbose_error_response' in params:
+                query_params['verboseErrorResponse'] = params['verbose_error_response']
+    
+
+            header_params = {}
+    
+
+            form_params = []
+            local_var_files = {}
+    
+
+            body_params = None
+    
+
+            # HTTP header `Accept`
+            header_params['Accept'] = self.api_client.\
+                select_header_accept(['application/json'])
+            if not header_params['Accept']:
+                del header_params['Accept']
+
+            # HTTP header `Content-Type`
+            header_params['Content-Type'] = self.api_client.\
+                select_header_content_type(['application/json'])
+
+            # Authentication setting
+            auth_settings = ['basicAuth']
+
+            response = self.api_client.call_api(resource_path, 'POST',
+                                                path_params,
+                                                query_params,
+                                                header_params,
+                                                body=body_params,
+                                                post_params=form_params,
+                                                files=local_var_files,
+                                                response_type='NVMeoFStatisticsReturned',
+                                                auth_settings=auth_settings,
+                                                callback=params.get('callback'))
+            return response
+    
     def symbol_get_object_graph(self, system_id, **kwargs):
             """
             This procedure causes all configuration and state information to be returned to the requester. The information is conveyed in the form of an object graph. The ObjectBundle object contains a set of all known logical and physical components. The reference values within these objects can be analyzed to determine the interrelationships and linkages between the key objects, and thus to establish the true graph-oriented image of the storage array state.
@@ -7485,7 +7846,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str controller: Controller selection
     
@@ -7598,7 +7959,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str controller: Controller selection
     
@@ -7711,7 +8072,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: The AbstractVolRef object for the specific volume. (required)
     
@@ -7835,7 +8196,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: The AbstractVolRef value for the volume whose parity check operation is being queried. (required)
     
@@ -7959,7 +8320,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str controller: Controller selection
     
@@ -8072,7 +8433,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str controller: Controller selection
     
@@ -8185,7 +8546,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body:  (required)
     
@@ -8309,7 +8670,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param PITGroupRefList body: A list of PiT groups for which to return repository utilization. (required)
     
@@ -8433,7 +8794,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param PITViewRefList body: A list of PiT Views for which to return repository utilization. (required)
     
@@ -8557,7 +8918,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str controller: Controller selection
     
@@ -8670,7 +9031,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str controller: Controller selection
     
@@ -8783,7 +9144,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param RLSCommandDescriptor body: A RLS Command Descriptor that provides the type of RLS command. (required)
     
@@ -8907,7 +9268,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str controller: Controller selection
     
@@ -9020,7 +9381,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param InitiatorTargetInitialProperties body:  (required)
     
@@ -9144,7 +9505,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param SnapshotRefList body: A list of snapshot volume reference values. (required)
     
@@ -9268,7 +9629,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str controller: Controller selection
     
@@ -9381,7 +9742,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param SAPortGetDescriptor body:  (required)
     
@@ -9505,7 +9866,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str controller: Controller selection
     
@@ -9618,7 +9979,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str controller: Controller selection
     
@@ -9731,7 +10092,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param SocCommandDescriptor body: A SOC command descriptor that indicates the devices for which statistics should be returned. (required)
     
@@ -9836,6 +10197,119 @@ class GApi(object):
                                                 callback=params.get('callback'))
             return response
     
+    def symbol_get_ssd_block_allocation_scan_status(self, system_id, **kwargs):
+            """
+            This procedure is used to retrieve the information collected by a SSD Block Allocation Scan. The requested devices and type of scan is set by the startSSDBlockAllocationScan procedure.
+            Documented return codes: ok. 
+
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please define a `callback` function
+            to be invoked when receiving the response.
+            >>> def callback_function(response):
+            >>>     pprint(response)
+            >>>
+    
+            >>> thread = api.symbol_get_ssd_block_allocation_scan_status(system_id, callback=callback_function)
+    
+    
+
+            :param callback function: The callback function
+                for asynchronous request. (optional)
+    
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
+    
+            :param str controller: Controller selection
+    
+            :param bool verbose_error_response: 
+    
+            :return: SSDBlockAllocationScanStatusResults
+                     If the method is called asynchronously,
+                     returns the request thread.
+            :raises: ValueError
+                       If the required params are not provided or if the response data format is unknown.
+                     TypeError:
+                        When the data type of response data is different from what we are expecting
+                     ApiException:
+                        Occurs when we get a HTTP error code (422 and above).
+
+            """
+
+            all_params = ['system_id', 'controller', 'verbose_error_response']
+            all_params.append('callback')
+
+            params = locals()
+            for key, val in iteritems(params['kwargs']):
+                if key not in all_params:
+                    raise TypeError(
+                        "Got an unexpected keyword argument '%s'"
+                        " to method symbol_get_ssd_block_allocation_scan_status" % key
+                    )
+                params[key] = val
+            del params['kwargs']
+
+    
+    
+            # verify the required parameter 'system_id' is set
+            if ('system_id' not in params) or (params['system_id'] is None):
+                raise ValueError("Missing the required parameter `system_id` when calling `symbol_get_ssd_block_allocation_scan_status`")
+    
+    
+    
+    
+    
+    
+
+            resource_path = '/storage-systems/{system-id}/symbol/getSSDBlockAllocationScanStatus'.replace('{format}', 'json')
+            path_params = {}
+    
+            if 'system_id' in params:
+                path_params['system-id'] = params['system_id']
+    
+
+            query_params = {}
+    
+            if 'controller' in params:
+                query_params['controller'] = params['controller']
+    
+            if 'verbose_error_response' in params:
+                query_params['verboseErrorResponse'] = params['verbose_error_response']
+    
+
+            header_params = {}
+    
+
+            form_params = []
+            local_var_files = {}
+    
+
+            body_params = None
+    
+
+            # HTTP header `Accept`
+            header_params['Accept'] = self.api_client.\
+                select_header_accept(['application/json'])
+            if not header_params['Accept']:
+                del header_params['Accept']
+
+            # HTTP header `Content-Type`
+            header_params['Content-Type'] = self.api_client.\
+                select_header_content_type(['application/json'])
+
+            # Authentication setting
+            auth_settings = ['basicAuth']
+
+            response = self.api_client.call_api(resource_path, 'POST',
+                                                path_params,
+                                                query_params,
+                                                header_params,
+                                                body=body_params,
+                                                post_params=form_params,
+                                                files=local_var_files,
+                                                response_type='SSDBlockAllocationScanStatusResults',
+                                                auth_settings=auth_settings,
+                                                callback=params.get('callback'))
+            return response
+    
     def symbol_get_system_attribute_defaults(self, system_id, **kwargs):
             """
             This procedure returns the default values for system attributes.
@@ -9855,7 +10329,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str controller: Controller selection
     
@@ -9968,7 +10442,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param ThinVolumeRefList body: A reference to the thin volume for which you want the consumed capacity. (required)
     
@@ -10092,7 +10566,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: A reference to the thin volume for which you want the repository expansion history. (required)
     
@@ -10216,7 +10690,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str controller: Controller selection
     
@@ -10329,7 +10803,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str controller: Controller selection
     
@@ -10442,7 +10916,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: The value of the AbstractVolRef for the volume whose long-running operation is being queried. (required)
     
@@ -10566,7 +11040,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param VolumeCandidateRequest body: A VolumeCandidateRequest descriptor that specifies the type of volume candidates to be returned to the caller. (required)
     
@@ -10690,7 +11164,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str controller: Controller selection
     
@@ -10803,7 +11277,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: An AbstractVolRef descriptor that specifies the source volume for which the target candidates are requested (i.e. the source volume in the candidate copy relationship\u2026 the SYMbol client is requesting valid target volumes to use with this source volume). (required)
     
@@ -10927,7 +11401,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: A reference to the volume group to which the candidates are to apply. (required)
     
@@ -11051,7 +11525,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param MirrorCandidateDescriptor body: A MirrorVolumeCandidateRequest descriptor that specifies the type of mirror volume candidates to be returned to the caller. (required)
     
@@ -11175,7 +11649,7 @@ class GApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param AbstractVolRefList body: A list of AbstractVolRef values of the volumes for which the caller wishes to obtain performance monitoring information. (required)
     

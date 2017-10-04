@@ -61,7 +61,7 @@ class MappingApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :return: list[HostGroup]
                      If the method is called asynchronously,
@@ -141,105 +141,6 @@ class MappingApi(object):
                                                 callback=params.get('callback'))
             return response
     
-    def get_all_host_port_types(self, system_id, **kwargs):
-            """
-            Get all HostTypes
-            Mode: Both Embedded and Proxy. DEPRECATED: See /host-types
-
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please define a `callback` function
-            to be invoked when receiving the response.
-            >>> def callback_function(response):
-            >>>     pprint(response)
-            >>>
-    
-            >>> thread = api.get_all_host_port_types(system_id, callback=callback_function)
-    
-    
-
-            :param callback function: The callback function
-                for asynchronous request. (optional)
-    
-            :param str system_id: The id of the storage-system (required)
-    
-            :return: list[HostType]
-                     If the method is called asynchronously,
-                     returns the request thread.
-            :raises: ValueError
-                       If the required params are not provided or if the response data format is unknown.
-                     TypeError:
-                        When the data type of response data is different from what we are expecting
-                     ApiException:
-                        Occurs when we get a HTTP error code (422 and above).
-
-            """
-
-            all_params = ['system_id']
-            all_params.append('callback')
-
-            params = locals()
-            for key, val in iteritems(params['kwargs']):
-                if key not in all_params:
-                    raise TypeError(
-                        "Got an unexpected keyword argument '%s'"
-                        " to method get_all_host_port_types" % key
-                    )
-                params[key] = val
-            del params['kwargs']
-
-    
-    
-            # verify the required parameter 'system_id' is set
-            if ('system_id' not in params) or (params['system_id'] is None):
-                raise ValueError("Missing the required parameter `system_id` when calling `get_all_host_port_types`")
-    
-    
-
-            resource_path = '/storage-systems/{system-id}/host-port-types'.replace('{format}', 'json')
-            path_params = {}
-    
-            if 'system_id' in params:
-                path_params['system-id'] = params['system_id']
-    
-
-            query_params = {}
-    
-
-            header_params = {}
-    
-
-            form_params = []
-            local_var_files = {}
-    
-
-            body_params = None
-    
-
-            # HTTP header `Accept`
-            header_params['Accept'] = self.api_client.\
-                select_header_accept(['application/json'])
-            if not header_params['Accept']:
-                del header_params['Accept']
-
-            # HTTP header `Content-Type`
-            header_params['Content-Type'] = self.api_client.\
-                select_header_content_type(['application/json'])
-
-            # Authentication setting
-            auth_settings = ['basicAuth']
-
-            response = self.api_client.call_api(resource_path, 'GET',
-                                                path_params,
-                                                query_params,
-                                                header_params,
-                                                body=body_params,
-                                                post_params=form_params,
-                                                files=local_var_files,
-                                                response_type='list[HostType]',
-                                                auth_settings=auth_settings,
-                                                callback=params.get('callback'))
-            return response
-    
     def get_all_host_type_values(self, system_id, **kwargs):
             """
             Get the list of HostTypes
@@ -259,7 +160,7 @@ class MappingApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :return: list[HostTypeValues]
                      If the method is called asynchronously,
@@ -358,7 +259,7 @@ class MappingApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :return: list[HostType]
                      If the method is called asynchronously,
@@ -457,7 +358,7 @@ class MappingApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :return: list[HostEx]
                      If the method is called asynchronously,
@@ -556,9 +457,9 @@ class MappingApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
-            :param str id: Get a Host (required)
+            :param str id: The id of the host (required)
     
             :return: HostEx
                      If the method is called asynchronously,
@@ -666,9 +567,9 @@ class MappingApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
-            :param str id: Get a HostGroup (required)
+            :param str id: The id of the hostgroup (required)
     
             :return: HostGroup
                      If the method is called asynchronously,
@@ -757,116 +658,6 @@ class MappingApi(object):
                                                 callback=params.get('callback'))
             return response
     
-    def get_host_port_type(self, system_id, id, **kwargs):
-            """
-            Get a HostType
-            Mode: Both Embedded and Proxy. DEPRECATED: See /host-types
-
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please define a `callback` function
-            to be invoked when receiving the response.
-            >>> def callback_function(response):
-            >>>     pprint(response)
-            >>>
-    
-            >>> thread = api.get_host_port_type(system_id, id, callback=callback_function)
-    
-    
-
-            :param callback function: The callback function
-                for asynchronous request. (optional)
-    
-            :param str system_id: The id of the storage-system (required)
-    
-            :param str id:  (required)
-    
-            :return: HostType
-                     If the method is called asynchronously,
-                     returns the request thread.
-            :raises: ValueError
-                       If the required params are not provided or if the response data format is unknown.
-                     TypeError:
-                        When the data type of response data is different from what we are expecting
-                     ApiException:
-                        Occurs when we get a HTTP error code (422 and above).
-
-            """
-
-            all_params = ['system_id', 'id']
-            all_params.append('callback')
-
-            params = locals()
-            for key, val in iteritems(params['kwargs']):
-                if key not in all_params:
-                    raise TypeError(
-                        "Got an unexpected keyword argument '%s'"
-                        " to method get_host_port_type" % key
-                    )
-                params[key] = val
-            del params['kwargs']
-
-    
-    
-            # verify the required parameter 'system_id' is set
-            if ('system_id' not in params) or (params['system_id'] is None):
-                raise ValueError("Missing the required parameter `system_id` when calling `get_host_port_type`")
-    
-    
-    
-            # verify the required parameter 'id' is set
-            if ('id' not in params) or (params['id'] is None):
-                raise ValueError("Missing the required parameter `id` when calling `get_host_port_type`")
-    
-    
-
-            resource_path = '/storage-systems/{system-id}/host-port-types/{id}'.replace('{format}', 'json')
-            path_params = {}
-    
-            if 'system_id' in params:
-                path_params['system-id'] = params['system_id']
-    
-            if 'id' in params:
-                path_params['id'] = params['id']
-    
-
-            query_params = {}
-    
-
-            header_params = {}
-    
-
-            form_params = []
-            local_var_files = {}
-    
-
-            body_params = None
-    
-
-            # HTTP header `Accept`
-            header_params['Accept'] = self.api_client.\
-                select_header_accept(['application/json'])
-            if not header_params['Accept']:
-                del header_params['Accept']
-
-            # HTTP header `Content-Type`
-            header_params['Content-Type'] = self.api_client.\
-                select_header_content_type(['application/json'])
-
-            # Authentication setting
-            auth_settings = ['basicAuth']
-
-            response = self.api_client.call_api(resource_path, 'GET',
-                                                path_params,
-                                                query_params,
-                                                header_params,
-                                                body=body_params,
-                                                post_params=form_params,
-                                                files=local_var_files,
-                                                response_type='HostType',
-                                                auth_settings=auth_settings,
-                                                callback=params.get('callback'))
-            return response
-    
     def get_host_type(self, system_id, id, **kwargs):
             """
             Get a HostType
@@ -886,9 +677,9 @@ class MappingApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
-            :param str id: Het a HostType (required)
+            :param str id: The id of the HostType (required)
     
             :return: HostType
                      If the method is called asynchronously,
@@ -996,7 +787,7 @@ class MappingApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param int index: \"The value of the index for the desired host type value. This value corresponds to the index attribute of the HostTypeValues model\" (required)
     
@@ -1106,7 +897,7 @@ class MappingApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :return: list[UnassociatedHostPort]
                      If the method is called asynchronously,
@@ -1205,7 +996,7 @@ class MappingApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str host_id: The id of an existing host entry configured on the specified array (required)
     
@@ -1322,7 +1113,7 @@ class MappingApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param HostCreateRequest body: 
     
@@ -1428,7 +1219,7 @@ class MappingApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param HostGroupCreateRequest body: 
     
@@ -1534,9 +1325,9 @@ class MappingApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
-            :param str id: Delete a Host (required)
+            :param str id: The id of the host (required)
     
             :return: None
                      If the method is called asynchronously,
@@ -1644,9 +1435,9 @@ class MappingApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
-            :param str id: Delete a HostGroup (required)
+            :param str id: The id of the hostgroup (required)
     
             :return: None
                      If the method is called asynchronously,
@@ -1735,112 +1526,6 @@ class MappingApi(object):
                                                 callback=params.get('callback'))
             return response
     
-    def set_host_port_type_default(self, system_id, **kwargs):
-            """
-            Set default HostType
-            Mode: Both Embedded and Proxy. DEPRECATED: See /host-types
-
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please define a `callback` function
-            to be invoked when receiving the response.
-            >>> def callback_function(response):
-            >>>     pprint(response)
-            >>>
-    
-            >>> thread = api.set_host_port_type_default(system_id, callback=callback_function)
-    
-    
-
-            :param callback function: The callback function
-                for asynchronous request. (optional)
-    
-            :param str system_id: The id of the storage-system (required)
-    
-            :param SingleNumberValue body: 
-    
-            :return: HostType
-                     If the method is called asynchronously,
-                     returns the request thread.
-            :raises: ValueError
-                       If the required params are not provided or if the response data format is unknown.
-                     TypeError:
-                        When the data type of response data is different from what we are expecting
-                     ApiException:
-                        Occurs when we get a HTTP error code (422 and above).
-
-            """
-
-            all_params = ['system_id', 'body']
-            all_params.append('callback')
-
-            params = locals()
-            for key, val in iteritems(params['kwargs']):
-                if key not in all_params:
-                    raise TypeError(
-                        "Got an unexpected keyword argument '%s'"
-                        " to method set_host_port_type_default" % key
-                    )
-                params[key] = val
-            del params['kwargs']
-
-    
-    
-            # verify the required parameter 'system_id' is set
-            if ('system_id' not in params) or (params['system_id'] is None):
-                raise ValueError("Missing the required parameter `system_id` when calling `set_host_port_type_default`")
-    
-    
-    
-    
-
-            resource_path = '/storage-systems/{system-id}/host-port-types'.replace('{format}', 'json')
-            path_params = {}
-    
-            if 'system_id' in params:
-                path_params['system-id'] = params['system_id']
-    
-
-            query_params = {}
-    
-
-            header_params = {}
-    
-
-            form_params = []
-            local_var_files = {}
-    
-
-            body_params = None
-    
-            if 'body' in params:
-                body_params = params['body']
-    
-
-            # HTTP header `Accept`
-            header_params['Accept'] = self.api_client.\
-                select_header_accept(['application/json'])
-            if not header_params['Accept']:
-                del header_params['Accept']
-
-            # HTTP header `Content-Type`
-            header_params['Content-Type'] = self.api_client.\
-                select_header_content_type(['application/json'])
-
-            # Authentication setting
-            auth_settings = ['basicAuth']
-
-            response = self.api_client.call_api(resource_path, 'POST',
-                                                path_params,
-                                                query_params,
-                                                header_params,
-                                                body=body_params,
-                                                post_params=form_params,
-                                                files=local_var_files,
-                                                response_type='HostType',
-                                                auth_settings=auth_settings,
-                                                callback=params.get('callback'))
-            return response
-    
     def set_host_type_default(self, system_id, **kwargs):
             """
             Set default HostType
@@ -1860,7 +1545,7 @@ class MappingApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param SingleNumberValue body: 
     
@@ -1966,9 +1651,9 @@ class MappingApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
-            :param str id: Update the parameters of a Host (required)
+            :param str id: The id of the host (required)
     
             :param HostUpdateRequest body: 
     
@@ -2083,9 +1768,9 @@ class MappingApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
-            :param str id: Update a HostGroup (required)
+            :param str id: The id of the hostgroup (required)
     
             :param HostGroupUpdateRequest body: 
     

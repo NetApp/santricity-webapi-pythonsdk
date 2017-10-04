@@ -73,7 +73,7 @@ class InitiatorTargetChangeableProperties(object):
         :param io_interface_type: The io_interface_type of this InitiatorTargetChangeableProperties.
         :type: str
         """
-        allowed_values = ["notImplemented", "scsi", "fc", "sata", "sas", "iscsi", "ib", "fcoe", "__UNDEFINED"]
+        allowed_values = ["notImplemented", "scsi", "fc", "sata", "sas", "iscsi", "ib", "fcoe", "nvmeof", "__UNDEFINED"]
         if io_interface_type not in allowed_values:
             raise ValueError(
                 "Invalid value for `io_interface_type`, must be one of {0}"

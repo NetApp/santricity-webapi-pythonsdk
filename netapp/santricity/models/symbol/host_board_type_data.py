@@ -73,7 +73,7 @@ class HostBoardTypeData(object):
         :param type: The type of this HostBoardTypeData.
         :type: str
         """
-        allowed_values = ["typeUnknown", "type4portFc", "type20portSwitchedFc", "type1portSas", "type2portFc", "type2portIscsi", "type2portSas", "type2portIb", "type8portFc", "type4portIscsi", "type4portSas", "type4portSasGlacier", "type2portFcIscsiSamoa", "type4portFcIscsiSamoa", "type2portIscsiZion", "type2portSasAcadia", "type4portSasAcadia", "type2portIbDenali", "type2portFcSamoa", "type4portFcSamoa", "type2portIscsiSamoa", "type4portIscsiSamoa", "__UNDEFINED"]
+        allowed_values = ["typeUnknown", "type4portFc", "type20portSwitchedFc", "type1portSas", "type2portFc", "type2portIscsi", "type2portSas", "type2portIb", "type8portFc", "type4portIscsi", "type4portSas", "type4portSasGlacier", "type2portFcIscsiSamoa", "type4portFcIscsiSamoa", "type2portIscsiZion", "type2portSasAcadia", "type4portSasAcadia", "type2portIbDenali", "type2portFcSamoa", "type4portFcSamoa", "type2portIscsiSamoa", "type4portIscsiSamoa", "type4portSas3", "type2portIb100gb", "type4portEthernet25gb", "type4portFc32gb", "__UNDEFINED"]
         if type not in allowed_values:
             raise ValueError(
                 "Invalid value for `type`, must be one of {0}"

@@ -42,6 +42,7 @@ class HostGroup(object):
             'is_sa_controlled': 'bool',  # (required parameter)
             'confirm_lun_mapping_creation': 'bool',  # (required parameter)
             'protection_information_capable_access_method': 'bool',  # (required parameter)
+            'is_lun0_restricted': 'bool',  # (required parameter)
             'id': 'str',  
             'name': 'str'
         }
@@ -52,6 +53,7 @@ class HostGroup(object):
             'is_sa_controlled': 'isSAControlled',  # (required parameter)
             'confirm_lun_mapping_creation': 'confirmLUNMappingCreation',  # (required parameter)
             'protection_information_capable_access_method': 'protectionInformationCapableAccessMethod',  # (required parameter)
+            'is_lun0_restricted': 'isLun0Restricted',  # (required parameter)
             'id': 'id',  
             'name': 'name'
         }
@@ -61,6 +63,7 @@ class HostGroup(object):
         self._is_sa_controlled = None
         self._confirm_lun_mapping_creation = None
         self._protection_information_capable_access_method = None
+        self._is_lun0_restricted = None
         self._id = None
         self._name = None
 
@@ -178,6 +181,29 @@ class HostGroup(object):
         :type: bool
         """
         self._protection_information_capable_access_method = protection_information_capable_access_method
+
+    @property
+    def is_lun0_restricted(self):
+        """
+        Gets the is_lun0_restricted of this HostGroup.
+        Provides an indication as to whether LUN 0 is restricted (i.e., disallowed) for the associated cluster.
+
+        :return: The is_lun0_restricted of this HostGroup.
+        :rtype: bool
+        :required/optional: required
+        """
+        return self._is_lun0_restricted
+
+    @is_lun0_restricted.setter
+    def is_lun0_restricted(self, is_lun0_restricted):
+        """
+        Sets the is_lun0_restricted of this HostGroup.
+        Provides an indication as to whether LUN 0 is restricted (i.e., disallowed) for the associated cluster.
+
+        :param is_lun0_restricted: The is_lun0_restricted of this HostGroup.
+        :type: bool
+        """
+        self._is_lun0_restricted = is_lun0_restricted
 
     @property
     def id(self):

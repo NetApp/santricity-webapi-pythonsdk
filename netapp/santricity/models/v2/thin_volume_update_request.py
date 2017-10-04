@@ -180,7 +180,7 @@ class ThinVolumeUpdateRequest(object):
         :param expansion_policy: The expansion_policy of this ThinVolumeUpdateRequest.
         :type: str
         """
-        allowed_values = ["unknown", "manual", "automatic", "__UNDEFINED"]
+        allowed_values = ["unknown", "manual", "automatic", "__UNDEFINED", None]
         if expansion_policy not in allowed_values:
             raise ValueError(
                 "Invalid value for `expansion_policy`, must be one of {0}"

@@ -154,7 +154,7 @@ class IscsiEntityUpdateRequest(object):
         :param ipv4_isns_server_address_config_method: The ipv4_isns_server_address_config_method of this IscsiEntityUpdateRequest.
         :type: str
         """
-        allowed_values = ["configDhcp", "configStatic", "__UNDEFINED"]
+        allowed_values = ["configDhcp", "configStatic", "__UNDEFINED", None]
         if ipv4_isns_server_address_config_method not in allowed_values:
             raise ValueError(
                 "Invalid value for `ipv4_isns_server_address_config_method`, must be one of {0}"

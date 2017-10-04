@@ -207,7 +207,7 @@ class MelEntry(object):
         :param component_type: The component_type of this MelEntry.
         :type: str
         """
-        allowed_values = ["unknown", "drive", "powerSply", "fan", "minihub", "tempSensor", "channel", "esm", "controller", "battery", "enclosure", "ups", "chip", "volume", "volumeGrp", "portCru", "interconnectCru", "supportCru", "alarm", "channelPort", "sfpPort", "hostBoard", "newFormat", "ctlrSfp", "ctlrSoc", "initiator", "target", "isnsServer", "hostIoCard", "cacheBackupDevice", "cacheMemDimm", "host", "hostPort", "drawer", "relative", "schedule", "asyncMirrorGroup", "diskPool", "pit", "pitConsistencyGroup", "cgpit", "cgview", "flashCache", "snmpCommunity", "snmpTrapDestination", "fcTarget", "fanOnlyCru", "psuCru", "__UNDEFINED"]
+        allowed_values = ["unknown", "drive", "powerSply", "fan", "minihub", "tempSensor", "channel", "esm", "controller", "battery", "enclosure", "ups", "chip", "volume", "volumeGrp", "portCru", "interconnectCru", "supportCru", "alarm", "channelPort", "sfpPort", "hostBoard", "newFormat", "ctlrSfp", "ctlrSoc", "initiator", "target", "isnsServer", "hostIoCard", "cacheBackupDevice", "cacheMemDimm", "host", "hostPort", "drawer", "relative", "schedule", "asyncMirrorGroup", "diskPool", "pit", "pitConsistencyGroup", "cgpit", "cgview", "flashCache", "snmpCommunity", "snmpTrapDestination", "fcTarget", "blankOne", "blankTwo", "fanOnlyCru", "psuCru", "nvmeInitiator", "__UNDEFINED"]
         if component_type not in allowed_values:
             raise ValueError(
                 "Invalid value for `component_type`, must be one of {0}"

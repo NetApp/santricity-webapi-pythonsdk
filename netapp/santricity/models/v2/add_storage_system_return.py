@@ -38,18 +38,15 @@ class AddStorageSystemReturn(object):
         """
         self.swagger_types = {
             'id': 'str',  # (required parameter)
-            'already_exits': 'bool',  # (required parameter)
             'already_exists': 'bool'
         }
 
         self.attribute_map = {
             'id': 'id',  # (required parameter)
-            'already_exits': 'alreadyExits',  # (required parameter)
             'already_exists': 'alreadyExists'
         }
 
         self._id = None
-        self._already_exits = None
         self._already_exists = None
 
     @property
@@ -74,29 +71,6 @@ class AddStorageSystemReturn(object):
         :type: str
         """
         self._id = id
-
-    @property
-    def already_exits(self):
-        """
-        Gets the already_exits of this AddStorageSystemReturn.
-
-
-        :return: The already_exits of this AddStorageSystemReturn.
-        :rtype: bool
-        :required/optional: required
-        """
-        return self._already_exits
-
-    @already_exits.setter
-    def already_exits(self, already_exits):
-        """
-        Sets the already_exits of this AddStorageSystemReturn.
-
-
-        :param already_exits: The already_exits of this AddStorageSystemReturn.
-        :type: bool
-        """
-        self._already_exits = already_exits
 
     @property
     def already_exists(self):

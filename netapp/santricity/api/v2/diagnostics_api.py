@@ -61,7 +61,7 @@ class DiagnosticsApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :return: DeviceAlertConfiguration
                      If the method is called asynchronously,
@@ -160,7 +160,7 @@ class DiagnosticsApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :return: DPLCoreDumpData
                      If the method is called asynchronously,
@@ -259,7 +259,7 @@ class DiagnosticsApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param DiagnosticDataRequest data_request: Diagnostic data request (required)
     
@@ -369,7 +369,7 @@ class DiagnosticsApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param bool details: Whether or not to fetch object data and extra data
     
@@ -459,7 +459,7 @@ class DiagnosticsApi(object):
     def get_support_data_retrieval_request_status(self, system_id, request_id, **kwargs):
             """
             Retrieve the status of a pending data retrieval request
-            Mode: Both Embedded and Proxy. 
+            Mode: Embedded only. 
 
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please define a `callback` function
@@ -475,7 +475,7 @@ class DiagnosticsApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param int request_id:  (required)
     
@@ -569,7 +569,7 @@ class DiagnosticsApi(object):
     def get_syslog_configuration(self, system_id, **kwargs):
             """
             Retrieve the syslog configuration
-            Mode: Both Embedded and Proxy. 
+            Mode: Embedded only. 
 
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please define a `callback` function
@@ -585,7 +585,7 @@ class DiagnosticsApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :return: AlertSyslogConfiguration
                      If the method is called asynchronously,
@@ -668,7 +668,7 @@ class DiagnosticsApi(object):
     def set_syslog_configuration(self, system_id, **kwargs):
             """
             Update the syslog configuration
-            Mode: Both Embedded and Proxy. 
+            Mode: Embedded only. 
 
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please define a `callback` function
@@ -684,7 +684,7 @@ class DiagnosticsApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param AlertSyslogConfiguration body: 
     
@@ -774,7 +774,7 @@ class DiagnosticsApi(object):
     def start_support_data_retrieval_request(self, system_id, **kwargs):
             """
             Initiate a support data retrieval request
-            Mode: Both Embedded and Proxy. 
+            Mode: Embedded only. 
 
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please define a `callback` function
@@ -790,7 +790,7 @@ class DiagnosticsApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param SupportDataRequest body: 
     
@@ -896,7 +896,7 @@ class DiagnosticsApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :return: DeviceAlertTestResponse
                      If the method is called asynchronously,
@@ -979,7 +979,7 @@ class DiagnosticsApi(object):
     def test_syslog_send(self, system_id, **kwargs):
             """
             Initiate sending test syslog messages using the syslog settings
-            Mode: Both Embedded and Proxy. 
+            Mode: Embedded only. 
 
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please define a `callback` function
@@ -995,7 +995,7 @@ class DiagnosticsApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :return: AlertSyslogResponse
                      If the method is called asynchronously,
@@ -1094,7 +1094,7 @@ class DiagnosticsApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param DeviceAlertConfiguration update_request: Alert configuration request (required)
     

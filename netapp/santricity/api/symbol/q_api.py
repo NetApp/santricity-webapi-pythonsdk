@@ -61,7 +61,7 @@ class QApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: The value of the controller that is to be quiesced. (required)
     

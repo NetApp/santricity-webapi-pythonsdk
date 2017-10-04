@@ -61,7 +61,7 @@ class RApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param MgmtClientRecordReadDescriptor body: The MgmtClientRecordReadDescriptor value. (required)
     
@@ -185,7 +185,7 @@ class RApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str controller: Controller selection
     
@@ -298,7 +298,7 @@ class RApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: An object containing all of the required attributes to recover an Asynchronous Mirror Group member. (required)
     
@@ -422,7 +422,7 @@ class RApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param AsyncMirrorGroupRecoverDescriptor body:  (required)
     
@@ -546,7 +546,7 @@ class RApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str controller: Controller selection
     
@@ -659,7 +659,7 @@ class RApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param RecoverVolumeDescriptor body: This object contains information on how a recovered volume is to be created. (required)
     
@@ -783,7 +783,7 @@ class RApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param SnapshotParamsUpdateDescriptor body: A descriptor object that specifies the various snapshot parameters. (required)
     
@@ -907,7 +907,7 @@ class RApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param SnapshotRefList body: A SnapshotRefList structure identifying the snapshot volume that are to be restarted. The list may contain as few as one snapshot reference or up to MAX_SNAPSHOT_COLLECTION_SIZE references. (required)
     
@@ -1031,7 +1031,7 @@ class RApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: An Interface reference that identifies the iSCSI interface on which the operation is to be performed. (required)
     
@@ -1155,7 +1155,7 @@ class RApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str controller: Controller selection
     
@@ -1268,7 +1268,7 @@ class RApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param ThinVolumeReinitializeDescriptor body: An object containing all of the required attributes for reinitializing a thin volume. (required)
     
@@ -1392,7 +1392,7 @@ class RApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param int body: The key returned by reserveSupportData. (required)
     
@@ -1516,7 +1516,7 @@ class RApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param AsyncMirrorGroupRemoveMemberDescriptor body: An object containing all of the required attributes to remove an Asynchronous Mirror Group member. (required)
     
@@ -1640,7 +1640,7 @@ class RApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str controller: Controller selection
     
@@ -1753,7 +1753,7 @@ class RApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param FlashCacheReconfigureDrivesDescriptor body: The flash cache reference and list of drive references to be removed. (required)
     
@@ -1858,6 +1858,130 @@ class RApi(object):
                                                 callback=params.get('callback'))
             return response
     
+    def symbol_remove_installed_kms_certificate_files(self, system_id, body, **kwargs):
+            """
+            This procedure will remove a specified installed KMS certificate from the storage array.
+            Documented return codes: ok, embeddedExternalKeyManagementEnabled. 
+
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please define a `callback` function
+            to be invoked when receiving the response.
+            >>> def callback_function(response):
+            >>>     pprint(response)
+            >>>
+    
+            >>> thread = api.symbol_remove_installed_kms_certificate_files(system_id, body, callback=callback_function)
+    
+    
+
+            :param callback function: The callback function
+                for asynchronous request. (optional)
+    
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
+    
+            :param str body:  (required)
+    
+            :param str controller: Controller selection
+    
+            :param bool verbose_error_response: 
+    
+            :return: str
+                     If the method is called asynchronously,
+                     returns the request thread.
+            :raises: ValueError
+                       If the required params are not provided or if the response data format is unknown.
+                     TypeError:
+                        When the data type of response data is different from what we are expecting
+                     ApiException:
+                        Occurs when we get a HTTP error code (422 and above).
+
+            """
+
+            all_params = ['system_id', 'body', 'controller', 'verbose_error_response']
+            all_params.append('callback')
+
+            params = locals()
+            for key, val in iteritems(params['kwargs']):
+                if key not in all_params:
+                    raise TypeError(
+                        "Got an unexpected keyword argument '%s'"
+                        " to method symbol_remove_installed_kms_certificate_files" % key
+                    )
+                params[key] = val
+            del params['kwargs']
+
+    
+    
+            # verify the required parameter 'system_id' is set
+            if ('system_id' not in params) or (params['system_id'] is None):
+                raise ValueError("Missing the required parameter `system_id` when calling `symbol_remove_installed_kms_certificate_files`")
+    
+    
+    
+            # verify the required parameter 'body' is set
+            if ('body' not in params) or (params['body'] is None):
+                raise ValueError("Missing the required parameter `body` when calling `symbol_remove_installed_kms_certificate_files`")
+    
+    
+    
+    
+    
+    
+
+            resource_path = '/storage-systems/{system-id}/symbol/removeInstalledKMSCertificateFiles'.replace('{format}', 'json')
+            path_params = {}
+    
+            if 'system_id' in params:
+                path_params['system-id'] = params['system_id']
+    
+
+            query_params = {}
+    
+            if 'controller' in params:
+                query_params['controller'] = params['controller']
+    
+            if 'verbose_error_response' in params:
+                query_params['verboseErrorResponse'] = params['verbose_error_response']
+    
+
+            header_params = {}
+    
+
+            form_params = []
+            local_var_files = {}
+    
+
+            body_params = None
+    
+            if 'body' in params:
+                body_params = params['body']
+    
+
+            # HTTP header `Accept`
+            header_params['Accept'] = self.api_client.\
+                select_header_accept(['application/json'])
+            if not header_params['Accept']:
+                del header_params['Accept']
+
+            # HTTP header `Content-Type`
+            header_params['Content-Type'] = self.api_client.\
+                select_header_content_type(['application/json'])
+
+            # Authentication setting
+            auth_settings = ['basicAuth']
+
+            response = self.api_client.call_api(resource_path, 'POST',
+                                                path_params,
+                                                query_params,
+                                                header_params,
+                                                body=body_params,
+                                                post_params=form_params,
+                                                files=local_var_files,
+                                                response_type='str',
+                                                auth_settings=auth_settings,
+                                                callback=params.get('callback'))
+            return response
+    
     def symbol_remove_mirror(self, system_id, body, **kwargs):
             """
             Deletes a mirror volume.
@@ -1877,7 +2001,7 @@ class RApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: A MirrorProxyRef object which identifies the Mirror Proxy Volume to be removed. (required)
     
@@ -2001,7 +2125,7 @@ class RApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param PITConsistencyGroupRemoveMemberDescriptor body: Descriptor for the consistency group member to be removed. (required)
     
@@ -2125,7 +2249,7 @@ class RApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param SNMPCommunityRefList body:  (required)
     
@@ -2249,7 +2373,7 @@ class RApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param SNMPTrapDestinationRefList body:  (required)
     
@@ -2373,7 +2497,7 @@ class RApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: A VolumeCopyRef object that identifies the volume copy to be removed. (required)
     
@@ -2497,7 +2621,7 @@ class RApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param SYMbolRefWithUAL body: A SYMbolRefWithUAL object whose ref field identifies the cluster to be renamed, and whose label field provides the new user-assigned label for the cluster. (required)
     
@@ -2621,7 +2745,7 @@ class RApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param SYMbolRefWithUAL body: A SYMbolRefWithUAL object whose ref field identifies the host to be renamed, and whose label field provides the new user-assigned label for the host. (required)
     
@@ -2745,7 +2869,7 @@ class RApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param HostPortRenameDescriptor body: A SYMbolRefWithUAL object whose ref field identifies the host port to be renamed, and whose label field provides the new user-assigned label for the host port. This procedure does not apply to iSCSI. (required)
     
@@ -2869,7 +2993,7 @@ class RApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param DriveReplacementDescriptor body: A DriveReplacementDescriptor structure that identifies the drive to replace and the replacement drive. (required)
     
@@ -2993,7 +3117,7 @@ class RApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param DriveRefList body: A list of drive reference values, which identifies the drives to be re-provisioned. (required)
     
@@ -3117,7 +3241,7 @@ class RApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param RTRUpdateDescription body: An RTRUpdateDescription object that indicates the component to modify and the control to execute. (required)
     
@@ -3241,7 +3365,7 @@ class RApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param RTRUpdateDescriptor body: An RTRUpdateDescriptor object that indicates the component to modify and the control to execute. (required)
     
@@ -3365,7 +3489,7 @@ class RApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str controller: Controller selection
     
@@ -3478,7 +3602,7 @@ class RApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param AsyncMirrorSyncStatisticsResetDescriptor body:  (required)
     
@@ -3602,7 +3726,7 @@ class RApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: The value of the controller reference for the controller that is to be rebooted. (required)
     
@@ -3726,7 +3850,7 @@ class RApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str controller: Controller selection
     
@@ -3839,7 +3963,7 @@ class RApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param int body: A StatStreamId object that identifies the discrete time series to reset. (required)
     
@@ -3963,7 +4087,7 @@ class RApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param int body: A StatStreamId object that identifies the histograms to reset. (required)
     
@@ -4087,7 +4211,7 @@ class RApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str controller: Controller selection
     
@@ -4200,7 +4324,7 @@ class RApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: A ResetConfigType object that indicates which parts of the array configuration are to be cleared. (required)
     
@@ -4305,6 +4429,130 @@ class RApi(object):
                                                 callback=params.get('callback'))
             return response
     
+    def symbol_reset_super_provisioning_boundary(self, system_id, body, **kwargs):
+            """
+            This procedure resets the super provisioning boundary for the requested devices.
+            Documented return codes: ok. 
+
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please define a `callback` function
+            to be invoked when receiving the response.
+            >>> def callback_function(response):
+            >>>     pprint(response)
+            >>>
+    
+            >>> thread = api.symbol_reset_super_provisioning_boundary(system_id, body, callback=callback_function)
+    
+    
+
+            :param callback function: The callback function
+                for asynchronous request. (optional)
+    
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
+    
+            :param ResetSuperProvisioningBoundaryDescriptor body: A ResetSuperProvisioningBoundaryDescriptor specifying details of the reset request. (required)
+    
+            :param str controller: Controller selection
+    
+            :param bool verbose_error_response: 
+    
+            :return: str
+                     If the method is called asynchronously,
+                     returns the request thread.
+            :raises: ValueError
+                       If the required params are not provided or if the response data format is unknown.
+                     TypeError:
+                        When the data type of response data is different from what we are expecting
+                     ApiException:
+                        Occurs when we get a HTTP error code (422 and above).
+
+            """
+
+            all_params = ['system_id', 'body', 'controller', 'verbose_error_response']
+            all_params.append('callback')
+
+            params = locals()
+            for key, val in iteritems(params['kwargs']):
+                if key not in all_params:
+                    raise TypeError(
+                        "Got an unexpected keyword argument '%s'"
+                        " to method symbol_reset_super_provisioning_boundary" % key
+                    )
+                params[key] = val
+            del params['kwargs']
+
+    
+    
+            # verify the required parameter 'system_id' is set
+            if ('system_id' not in params) or (params['system_id'] is None):
+                raise ValueError("Missing the required parameter `system_id` when calling `symbol_reset_super_provisioning_boundary`")
+    
+    
+    
+            # verify the required parameter 'body' is set
+            if ('body' not in params) or (params['body'] is None):
+                raise ValueError("Missing the required parameter `body` when calling `symbol_reset_super_provisioning_boundary`")
+    
+    
+    
+    
+    
+    
+
+            resource_path = '/storage-systems/{system-id}/symbol/resetSuperProvisioningBoundary'.replace('{format}', 'json')
+            path_params = {}
+    
+            if 'system_id' in params:
+                path_params['system-id'] = params['system_id']
+    
+
+            query_params = {}
+    
+            if 'controller' in params:
+                query_params['controller'] = params['controller']
+    
+            if 'verbose_error_response' in params:
+                query_params['verboseErrorResponse'] = params['verbose_error_response']
+    
+
+            header_params = {}
+    
+
+            form_params = []
+            local_var_files = {}
+    
+
+            body_params = None
+    
+            if 'body' in params:
+                body_params = params['body']
+    
+
+            # HTTP header `Accept`
+            header_params['Accept'] = self.api_client.\
+                select_header_accept(['application/json'])
+            if not header_params['Accept']:
+                del header_params['Accept']
+
+            # HTTP header `Content-Type`
+            header_params['Content-Type'] = self.api_client.\
+                select_header_content_type(['application/json'])
+
+            # Authentication setting
+            auth_settings = ['basicAuth']
+
+            response = self.api_client.call_api(resource_path, 'POST',
+                                                path_params,
+                                                query_params,
+                                                header_params,
+                                                body=body_params,
+                                                post_params=form_params,
+                                                files=local_var_files,
+                                                response_type='str',
+                                                auth_settings=auth_settings,
+                                                callback=params.get('callback'))
+            return response
+    
     def symbol_restart_pit_consistency_group_view(self, system_id, body, **kwargs):
             """
             This procedure will restart a Consistency Group View (restart all of its associated member Views).
@@ -4324,7 +4572,7 @@ class RApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param PITConsistencyGroupViewRestartDescriptor body: An object containing all of the attributes required to restart a Consistency Group View. (required)
     
@@ -4448,7 +4696,7 @@ class RApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param PITViewRestartDescriptor body: An object containing all of the attributes required to restart a PiT View. (required)
     
@@ -4572,7 +4820,7 @@ class RApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param AsyncMirrorGroupResumeDescriptor body: A descriptor containing a reference to the Asynchronous Mirror Group to resume. (required)
     
@@ -4696,7 +4944,7 @@ class RApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: This object contains information about the write consistency group object. (required)
     
@@ -4820,7 +5068,7 @@ class RApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: A reference to the flash cache object. (required)
     
@@ -4944,7 +5192,7 @@ class RApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: This object contains information identifying the Mirror Proxy Volume to be removed. (required)
     
@@ -5068,7 +5316,7 @@ class RApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param MirrorVolumeList body: This object contains information identifying the list of mirrored pairs on which to perform the resume operation. (required)
     
@@ -5192,7 +5440,7 @@ class RApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: A reference to the PiT rollback to be resumed. (required)
     
@@ -5316,7 +5564,7 @@ class RApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: A reference to the snapshot for which to resume the snapshot rollback operation. (required)
     
@@ -5421,6 +5669,130 @@ class RApi(object):
                                                 callback=params.get('callback'))
             return response
     
+    def symbol_retrieve_kms_certificate_file(self, system_id, body, **kwargs):
+            """
+            Retrieves a specified Key Management Server (KMS) ertificate currently installed on the storage array so that information about the certifiacte such as date of expiration can be extracted and displayed. This allows the storage administrator to know what is installed on the system and used for authentication with the KMIP server.
+            Documented return codes: ok. 
+
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please define a `callback` function
+            to be invoked when receiving the response.
+            >>> def callback_function(response):
+            >>>     pprint(response)
+            >>>
+    
+            >>> thread = api.symbol_retrieve_kms_certificate_file(system_id, body, callback=callback_function)
+    
+    
+
+            :param callback function: The callback function
+                for asynchronous request. (optional)
+    
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
+    
+            :param KMSCertificateFileRetrieveDescriptor body:  (required)
+    
+            :param str controller: Controller selection
+    
+            :param bool verbose_error_response: 
+    
+            :return: KMSCertificateFileReturn
+                     If the method is called asynchronously,
+                     returns the request thread.
+            :raises: ValueError
+                       If the required params are not provided or if the response data format is unknown.
+                     TypeError:
+                        When the data type of response data is different from what we are expecting
+                     ApiException:
+                        Occurs when we get a HTTP error code (422 and above).
+
+            """
+
+            all_params = ['system_id', 'body', 'controller', 'verbose_error_response']
+            all_params.append('callback')
+
+            params = locals()
+            for key, val in iteritems(params['kwargs']):
+                if key not in all_params:
+                    raise TypeError(
+                        "Got an unexpected keyword argument '%s'"
+                        " to method symbol_retrieve_kms_certificate_file" % key
+                    )
+                params[key] = val
+            del params['kwargs']
+
+    
+    
+            # verify the required parameter 'system_id' is set
+            if ('system_id' not in params) or (params['system_id'] is None):
+                raise ValueError("Missing the required parameter `system_id` when calling `symbol_retrieve_kms_certificate_file`")
+    
+    
+    
+            # verify the required parameter 'body' is set
+            if ('body' not in params) or (params['body'] is None):
+                raise ValueError("Missing the required parameter `body` when calling `symbol_retrieve_kms_certificate_file`")
+    
+    
+    
+    
+    
+    
+
+            resource_path = '/storage-systems/{system-id}/symbol/retrieveKMSCertificateFile'.replace('{format}', 'json')
+            path_params = {}
+    
+            if 'system_id' in params:
+                path_params['system-id'] = params['system_id']
+    
+
+            query_params = {}
+    
+            if 'controller' in params:
+                query_params['controller'] = params['controller']
+    
+            if 'verbose_error_response' in params:
+                query_params['verboseErrorResponse'] = params['verbose_error_response']
+    
+
+            header_params = {}
+    
+
+            form_params = []
+            local_var_files = {}
+    
+
+            body_params = None
+    
+            if 'body' in params:
+                body_params = params['body']
+    
+
+            # HTTP header `Accept`
+            header_params['Accept'] = self.api_client.\
+                select_header_accept(['application/json'])
+            if not header_params['Accept']:
+                del header_params['Accept']
+
+            # HTTP header `Content-Type`
+            header_params['Content-Type'] = self.api_client.\
+                select_header_content_type(['application/json'])
+
+            # Authentication setting
+            auth_settings = ['basicAuth']
+
+            response = self.api_client.call_api(resource_path, 'POST',
+                                                path_params,
+                                                query_params,
+                                                header_params,
+                                                body=body_params,
+                                                post_params=form_params,
+                                                files=local_var_files,
+                                                response_type='KMSCertificateFileReturn',
+                                                auth_settings=auth_settings,
+                                                callback=params.get('callback'))
+            return response
+    
     def symbol_revive_pit_group(self, system_id, body, **kwargs):
             """
             This procedure revives a failed PiT Group.
@@ -5440,7 +5812,7 @@ class RApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: A reference to the PiT Group you want to revive. (required)
     
@@ -5564,7 +5936,7 @@ class RApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: A reference to the PiT View you want to revive. (required)
     
@@ -5688,7 +6060,7 @@ class RApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param MirrorRoleChangeDescriptor body: The MirrorRoleChangeDescriptor object. (required)
     

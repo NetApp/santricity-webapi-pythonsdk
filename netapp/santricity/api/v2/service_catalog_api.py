@@ -61,7 +61,7 @@ class ServiceCatalogApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :return: list[PoolQosResponse]
                      If the method is called asynchronously,
@@ -160,7 +160,7 @@ class ServiceCatalogApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :return: list[UserVolume]
                      If the method is called asynchronously,
@@ -259,7 +259,7 @@ class ServiceCatalogApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str pool_id:  (required)
     
@@ -369,7 +369,7 @@ class ServiceCatalogApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str volume_id:  (required)
     
@@ -479,7 +479,7 @@ class ServiceCatalogApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param SscVolumeCreateRequest body: 
     
@@ -585,7 +585,7 @@ class ServiceCatalogApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str volume_id:  (required)
     
@@ -695,7 +695,7 @@ class ServiceCatalogApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str volume_id:  (required)
     

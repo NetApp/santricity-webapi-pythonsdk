@@ -61,7 +61,7 @@ class UApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: A value of the controller to take out of the quiesced state. (required)
     
@@ -185,7 +185,7 @@ class UApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str controller: Controller selection
     
@@ -298,7 +298,7 @@ class UApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param PSUFirmwareUpdateDescriptor body: A PSUFirmwareUpdateDescriptor object that contains all the attributes required to update the firmware on the power supplies. (required)
     
@@ -422,7 +422,7 @@ class UApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param TrayUpdateDescriptor body: A reference to the physical tray and the ID value to set for the tray. (required)
     
@@ -546,7 +546,7 @@ class UApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param VolumeAttributeUpdateDescriptor body: The VolumeAttributeUpdateDescriptor object. (required)
     

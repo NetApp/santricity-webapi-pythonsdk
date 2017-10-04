@@ -99,7 +99,7 @@ class AsyncMirrorSyncCompletionDetail(object):
         :param termination_reason: The termination_reason of this AsyncMirrorSyncCompletionDetail.
         :type: str
         """
-        allowed_values = ["reasonUnknown", "primaryRepositoryFull", "secondaryRepositoryFull", "primaryError", "secondaryError", "interruption", "configError", "userSuspend", "__UNDEFINED"]
+        allowed_values = ["reasonUnknown", "primaryRepositoryFull", "secondaryRepositoryFull", "primaryError", "secondaryError", "interruption", "configError", "userSuspend", "__UNDEFINED", None]
         if termination_reason not in allowed_values:
             raise ValueError(
                 "Invalid value for `termination_reason`, must be one of {0}"

@@ -133,7 +133,7 @@ class DeviceASUPApi(object):
     def get_asup_configuration(self, **kwargs):
             """
             Retrieve the device ASUP configuration
-            Mode: Both Embedded and Proxy.
+            Mode: Embedded only.
 
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please define a `callback` function
@@ -237,7 +237,7 @@ class DeviceASUPApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :return: DeviceAsupDevice
+            :return: list[DeviceAsupDevice]
                      If the method is called asynchronously,
                      returns the request thread.
             :raises: ValueError
@@ -301,7 +301,7 @@ class DeviceASUPApi(object):
                                                 body=body_params,
                                                 post_params=form_params,
                                                 files=local_var_files,
-                                                response_type='DeviceAsupDevice',
+                                                response_type='list[DeviceAsupDevice]',
                                                 auth_settings=auth_settings,
                                                 callback=params.get('callback'))
             return response

@@ -61,7 +61,7 @@ class AApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param DiscreteTimeSeriesDescriptor body: A DiscreteTimeSeriesDescriptor structure containing the arguments for the procedure call. (required)
     
@@ -185,7 +185,7 @@ class AApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str controller: Controller selection
     
@@ -298,7 +298,7 @@ class AApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param HistogramDescriptor body: A HistogramDescriptor structure containing the arguments for the procedure call. (required)
     
@@ -422,7 +422,7 @@ class AApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body:  (required)
     
@@ -546,7 +546,7 @@ class AApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body:  (required)
     
@@ -670,7 +670,7 @@ class AApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str controller: Controller selection
     
@@ -783,7 +783,7 @@ class AApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str controller: Controller selection
     
@@ -896,7 +896,7 @@ class AApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param AsyncMirrorGroupAddPrimaryMemberDescriptor body: An object containing all of the attributes required to add a member to an Asynchronous Mirror Group on the primary array. (required)
     
@@ -1020,7 +1020,7 @@ class AApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param AsyncMirrorGroupAddSecondaryMemberDescriptor body: An object containing all of the attributes required to add a member to an Asynchronous Mirror Group on the secondary array. (required)
     
@@ -1144,7 +1144,7 @@ class AApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param FlashCacheReconfigureDrivesDescriptor body: A FlashCacheReconfigureDrivesDescriptor object that identifies the volume group to be expanded, plus the drive or drives to be added to the volume group. All drives specified for this operation must be in the unassigned state initially. (required)
     
@@ -1268,7 +1268,7 @@ class AApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param PendingHost body: A PendingHost structure that describes the host to be added to the pending topology. It is not considered an error for the PendingHost structure to have a zero-length host label. (required)
     
@@ -1392,7 +1392,7 @@ class AApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param PITConsistencyGroupAddMemberDescriptorList body: Descriptor for the consistency group member to be added. (required)
     
@@ -1516,7 +1516,7 @@ class AApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param SNMPCommunityAddDescriptorList body:  (required)
     
@@ -1640,7 +1640,7 @@ class AApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param SNMPTrapDestinationAddDescriptorList body:  (required)
     
@@ -1764,7 +1764,7 @@ class AApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str controller: Controller selection
     
@@ -1877,7 +1877,7 @@ class AApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: A SYMbol reference to the drive that is to be adopted. (required)
     
@@ -2001,7 +2001,7 @@ class AApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param CoWRepositoryAnalysisRequest body:  (required)
     
@@ -2125,7 +2125,7 @@ class AApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param BundleKey body: A key that defines and enables the bundle migration. This key must be obtained from an authorized source in order to be accepted by the array controller. (required)
     
@@ -2249,7 +2249,7 @@ class AApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param VolumeGroupOwnershipUpdateDescriptor body: A descriptor that specifies the volume group being modified, and the controller that is to take ownership of the volume group, and thus all volumes defined on the volume group. (required)
     
@@ -2373,7 +2373,7 @@ class AApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param int body: The number of new hot spare drives to be added to the array's pool of hot spares. (required)
     
@@ -2497,7 +2497,7 @@ class AApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param DriveRefList body: A list of drive reference values, which identifies the drives to be assigned as hot spares. (required)
     
@@ -2621,7 +2621,7 @@ class AApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param VolumeGroupOwnershipUpdateDescriptor body: A descriptor that specifies the volume group being modified, and the controller that is to take ownership of the volume group, and thus all volumes defined on the volume group. (required)
     
@@ -2745,7 +2745,7 @@ class AApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param VolumeOwnershipUpdateDescriptor body: A descriptor that specifies the volume being modified and the controller that is to take ownership of the volume. (required)
     
@@ -2869,7 +2869,7 @@ class AApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str controller: Controller selection
     
@@ -2982,7 +2982,7 @@ class AApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param AutoLoadBalanceRequestDescriptor body: Request descriptor specifying details of the load balance request. (required)
     
@@ -3106,7 +3106,7 @@ class AApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str controller: Controller selection
     

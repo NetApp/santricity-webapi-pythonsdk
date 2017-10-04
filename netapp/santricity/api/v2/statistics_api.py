@@ -45,7 +45,7 @@ class StatisticsApi(object):
     def get_all_analysed_controller_statistics(self, system_id, **kwargs):
             """
             Get all analysed controller statistics
-            Mode: Embedded only. 
+            This API is available on all model 28xx+ systems, as well as any model 27xx or 56xx that is running 08.30.20.xx/11.30.20.xx or greater code versions. <br><br>This API requires at least two prior collections worth of raw statistics data in order to provide an analyzed result. If we have not yet collected at least two relevant statistics snapshots from the storage-system, the result will be an empty list.
 
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please define a `callback` function
@@ -61,7 +61,7 @@ class StatisticsApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :return: list[AnalysedControllerStatistics]
                      If the method is called asynchronously,
@@ -144,7 +144,7 @@ class StatisticsApi(object):
     def get_all_analysed_drive_statistics(self, system_id, **kwargs):
             """
             Get all analysed disk statistics
-            Mode: Both Embedded and Proxy. 
+            This API requires at least two prior collections worth of raw statistics data in order to provide an analyzed result. If we have not yet collected at least two relevant statistics snapshots from the storage-system, the result will be an empty list.
 
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please define a `callback` function
@@ -160,7 +160,7 @@ class StatisticsApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :return: list[AnalysedDiskStatistics]
                      If the method is called asynchronously,
@@ -242,8 +242,8 @@ class StatisticsApi(object):
     
     def get_all_analysed_interface_statistics(self, system_id, **kwargs):
             """
-            Get all analysed controller statistics
-            Mode: Embedded only. 
+            Get all analysed interface statistics
+            This API is available on all model 28xx+ systems, as well as any model 27xx or 56xx that is running 08.30.20.xx/11.30.20.xx or greater code versions. <br><br>This API requires at least two prior collections worth of raw statistics data in order to provide an analyzed result. If we have not yet collected at least two relevant statistics snapshots from the storage-system, the result will be an empty list.
 
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please define a `callback` function
@@ -259,7 +259,7 @@ class StatisticsApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :return: list[AnalyzedInterfaceStatistics]
                      If the method is called asynchronously,
@@ -341,8 +341,8 @@ class StatisticsApi(object):
     
     def get_all_analysed_volume_statistics(self, system_id, idlist, **kwargs):
             """
-            Get all analysed volume statistics
-            Mode: Both Embedded and Proxy. 
+            Get a subset of analysed volume statistics
+            This API requires at least two prior collections worth of raw statistics data in order to provide an analyzed result. If we have not yet collected at least two relevant statistics snapshots from the storage-system, the result will be an empty list.
 
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please define a `callback` function
@@ -358,7 +358,7 @@ class StatisticsApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str idlist: A comma separated list of volume ids (required)
     
@@ -468,7 +468,7 @@ class StatisticsApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str type: Statistics type
     
@@ -595,7 +595,7 @@ class StatisticsApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str type: Statistics type
     
@@ -685,7 +685,7 @@ class StatisticsApi(object):
     def get_all_raw_disk_statistics(self, system_id, **kwargs):
             """
             Get raw disk statistics
-            Mode: Both Embedded and Proxy. 
+            This API will either retrieve a cached, previously collected statistics snapshot (default), or it will attempt to retrieve the statistics from the storage-system directly. If no previous statistics collections have been successful or have occurred, the statistics will be retrieved directly from the storage-system.
 
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please define a `callback` function
@@ -701,9 +701,9 @@ class StatisticsApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
-            :param bool usecache: 
+            :param bool usecache: When true, the statistics data will be returned from the cache. If there is no data in the cache then the storage system will be queried directly for the statistics data.
     
             :return: list[DiskIOStats]
                      If the method is called asynchronously,
@@ -790,8 +790,8 @@ class StatisticsApi(object):
     
     def get_all_raw_volume_statistics(self, system_id, **kwargs):
             """
-            Get raw volume statistics
-            Mode: Both Embedded and Proxy. 
+            Get all raw volume statistics
+            This API will either retrieve a cached, previously collected statistics snapshot (default), or it will attempt to retrieve the statistics from the storage-system directly. If no previous statistics collections have been successful or have occurred, the statistics will be retrieved directly from the storage-system.
 
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please define a `callback` function
@@ -807,9 +807,9 @@ class StatisticsApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
-            :param bool usecache: 
+            :param bool usecache: When true, the statistics data will be returned from the cache. If there is no data in the cache then the storage system will be queried directly for the statistics data.
     
             :return: list[VolumeIOStats]
                      If the method is called asynchronously,
@@ -896,8 +896,8 @@ class StatisticsApi(object):
     
     def get_analysed_controller_statistics(self, system_id, idlist, **kwargs):
             """
-            Get a subset of analysed controller statistics
-            Mode: Embedded only. 
+            Get a subset of analysed controller statistics.. deprecated:: NOTE: This method has been DEPRECATED
+            This API is available on all model 28xx+ systems, as well as any model 27xx or 56xx that is running 08.30.20.xx/11.30.20.xx or greater code versions. <br><br>This API requires at least two prior collections worth of raw statistics data in order to provide an analyzed result. If we have not yet collected at least two relevant statistics snapshots from the storage-system, the result will be an empty list.
 
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please define a `callback` function
@@ -913,7 +913,7 @@ class StatisticsApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param list[str] idlist: A comma separated list of controller id's (required)
     
@@ -1007,7 +1007,7 @@ class StatisticsApi(object):
     def get_analysed_drive_statistics(self, system_id, idlist, **kwargs):
             """
             Get a subset of analysed disk statistics
-            Mode: Both Embedded and Proxy. 
+            This API requires at least two prior collections worth of raw statistics data in order to provide an analyzed result. If we have not yet collected at least two relevant statistics snapshots from the storage-system, the result will be an empty list.
 
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please define a `callback` function
@@ -1023,7 +1023,7 @@ class StatisticsApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param list[str] idlist: A comma separated list of disk ids (required)
     
@@ -1116,8 +1116,8 @@ class StatisticsApi(object):
     
     def get_analysed_volume_statistics(self, system_id, **kwargs):
             """
-            Get a subset of the analysed volume statistics
-            Mode: Both Embedded and Proxy. 
+            Get all analysed volume statistics
+            This API requires at least two prior collections worth of raw statistics data in order to provide an analyzed result. If we have not yet collected at least two relevant statistics snapshots from the storage-system, the result will be an empty list.
 
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please define a `callback` function
@@ -1133,7 +1133,7 @@ class StatisticsApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :return: list[AnalysedVolumeStatistics]
                      If the method is called asynchronously,
@@ -1215,8 +1215,8 @@ class StatisticsApi(object):
     
     def get_analyzed_interface_stats(self, system_id, idlist, **kwargs):
             """
-            Get a subset of analysed controller statistics
-            Mode: Embedded only. 
+            Get a subset of analysed interface statistics
+            This API is available on all model 28xx+ systems, as well as any model 27xx or 56xx that is running 08.30.20.xx/11.30.20.xx or greater code versions. <br><br>This API requires at least two prior collections worth of raw statistics data in order to provide an analyzed result. If we have not yet collected at least two relevant statistics snapshots from the storage-system, the result will be an empty list.
 
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please define a `callback` function
@@ -1232,7 +1232,7 @@ class StatisticsApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param list[str] idlist: A comma separated list of interface id's (required)
     
@@ -1342,7 +1342,7 @@ class StatisticsApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :return: list[str]
                      If the method is called asynchronously,
@@ -1441,7 +1441,7 @@ class StatisticsApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str type: Statistics type
     
@@ -1554,7 +1554,7 @@ class StatisticsApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str type: Statistics type
     
@@ -1674,7 +1674,7 @@ class StatisticsApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param list[str] idlist: A comma separated list of object ids (required)
     
@@ -1812,7 +1812,7 @@ class StatisticsApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param list[str] idlist: A comma separated list of object ids (required)
     
@@ -1912,8 +1912,8 @@ class StatisticsApi(object):
     
     def get_raw_controller_statistics(self, system_id, **kwargs):
             """
-            Get raw controller statistics
-            Mode: Embedded only. 
+            Get all raw controller statistics
+            This API is available on all model 28xx+ systems, as well as any model 27xx or 56xx that is running 08.30.20.xx/11.30.20.xx or greater code versions. <br><br>This API will either retrieve a cached, previously collected statistics snapshot (default), or it will attempt to retrieve the statistics from the storage-system directly. If no previous statistics collections have been successful or have occurred, the statistics will be retrieved directly from the storage-system.
 
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please define a `callback` function
@@ -1929,9 +1929,9 @@ class StatisticsApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
-            :param bool usecache: 
+            :param bool usecache: When true, the statistics data will be returned from the cache. If there is no data in the cache then the storage system will be queried directly for the statistics data.
     
             :return: list[ControllerStats]
                      If the method is called asynchronously,
@@ -2018,8 +2018,8 @@ class StatisticsApi(object):
     
     def get_raw_controller_statistics_using_list(self, system_id, idlist, **kwargs):
             """
-            Get raw controller statistics
-            Mode: Embedded only. 
+            Get a subset of raw controller statistics.. deprecated:: NOTE: This method has been DEPRECATED
+            This API is available on all model 28xx+ systems, as well as any model 27xx or 56xx that is running 08.30.20.xx/11.30.20.xx or greater code versions. <br><br>This API will either retrieve a cached, previously collected statistics snapshot (default), or it will attempt to retrieve the statistics from the storage-system directly. If no previous statistics collections have been successful or have occurred, the statistics will be retrieved directly from the storage-system.
 
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please define a `callback` function
@@ -2035,11 +2035,11 @@ class StatisticsApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param list[str] idlist: A comma separated list of controller id's (required)
     
-            :param bool usecache: 
+            :param bool usecache: When true, the statistics data will be returned from the cache. If there is no data in the cache then the storage system will be queried directly for the statistics data.
     
             :return: list[ControllerStats]
                      If the method is called asynchronously,
@@ -2136,7 +2136,7 @@ class StatisticsApi(object):
     def get_raw_disk_statistics(self, system_id, idlist, **kwargs):
             """
             Get a subset of the raw disk statistics
-            Mode: Both Embedded and Proxy. 
+            This API will either retrieve a cached, previously collected statistics snapshot (default), or it will attempt to retrieve the statistics from the storage-system directly. If no previous statistics collections have been successful or have occurred, the statistics will be retrieved directly from the storage-system.
 
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please define a `callback` function
@@ -2152,11 +2152,11 @@ class StatisticsApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param list[str] idlist: A comma separated list of disk ids (required)
     
-            :param bool usecache: 
+            :param bool usecache: When true, the statistics data will be returned from the cache. If there is no data in the cache then the storage system will be queried directly for the statistics data.
     
             :return: list[DiskIOStats]
                      If the method is called asynchronously,
@@ -2252,8 +2252,8 @@ class StatisticsApi(object):
     
     def get_raw_interface_statistics(self, system_id, **kwargs):
             """
-            Get raw interface statistics
-            Mode: Embedded only. 
+            Get all raw interface statistics
+            This API is available on all model 28xx+ systems, as well as any model 27xx or 56xx that is running 08.30.20.xx/11.30.20.xx or greater code versions. <br><br>This API will either retrieve a cached, previously collected statistics snapshot (default), or it will attempt to retrieve the statistics from the storage-system directly. If no previous statistics collections have been successful or have occurred, the statistics will be retrieved directly from the storage-system.
 
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please define a `callback` function
@@ -2269,9 +2269,9 @@ class StatisticsApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
-            :param bool usecache: 
+            :param bool usecache: When true, the statistics data will be returned from the cache. If there is no data in the cache then the storage system will be queried directly for the statistics data.
     
             :return: list[InterfaceStats]
                      If the method is called asynchronously,
@@ -2358,8 +2358,8 @@ class StatisticsApi(object):
     
     def get_raw_interface_statistics_with_list(self, system_id, idlist, **kwargs):
             """
-            Get raw controller statistics
-            Mode: Embedded only. 
+            Get a subset of raw interface statistics
+            This API is available on all model 28xx+ systems, as well as any model 27xx or 56xx that is running 08.30.20.xx/11.30.20.xx or greater code versions. <br><br>This API will either retrieve a cached, previously collected statistics snapshot (default), or it will attempt to retrieve the statistics from the storage-system directly. If no previous statistics collections have been successful or have occurred, the statistics will be retrieved directly from the storage-system.
 
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please define a `callback` function
@@ -2375,11 +2375,11 @@ class StatisticsApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
-            :param list[str] idlist: A comma separated list of controller id's (required)
+            :param list[str] idlist: A comma separated list of interface id's (required)
     
-            :param bool usecache: 
+            :param bool usecache: When true, the statistics data will be returned from the cache. If there is no data in the cache then the storage system will be queried directly for the statistics data.
     
             :return: list[InterfaceStats]
                      If the method is called asynchronously,
@@ -2492,7 +2492,7 @@ class StatisticsApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :return: list[str]
                      If the method is called asynchronously,
@@ -2574,8 +2574,8 @@ class StatisticsApi(object):
     
     def get_raw_volume_statistics(self, system_id, idlist, **kwargs):
             """
-            Get raw volume statistics
-            Mode: Both Embedded and Proxy. 
+            Get a subset of raw volume statistics
+            This API will either retrieve a cached, previously collected statistics snapshot (default), or it will attempt to retrieve the statistics from the storage-system directly. If no previous statistics collections have been successful or have occurred, the statistics will be retrieved directly from the storage-system.
 
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please define a `callback` function
@@ -2591,11 +2591,11 @@ class StatisticsApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param list[str] idlist: A comma separated list of volume ids (required)
     
-            :param bool usecache: 
+            :param bool usecache: When true, the statistics data will be returned from the cache. If there is no data in the cache then the storage system will be queried directly for the statistics data.
     
             :return: list[VolumeIOStats]
                      If the method is called asynchronously,
@@ -2708,7 +2708,7 @@ class StatisticsApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param list[str] idlist: A comma separated list of object ids (required)
     
@@ -2839,7 +2839,7 @@ class StatisticsApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :return: list[str]
                      If the method is called asynchronously,

@@ -117,7 +117,7 @@ class SATAInterface(object):
         :param current_interface_speed: The current_interface_speed of this SATAInterface.
         :type: str
         """
-        allowed_values = ["speedUnknown", "speed1gig", "speed2gig", "speed4gig", "speed10gig", "speed15gig", "speed3gig", "speed10meg", "speed100meg", "speed2pt5Gig", "speed5gig", "speed20gig", "speed30gig", "speed60gig", "speed8gig", "speed6gig", "speed40gig", "speed16gig", "speed56gig", "speed12gig", "__UNDEFINED"]
+        allowed_values = ["speedUnknown", "speed1gig", "speed2gig", "speed4gig", "speed10gig", "speed15gig", "speed3gig", "speed10meg", "speed100meg", "speed2pt5Gig", "speed5gig", "speed20gig", "speed30gig", "speed60gig", "speed8gig", "speed6gig", "speed40gig", "speed16gig", "speed56gig", "speed12gig", "speed25gig", "speed32gig", "speed100gig", "__UNDEFINED"]
         if current_interface_speed not in allowed_values:
             raise ValueError(
                 "Invalid value for `current_interface_speed`, must be one of {0}"
@@ -146,7 +146,7 @@ class SATAInterface(object):
         :param maximum_interface_speed: The maximum_interface_speed of this SATAInterface.
         :type: str
         """
-        allowed_values = ["speedUnknown", "speed1gig", "speed2gig", "speed4gig", "speed10gig", "speed15gig", "speed3gig", "speed10meg", "speed100meg", "speed2pt5Gig", "speed5gig", "speed20gig", "speed30gig", "speed60gig", "speed8gig", "speed6gig", "speed40gig", "speed16gig", "speed56gig", "speed12gig", "__UNDEFINED"]
+        allowed_values = ["speedUnknown", "speed1gig", "speed2gig", "speed4gig", "speed10gig", "speed15gig", "speed3gig", "speed10meg", "speed100meg", "speed2pt5Gig", "speed5gig", "speed20gig", "speed30gig", "speed60gig", "speed8gig", "speed6gig", "speed40gig", "speed16gig", "speed56gig", "speed12gig", "speed25gig", "speed32gig", "speed100gig", "__UNDEFINED"]
         if maximum_interface_speed not in allowed_values:
             raise ValueError(
                 "Invalid value for `maximum_interface_speed`, must be one of {0}"

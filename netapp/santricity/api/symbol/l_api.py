@@ -61,7 +61,7 @@ class LApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param FirmwareUpdateDescriptor body: A FirmwareUpdateDescriptor object that indicates, among other things, the offset and size of the firmware segment being transferred. (required)
     
@@ -185,7 +185,7 @@ class LApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param FirmwareUpdateDescriptor body:  (required)
     
@@ -309,7 +309,7 @@ class LApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param FirmwareUpdateDescriptor body: A FirmwareUpdateDescriptor object that indicates, among other things, the offset and size of the firmware segment being transferred. (required)
     
@@ -433,7 +433,7 @@ class LApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param FirmwareUpdateDescriptor body: A FirmwareUpdateDescriptor object that specifies the size and content of the NVSRAM data to be loaded by the controller. (required)
     
@@ -557,7 +557,7 @@ class LApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param FirmwareUpdateDescriptor body:  (required)
     
@@ -681,7 +681,7 @@ class LApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param DriveFirmwareUpdateDescriptor body:  (required)
     
@@ -805,7 +805,7 @@ class LApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param ESMFirmwareUpdateDescriptor body: An ESMFirmwareUpdateDescriptor object that indicates the tray to receive the firmware, the offset and size of the firmware segment being transferred. (required)
     
@@ -929,7 +929,7 @@ class LApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param ESMFirmwareUpdateDescriptor body: An ESMFirmwareUpdateDescriptor object that indicates the tray to receive the firmware, the offset and size of the firmware segment being transferred. (required)
     
@@ -1053,7 +1053,7 @@ class LApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param FactoryDefaultsDescriptor body: The factory default data. (required)
     

@@ -68,8 +68,8 @@ class VolumeGroupEx(object):
             'drive_physical_type': 'str',  
             'drive_media_type': 'str',  
             'normalized_spindle_speed': 'str',  
-            'id': 'str',  
             'disk_pool': 'bool',  
+            'id': 'str',  
             'name': 'str'
         }
 
@@ -105,8 +105,8 @@ class VolumeGroupEx(object):
             'drive_physical_type': 'drivePhysicalType',  
             'drive_media_type': 'driveMediaType',  
             'normalized_spindle_speed': 'normalizedSpindleSpeed',  
-            'id': 'id',  
             'disk_pool': 'diskPool',  
+            'id': 'id',  
             'name': 'name'
         }
 
@@ -141,8 +141,8 @@ class VolumeGroupEx(object):
         self._drive_physical_type = None
         self._drive_media_type = None
         self._normalized_spindle_speed = None
-        self._id = None
         self._disk_pool = None
+        self._id = None
         self._name = None
 
     @property
@@ -800,7 +800,7 @@ class VolumeGroupEx(object):
         :param raid_status: The raid_status of this VolumeGroupEx.
         :type: str
         """
-        allowed_values = ["optimal", "degraded", "failed", "impaired", "creating", "deleting", "__UNDEFINED"]
+        allowed_values = ["optimal", "degraded", "failed", "impaired", "creating", "deleting", "__UNDEFINED", None]
         if raid_status not in allowed_values:
             raise ValueError(
                 "Invalid value for `raid_status`, must be one of {0}"
@@ -852,7 +852,7 @@ class VolumeGroupEx(object):
         :param drive_physical_type: The drive_physical_type of this VolumeGroupEx.
         :type: str
         """
-        allowed_values = ["all", "scsi", "fibre", "sata", "pata", "fibre520b", "sas", "unknown", "sas4k", "__UNDEFINED"]
+        allowed_values = ["all", "scsi", "fibre", "sata", "pata", "fibre520b", "sas", "unknown", "sas4k", "__UNDEFINED", None]
         if drive_physical_type not in allowed_values:
             raise ValueError(
                 "Invalid value for `drive_physical_type`, must be one of {0}"
@@ -881,7 +881,7 @@ class VolumeGroupEx(object):
         :param drive_media_type: The drive_media_type of this VolumeGroupEx.
         :type: str
         """
-        allowed_values = ["all", "unknown", "hdd", "ssd", "__UNDEFINED"]
+        allowed_values = ["all", "unknown", "hdd", "ssd", "__UNDEFINED", None]
         if drive_media_type not in allowed_values:
             raise ValueError(
                 "Invalid value for `drive_media_type`, must be one of {0}"
@@ -910,36 +910,13 @@ class VolumeGroupEx(object):
         :param normalized_spindle_speed: The normalized_spindle_speed of this VolumeGroupEx.
         :type: str
         """
-        allowed_values = ["spindleSpeedUnknown", "spindleSpeedSSD", "spindleSpeed5400", "spindleSpeed7200", "spindleSpeed10k", "spindleSpeed15k"]
+        allowed_values = ["spindleSpeedUnknown", "spindleSpeedSSD", "spindleSpeed5400", "spindleSpeed7200", "spindleSpeed10k", "spindleSpeed15k", None]
         if normalized_spindle_speed not in allowed_values:
             raise ValueError(
                 "Invalid value for `normalized_spindle_speed`, must be one of {0}"
                 .format(allowed_values)
             )
         self._normalized_spindle_speed = normalized_spindle_speed
-
-    @property
-    def id(self):
-        """
-        Gets the id of this VolumeGroupEx.
-
-
-        :return: The id of this VolumeGroupEx.
-        :rtype: str
-        :required/optional: optional
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this VolumeGroupEx.
-
-
-        :param id: The id of this VolumeGroupEx.
-        :type: str
-        """
-        self._id = id
 
     @property
     def disk_pool(self):
@@ -963,6 +940,29 @@ class VolumeGroupEx(object):
         :type: bool
         """
         self._disk_pool = disk_pool
+
+    @property
+    def id(self):
+        """
+        Gets the id of this VolumeGroupEx.
+
+
+        :return: The id of this VolumeGroupEx.
+        :rtype: str
+        :required/optional: optional
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """
+        Sets the id of this VolumeGroupEx.
+
+
+        :param id: The id of this VolumeGroupEx.
+        :type: str
+        """
+        self._id = id
 
     @property
     def name(self):

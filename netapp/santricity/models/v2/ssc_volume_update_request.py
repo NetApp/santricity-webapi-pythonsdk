@@ -137,7 +137,7 @@ class SscVolumeUpdateRequest(object):
         :param size_unit: The size_unit of this SscVolumeUpdateRequest.
         :type: str
         """
-        allowed_values = ["bytes", "b", "kb", "mb", "gb", "tb", "pb", "eb", "zb", "yb"]
+        allowed_values = ["bytes", "b", "kb", "mb", "gb", "tb", "pb", "eb", "zb", "yb", None]
         if size_unit not in allowed_values:
             raise ValueError(
                 "Invalid value for `size_unit`, must be one of {0}"

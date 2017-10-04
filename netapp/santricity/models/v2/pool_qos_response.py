@@ -255,7 +255,7 @@ class PoolQosResponse(object):
         :param spindle_speed: The spindle_speed of this PoolQosResponse.
         :type: str
         """
-        allowed_values = ["spindleSpeedUnknown", "spindleSpeedSSD", "spindleSpeed5400", "spindleSpeed7200", "spindleSpeed10k", "spindleSpeed15k"]
+        allowed_values = ["spindleSpeedUnknown", "spindleSpeedSSD", "spindleSpeed5400", "spindleSpeed7200", "spindleSpeed10k", "spindleSpeed15k", None]
         if spindle_speed not in allowed_values:
             raise ValueError(
                 "Invalid value for `spindle_speed`, must be one of {0}"
@@ -284,7 +284,7 @@ class PoolQosResponse(object):
         :param raid_level: The raid_level of this PoolQosResponse.
         :type: str
         """
-        allowed_values = ["raid0", "raid1", "raid5", "raid6", "raidDiskPool", "unknown"]
+        allowed_values = ["raid0", "raid1", "raid5", "raid6", "raidDiskPool", "unknown", None]
         if raid_level not in allowed_values:
             raise ValueError(
                 "Invalid value for `raid_level`, must be one of {0}"

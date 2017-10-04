@@ -37,7 +37,6 @@ class RemoteVolumeMirrorUpdateRequest(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'ref': 'str',  
             'base_volume_id': 'str',  # (required parameter)
             'remote_volume_id': 'str',  # (required parameter)
             'role': 'int',  
@@ -48,7 +47,6 @@ class RemoteVolumeMirrorUpdateRequest(object):
         }
 
         self.attribute_map = {
-            'ref': 'ref',  
             'base_volume_id': 'baseVolumeId',  # (required parameter)
             'remote_volume_id': 'remoteVolumeId',  # (required parameter)
             'role': 'role',  
@@ -58,7 +56,6 @@ class RemoteVolumeMirrorUpdateRequest(object):
             'auto_resync': 'autoResync'
         }
 
-        self._ref = None
         self._base_volume_id = None
         self._remote_volume_id = None
         self._role = None
@@ -66,29 +63,6 @@ class RemoteVolumeMirrorUpdateRequest(object):
         self._priority = None
         self._write_mode = None
         self._auto_resync = None
-
-    @property
-    def ref(self):
-        """
-        Gets the ref of this RemoteVolumeMirrorUpdateRequest.
-        Remote Volume Mirror Ref.
-
-        :return: The ref of this RemoteVolumeMirrorUpdateRequest.
-        :rtype: str
-        :required/optional: optional
-        """
-        return self._ref
-
-    @ref.setter
-    def ref(self, ref):
-        """
-        Sets the ref of this RemoteVolumeMirrorUpdateRequest.
-        Remote Volume Mirror Ref.
-
-        :param ref: The ref of this RemoteVolumeMirrorUpdateRequest.
-        :type: str
-        """
-        self._ref = ref
 
     @property
     def base_volume_id(self):

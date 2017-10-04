@@ -39,18 +39,21 @@ class SSDWearLife(object):
         self.swagger_types = {
             'average_erase_count_percent': 'int',  # (required parameter)
             'spare_blocks_remaining_percent': 'int',  # (required parameter)
-            'is_wear_life_monitoring_supported': 'bool'
+            'is_wear_life_monitoring_supported': 'bool',  # (required parameter)
+            'percent_endurance_used': 'int'
         }
 
         self.attribute_map = {
             'average_erase_count_percent': 'averageEraseCountPercent',  # (required parameter)
             'spare_blocks_remaining_percent': 'spareBlocksRemainingPercent',  # (required parameter)
-            'is_wear_life_monitoring_supported': 'isWearLifeMonitoringSupported'
+            'is_wear_life_monitoring_supported': 'isWearLifeMonitoringSupported',  # (required parameter)
+            'percent_endurance_used': 'percentEnduranceUsed'
         }
 
         self._average_erase_count_percent = None
         self._spare_blocks_remaining_percent = None
         self._is_wear_life_monitoring_supported = None
+        self._percent_endurance_used = None
 
     @property
     def average_erase_count_percent(self):
@@ -120,6 +123,29 @@ class SSDWearLife(object):
         :type: bool
         """
         self._is_wear_life_monitoring_supported = is_wear_life_monitoring_supported
+
+    @property
+    def percent_endurance_used(self):
+        """
+        Gets the percent_endurance_used of this SSDWearLife.
+        The percentage of endurance used for this drive. The value is obtained from the Solid State Media log page. A value of PERCENTAGE_ENDURANCE_USED_UNKNOWN indicates that the information is inaccessible or not populated in this release.
+
+        :return: The percent_endurance_used of this SSDWearLife.
+        :rtype: int
+        :required/optional: required
+        """
+        return self._percent_endurance_used
+
+    @percent_endurance_used.setter
+    def percent_endurance_used(self, percent_endurance_used):
+        """
+        Sets the percent_endurance_used of this SSDWearLife.
+        The percentage of endurance used for this drive. The value is obtained from the Solid State Media log page. A value of PERCENTAGE_ENDURANCE_USED_UNKNOWN indicates that the information is inaccessible or not populated in this release.
+
+        :param percent_endurance_used: The percent_endurance_used of this SSDWearLife.
+        :type: int
+        """
+        self._percent_endurance_used = percent_endurance_used
 
     def to_dict(self):
         """

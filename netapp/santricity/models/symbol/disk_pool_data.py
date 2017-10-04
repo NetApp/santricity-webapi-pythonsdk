@@ -47,7 +47,8 @@ class DiskPoolData(object):
             'degraded_reconstruct_priority': 'str',  # (required parameter)
             'critical_reconstruct_priority': 'str',  # (required parameter)
             'background_operation_priority': 'str',  # (required parameter)
-            'alloc_granularity': 'int'
+            'alloc_granularity': 'int',  # (required parameter)
+            'minimum_drive_count': 'int'
         }
 
         self.attribute_map = {
@@ -61,7 +62,8 @@ class DiskPoolData(object):
             'degraded_reconstruct_priority': 'degradedReconstructPriority',  # (required parameter)
             'critical_reconstruct_priority': 'criticalReconstructPriority',  # (required parameter)
             'background_operation_priority': 'backgroundOperationPriority',  # (required parameter)
-            'alloc_granularity': 'allocGranularity'
+            'alloc_granularity': 'allocGranularity',  # (required parameter)
+            'minimum_drive_count': 'minimumDriveCount'
         }
 
         self._reconstruction_reserved_drive_count = None
@@ -75,6 +77,7 @@ class DiskPoolData(object):
         self._critical_reconstruct_priority = None
         self._background_operation_priority = None
         self._alloc_granularity = None
+        self._minimum_drive_count = None
 
     @property
     def reconstruction_reserved_drive_count(self):
@@ -352,6 +355,29 @@ class DiskPoolData(object):
         :type: int
         """
         self._alloc_granularity = alloc_granularity
+
+    @property
+    def minimum_drive_count(self):
+        """
+        Gets the minimum_drive_count of this DiskPoolData.
+        Minimum number of drives required for this disk pool
+
+        :return: The minimum_drive_count of this DiskPoolData.
+        :rtype: int
+        :required/optional: required
+        """
+        return self._minimum_drive_count
+
+    @minimum_drive_count.setter
+    def minimum_drive_count(self, minimum_drive_count):
+        """
+        Sets the minimum_drive_count of this DiskPoolData.
+        Minimum number of drives required for this disk pool
+
+        :param minimum_drive_count: The minimum_drive_count of this DiskPoolData.
+        :type: int
+        """
+        self._minimum_drive_count = minimum_drive_count
 
     def to_dict(self):
         """

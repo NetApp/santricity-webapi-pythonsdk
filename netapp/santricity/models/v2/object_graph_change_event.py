@@ -131,7 +131,7 @@ class ObjectGraphChangeEvent(object):
         :param event_type: The event_type of this ObjectGraphChangeEvent.
         :type: str
         """
-        allowed_values = ["objectGraphChangeEvent", "passwordStatusEvent", "storageSystemStatusEvent", "storageSystemMDChangeEvent", "folderEvent", "metadataTagEvent", "softwareDownloadEvent", "softwareReloadEvent", "asupConfigChangeEvent", "iomConfigChangeEvent", "alertConfigChangeEvent", "firmwareDownloadEvent", "criticalMelChangeEvent", "statisticsCollectionEvent", "melClearEvent", "workload"]
+        allowed_values = ["objectGraphChangeEvent", "passwordStatusEvent", "storageSystemStatusEvent", "storageSystemMDChangeEvent", "folderEvent", "metadataTagEvent", "softwareDownloadEvent", "softwareReloadEvent", "asupConfigChangeEvent", "iomConfigChangeEvent", "alertConfigChangeEvent", "firmwareDownloadEvent", "criticalMelChangeEvent", "statisticsCollectionEvent", "melClearEvent", "workload", "ldapConfigChangeEvent", "symbolPortChangeEvent", "keyStoreChangeEvent", "trustStoreChangeEvent", "externalCertChangeEvent", "sslReloadCompleteEvent", "sessionTimeoutChangeEvent"]
         if event_type not in allowed_values:
             raise ValueError(
                 "Invalid value for `event_type`, must be one of {0}"

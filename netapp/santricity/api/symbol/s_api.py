@@ -61,7 +61,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param VolumeScanDescriptor body: A VolumeScanDescriptor that specifies the volume and extent to be scanned and contains indicators to enable repairing of media and parity errors. (required)
     
@@ -185,7 +185,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: An object containing all of the required attributes to convert the specified disk pool to a secure volume group. (required)
     
@@ -309,7 +309,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: The VolumeGroupRef identifier for the volume to be secured. (required)
     
@@ -433,7 +433,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param DriveFirmwareChunkDescriptor body: This object contains information about the DriveFirmwareChunkDescriptor. (required)
     
@@ -557,7 +557,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param AlarmUpdateDescriptor body: An AlarmUpdateDescriptor object that indicates the alarm to modify and the alarm control to activate. (required)
     
@@ -681,7 +681,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param AsupStatus body:  (required)
     
@@ -805,7 +805,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param AsyncMirrorGroupParamsUpdateDescriptor body: An object containing the Asynchronous Mirror Group parameters. (required)
     
@@ -929,7 +929,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param AutoLoadBalancingControlDescriptor body: Input descriptor indicating whether auto load balancing is to be enabled or disabled (required)
     
@@ -1053,7 +1053,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param MirrorAutoResyncDescriptor body: This object determines whether auto resynchronization is allowed. (required)
     
@@ -1177,7 +1177,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param BatteryParamsUpdateDescriptor body: A descriptor object that specifies the battery properties. (required)
     
@@ -1282,6 +1282,130 @@ class SApi(object):
                                                 callback=params.get('callback'))
             return response
     
+    def symbol_set_cache_mirroring_protection_information(self, system_id, body, **kwargs):
+            """
+            This procedure allows checking of protection information of cache mirroring to be enabled or disabled, if this feature is supported. There is a capability enumeration that indicates whether or not this feature is supported.
+            Documented return codes: ok. 
+
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please define a `callback` function
+            to be invoked when receiving the response.
+            >>> def callback_function(response):
+            >>>     pprint(response)
+            >>>
+    
+            >>> thread = api.symbol_set_cache_mirroring_protection_information(system_id, body, callback=callback_function)
+    
+    
+
+            :param callback function: The callback function
+                for asynchronous request. (optional)
+    
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
+    
+            :param CacheMirroringProtectionInformationDescriptor body: A CacheMirroringProtectionInformationDescriptor containing the arguments for the call. (required)
+    
+            :param str controller: Controller selection
+    
+            :param bool verbose_error_response: 
+    
+            :return: str
+                     If the method is called asynchronously,
+                     returns the request thread.
+            :raises: ValueError
+                       If the required params are not provided or if the response data format is unknown.
+                     TypeError:
+                        When the data type of response data is different from what we are expecting
+                     ApiException:
+                        Occurs when we get a HTTP error code (422 and above).
+
+            """
+
+            all_params = ['system_id', 'body', 'controller', 'verbose_error_response']
+            all_params.append('callback')
+
+            params = locals()
+            for key, val in iteritems(params['kwargs']):
+                if key not in all_params:
+                    raise TypeError(
+                        "Got an unexpected keyword argument '%s'"
+                        " to method symbol_set_cache_mirroring_protection_information" % key
+                    )
+                params[key] = val
+            del params['kwargs']
+
+    
+    
+            # verify the required parameter 'system_id' is set
+            if ('system_id' not in params) or (params['system_id'] is None):
+                raise ValueError("Missing the required parameter `system_id` when calling `symbol_set_cache_mirroring_protection_information`")
+    
+    
+    
+            # verify the required parameter 'body' is set
+            if ('body' not in params) or (params['body'] is None):
+                raise ValueError("Missing the required parameter `body` when calling `symbol_set_cache_mirroring_protection_information`")
+    
+    
+    
+    
+    
+    
+
+            resource_path = '/storage-systems/{system-id}/symbol/setCacheMirroringProtectionInformation'.replace('{format}', 'json')
+            path_params = {}
+    
+            if 'system_id' in params:
+                path_params['system-id'] = params['system_id']
+    
+
+            query_params = {}
+    
+            if 'controller' in params:
+                query_params['controller'] = params['controller']
+    
+            if 'verbose_error_response' in params:
+                query_params['verboseErrorResponse'] = params['verbose_error_response']
+    
+
+            header_params = {}
+    
+
+            form_params = []
+            local_var_files = {}
+    
+
+            body_params = None
+    
+            if 'body' in params:
+                body_params = params['body']
+    
+
+            # HTTP header `Accept`
+            header_params['Accept'] = self.api_client.\
+                select_header_accept(['application/json'])
+            if not header_params['Accept']:
+                del header_params['Accept']
+
+            # HTTP header `Content-Type`
+            header_params['Content-Type'] = self.api_client.\
+                select_header_content_type(['application/json'])
+
+            # Authentication setting
+            auth_settings = ['basicAuth']
+
+            response = self.api_client.call_api(resource_path, 'POST',
+                                                path_params,
+                                                query_params,
+                                                header_params,
+                                                body=body_params,
+                                                post_params=form_params,
+                                                files=local_var_files,
+                                                response_type='str',
+                                                auth_settings=auth_settings,
+                                                callback=params.get('callback'))
+            return response
+    
     def symbol_set_cluster_performance_limitation_values(self, system_id, body, **kwargs):
             """
             This procedure allows the user to limit the performance of a host cluster. The limitations that can be set are throughput (MB/s) and IOPs.
@@ -1301,7 +1425,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param ClusterPerformanceLimitationValuesDescriptor body: The procedure takes as input a structure containing the limitations on the performance of the cluster. (required)
     
@@ -1425,7 +1549,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param NVSRAMUpdateDescriptor body: An NVSRAMUpdateDescriptor object that specifies the region to be modified, the starting byte offset within the region, and the size and value of the new data to be stored into NVSRAM. (required)
     
@@ -1549,7 +1673,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: The value of the controller reference for the controller to be placed in service mode. (required)
     
@@ -1673,7 +1797,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param int body: A 64-bit integer value that represents the new clock value to be set on the controller. The integer specifies the time value as the number of seconds that have elapsed since 12:00AM GMT on January 1, 1970. (required)
     
@@ -1797,7 +1921,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: The value of the controller reference for the controller that is to be made active. (required)
     
@@ -1921,7 +2045,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: The value of the controller reference for the controller that is to be marked failed. (required)
     
@@ -2045,7 +2169,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: The value of the controller reference for the controller to be set to the optimal state. (required)
     
@@ -2169,7 +2293,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: The value of the controller reference for the controller that is to be made passive. (required)
     
@@ -2293,7 +2417,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param DiskPoolPriorityUpdateDescriptor body: An object containing all of the attributes required to set priorities for a Disk Pool. (required)
     
@@ -2417,7 +2541,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param DiskPoolReservedDriveCountUpdateDescriptor body: An object containing all of the attributes required to set a reserved drive count value on a disk pool. (required)
     
@@ -2541,7 +2665,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param DiskPoolThresholdUpdateDescriptor body: An object containing all of the attributes required to set utilization threshold values for a Disk Pool. (required)
     
@@ -2665,7 +2789,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: A reference to the Disk Pool to complete. (required)
     
@@ -2789,7 +2913,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param VolumeGroupLabelUpdateDescriptor body: A DiskPoolLabelUpdateDescriptor structure that contains the user label and a reference to the volume group to update. (required)
     
@@ -2913,7 +3037,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param DriveChannelStateDescriptor body: This object contains information on how to request a drive channel state change from the array. (required)
     
@@ -3037,7 +3161,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param DrivePhysicalSecurityIdDescriptor body: The input structure contains a reference to the drive and the Physical Security ID string. (required)
     
@@ -3161,7 +3285,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param int body: Polling interval in minutes. (required)
     
@@ -3285,7 +3409,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: The value of the drive reference for the drive that is to be marked failed. (required)
     
@@ -3409,7 +3533,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: The value of the drive reference for the drive to be returned to the optimal state. (required)
     
@@ -3514,6 +3638,130 @@ class SApi(object):
                                                 callback=params.get('callback'))
             return response
     
+    def symbol_set_external_kms_parameters(self, system_id, body, **kwargs):
+            """
+            Sets parameters necessary to communicate with an external key management server.
+            Documented return codes: ok. 
+
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please define a `callback` function
+            to be invoked when receiving the response.
+            >>> def callback_function(response):
+            >>>     pprint(response)
+            >>>
+    
+            >>> thread = api.symbol_set_external_kms_parameters(system_id, body, callback=callback_function)
+    
+    
+
+            :param callback function: The callback function
+                for asynchronous request. (optional)
+    
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
+    
+            :param ExternalKMSParametersSetDescriptor body:  (required)
+    
+            :param str controller: Controller selection
+    
+            :param bool verbose_error_response: 
+    
+            :return: str
+                     If the method is called asynchronously,
+                     returns the request thread.
+            :raises: ValueError
+                       If the required params are not provided or if the response data format is unknown.
+                     TypeError:
+                        When the data type of response data is different from what we are expecting
+                     ApiException:
+                        Occurs when we get a HTTP error code (422 and above).
+
+            """
+
+            all_params = ['system_id', 'body', 'controller', 'verbose_error_response']
+            all_params.append('callback')
+
+            params = locals()
+            for key, val in iteritems(params['kwargs']):
+                if key not in all_params:
+                    raise TypeError(
+                        "Got an unexpected keyword argument '%s'"
+                        " to method symbol_set_external_kms_parameters" % key
+                    )
+                params[key] = val
+            del params['kwargs']
+
+    
+    
+            # verify the required parameter 'system_id' is set
+            if ('system_id' not in params) or (params['system_id'] is None):
+                raise ValueError("Missing the required parameter `system_id` when calling `symbol_set_external_kms_parameters`")
+    
+    
+    
+            # verify the required parameter 'body' is set
+            if ('body' not in params) or (params['body'] is None):
+                raise ValueError("Missing the required parameter `body` when calling `symbol_set_external_kms_parameters`")
+    
+    
+    
+    
+    
+    
+
+            resource_path = '/storage-systems/{system-id}/symbol/setExternalKMSParameters'.replace('{format}', 'json')
+            path_params = {}
+    
+            if 'system_id' in params:
+                path_params['system-id'] = params['system_id']
+    
+
+            query_params = {}
+    
+            if 'controller' in params:
+                query_params['controller'] = params['controller']
+    
+            if 'verbose_error_response' in params:
+                query_params['verboseErrorResponse'] = params['verbose_error_response']
+    
+
+            header_params = {}
+    
+
+            form_params = []
+            local_var_files = {}
+    
+
+            body_params = None
+    
+            if 'body' in params:
+                body_params = params['body']
+    
+
+            # HTTP header `Accept`
+            header_params['Accept'] = self.api_client.\
+                select_header_accept(['application/json'])
+            if not header_params['Accept']:
+                del header_params['Accept']
+
+            # HTTP header `Content-Type`
+            header_params['Content-Type'] = self.api_client.\
+                select_header_content_type(['application/json'])
+
+            # Authentication setting
+            auth_settings = ['basicAuth']
+
+            response = self.api_client.call_api(resource_path, 'POST',
+                                                path_params,
+                                                query_params,
+                                                header_params,
+                                                body=body_params,
+                                                post_params=form_params,
+                                                files=local_var_files,
+                                                response_type='str',
+                                                auth_settings=auth_settings,
+                                                callback=params.get('callback'))
+            return response
+    
     def symbol_set_flash_cache_params(self, system_id, body, **kwargs):
             """
             This procedure sets the parameters on a given flash cache.
@@ -3533,7 +3781,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param FlashCacheParamsUpdateDescriptor body: A flash cache reference, configuration type, and whether or not flash cache should be enabled on new volumes. (required)
     
@@ -3657,7 +3905,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param FunctionStateDescriptor body: The function ID and the action to be performed. (required)
     
@@ -3781,7 +4029,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param HighResolutionRequestDescriptor body: None. (required)
     
@@ -3905,7 +4153,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param InterfaceUpdateDescriptor body: An InterfaceUpdateDescriptor object that provides new values for the host I/O interface parameters. (required)
     
@@ -4029,7 +4277,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param HostPortPropertiesUpdateDescriptor body: A HostPortPropertiesUpdateDescriptor structure which indicates the affected host port, which properties to set, and what values to set for them. (required)
     
@@ -4153,7 +4401,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param HostPortTypeUpdateDescriptor body: A HostPortTypeUpdateDescriptor object that identifies the HostPort to be modified, and also provides the new type index value that specifies the type of the host port. (required)
     
@@ -4258,6 +4506,130 @@ class SApi(object):
                                                 callback=params.get('callback'))
             return response
     
+    def symbol_set_host_ports_attributes(self, system_id, body, **kwargs):
+            """
+            This procedure sets selected HostPorts attributes, as specified by the input argument. It is meant to operate on a group of ports, for example all the ports on a host interface card or base board.
+            Documented return codes: ok. 
+
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please define a `callback` function
+            to be invoked when receiving the response.
+            >>> def callback_function(response):
+            >>>     pprint(response)
+            >>>
+    
+            >>> thread = api.symbol_set_host_ports_attributes(system_id, body, callback=callback_function)
+    
+    
+
+            :param callback function: The callback function
+                for asynchronous request. (optional)
+    
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
+    
+            :param HostPortsAttributesUpdateDescriptor body: A HostPortsAttributesUpdateDescriptor structure containing the arguments for the procedure call. (required)
+    
+            :param str controller: Controller selection
+    
+            :param bool verbose_error_response: 
+    
+            :return: str
+                     If the method is called asynchronously,
+                     returns the request thread.
+            :raises: ValueError
+                       If the required params are not provided or if the response data format is unknown.
+                     TypeError:
+                        When the data type of response data is different from what we are expecting
+                     ApiException:
+                        Occurs when we get a HTTP error code (422 and above).
+
+            """
+
+            all_params = ['system_id', 'body', 'controller', 'verbose_error_response']
+            all_params.append('callback')
+
+            params = locals()
+            for key, val in iteritems(params['kwargs']):
+                if key not in all_params:
+                    raise TypeError(
+                        "Got an unexpected keyword argument '%s'"
+                        " to method symbol_set_host_ports_attributes" % key
+                    )
+                params[key] = val
+            del params['kwargs']
+
+    
+    
+            # verify the required parameter 'system_id' is set
+            if ('system_id' not in params) or (params['system_id'] is None):
+                raise ValueError("Missing the required parameter `system_id` when calling `symbol_set_host_ports_attributes`")
+    
+    
+    
+            # verify the required parameter 'body' is set
+            if ('body' not in params) or (params['body'] is None):
+                raise ValueError("Missing the required parameter `body` when calling `symbol_set_host_ports_attributes`")
+    
+    
+    
+    
+    
+    
+
+            resource_path = '/storage-systems/{system-id}/symbol/setHostPortsAttributes'.replace('{format}', 'json')
+            path_params = {}
+    
+            if 'system_id' in params:
+                path_params['system-id'] = params['system_id']
+    
+
+            query_params = {}
+    
+            if 'controller' in params:
+                query_params['controller'] = params['controller']
+    
+            if 'verbose_error_response' in params:
+                query_params['verboseErrorResponse'] = params['verbose_error_response']
+    
+
+            header_params = {}
+    
+
+            form_params = []
+            local_var_files = {}
+    
+
+            body_params = None
+    
+            if 'body' in params:
+                body_params = params['body']
+    
+
+            # HTTP header `Accept`
+            header_params['Accept'] = self.api_client.\
+                select_header_accept(['application/json'])
+            if not header_params['Accept']:
+                del header_params['Accept']
+
+            # HTTP header `Content-Type`
+            header_params['Content-Type'] = self.api_client.\
+                select_header_content_type(['application/json'])
+
+            # Authentication setting
+            auth_settings = ['basicAuth']
+
+            response = self.api_client.call_api(resource_path, 'POST',
+                                                path_params,
+                                                query_params,
+                                                header_params,
+                                                body=body_params,
+                                                post_params=form_params,
+                                                files=local_var_files,
+                                                response_type='str',
+                                                auth_settings=auth_settings,
+                                                callback=params.get('callback'))
+            return response
+    
     def symbol_set_host_properties(self, system_id, body, **kwargs):
             """
             This procedure sets selected host properties as indicated by the input argument. It is a replacement for the deprecated moveHost, renameHost.
@@ -4277,7 +4649,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param HostPropertiesUpdateDescriptor body: A HostPropertiesUpdateDescriptor, indicating the affected Host, which properties to set, and what values to set them to. (required)
     
@@ -4401,7 +4773,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param HostSpecificNVSRAMUpdateDescriptor body: A HostSpecificNVSRAMUpdateDescriptor object that specifies the region ID (in this case 0xF2), the host index for a specific host, the starting offset within the region, the number of bytes, and the values to be written. (required)
     
@@ -4525,7 +4897,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str controller: Controller selection
     
@@ -4638,7 +5010,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param InitiatorPropertiesUpdateDescriptor body: An InitiatorPropertiesUpdateDescriptor, indicating which Initiator properties to set and what values to set them to. (required)
     
@@ -4762,7 +5134,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param IscsiEntityPropertiesUpdateDescriptor body: An IscsiEntityPropertiesUpdateDescriptor, indicating which iSCSI entity properties to set and what values to set them to. (required)
     
@@ -4886,7 +5258,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param IscsiInterfacePropertiesUpdateDescriptor body: An IscsiInterfacePropertiesUpdateDescriptor, indicating the affected iSCSI interface, which properties to set, and what values to set them to. (required)
     
@@ -5010,7 +5382,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str controller: Controller selection
     
@@ -5123,7 +5495,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param KeyValueTagMappingSetDescriptorList body: The input is a list of mappings, each mapping consists of a Volume Reference and a Key-Value Pair reference. This method will create the initial associations and can be used to perform a replacement of those associations. (required)
     
@@ -5247,7 +5619,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str controller: Controller selection
     
@@ -5360,7 +5732,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param EthernetParamsUpdateDescriptor body: An EthernetParamsUpdateDescriptor object that specifies the controller IP address, the gateway IP address, the network subnet mask, and bootp enable/disable. (required)
     
@@ -5465,6 +5837,243 @@ class SApi(object):
                                                 callback=params.get('callback'))
             return response
     
+    def symbol_set_nvme_host_interface_properties(self, system_id, body, **kwargs):
+            """
+            This procedure sets the properties of a NVMe over Fabrics Host Interface port.
+            Documented return codes: ok, invalidInterfaceref, invalidIpAddress. 
+
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please define a `callback` function
+            to be invoked when receiving the response.
+            >>> def callback_function(response):
+            >>>     pprint(response)
+            >>>
+    
+            >>> thread = api.symbol_set_nvme_host_interface_properties(system_id, body, callback=callback_function)
+    
+    
+
+            :param callback function: The callback function
+                for asynchronous request. (optional)
+    
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
+    
+            :param NVMeInterfacePropertiesUpdateDescriptor body: NVMe over Fabrics Host Interface Properties (required)
+    
+            :param str controller: Controller selection
+    
+            :param bool verbose_error_response: 
+    
+            :return: str
+                     If the method is called asynchronously,
+                     returns the request thread.
+            :raises: ValueError
+                       If the required params are not provided or if the response data format is unknown.
+                     TypeError:
+                        When the data type of response data is different from what we are expecting
+                     ApiException:
+                        Occurs when we get a HTTP error code (422 and above).
+
+            """
+
+            all_params = ['system_id', 'body', 'controller', 'verbose_error_response']
+            all_params.append('callback')
+
+            params = locals()
+            for key, val in iteritems(params['kwargs']):
+                if key not in all_params:
+                    raise TypeError(
+                        "Got an unexpected keyword argument '%s'"
+                        " to method symbol_set_nvme_host_interface_properties" % key
+                    )
+                params[key] = val
+            del params['kwargs']
+
+    
+    
+            # verify the required parameter 'system_id' is set
+            if ('system_id' not in params) or (params['system_id'] is None):
+                raise ValueError("Missing the required parameter `system_id` when calling `symbol_set_nvme_host_interface_properties`")
+    
+    
+    
+            # verify the required parameter 'body' is set
+            if ('body' not in params) or (params['body'] is None):
+                raise ValueError("Missing the required parameter `body` when calling `symbol_set_nvme_host_interface_properties`")
+    
+    
+    
+    
+    
+    
+
+            resource_path = '/storage-systems/{system-id}/symbol/setNVMeHostInterfaceProperties'.replace('{format}', 'json')
+            path_params = {}
+    
+            if 'system_id' in params:
+                path_params['system-id'] = params['system_id']
+    
+
+            query_params = {}
+    
+            if 'controller' in params:
+                query_params['controller'] = params['controller']
+    
+            if 'verbose_error_response' in params:
+                query_params['verboseErrorResponse'] = params['verbose_error_response']
+    
+
+            header_params = {}
+    
+
+            form_params = []
+            local_var_files = {}
+    
+
+            body_params = None
+    
+            if 'body' in params:
+                body_params = params['body']
+    
+
+            # HTTP header `Accept`
+            header_params['Accept'] = self.api_client.\
+                select_header_accept(['application/json'])
+            if not header_params['Accept']:
+                del header_params['Accept']
+
+            # HTTP header `Content-Type`
+            header_params['Content-Type'] = self.api_client.\
+                select_header_content_type(['application/json'])
+
+            # Authentication setting
+            auth_settings = ['basicAuth']
+
+            response = self.api_client.call_api(resource_path, 'POST',
+                                                path_params,
+                                                query_params,
+                                                header_params,
+                                                body=body_params,
+                                                post_params=form_params,
+                                                files=local_var_files,
+                                                response_type='str',
+                                                auth_settings=auth_settings,
+                                                callback=params.get('callback'))
+            return response
+    
+    def symbol_set_nvmeof_statistics_baseline(self, system_id, **kwargs):
+            """
+            This procedure, from the client's perspective, resets the NVMe over Fabrics baselined statistical counters to zero. It is a logical reset in the sense that the raw counts maintained in hardware and firmware are not actually reset; instead the firmware makes a snapshot of the current counter values and uses that to report deltas in counts when the statistics are fetched. The new baseline time is applied to both storage controllers, so that their counts are in sync with one another. If one storage controller resets without the other resetting, the counters become effectively out of sync and the client is made aware of this fact by the timestamp data reported along with the statistics.
+            Documented return codes: ok. 
+
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please define a `callback` function
+            to be invoked when receiving the response.
+            >>> def callback_function(response):
+            >>>     pprint(response)
+            >>>
+    
+            >>> thread = api.symbol_set_nvmeof_statistics_baseline(system_id, callback=callback_function)
+    
+    
+
+            :param callback function: The callback function
+                for asynchronous request. (optional)
+    
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
+    
+            :param str controller: Controller selection
+    
+            :param bool verbose_error_response: 
+    
+            :return: str
+                     If the method is called asynchronously,
+                     returns the request thread.
+            :raises: ValueError
+                       If the required params are not provided or if the response data format is unknown.
+                     TypeError:
+                        When the data type of response data is different from what we are expecting
+                     ApiException:
+                        Occurs when we get a HTTP error code (422 and above).
+
+            """
+
+            all_params = ['system_id', 'controller', 'verbose_error_response']
+            all_params.append('callback')
+
+            params = locals()
+            for key, val in iteritems(params['kwargs']):
+                if key not in all_params:
+                    raise TypeError(
+                        "Got an unexpected keyword argument '%s'"
+                        " to method symbol_set_nvmeof_statistics_baseline" % key
+                    )
+                params[key] = val
+            del params['kwargs']
+
+    
+    
+            # verify the required parameter 'system_id' is set
+            if ('system_id' not in params) or (params['system_id'] is None):
+                raise ValueError("Missing the required parameter `system_id` when calling `symbol_set_nvmeof_statistics_baseline`")
+    
+    
+    
+    
+    
+    
+
+            resource_path = '/storage-systems/{system-id}/symbol/setNVMeoFStatisticsBaseline'.replace('{format}', 'json')
+            path_params = {}
+    
+            if 'system_id' in params:
+                path_params['system-id'] = params['system_id']
+    
+
+            query_params = {}
+    
+            if 'controller' in params:
+                query_params['controller'] = params['controller']
+    
+            if 'verbose_error_response' in params:
+                query_params['verboseErrorResponse'] = params['verbose_error_response']
+    
+
+            header_params = {}
+    
+
+            form_params = []
+            local_var_files = {}
+    
+
+            body_params = None
+    
+
+            # HTTP header `Accept`
+            header_params['Accept'] = self.api_client.\
+                select_header_accept(['application/json'])
+            if not header_params['Accept']:
+                del header_params['Accept']
+
+            # HTTP header `Content-Type`
+            header_params['Content-Type'] = self.api_client.\
+                select_header_content_type(['application/json'])
+
+            # Authentication setting
+            auth_settings = ['basicAuth']
+
+            response = self.api_client.call_api(resource_path, 'POST',
+                                                path_params,
+                                                query_params,
+                                                header_params,
+                                                body=body_params,
+                                                post_params=form_params,
+                                                files=local_var_files,
+                                                response_type='str',
+                                                auth_settings=auth_settings,
+                                                callback=params.get('callback'))
+            return response
+    
     def symbol_set_pit_consistency_group_params(self, system_id, body, **kwargs):
             """
             This procedure will modify the attributes of a PiT consistency group.
@@ -5484,7 +6093,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param PITConsistencyGroupParamsUpdateDescriptor body: Descriptor for the consistency group parameters to be updated. (required)
     
@@ -5608,7 +6217,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param PITConsistencyGroupViewParamsUpdateDescriptor body: An object containing the required user-settable attributes to set on a PiT Consistency Group View. (required)
     
@@ -5732,7 +6341,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param PITGroupParamsUpdateDescriptor body: Structure containing PiT parameter data. (required)
     
@@ -5856,7 +6465,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param PITViewParamsUpdateDescriptor body: Descriptor for the PiT View parameters to be updated. (required)
     
@@ -5980,7 +6589,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param InitiatorTargetPropertiesUpdateDescriptor body: The updated settings for the new target initiator identified in the descriptor. (required)
     
@@ -6104,7 +6713,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param RloginUpdateDescriptor body: The RloginUpdateDescriptor object is used for specifying the remote login capability of the controller (required)
     
@@ -6228,7 +6837,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str controller: Controller selection
     
@@ -6341,7 +6950,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param SACacheParamsUpdateDescriptor body: An SACacheParamsUpdateDescriptor object that provides new values for the storage array cache management parameters. (required)
     
@@ -6465,7 +7074,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param int body: The desired media scan period, expressed in units of days. This value must be within the valid range of media scan periods supported the controller. (required)
     
@@ -6589,7 +7198,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param TrayPositionList body: The TrayPositionList object to be stored for future retrieval. (required)
     
@@ -6713,7 +7322,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: The new user-assigned label for the storage array. This value is presented to the controller as a variable-length opaque byte array. However, the intention is that the byte array will contain a string value in double-byte character set format, with each two bytes representing one character value. (required)
     
@@ -6837,7 +7446,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param EncryptedPassword body:  (required)
     
@@ -6961,7 +7570,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: An enumeration object that describes the controller's redundancy mode. Use CTRL_REDUNDANCY_MODE_DUPLEX to set the redundancy mode to duplex and CTRL_REDUNDANCY_MODE_SIMPLEX to set the redundancy mode to simplex. (required)
     
@@ -7085,7 +7694,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param SnapshotParamsUpdateDescriptor body: A SnapshotParamsUpdateDescriptor object that specifies the various snapshot parameters. (required)
     
@@ -7209,7 +7818,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param SNMPCommunityParamsUpdateDescriptorList body:  (required)
     
@@ -7333,7 +7942,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param SNMPSystemVariablesUpdateDescriptor body:  (required)
     
@@ -7457,7 +8066,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param SNMPTrapDestinationParamsUpdateDescriptorList body:  (required)
     
@@ -7581,7 +8190,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param StorageArrayPropertiesUpdateDescriptor body: A StorageArrayPropertiesUpdateDescriptor, indicating which properties to set and what values to set them to. (required)
     
@@ -7705,7 +8314,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param TargetPropertiesUpdateDescriptor body: A TargetPropertiesUpdateDescriptor, indicating the affected Target, which properties to set and what values to set them to. (required)
     
@@ -7829,7 +8438,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param ThinVolumeThresholdUpdateDescriptor body: An object containing all of the required attributes for setting the capacity threshold warning level on a thin volume. (required)
     
@@ -7953,7 +8562,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param ThinVolumeExpansionPolicyUpdateDescriptor body: An object containing all of the required attributes needed to set the repository volume expansion policy for a thin volume. (required)
     
@@ -8077,7 +8686,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param ThinVolumeCapacityQuotaUpdateDescriptor body: An object containing all of the required attributes needed to set a thin volume's provisioned capacity quota. (required)
     
@@ -8201,7 +8810,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param ThinVolumeReportingPolicyUpdateDescriptor body: A ThinVolumeReportingPolicyUpdateDescriptor structure containing the arguments for the procedure call. (required)
     
@@ -8325,7 +8934,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param TrayAttributeUpdateDescriptor body: A TrayAttributeUpdateDescriptor indicating which tray is to receive the attribute data, along with a list of elements defining new attribute data to be written. (required)
     
@@ -8449,7 +9058,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param int body: The delay period in seconds from 0 to 3600. (required)
     
@@ -8573,7 +9182,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param VolumeCacheParamsUpdateDescriptor body: A VolumeCacheParamsUpdateDescriptor object that specifies the volume whose cache parameters are to be updated, as well as the new parameter values themselves. (required)
     
@@ -8697,7 +9306,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param VolumeCopyParamsUpdateDescriptor body: A VolumeCopyParamsUpdateDescriptor object that identifies the copy request and a set of attributes to be used to update the existing attributes. (required)
     
@@ -8821,7 +9430,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: The value of the volume group reference for the volume group to be placed offline. (required)
     
@@ -8945,7 +9554,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: The value of the volume group reference for the volume group to be placed online. (required)
     
@@ -9069,7 +9678,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param VolumeGroupLabelUpdateDescriptor body: A VolumeGroupUserLabelUpdateDescriptor structure that contains the user label and a reference to the volume group to update. (required)
     
@@ -9193,7 +9802,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param AbstractVolRefList body: The list AbstractVolRefList of volumes to be placed online. (required)
     
@@ -9317,7 +9926,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param VolumeMediaScanParamsUpdateDescriptor body: A VolumeMediaScanParamsUpdateDescriptor object that identifies the volume to be modified, as well as the media scan settings to be used for the volume. (required)
     
@@ -9441,7 +10050,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param VolumeParamsUpdateDescriptor body: A VolumeParamsUpdateDescriptor object that specifies the volume whose parameters are to be updated, as well as the new parameter values themselves. (required)
     
@@ -9565,7 +10174,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param VolumePropertiesUpdateDescriptor body: A VolumePropertiesUpdateDescriptor structure specifying which properties to change and what their new values should be. (required)
     
@@ -9689,7 +10298,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param VolumeLabelUpdateDescriptor body: A VolumeLabelUpdateDescriptor object that contains the new user-assigned label for the volume. This value is presented to the controller as a variable-length opaque byte array. However, the intention is that the byte array will contain a string value in double-byte character set format, with each two bytes representing one character value. (required)
     
@@ -9813,7 +10422,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param FruDiagDescriptor body: A structure containing the test type for the procedure call. (required)
     
@@ -9937,7 +10546,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param FruDiagDescriptor body: A structure containing the test type and slot number for the procedure call. (required)
     
@@ -10061,7 +10670,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param FruDiagDescriptor body: A structure containing the test type for the controller. (required)
     
@@ -10185,7 +10794,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param PITConsistencyGroupRollbackStartDescriptor body: Descriptor for the consistency group rollback to be started. (required)
     
@@ -10309,7 +10918,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param ChannelDiagnosticDescriptor body: A ChannelDiagnosticDescriptor structure that contains all of the arguments needed to define the test to perform. (required)
     
@@ -10417,7 +11026,7 @@ class SApi(object):
     def symbol_start_channel_identification(self, system_id, body, **kwargs):
             """
             This procedure causes visual indicators to be activated on the specified channel. The indicators will remain active until the stopIdentification procedure is invoked.
-            Documented return codes: ok, error, illegalParam, noHeap. 
+            Documented return codes: ok, error, illegalParam, noHeap, noChannel. 
 
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please define a `callback` function
@@ -10433,7 +11042,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param int body: An integer value specifying the channel number. (required)
     
@@ -10557,7 +11166,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param DiskPoolExpansionDescriptor body: A reference to the Disk Pool to expand and the drives to use for the expansion. (required)
     
@@ -10681,7 +11290,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param DiskPoolReductionDescriptor body:  (required)
     
@@ -10805,7 +11414,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param DriveFirmwareDownload body: This object contains the list of drives to download and an indicator of whether or not to perform the download keeping the volumes online. (required)
     
@@ -10929,7 +11538,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param DriveRefList body: A list of drive reference objects that specifies the drives whose visual indicators are to be activated. (required)
     
@@ -11053,7 +11662,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: The value of the drive reference for the drive on which reconstruction is to begin. (required)
     
@@ -11177,7 +11786,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body:  (required)
     
@@ -11301,7 +11910,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param FruDiagDescriptor body: A structure containing the test type and slot number for the procedure call. (required)
     
@@ -11425,7 +12034,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str controller: Controller selection
     
@@ -11538,7 +12147,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param PITRefList body: A list of references to PiTs for which to start the rollback. (required)
     
@@ -11662,7 +12271,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param RawDataRestoreStartDesc body: Specifies the controller ref, data transfer type and transfer-type-specific parameters for the restore operation. (required)
     
@@ -11786,7 +12395,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param RawDataRetrieveStartDesc body: The controller ref and transfer-type-specific details of the retrieval. (required)
     
@@ -11910,7 +12519,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str controller: Controller selection
     
@@ -12023,7 +12632,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param SnapshotRefList body: A reference to the snapshots to roll back. (required)
     
@@ -12128,6 +12737,130 @@ class SApi(object):
                                                 callback=params.get('callback'))
             return response
     
+    def symbol_start_ssd_block_allocation_scan(self, system_id, body, **kwargs):
+            """
+            This procedure starts a slow background scan of the free or both free and allocated blocks for the requested devices. Background scan is long running and can be checked using the getSSDBlockAllocationScanStatus procedure.
+            Documented return codes: ok. 
+
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please define a `callback` function
+            to be invoked when receiving the response.
+            >>> def callback_function(response):
+            >>>     pprint(response)
+            >>>
+    
+            >>> thread = api.symbol_start_ssd_block_allocation_scan(system_id, body, callback=callback_function)
+    
+    
+
+            :param callback function: The callback function
+                for asynchronous request. (optional)
+    
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
+    
+            :param StartSSDBlockAllocationScanDescriptor body: A StartSSDBlockAllocationScanDescriptor specifying details of the start request. (required)
+    
+            :param str controller: Controller selection
+    
+            :param bool verbose_error_response: 
+    
+            :return: str
+                     If the method is called asynchronously,
+                     returns the request thread.
+            :raises: ValueError
+                       If the required params are not provided or if the response data format is unknown.
+                     TypeError:
+                        When the data type of response data is different from what we are expecting
+                     ApiException:
+                        Occurs when we get a HTTP error code (422 and above).
+
+            """
+
+            all_params = ['system_id', 'body', 'controller', 'verbose_error_response']
+            all_params.append('callback')
+
+            params = locals()
+            for key, val in iteritems(params['kwargs']):
+                if key not in all_params:
+                    raise TypeError(
+                        "Got an unexpected keyword argument '%s'"
+                        " to method symbol_start_ssd_block_allocation_scan" % key
+                    )
+                params[key] = val
+            del params['kwargs']
+
+    
+    
+            # verify the required parameter 'system_id' is set
+            if ('system_id' not in params) or (params['system_id'] is None):
+                raise ValueError("Missing the required parameter `system_id` when calling `symbol_start_ssd_block_allocation_scan`")
+    
+    
+    
+            # verify the required parameter 'body' is set
+            if ('body' not in params) or (params['body'] is None):
+                raise ValueError("Missing the required parameter `body` when calling `symbol_start_ssd_block_allocation_scan`")
+    
+    
+    
+    
+    
+    
+
+            resource_path = '/storage-systems/{system-id}/symbol/startSSDBlockAllocationScan'.replace('{format}', 'json')
+            path_params = {}
+    
+            if 'system_id' in params:
+                path_params['system-id'] = params['system_id']
+    
+
+            query_params = {}
+    
+            if 'controller' in params:
+                query_params['controller'] = params['controller']
+    
+            if 'verbose_error_response' in params:
+                query_params['verboseErrorResponse'] = params['verbose_error_response']
+    
+
+            header_params = {}
+    
+
+            form_params = []
+            local_var_files = {}
+    
+
+            body_params = None
+    
+            if 'body' in params:
+                body_params = params['body']
+    
+
+            # HTTP header `Accept`
+            header_params['Accept'] = self.api_client.\
+                select_header_accept(['application/json'])
+            if not header_params['Accept']:
+                del header_params['Accept']
+
+            # HTTP header `Content-Type`
+            header_params['Content-Type'] = self.api_client.\
+                select_header_content_type(['application/json'])
+
+            # Authentication setting
+            auth_settings = ['basicAuth']
+
+            response = self.api_client.call_api(resource_path, 'POST',
+                                                path_params,
+                                                query_params,
+                                                header_params,
+                                                body=body_params,
+                                                post_params=form_params,
+                                                files=local_var_files,
+                                                response_type='str',
+                                                auth_settings=auth_settings,
+                                                callback=params.get('callback'))
+            return response
+    
     def symbol_start_sync_mirror(self, system_id, body, **kwargs):
             """
             This procedure starts the synchronization process on a mirror.
@@ -12147,7 +12880,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: The value of the mirror that is to be synchronized. (required)
     
@@ -12271,7 +13004,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param TrayRefList body: A list of the trays. (required)
     
@@ -12395,7 +13128,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: A descriptor object that identifies the volumes to perform the copy operation. (required)
     
@@ -12519,7 +13252,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param VolumeExpansionDescriptor body: A VolumeExpansionDescriptor object that identifies the volume to be expanded, plus the drive or drives to be added to the volume. All drives specified for this operation must be in the unassigned state initially. (required)
     
@@ -12643,7 +13376,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: The value of the volume reference for the volume that is to be reformatted. (required)
     
@@ -12767,7 +13500,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: The value of a volume group reference for the volume group that is to be defragmented. (required)
     
@@ -12891,7 +13624,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param VolumeGroupExpansionDescriptor body: A VolumeGroupExpansionDescriptor object that identifies the volume group to be expanded, plus the drive or drives to be added to the volume group. All drives specified for this operation must be in the unassigned state initially. (required)
     
@@ -13015,7 +13748,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: The AbstractVolRef of the volume on which the operation is to be performed. (required)
     
@@ -13139,7 +13872,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param VolumeRAIDMigrationDescriptor body: A VolumeRAIDMigrationDescriptor object that identifies the volume group and the new RAID level to be used. (required)
     
@@ -13263,7 +13996,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param VolumeSegmentSizingDescriptor body: A VolumeSegmentSizingDescriptor object that identifies the volume and the new segment size to be used. (required)
     
@@ -13387,7 +14120,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: A character string indicating the function being called and up to 2 function arguments. The individual elements of the string are separated by commas. (required)
     
@@ -13511,7 +14244,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str controller: Controller selection
     
@@ -13624,7 +14357,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str controller: Controller selection
     
@@ -13737,7 +14470,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body:  (required)
     
@@ -13861,7 +14594,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str controller: Controller selection
     
@@ -13974,7 +14707,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param int body: An TargetSessionIdentifyingHandle object indicating which session to terminate. (required)
     
@@ -14098,7 +14831,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str controller: Controller selection
     
@@ -14211,7 +14944,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param PITConsistencyGroupViewStopDescriptor body: An object containing all of the attributes required to stop a PiT Consistency Group View. (required)
     
@@ -14335,7 +15068,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: Reference to PiT View to be stopped. (required)
     
@@ -14459,7 +15192,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: The VolumeCopyRef object to halt the active copy. (required)
     
@@ -14583,7 +15316,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param AsyncMirrorGroupSuspendDescriptor body: A descriptor that lists the AMG on which the synchronization is to be suspended. (required)
     
@@ -14707,7 +15440,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: This object contains information about the write consistency group object. (required)
     
@@ -14831,7 +15564,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: The flash cache reference. (required)
     
@@ -14955,7 +15688,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: This object contains information identifying the Mirror Proxy Volume to be removed. (required)
     
@@ -15079,7 +15812,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param MirrorVolumeList body: This object contains information identifying the list of Mirror Volumes to suspend. (required)
     
@@ -15203,7 +15936,7 @@ class SApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param AsyncMirrorGroupSynchronizeDescriptor body: A reference to the Asynchronous Mirror Group to synchronize. (required)
     

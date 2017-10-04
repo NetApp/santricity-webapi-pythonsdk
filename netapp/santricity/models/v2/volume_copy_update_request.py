@@ -70,7 +70,7 @@ class VolumeCopyUpdateRequest(object):
         :param copy_priority: The copy_priority of this VolumeCopyUpdateRequest.
         :type: str
         """
-        allowed_values = ["priority0", "priority1", "priority2", "priority3", "priority4", "__UNDEFINED"]
+        allowed_values = ["priority0", "priority1", "priority2", "priority3", "priority4", "__UNDEFINED", None]
         if copy_priority not in allowed_values:
             raise ValueError(
                 "Invalid value for `copy_priority`, must be one of {0}"

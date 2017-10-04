@@ -39,18 +39,21 @@ class ScsiNodeName(object):
         self.swagger_types = {
             'io_interface_type': 'str',  # (required parameter)
             'iscsi_node_name': 'str',  
-            'remote_node_wwn': 'str'
+            'remote_node_wwn': 'str',  
+            'nvme_node_name': 'str'
         }
 
         self.attribute_map = {
             'io_interface_type': 'ioInterfaceType',  # (required parameter)
             'iscsi_node_name': 'iscsiNodeName',  
-            'remote_node_wwn': 'remoteNodeWWN'
+            'remote_node_wwn': 'remoteNodeWWN',  
+            'nvme_node_name': 'nvmeNodeName'
         }
 
         self._io_interface_type = None
         self._iscsi_node_name = None
         self._remote_node_wwn = None
+        self._nvme_node_name = None
 
     @property
     def io_interface_type(self):
@@ -73,7 +76,7 @@ class ScsiNodeName(object):
         :param io_interface_type: The io_interface_type of this ScsiNodeName.
         :type: str
         """
-        allowed_values = ["notImplemented", "scsi", "fc", "sata", "sas", "iscsi", "ib", "fcoe", "__UNDEFINED"]
+        allowed_values = ["notImplemented", "scsi", "fc", "sata", "sas", "iscsi", "ib", "fcoe", "nvmeof", "__UNDEFINED"]
         if io_interface_type not in allowed_values:
             raise ValueError(
                 "Invalid value for `io_interface_type`, must be one of {0}"
@@ -126,6 +129,29 @@ class ScsiNodeName(object):
         :type: str
         """
         self._remote_node_wwn = remote_node_wwn
+
+    @property
+    def nvme_node_name(self):
+        """
+        Gets the nvme_node_name of this ScsiNodeName.
+        Host NVMe Qualified Name (NQN)
+
+        :return: The nvme_node_name of this ScsiNodeName.
+        :rtype: str
+        :required/optional: optional
+        """
+        return self._nvme_node_name
+
+    @nvme_node_name.setter
+    def nvme_node_name(self, nvme_node_name):
+        """
+        Sets the nvme_node_name of this ScsiNodeName.
+        Host NVMe Qualified Name (NQN)
+
+        :param nvme_node_name: The nvme_node_name of this ScsiNodeName.
+        :type: str
+        """
+        self._nvme_node_name = nvme_node_name
 
     def to_dict(self):
         """

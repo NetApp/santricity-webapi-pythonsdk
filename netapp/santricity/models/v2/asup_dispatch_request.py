@@ -76,11 +76,11 @@ class AsupDispatchRequest(object):
     def dispatch_type(self):
         """
         Gets the dispatch_type of this AsupDispatchRequest.
-        The type of dispatch to be executed
+        The type of dispatch to be executed = ['0' is daily, '1' is weekly, '2' is monthly, '3' is manual (default), '4' is test]
 
         :return: The dispatch_type of this AsupDispatchRequest.
         :rtype: int
-        :required/optional: required
+        :required/optional: optional
         """
         return self._dispatch_type
 
@@ -88,7 +88,7 @@ class AsupDispatchRequest(object):
     def dispatch_type(self, dispatch_type):
         """
         Sets the dispatch_type of this AsupDispatchRequest.
-        The type of dispatch to be executed
+        The type of dispatch to be executed = ['0' is daily, '1' is weekly, '2' is monthly, '3' is manual (default), '4' is test]
 
         :param dispatch_type: The dispatch_type of this AsupDispatchRequest.
         :type: int

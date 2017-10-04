@@ -158,7 +158,7 @@ class PoolStatistics(object):
     def observed_time(self):
         """
         Gets the observed_time of this PoolStatistics.
-
+        End time for this collection as measured by the number of seconds since baseTime.
 
         :return: The observed_time of this PoolStatistics.
         :rtype: datetime
@@ -170,7 +170,7 @@ class PoolStatistics(object):
     def observed_time(self, observed_time):
         """
         Sets the observed_time of this PoolStatistics.
-
+        End time for this collection as measured by the number of seconds since baseTime.
 
         :param observed_time: The observed_time of this PoolStatistics.
         :type: datetime
@@ -319,7 +319,7 @@ class PoolStatistics(object):
     def read_ops(self):
         """
         Gets the read_ops of this PoolStatistics.
-
+        Number of read operations
 
         :return: The read_ops of this PoolStatistics.
         :rtype: float
@@ -331,7 +331,7 @@ class PoolStatistics(object):
     def read_ops(self, read_ops):
         """
         Sets the read_ops of this PoolStatistics.
-
+        Number of read operations
 
         :param read_ops: The read_ops of this PoolStatistics.
         :type: float
@@ -434,7 +434,7 @@ class PoolStatistics(object):
     def write_ops(self):
         """
         Gets the write_ops of this PoolStatistics.
-
+        Number of write operations
 
         :return: The write_ops of this PoolStatistics.
         :rtype: float
@@ -446,7 +446,7 @@ class PoolStatistics(object):
     def write_ops(self, write_ops):
         """
         Sets the write_ops of this PoolStatistics.
-
+        Number of write operations
 
         :param write_ops: The write_ops of this PoolStatistics.
         :type: float

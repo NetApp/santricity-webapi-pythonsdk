@@ -76,7 +76,7 @@ class Dom0SupportDataChunkDetails(object):
     def dom0_support_data_type(self):
         """
         Gets the dom0_support_data_type of this Dom0SupportDataChunkDetails.
-        Sepcified which type of support data we're processing.
+        Specified which type of support data we're processing.
 
         :return: The dom0_support_data_type of this Dom0SupportDataChunkDetails.
         :rtype: str
@@ -88,7 +88,7 @@ class Dom0SupportDataChunkDetails(object):
     def dom0_support_data_type(self, dom0_support_data_type):
         """
         Sets the dom0_support_data_type of this Dom0SupportDataChunkDetails.
-        Sepcified which type of support data we're processing.
+        Specified which type of support data we're processing.
 
         :param dom0_support_data_type: The dom0_support_data_type of this Dom0SupportDataChunkDetails.
         :type: str

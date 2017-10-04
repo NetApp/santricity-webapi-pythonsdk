@@ -206,7 +206,7 @@ class SnapshotGroupCreateRequest(object):
         :param full_policy: The full_policy of this SnapshotGroupCreateRequest.
         :type: str
         """
-        allowed_values = ["unknown", "failbasewrites", "purgepit", "__UNDEFINED"]
+        allowed_values = ["unknown", "failbasewrites", "purgepit", "__UNDEFINED", None]
         if full_policy not in allowed_values:
             raise ValueError(
                 "Invalid value for `full_policy`, must be one of {0}"

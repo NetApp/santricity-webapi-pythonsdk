@@ -119,7 +119,7 @@ class MgmtClientRecordId(object):
         :param group_id: The group_id of this MgmtClientRecordId.
         :type: str
         """
-        allowed_values = ["apollo", "aggregation", "smis", "groupIdInternal", "appAware", "asup", "asupConfiguration", "prefStoreGlobal", "prefStoreArray", "persistentMonitor", "ssdWearLevelData", "__UNDEFINED"]
+        allowed_values = ["apollo", "aggregation", "smis", "groupIdInternal", "appAware", "asup", "asupConfiguration", "prefStoreGlobal", "prefStoreArray", "persistentMonitor", "ssdWearLevelData", "ldapConfiguration", "__UNDEFINED"]
         if group_id not in allowed_values:
             raise ValueError(
                 "Invalid value for `group_id`, must be one of {0}"

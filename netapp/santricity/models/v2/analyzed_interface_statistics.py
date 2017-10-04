@@ -107,7 +107,7 @@ class AnalyzedInterfaceStatistics(object):
     def observed_time(self):
         """
         Gets the observed_time of this AnalyzedInterfaceStatistics.
-
+        A timestamp representing when the data was collected
 
         :return: The observed_time of this AnalyzedInterfaceStatistics.
         :rtype: datetime
@@ -119,7 +119,7 @@ class AnalyzedInterfaceStatistics(object):
     def observed_time(self, observed_time):
         """
         Sets the observed_time of this AnalyzedInterfaceStatistics.
-
+        A timestamp representing when the data was collected
 
         :param observed_time: The observed_time of this AnalyzedInterfaceStatistics.
         :type: datetime
@@ -130,7 +130,7 @@ class AnalyzedInterfaceStatistics(object):
     def observed_time_in_ms(self):
         """
         Gets the observed_time_in_ms of this AnalyzedInterfaceStatistics.
-
+        The time in which this data was polled and generated in milliseconds
 
         :return: The observed_time_in_ms of this AnalyzedInterfaceStatistics.
         :rtype: int
@@ -142,7 +142,7 @@ class AnalyzedInterfaceStatistics(object):
     def observed_time_in_ms(self, observed_time_in_ms):
         """
         Sets the observed_time_in_ms of this AnalyzedInterfaceStatistics.
-
+        The time in which this data was polled and generated in milliseconds
 
         :param observed_time_in_ms: The observed_time_in_ms of this AnalyzedInterfaceStatistics.
         :type: int
@@ -153,7 +153,7 @@ class AnalyzedInterfaceStatistics(object):
     def read_i_ops(self):
         """
         Gets the read_i_ops of this AnalyzedInterfaceStatistics.
-        read_iops double NOT NULL
+        Read operations per second.
 
         :return: The read_i_ops of this AnalyzedInterfaceStatistics.
         :rtype: float
@@ -165,7 +165,7 @@ class AnalyzedInterfaceStatistics(object):
     def read_i_ops(self, read_i_ops):
         """
         Sets the read_i_ops of this AnalyzedInterfaceStatistics.
-        read_iops double NOT NULL
+        Read operations per second.
 
         :param read_i_ops: The read_i_ops of this AnalyzedInterfaceStatistics.
         :type: float
@@ -176,7 +176,7 @@ class AnalyzedInterfaceStatistics(object):
     def write_i_ops(self):
         """
         Gets the write_i_ops of this AnalyzedInterfaceStatistics.
-        write_iops double NOT NULL
+        Write operations per second.
 
         :return: The write_i_ops of this AnalyzedInterfaceStatistics.
         :rtype: float
@@ -188,7 +188,7 @@ class AnalyzedInterfaceStatistics(object):
     def write_i_ops(self, write_i_ops):
         """
         Sets the write_i_ops of this AnalyzedInterfaceStatistics.
-        write_iops double NOT NULL
+        Write operations per second.
 
         :param write_i_ops: The write_i_ops of this AnalyzedInterfaceStatistics.
         :type: float
@@ -199,7 +199,7 @@ class AnalyzedInterfaceStatistics(object):
     def other_i_ops(self):
         """
         Gets the other_i_ops of this AnalyzedInterfaceStatistics.
-        other_iops double NOT NULL
+        SCSI Operations to the disk that are not read/write operations. Example: Test Unit Ready.
 
         :return: The other_i_ops of this AnalyzedInterfaceStatistics.
         :rtype: float
@@ -211,7 +211,7 @@ class AnalyzedInterfaceStatistics(object):
     def other_i_ops(self, other_i_ops):
         """
         Sets the other_i_ops of this AnalyzedInterfaceStatistics.
-        other_iops double NOT NULL
+        SCSI Operations to the disk that are not read/write operations. Example: Test Unit Ready.
 
         :param other_i_ops: The other_i_ops of this AnalyzedInterfaceStatistics.
         :type: float
@@ -222,7 +222,7 @@ class AnalyzedInterfaceStatistics(object):
     def combined_i_ops(self):
         """
         Gets the combined_i_ops of this AnalyzedInterfaceStatistics.
-        combined_iops double NOT NULL
+        All operations per second.
 
         :return: The combined_i_ops of this AnalyzedInterfaceStatistics.
         :rtype: float
@@ -234,7 +234,7 @@ class AnalyzedInterfaceStatistics(object):
     def combined_i_ops(self, combined_i_ops):
         """
         Sets the combined_i_ops of this AnalyzedInterfaceStatistics.
-        combined_iops double NOT NULL
+        All operations per second.
 
         :param combined_i_ops: The combined_i_ops of this AnalyzedInterfaceStatistics.
         :type: float
@@ -245,7 +245,7 @@ class AnalyzedInterfaceStatistics(object):
     def read_throughput(self):
         """
         Gets the read_throughput of this AnalyzedInterfaceStatistics.
-        read_throughput double NOT NULL
+        Read throughput in MB/s.
 
         :return: The read_throughput of this AnalyzedInterfaceStatistics.
         :rtype: float
@@ -257,7 +257,7 @@ class AnalyzedInterfaceStatistics(object):
     def read_throughput(self, read_throughput):
         """
         Sets the read_throughput of this AnalyzedInterfaceStatistics.
-        read_throughput double NOT NULL
+        Read throughput in MB/s.
 
         :param read_throughput: The read_throughput of this AnalyzedInterfaceStatistics.
         :type: float
@@ -268,7 +268,7 @@ class AnalyzedInterfaceStatistics(object):
     def write_throughput(self):
         """
         Gets the write_throughput of this AnalyzedInterfaceStatistics.
-        write_throughput double NOT NULL
+        Write throughput in MB/s.
 
         :return: The write_throughput of this AnalyzedInterfaceStatistics.
         :rtype: float
@@ -280,7 +280,7 @@ class AnalyzedInterfaceStatistics(object):
     def write_throughput(self, write_throughput):
         """
         Sets the write_throughput of this AnalyzedInterfaceStatistics.
-        write_throughput double NOT NULL
+        Write throughput in MB/s.
 
         :param write_throughput: The write_throughput of this AnalyzedInterfaceStatistics.
         :type: float
@@ -291,7 +291,7 @@ class AnalyzedInterfaceStatistics(object):
     def combined_throughput(self):
         """
         Gets the combined_throughput of this AnalyzedInterfaceStatistics.
-        combined_throughput double NOT NULL
+        Combined read/write throughput in MB/s.
 
         :return: The combined_throughput of this AnalyzedInterfaceStatistics.
         :rtype: float
@@ -303,7 +303,7 @@ class AnalyzedInterfaceStatistics(object):
     def combined_throughput(self, combined_throughput):
         """
         Sets the combined_throughput of this AnalyzedInterfaceStatistics.
-        combined_throughput double NOT NULL
+        Combined read/write throughput in MB/s.
 
         :param combined_throughput: The combined_throughput of this AnalyzedInterfaceStatistics.
         :type: float
@@ -314,7 +314,7 @@ class AnalyzedInterfaceStatistics(object):
     def read_response_time(self):
         """
         Gets the read_response_time of this AnalyzedInterfaceStatistics.
-        read_response_time double NOT NULL
+        Read response time average in milliseconds.
 
         :return: The read_response_time of this AnalyzedInterfaceStatistics.
         :rtype: float
@@ -326,7 +326,7 @@ class AnalyzedInterfaceStatistics(object):
     def read_response_time(self, read_response_time):
         """
         Sets the read_response_time of this AnalyzedInterfaceStatistics.
-        read_response_time double NOT NULL
+        Read response time average in milliseconds.
 
         :param read_response_time: The read_response_time of this AnalyzedInterfaceStatistics.
         :type: float
@@ -337,7 +337,7 @@ class AnalyzedInterfaceStatistics(object):
     def write_response_time(self):
         """
         Gets the write_response_time of this AnalyzedInterfaceStatistics.
-        write_response_time double NOT NULL
+        Write response time average in milliseconds.
 
         :return: The write_response_time of this AnalyzedInterfaceStatistics.
         :rtype: float
@@ -349,7 +349,7 @@ class AnalyzedInterfaceStatistics(object):
     def write_response_time(self, write_response_time):
         """
         Sets the write_response_time of this AnalyzedInterfaceStatistics.
-        write_response_time double NOT NULL
+        Write response time average in milliseconds.
 
         :param write_response_time: The write_response_time of this AnalyzedInterfaceStatistics.
         :type: float
@@ -360,7 +360,7 @@ class AnalyzedInterfaceStatistics(object):
     def combined_response_time(self):
         """
         Gets the combined_response_time of this AnalyzedInterfaceStatistics.
-        combined_response_time double NOT NULL
+        Combined average response time in milliseconds.
 
         :return: The combined_response_time of this AnalyzedInterfaceStatistics.
         :rtype: float
@@ -372,7 +372,7 @@ class AnalyzedInterfaceStatistics(object):
     def combined_response_time(self, combined_response_time):
         """
         Sets the combined_response_time of this AnalyzedInterfaceStatistics.
-        combined_response_time double NOT NULL
+        Combined average response time in milliseconds.
 
         :param combined_response_time: The combined_response_time of this AnalyzedInterfaceStatistics.
         :type: float
@@ -383,7 +383,7 @@ class AnalyzedInterfaceStatistics(object):
     def average_read_op_size(self):
         """
         Gets the average_read_op_size of this AnalyzedInterfaceStatistics.
-
+        Average read operation size in bytes.
 
         :return: The average_read_op_size of this AnalyzedInterfaceStatistics.
         :rtype: float
@@ -395,7 +395,7 @@ class AnalyzedInterfaceStatistics(object):
     def average_read_op_size(self, average_read_op_size):
         """
         Sets the average_read_op_size of this AnalyzedInterfaceStatistics.
-
+        Average read operation size in bytes.
 
         :param average_read_op_size: The average_read_op_size of this AnalyzedInterfaceStatistics.
         :type: float
@@ -406,7 +406,7 @@ class AnalyzedInterfaceStatistics(object):
     def average_write_op_size(self):
         """
         Gets the average_write_op_size of this AnalyzedInterfaceStatistics.
-
+        Average write operation size in bytes.
 
         :return: The average_write_op_size of this AnalyzedInterfaceStatistics.
         :rtype: float
@@ -418,7 +418,7 @@ class AnalyzedInterfaceStatistics(object):
     def average_write_op_size(self, average_write_op_size):
         """
         Sets the average_write_op_size of this AnalyzedInterfaceStatistics.
-
+        Average write operation size in bytes.
 
         :param average_write_op_size: The average_write_op_size of this AnalyzedInterfaceStatistics.
         :type: float
@@ -429,7 +429,7 @@ class AnalyzedInterfaceStatistics(object):
     def read_ops(self):
         """
         Gets the read_ops of this AnalyzedInterfaceStatistics.
-
+        The amount of read operations in this analysed interval.
 
         :return: The read_ops of this AnalyzedInterfaceStatistics.
         :rtype: float
@@ -441,7 +441,7 @@ class AnalyzedInterfaceStatistics(object):
     def read_ops(self, read_ops):
         """
         Sets the read_ops of this AnalyzedInterfaceStatistics.
-
+        The amount of read operations in this analysed interval.
 
         :param read_ops: The read_ops of this AnalyzedInterfaceStatistics.
         :type: float
@@ -452,7 +452,7 @@ class AnalyzedInterfaceStatistics(object):
     def write_ops(self):
         """
         Gets the write_ops of this AnalyzedInterfaceStatistics.
-
+        The amount of write operations in this analysed interval.
 
         :return: The write_ops of this AnalyzedInterfaceStatistics.
         :rtype: float
@@ -464,7 +464,7 @@ class AnalyzedInterfaceStatistics(object):
     def write_ops(self, write_ops):
         """
         Sets the write_ops of this AnalyzedInterfaceStatistics.
-
+        The amount of write operations in this analysed interval.
 
         :param write_ops: The write_ops of this AnalyzedInterfaceStatistics.
         :type: float
@@ -498,7 +498,7 @@ class AnalyzedInterfaceStatistics(object):
     def channel_type(self):
         """
         Gets the channel_type of this AnalyzedInterfaceStatistics.
-        Channel Type enumeration Drive side, host side, or management.
+        The channel type for the interface.
 
         :return: The channel_type of this AnalyzedInterfaceStatistics.
         :rtype: str
@@ -510,7 +510,7 @@ class AnalyzedInterfaceStatistics(object):
     def channel_type(self, channel_type):
         """
         Sets the channel_type of this AnalyzedInterfaceStatistics.
-        Channel Type enumeration Drive side, host side, or management.
+        The channel type for the interface.
 
         :param channel_type: The channel_type of this AnalyzedInterfaceStatistics.
         :type: str

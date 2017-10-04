@@ -38,52 +38,52 @@ class Locale(object):
         """
         self.swagger_types = {
             'language': 'str',  
-            'country': 'str',  
-            'display_country': 'str',  
-            'display_language': 'str',  
-            'display_name': 'str',  
-            'display_script': 'str',  
-            'display_variant': 'str',  
-            'extension_keys': 'list[str]',  
-            'iso3_country': 'str',  
-            'iso3_language': 'str',  
             'script': 'str',  
+            'country': 'str',  
+            'variant': 'str',  
+            'extension_keys': 'list[str]',  
             'unicode_locale_attributes': 'list[str]',  
             'unicode_locale_keys': 'list[str]',  
-            'variant': 'str'
+            'iso3_language': 'str',  
+            'iso3_country': 'str',  
+            'display_language': 'str',  
+            'display_script': 'str',  
+            'display_country': 'str',  
+            'display_variant': 'str',  
+            'display_name': 'str'
         }
 
         self.attribute_map = {
             'language': 'language',  
-            'country': 'country',  
-            'display_country': 'displayCountry',  
-            'display_language': 'displayLanguage',  
-            'display_name': 'displayName',  
-            'display_script': 'displayScript',  
-            'display_variant': 'displayVariant',  
-            'extension_keys': 'extensionKeys',  
-            'iso3_country': 'iso3Country',  
-            'iso3_language': 'iso3Language',  
             'script': 'script',  
+            'country': 'country',  
+            'variant': 'variant',  
+            'extension_keys': 'extensionKeys',  
             'unicode_locale_attributes': 'unicodeLocaleAttributes',  
             'unicode_locale_keys': 'unicodeLocaleKeys',  
-            'variant': 'variant'
+            'iso3_language': 'iso3Language',  
+            'iso3_country': 'iso3Country',  
+            'display_language': 'displayLanguage',  
+            'display_script': 'displayScript',  
+            'display_country': 'displayCountry',  
+            'display_variant': 'displayVariant',  
+            'display_name': 'displayName'
         }
 
         self._language = None
-        self._country = None
-        self._display_country = None
-        self._display_language = None
-        self._display_name = None
-        self._display_script = None
-        self._display_variant = None
-        self._extension_keys = None
-        self._iso3_country = None
-        self._iso3_language = None
         self._script = None
+        self._country = None
+        self._variant = None
+        self._extension_keys = None
         self._unicode_locale_attributes = None
         self._unicode_locale_keys = None
-        self._variant = None
+        self._iso3_language = None
+        self._iso3_country = None
+        self._display_language = None
+        self._display_script = None
+        self._display_country = None
+        self._display_variant = None
+        self._display_name = None
 
     @property
     def language(self):
@@ -109,6 +109,29 @@ class Locale(object):
         self._language = language
 
     @property
+    def script(self):
+        """
+        Gets the script of this Locale.
+
+
+        :return: The script of this Locale.
+        :rtype: str
+        :required/optional: optional
+        """
+        return self._script
+
+    @script.setter
+    def script(self, script):
+        """
+        Sets the script of this Locale.
+
+
+        :param script: The script of this Locale.
+        :type: str
+        """
+        self._script = script
+
+    @property
     def country(self):
         """
         Gets the country of this Locale.
@@ -132,119 +155,27 @@ class Locale(object):
         self._country = country
 
     @property
-    def display_country(self):
+    def variant(self):
         """
-        Gets the display_country of this Locale.
+        Gets the variant of this Locale.
 
 
-        :return: The display_country of this Locale.
+        :return: The variant of this Locale.
         :rtype: str
         :required/optional: optional
         """
-        return self._display_country
+        return self._variant
 
-    @display_country.setter
-    def display_country(self, display_country):
+    @variant.setter
+    def variant(self, variant):
         """
-        Sets the display_country of this Locale.
+        Sets the variant of this Locale.
 
 
-        :param display_country: The display_country of this Locale.
+        :param variant: The variant of this Locale.
         :type: str
         """
-        self._display_country = display_country
-
-    @property
-    def display_language(self):
-        """
-        Gets the display_language of this Locale.
-
-
-        :return: The display_language of this Locale.
-        :rtype: str
-        :required/optional: optional
-        """
-        return self._display_language
-
-    @display_language.setter
-    def display_language(self, display_language):
-        """
-        Sets the display_language of this Locale.
-
-
-        :param display_language: The display_language of this Locale.
-        :type: str
-        """
-        self._display_language = display_language
-
-    @property
-    def display_name(self):
-        """
-        Gets the display_name of this Locale.
-
-
-        :return: The display_name of this Locale.
-        :rtype: str
-        :required/optional: optional
-        """
-        return self._display_name
-
-    @display_name.setter
-    def display_name(self, display_name):
-        """
-        Sets the display_name of this Locale.
-
-
-        :param display_name: The display_name of this Locale.
-        :type: str
-        """
-        self._display_name = display_name
-
-    @property
-    def display_script(self):
-        """
-        Gets the display_script of this Locale.
-
-
-        :return: The display_script of this Locale.
-        :rtype: str
-        :required/optional: optional
-        """
-        return self._display_script
-
-    @display_script.setter
-    def display_script(self, display_script):
-        """
-        Sets the display_script of this Locale.
-
-
-        :param display_script: The display_script of this Locale.
-        :type: str
-        """
-        self._display_script = display_script
-
-    @property
-    def display_variant(self):
-        """
-        Gets the display_variant of this Locale.
-
-
-        :return: The display_variant of this Locale.
-        :rtype: str
-        :required/optional: optional
-        """
-        return self._display_variant
-
-    @display_variant.setter
-    def display_variant(self, display_variant):
-        """
-        Sets the display_variant of this Locale.
-
-
-        :param display_variant: The display_variant of this Locale.
-        :type: str
-        """
-        self._display_variant = display_variant
+        self._variant = variant
 
     @property
     def extension_keys(self):
@@ -268,75 +199,6 @@ class Locale(object):
         :type: list[str]
         """
         self._extension_keys = extension_keys
-
-    @property
-    def iso3_country(self):
-        """
-        Gets the iso3_country of this Locale.
-
-
-        :return: The iso3_country of this Locale.
-        :rtype: str
-        :required/optional: optional
-        """
-        return self._iso3_country
-
-    @iso3_country.setter
-    def iso3_country(self, iso3_country):
-        """
-        Sets the iso3_country of this Locale.
-
-
-        :param iso3_country: The iso3_country of this Locale.
-        :type: str
-        """
-        self._iso3_country = iso3_country
-
-    @property
-    def iso3_language(self):
-        """
-        Gets the iso3_language of this Locale.
-
-
-        :return: The iso3_language of this Locale.
-        :rtype: str
-        :required/optional: optional
-        """
-        return self._iso3_language
-
-    @iso3_language.setter
-    def iso3_language(self, iso3_language):
-        """
-        Sets the iso3_language of this Locale.
-
-
-        :param iso3_language: The iso3_language of this Locale.
-        :type: str
-        """
-        self._iso3_language = iso3_language
-
-    @property
-    def script(self):
-        """
-        Gets the script of this Locale.
-
-
-        :return: The script of this Locale.
-        :rtype: str
-        :required/optional: optional
-        """
-        return self._script
-
-    @script.setter
-    def script(self, script):
-        """
-        Sets the script of this Locale.
-
-
-        :param script: The script of this Locale.
-        :type: str
-        """
-        self._script = script
 
     @property
     def unicode_locale_attributes(self):
@@ -385,27 +247,165 @@ class Locale(object):
         self._unicode_locale_keys = unicode_locale_keys
 
     @property
-    def variant(self):
+    def iso3_language(self):
         """
-        Gets the variant of this Locale.
+        Gets the iso3_language of this Locale.
 
 
-        :return: The variant of this Locale.
+        :return: The iso3_language of this Locale.
         :rtype: str
         :required/optional: optional
         """
-        return self._variant
+        return self._iso3_language
 
-    @variant.setter
-    def variant(self, variant):
+    @iso3_language.setter
+    def iso3_language(self, iso3_language):
         """
-        Sets the variant of this Locale.
+        Sets the iso3_language of this Locale.
 
 
-        :param variant: The variant of this Locale.
+        :param iso3_language: The iso3_language of this Locale.
         :type: str
         """
-        self._variant = variant
+        self._iso3_language = iso3_language
+
+    @property
+    def iso3_country(self):
+        """
+        Gets the iso3_country of this Locale.
+
+
+        :return: The iso3_country of this Locale.
+        :rtype: str
+        :required/optional: optional
+        """
+        return self._iso3_country
+
+    @iso3_country.setter
+    def iso3_country(self, iso3_country):
+        """
+        Sets the iso3_country of this Locale.
+
+
+        :param iso3_country: The iso3_country of this Locale.
+        :type: str
+        """
+        self._iso3_country = iso3_country
+
+    @property
+    def display_language(self):
+        """
+        Gets the display_language of this Locale.
+
+
+        :return: The display_language of this Locale.
+        :rtype: str
+        :required/optional: optional
+        """
+        return self._display_language
+
+    @display_language.setter
+    def display_language(self, display_language):
+        """
+        Sets the display_language of this Locale.
+
+
+        :param display_language: The display_language of this Locale.
+        :type: str
+        """
+        self._display_language = display_language
+
+    @property
+    def display_script(self):
+        """
+        Gets the display_script of this Locale.
+
+
+        :return: The display_script of this Locale.
+        :rtype: str
+        :required/optional: optional
+        """
+        return self._display_script
+
+    @display_script.setter
+    def display_script(self, display_script):
+        """
+        Sets the display_script of this Locale.
+
+
+        :param display_script: The display_script of this Locale.
+        :type: str
+        """
+        self._display_script = display_script
+
+    @property
+    def display_country(self):
+        """
+        Gets the display_country of this Locale.
+
+
+        :return: The display_country of this Locale.
+        :rtype: str
+        :required/optional: optional
+        """
+        return self._display_country
+
+    @display_country.setter
+    def display_country(self, display_country):
+        """
+        Sets the display_country of this Locale.
+
+
+        :param display_country: The display_country of this Locale.
+        :type: str
+        """
+        self._display_country = display_country
+
+    @property
+    def display_variant(self):
+        """
+        Gets the display_variant of this Locale.
+
+
+        :return: The display_variant of this Locale.
+        :rtype: str
+        :required/optional: optional
+        """
+        return self._display_variant
+
+    @display_variant.setter
+    def display_variant(self, display_variant):
+        """
+        Sets the display_variant of this Locale.
+
+
+        :param display_variant: The display_variant of this Locale.
+        :type: str
+        """
+        self._display_variant = display_variant
+
+    @property
+    def display_name(self):
+        """
+        Gets the display_name of this Locale.
+
+
+        :return: The display_name of this Locale.
+        :rtype: str
+        :required/optional: optional
+        """
+        return self._display_name
+
+    @display_name.setter
+    def display_name(self, display_name):
+        """
+        Sets the display_name of this Locale.
+
+
+        :param display_name: The display_name of this Locale.
+        :type: str
+        """
+        self._display_name = display_name
 
     def to_dict(self):
         """

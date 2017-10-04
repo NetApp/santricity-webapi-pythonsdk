@@ -73,7 +73,7 @@ class LoggerRecordResponse(object):
         :param record_type: The record_type of this LoggerRecordResponse.
         :type: str
         """
-        allowed_values = ["cfwUpgradeLogger", "driveUpgradeLogger", "iomServiceLogger", "cfwUpgradeTimestamp", "driveUpgradeTimestamp", "iomServiceTimestamp"]
+        allowed_values = ["cfwUpgradeLogger", "driveUpgradeLogger", "iomServiceLogger", "nvsramUpgradeLogger", "cfwUpgradeTimestamp", "driveUpgradeTimestamp", "iomServiceTimestamp", "nvsramUpgradeTimestamp", "auditLogLogger", None]
         if record_type not in allowed_values:
             raise ValueError(
                 "Invalid value for `record_type`, must be one of {0}"

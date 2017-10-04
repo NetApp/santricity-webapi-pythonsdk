@@ -85,7 +85,7 @@ class IOInterfaceTypeData(object):
         :param interface_type: The interface_type of this IOInterfaceTypeData.
         :type: str
         """
-        allowed_values = ["notImplemented", "scsi", "fc", "sata", "sas", "iscsi", "ib", "fcoe", "__UNDEFINED"]
+        allowed_values = ["notImplemented", "scsi", "fc", "sata", "sas", "iscsi", "ib", "fcoe", "nvmeof", "__UNDEFINED"]
         if interface_type not in allowed_values:
             raise ValueError(
                 "Invalid value for `interface_type`, must be one of {0}"

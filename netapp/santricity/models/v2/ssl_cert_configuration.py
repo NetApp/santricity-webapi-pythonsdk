@@ -37,27 +37,30 @@ class SSLCertConfiguration(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'dn': 'str',  # (required parameter)
+            'dn': 'str',  
+            'rdns': 'list[RelativeDistinguishedName]',  
             'subject_alternate_names': 'list[SubjectAlternateName]'
         }
 
         self.attribute_map = {
-            'dn': 'dn',  # (required parameter)
+            'dn': 'dn',  
+            'rdns': 'rdns',  
             'subject_alternate_names': 'subjectAlternateNames'
         }
 
         self._dn = None
+        self._rdns = None
         self._subject_alternate_names = None
 
     @property
     def dn(self):
         """
         Gets the dn of this SSLCertConfiguration.
-        The common name for the certificate, usally the DNS name or IP of the server
+        The distinguished name for the certificate.
 
         :return: The dn of this SSLCertConfiguration.
         :rtype: str
-        :required/optional: required
+        :required/optional: optional
         """
         return self._dn
 
@@ -65,7 +68,7 @@ class SSLCertConfiguration(object):
     def dn(self, dn):
         """
         Sets the dn of this SSLCertConfiguration.
-        The common name for the certificate, usally the DNS name or IP of the server
+        The distinguished name for the certificate.
 
         :param dn: The dn of this SSLCertConfiguration.
         :type: str
@@ -73,10 +76,33 @@ class SSLCertConfiguration(object):
         self._dn = dn
 
     @property
+    def rdns(self):
+        """
+        Gets the rdns of this SSLCertConfiguration.
+        List of relative distinguished names. Multi-valued RDNs are represented as multiple attributes in a single RelativeDistinguishedName.
+
+        :return: The rdns of this SSLCertConfiguration.
+        :rtype: list[RelativeDistinguishedName]
+        :required/optional: optional
+        """
+        return self._rdns
+
+    @rdns.setter
+    def rdns(self, rdns):
+        """
+        Sets the rdns of this SSLCertConfiguration.
+        List of relative distinguished names. Multi-valued RDNs are represented as multiple attributes in a single RelativeDistinguishedName.
+
+        :param rdns: The rdns of this SSLCertConfiguration.
+        :type: list[RelativeDistinguishedName]
+        """
+        self._rdns = rdns
+
+    @property
     def subject_alternate_names(self):
         """
         Gets the subject_alternate_names of this SSLCertConfiguration.
-        List of Subject Alternate names
+        List of subject alternate names.
 
         :return: The subject_alternate_names of this SSLCertConfiguration.
         :rtype: list[SubjectAlternateName]
@@ -88,7 +114,7 @@ class SSLCertConfiguration(object):
     def subject_alternate_names(self, subject_alternate_names):
         """
         Sets the subject_alternate_names of this SSLCertConfiguration.
-        List of Subject Alternate names
+        List of subject alternate names.
 
         :param subject_alternate_names: The subject_alternate_names of this SSLCertConfiguration.
         :type: list[SubjectAlternateName]

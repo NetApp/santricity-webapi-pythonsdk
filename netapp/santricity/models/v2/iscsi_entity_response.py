@@ -255,7 +255,7 @@ class IscsiEntityResponse(object):
         :param ipv4_isns_server_address_config_method: The ipv4_isns_server_address_config_method of this IscsiEntityResponse.
         :type: str
         """
-        allowed_values = ["configDhcp", "configStatic", "__UNDEFINED"]
+        allowed_values = ["configDhcp", "configStatic", "__UNDEFINED", None]
         if ipv4_isns_server_address_config_method not in allowed_values:
             raise ValueError(
                 "Invalid value for `ipv4_isns_server_address_config_method`, must be one of {0}"
@@ -284,7 +284,7 @@ class IscsiEntityResponse(object):
         :param ipv6_isns_server_address_config_method: The ipv6_isns_server_address_config_method of this IscsiEntityResponse.
         :type: str
         """
-        allowed_values = ["configStatic", "configStateless", "__UNDEFINED"]
+        allowed_values = ["configStatic", "configStateless", "__UNDEFINED", None]
         if ipv6_isns_server_address_config_method not in allowed_values:
             raise ValueError(
                 "Invalid value for `ipv6_isns_server_address_config_method`, must be one of {0}"
@@ -313,7 +313,7 @@ class IscsiEntityResponse(object):
         :param isns_registration_state: The isns_registration_state of this IscsiEntityResponse.
         :type: str
         """
-        allowed_values = ["disabled", "locatingServer", "connectingToServer", "completed", "__UNDEFINED"]
+        allowed_values = ["disabled", "locatingServer", "connectingToServer", "completed", "__UNDEFINED", None]
         if isns_registration_state not in allowed_values:
             raise ValueError(
                 "Invalid value for `isns_registration_state`, must be one of {0}"

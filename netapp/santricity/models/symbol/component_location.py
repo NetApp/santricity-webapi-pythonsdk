@@ -81,7 +81,8 @@ class ComponentLocation(object):
             'destination_ip_address': 'str',  
             'fc_target_location': 'FibreChannelTargetLocation',  
             'fan_cru_location': 'TraySlot',  
-            'power_supply_cru_location': 'TraySlot'
+            'power_supply_cru_location': 'TraySlot',  
+            'nvme_initiator_location': 'InitiatorLocation'
         }
 
         self.attribute_map = {
@@ -129,7 +130,8 @@ class ComponentLocation(object):
             'destination_ip_address': 'destinationIpAddress',  
             'fc_target_location': 'fcTargetLocation',  
             'fan_cru_location': 'fanCruLocation',  
-            'power_supply_cru_location': 'powerSupplyCruLocation'
+            'power_supply_cru_location': 'powerSupplyCruLocation',  
+            'nvme_initiator_location': 'nvmeInitiatorLocation'
         }
 
         self._event_component_type = None
@@ -177,6 +179,7 @@ class ComponentLocation(object):
         self._fc_target_location = None
         self._fan_cru_location = None
         self._power_supply_cru_location = None
+        self._nvme_initiator_location = None
 
     @property
     def event_component_type(self):
@@ -199,7 +202,7 @@ class ComponentLocation(object):
         :param event_component_type: The event_component_type of this ComponentLocation.
         :type: str
         """
-        allowed_values = ["unknown", "drive", "powerSply", "fan", "minihub", "tempSensor", "channel", "esm", "controller", "battery", "enclosure", "ups", "chip", "volume", "volumeGrp", "portCru", "interconnectCru", "supportCru", "alarm", "channelPort", "sfpPort", "hostBoard", "newFormat", "ctlrSfp", "ctlrSoc", "initiator", "target", "isnsServer", "hostIoCard", "cacheBackupDevice", "cacheMemDimm", "host", "hostPort", "drawer", "relative", "schedule", "asyncMirrorGroup", "diskPool", "pit", "pitConsistencyGroup", "cgpit", "cgview", "flashCache", "snmpCommunity", "snmpTrapDestination", "fcTarget", "fanOnlyCru", "psuCru", "__UNDEFINED"]
+        allowed_values = ["unknown", "drive", "powerSply", "fan", "minihub", "tempSensor", "channel", "esm", "controller", "battery", "enclosure", "ups", "chip", "volume", "volumeGrp", "portCru", "interconnectCru", "supportCru", "alarm", "channelPort", "sfpPort", "hostBoard", "newFormat", "ctlrSfp", "ctlrSoc", "initiator", "target", "isnsServer", "hostIoCard", "cacheBackupDevice", "cacheMemDimm", "host", "hostPort", "drawer", "relative", "schedule", "asyncMirrorGroup", "diskPool", "pit", "pitConsistencyGroup", "cgpit", "cgview", "flashCache", "snmpCommunity", "snmpTrapDestination", "fcTarget", "blankOne", "blankTwo", "fanOnlyCru", "psuCru", "nvmeInitiator", "__UNDEFINED"]
         if event_component_type not in allowed_values:
             raise ValueError(
                 "Invalid value for `event_component_type`, must be one of {0}"
@@ -1218,6 +1221,29 @@ class ComponentLocation(object):
         :type: TraySlot
         """
         self._power_supply_cru_location = power_supply_cru_location
+
+    @property
+    def nvme_initiator_location(self):
+        """
+        Gets the nvme_initiator_location of this ComponentLocation.
+        This field is valid only when the eventComponentType value is equal to EVENT_COMP_TYPE_NVME_INITIATOR. It identifies the NVMe initiator to which the event applies.
+
+        :return: The nvme_initiator_location of this ComponentLocation.
+        :rtype: InitiatorLocation
+        :required/optional: optional
+        """
+        return self._nvme_initiator_location
+
+    @nvme_initiator_location.setter
+    def nvme_initiator_location(self, nvme_initiator_location):
+        """
+        Sets the nvme_initiator_location of this ComponentLocation.
+        This field is valid only when the eventComponentType value is equal to EVENT_COMP_TYPE_NVME_INITIATOR. It identifies the NVMe initiator to which the event applies.
+
+        :param nvme_initiator_location: The nvme_initiator_location of this ComponentLocation.
+        :type: InitiatorLocation
+        """
+        self._nvme_initiator_location = nvme_initiator_location
 
     def to_dict(self):
         """

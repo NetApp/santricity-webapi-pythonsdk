@@ -23,11 +23,15 @@ from netapp.santricity.api.v2.flash_cache_api import FlashCacheApi
 
 from netapp.santricity.api.v2.hardware_api import HardwareApi
 
+from netapp.santricity.api.v2.ldap_api import LDAPApi
+
 from netapp.santricity.api.v2.mapping_api import MappingApi
 
 from netapp.santricity.api.v2.mirroring_api import MirroringApi
 
 from netapp.santricity.api.v2.monitoring_api import MonitoringApi
+
+from netapp.santricity.api.v2.security_api import SecurityApi
 
 from netapp.santricity.api.v2.service_catalog_api import ServiceCatalogApi
 

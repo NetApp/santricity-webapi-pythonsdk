@@ -149,7 +149,7 @@ class StorageSystemsApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param ManagementConfigurationRequest body: 
     
@@ -350,7 +350,7 @@ class StorageSystemsApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param file key_file: The bundle key file (required)
     
@@ -460,7 +460,7 @@ class StorageSystemsApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param file key_file: The premium feature key file
     
@@ -837,7 +837,7 @@ class StorageSystemsApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :return: list[ManagementInterface]
                      If the method is called asynchronously,
@@ -936,7 +936,7 @@ class StorageSystemsApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str query: 
     
@@ -1141,7 +1141,7 @@ class StorageSystemsApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :return: LockdownStatusResponse
                      If the method is called asynchronously,
@@ -1240,7 +1240,7 @@ class StorageSystemsApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :return: ObjectBundle
                      If the method is called asynchronously,
@@ -1339,7 +1339,7 @@ class StorageSystemsApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :return: PasswordStatusResponse
                      If the method is called asynchronously,
@@ -1537,7 +1537,7 @@ class StorageSystemsApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :return: StorageSystemResponse
                      If the method is called asynchronously,
@@ -1636,7 +1636,7 @@ class StorageSystemsApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :return: CapabilitiesResponse
                      If the method is called asynchronously,
@@ -1814,7 +1814,7 @@ class StorageSystemsApi(object):
     def new_storage_system(self, **kwargs):
             """
             Add a storage-system
-            Mode: Both Embedded and Proxy. 
+            This endpoint allows you to add additional storage-systems under management using their IP address[es].
 
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please define a `callback` function
@@ -1909,7 +1909,7 @@ class StorageSystemsApi(object):
     def remove_feature_pack(self, system_id, **kwargs):
             """
             Remove all feature packs.
-            Mode: Both Embedded and Proxy. 
+            Mode: Both Embedded and Proxy. \n\nWARNING: Removal of feature packs is an offline operation. Failure to quiesce IO prior to performing this operation may result in loss of access to data or loss of data. \n\nWhen used in embedded mode a client may not receive a response from this operation.
 
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please define a `callback` function
@@ -1925,7 +1925,7 @@ class StorageSystemsApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :return: None
                      If the method is called asynchronously,
@@ -2123,7 +2123,7 @@ class StorageSystemsApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str capability: Capability to remove. (required)
     
@@ -2216,8 +2216,8 @@ class StorageSystemsApi(object):
     
     def remove_storage_system(self, system_id, **kwargs):
             """
-            Remove one or more storage-systems. The path is a comma seperated list of IDs
-            Mode: Both Embedded and Proxy. 
+            Remove one or more storage-systems
+            The path is a comma-separated list of IDs. The identifiers of any storage-systems were failed to remove are provided in the response error response.
 
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please define a `callback` function
@@ -2233,7 +2233,7 @@ class StorageSystemsApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :return: None
                      If the method is called asynchronously,
@@ -2332,7 +2332,7 @@ class StorageSystemsApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param PasswordSetRequest body: 
     
@@ -2544,7 +2544,7 @@ class StorageSystemsApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param StorageSystemConfigUpdateRequest body: 
     
@@ -2650,7 +2650,7 @@ class StorageSystemsApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param StorageSystemUpdateRequest update_request: Update request (required)
     
@@ -2760,7 +2760,7 @@ class StorageSystemsApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :return: None
                      If the method is called asynchronously,

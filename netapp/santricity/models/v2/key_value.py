@@ -38,18 +38,15 @@ class KeyValue(object):
         """
         self.swagger_types = {
             'key': 'str',  # (required parameter)
-            'value': 'str',  
             'value_list': 'list[str]'
         }
 
         self.attribute_map = {
             'key': 'key',  # (required parameter)
-            'value': 'value',  
             'value_list': 'valueList'
         }
 
         self._key = None
-        self._value = None
         self._value_list = None
 
     @property
@@ -74,29 +71,6 @@ class KeyValue(object):
         :type: str
         """
         self._key = key
-
-    @property
-    def value(self):
-        """
-        Gets the value of this KeyValue.
-        Single value item. If this is populated it is used. This field is deprecated.
-
-        :return: The value of this KeyValue.
-        :rtype: str
-        :required/optional: optional
-        """
-        return self._value
-
-    @value.setter
-    def value(self, value):
-        """
-        Sets the value of this KeyValue.
-        Single value item. If this is populated it is used. This field is deprecated.
-
-        :param value: The value of this KeyValue.
-        :type: str
-        """
-        self._value = value
 
     @property
     def value_list(self):

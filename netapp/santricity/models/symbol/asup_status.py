@@ -37,43 +37,20 @@ class AsupStatus(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'remote_diags': 'bool',  
             'asup': 'bool',  
-            'on_demand': 'bool'
+            'on_demand': 'bool',  
+            'remote_diags': 'bool'
         }
 
         self.attribute_map = {
-            'remote_diags': 'remoteDiags',  
             'asup': 'asup',  
-            'on_demand': 'onDemand'
+            'on_demand': 'onDemand',  
+            'remote_diags': 'remoteDiags'
         }
 
-        self._remote_diags = None
         self._asup = None
         self._on_demand = None
-
-    @property
-    def remote_diags(self):
-        """
-        Gets the remote_diags of this AsupStatus.
-
-
-        :return: The remote_diags of this AsupStatus.
-        :rtype: bool
-        :required/optional: optional
-        """
-        return self._remote_diags
-
-    @remote_diags.setter
-    def remote_diags(self, remote_diags):
-        """
-        Sets the remote_diags of this AsupStatus.
-
-
-        :param remote_diags: The remote_diags of this AsupStatus.
-        :type: bool
-        """
-        self._remote_diags = remote_diags
+        self._remote_diags = None
 
     @property
     def asup(self):
@@ -120,6 +97,29 @@ class AsupStatus(object):
         :type: bool
         """
         self._on_demand = on_demand
+
+    @property
+    def remote_diags(self):
+        """
+        Gets the remote_diags of this AsupStatus.
+
+
+        :return: The remote_diags of this AsupStatus.
+        :rtype: bool
+        :required/optional: optional
+        """
+        return self._remote_diags
+
+    @remote_diags.setter
+    def remote_diags(self, remote_diags):
+        """
+        Sets the remote_diags of this AsupStatus.
+
+
+        :param remote_diags: The remote_diags of this AsupStatus.
+        :type: bool
+        """
+        self._remote_diags = remote_diags
 
     def to_dict(self):
         """

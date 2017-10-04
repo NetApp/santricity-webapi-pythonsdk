@@ -61,7 +61,7 @@ class FlashCacheApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :return: FlashCacheEx
                      If the method is called asynchronously,
@@ -160,9 +160,9 @@ class FlashCacheApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
-            :return: FlashCacheEx
+            :return: list[str]
                      If the method is called asynchronously,
                      returns the request thread.
             :raises: ValueError
@@ -235,7 +235,7 @@ class FlashCacheApi(object):
                                                 body=body_params,
                                                 post_params=form_params,
                                                 files=local_var_files,
-                                                response_type='FlashCacheEx',
+                                                response_type='list[str]',
                                                 auth_settings=auth_settings,
                                                 callback=params.get('callback'))
             return response
@@ -259,7 +259,7 @@ class FlashCacheApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param FlashCacheUpdateRequest body: 
     
@@ -365,7 +365,7 @@ class FlashCacheApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param FlashCacheCreateRequest body: 
     
@@ -471,7 +471,7 @@ class FlashCacheApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param DriveRefList body: 
     
@@ -577,7 +577,7 @@ class FlashCacheApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :return: None
                      If the method is called asynchronously,
@@ -676,7 +676,7 @@ class FlashCacheApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param DriveRefList body: 
     
@@ -782,7 +782,7 @@ class FlashCacheApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :return: FlashCacheEx
                      If the method is called asynchronously,
@@ -881,7 +881,7 @@ class FlashCacheApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :return: FlashCacheEx
                      If the method is called asynchronously,

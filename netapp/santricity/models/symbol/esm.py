@@ -456,7 +456,7 @@ class Esm(object):
         :param current_speed: The current_speed of this Esm.
         :type: str
         """
-        allowed_values = ["speedUnknown", "speed1gig", "speed2gig", "speed4gig", "speed10gig", "speed15gig", "speed3gig", "speed10meg", "speed100meg", "speed2pt5Gig", "speed5gig", "speed20gig", "speed30gig", "speed60gig", "speed8gig", "speed6gig", "speed40gig", "speed16gig", "speed56gig", "speed12gig", "__UNDEFINED"]
+        allowed_values = ["speedUnknown", "speed1gig", "speed2gig", "speed4gig", "speed10gig", "speed15gig", "speed3gig", "speed10meg", "speed100meg", "speed2pt5Gig", "speed5gig", "speed20gig", "speed30gig", "speed60gig", "speed8gig", "speed6gig", "speed40gig", "speed16gig", "speed56gig", "speed12gig", "speed25gig", "speed32gig", "speed100gig", "__UNDEFINED"]
         if current_speed not in allowed_values:
             raise ValueError(
                 "Invalid value for `current_speed`, must be one of {0}"
@@ -485,7 +485,7 @@ class Esm(object):
         :param max_speed: The max_speed of this Esm.
         :type: str
         """
-        allowed_values = ["speedUnknown", "speed1gig", "speed2gig", "speed4gig", "speed10gig", "speed15gig", "speed3gig", "speed10meg", "speed100meg", "speed2pt5Gig", "speed5gig", "speed20gig", "speed30gig", "speed60gig", "speed8gig", "speed6gig", "speed40gig", "speed16gig", "speed56gig", "speed12gig", "__UNDEFINED"]
+        allowed_values = ["speedUnknown", "speed1gig", "speed2gig", "speed4gig", "speed10gig", "speed15gig", "speed3gig", "speed10meg", "speed100meg", "speed2pt5Gig", "speed5gig", "speed20gig", "speed30gig", "speed60gig", "speed8gig", "speed6gig", "speed40gig", "speed16gig", "speed56gig", "speed12gig", "speed25gig", "speed32gig", "speed100gig", "__UNDEFINED"]
         if max_speed not in allowed_values:
             raise ValueError(
                 "Invalid value for `max_speed`, must be one of {0}"

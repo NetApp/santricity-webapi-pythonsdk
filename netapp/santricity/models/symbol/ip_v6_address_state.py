@@ -102,7 +102,7 @@ class IpV6AddressState(object):
         :param interface_address_state: The interface_address_state of this IpV6AddressState.
         :type: str
         """
-        allowed_values = ["unconfigured", "acquiring", "configured", "invalid", "__UNDEFINED"]
+        allowed_values = ["unconfigured", "acquiring", "configured", "invalid", "__UNDEFINED", None]
         if interface_address_state not in allowed_values:
             raise ValueError(
                 "Invalid value for `interface_address_state`, must be one of {0}"
@@ -131,7 +131,7 @@ class IpV6AddressState(object):
         :param router_address_state: The router_address_state of this IpV6AddressState.
         :type: str
         """
-        allowed_values = ["unknown", "configured", "advertised", "stale", "__UNDEFINED"]
+        allowed_values = ["unknown", "configured", "advertised", "stale", "__UNDEFINED", None]
         if router_address_state not in allowed_values:
             raise ValueError(
                 "Invalid value for `router_address_state`, must be one of {0}"

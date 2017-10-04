@@ -45,6 +45,7 @@ class Host(object):
             'host_type_index': 'int',  # (required parameter)
             'protection_information_capable_access_method': 'bool',  # (required parameter)
             'is_large_block_format_host': 'bool',  # (required parameter)
+            'is_lun0_restricted': 'bool',  # (required parameter)
             'name': 'str',  
             'id': 'str'
         }
@@ -58,6 +59,7 @@ class Host(object):
             'host_type_index': 'hostTypeIndex',  # (required parameter)
             'protection_information_capable_access_method': 'protectionInformationCapableAccessMethod',  # (required parameter)
             'is_large_block_format_host': 'isLargeBlockFormatHost',  # (required parameter)
+            'is_lun0_restricted': 'isLun0Restricted',  # (required parameter)
             'name': 'name',  
             'id': 'id'
         }
@@ -70,6 +72,7 @@ class Host(object):
         self._host_type_index = None
         self._protection_information_capable_access_method = None
         self._is_large_block_format_host = None
+        self._is_lun0_restricted = None
         self._name = None
         self._id = None
 
@@ -256,6 +259,29 @@ class Host(object):
         :type: bool
         """
         self._is_large_block_format_host = is_large_block_format_host
+
+    @property
+    def is_lun0_restricted(self):
+        """
+        Gets the is_lun0_restricted of this Host.
+        Provides an indication as to whether LUN 0 is restricted (i.e., disallowed) for the associated host.
+
+        :return: The is_lun0_restricted of this Host.
+        :rtype: bool
+        :required/optional: required
+        """
+        return self._is_lun0_restricted
+
+    @is_lun0_restricted.setter
+    def is_lun0_restricted(self, is_lun0_restricted):
+        """
+        Sets the is_lun0_restricted of this Host.
+        Provides an indication as to whether LUN 0 is restricted (i.e., disallowed) for the associated host.
+
+        :param is_lun0_restricted: The is_lun0_restricted of this Host.
+        :type: bool
+        """
+        self._is_lun0_restricted = is_lun0_restricted
 
     @property
     def name(self):

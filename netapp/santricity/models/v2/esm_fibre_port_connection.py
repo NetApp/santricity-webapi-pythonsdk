@@ -171,7 +171,7 @@ class EsmFibrePortConnection(object):
         :param type: The type of this EsmFibrePortConnection.
         :type: str
         """
-        allowed_values = ["sas", "fibre"]
+        allowed_values = ["sas", "fibre", None]
         if type not in allowed_values:
             raise ValueError(
                 "Invalid value for `type`, must be one of {0}"

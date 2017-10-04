@@ -40,20 +40,23 @@ class LoginResponse(object):
             'user_id': 'str',  # (required parameter)
             'roles': 'list[str]',  # (required parameter)
             'last_known_event': 'int',  # (required parameter)
-            'global_inventory_change_count': 'int'
+            'global_inventory_change_count': 'int',  # (required parameter)
+            'session_inactive_period': 'int'
         }
 
         self.attribute_map = {
             'user_id': 'userId',  # (required parameter)
             'roles': 'roles',  # (required parameter)
             'last_known_event': 'lastKnownEvent',  # (required parameter)
-            'global_inventory_change_count': 'globalInventoryChangeCount'
+            'global_inventory_change_count': 'globalInventoryChangeCount',  # (required parameter)
+            'session_inactive_period': 'sessionInactivePeriod'
         }
 
         self._user_id = None
         self._roles = None
         self._last_known_event = None
         self._global_inventory_change_count = None
+        self._session_inactive_period = None
 
     @property
     def user_id(self):
@@ -146,6 +149,29 @@ class LoginResponse(object):
         :type: int
         """
         self._global_inventory_change_count = global_inventory_change_count
+
+    @property
+    def session_inactive_period(self):
+        """
+        Gets the session_inactive_period of this LoginResponse.
+        Current session inactive period
+
+        :return: The session_inactive_period of this LoginResponse.
+        :rtype: int
+        :required/optional: required
+        """
+        return self._session_inactive_period
+
+    @session_inactive_period.setter
+    def session_inactive_period(self, session_inactive_period):
+        """
+        Sets the session_inactive_period of this LoginResponse.
+        Current session inactive period
+
+        :param session_inactive_period: The session_inactive_period of this LoginResponse.
+        :type: int
+        """
+        self._session_inactive_period = session_inactive_period
 
     def to_dict(self):
         """

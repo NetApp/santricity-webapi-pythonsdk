@@ -45,7 +45,7 @@ class FileManagementApi(object):
     def get_all_support_artifacts(self, **kwargs):
             """
             Retrieve the list of support artifacts by type
-            Mode: Both Embedded and Proxy. 
+            Mode: Embedded only. 
 
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please define a `callback` function
@@ -236,6 +236,112 @@ class FileManagementApi(object):
                                                 callback=params.get('callback'))
             return response
     
+    def get_private_file(self, id, **kwargs):
+            """
+            Gets a file from the private file directory
+            The response type of this method is a file stream.
+
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please define a `callback` function
+            to be invoked when receiving the response.
+            >>> def callback_function(response):
+            >>>     pprint(response)
+            >>>
+    
+            >>> thread = api.get_private_file(id, callback=callback_function)
+    
+    
+
+            :param callback function: The callback function
+                for asynchronous request. (optional)
+    
+            :param str id: The ID of the file to be retrieved (required)
+    
+            :param bool auto_delete: Automatically remove the file after the retrieval completes
+    
+            :return: File
+                     If the method is called asynchronously,
+                     returns the request thread.
+            :raises: ValueError
+                       If the required params are not provided or if the response data format is unknown.
+                     TypeError:
+                        When the data type of response data is different from what we are expecting
+                     ApiException:
+                        Occurs when we get a HTTP error code (422 and above).
+
+            """
+
+            all_params = ['id', 'auto_delete']
+            all_params.append('callback')
+
+            params = locals()
+            for key, val in iteritems(params['kwargs']):
+                if key not in all_params:
+                    raise TypeError(
+                        "Got an unexpected keyword argument '%s'"
+                        " to method get_private_file" % key
+                    )
+                params[key] = val
+            del params['kwargs']
+
+    
+    
+            # verify the required parameter 'id' is set
+            if ('id' not in params) or (params['id'] is None):
+                raise ValueError("Missing the required parameter `id` when calling `get_private_file`")
+    
+    
+    
+    
+
+            resource_path = '/files/private/{id}'.replace('{format}', 'json')
+            path_params = {}
+    
+            if 'id' in params:
+                path_params['id'] = params['id']
+    
+
+            query_params = {}
+    
+            if 'auto_delete' in params:
+                query_params['auto-delete'] = params['auto_delete']
+    
+
+            header_params = {}
+    
+
+            form_params = []
+            local_var_files = {}
+    
+
+            body_params = None
+    
+
+            # HTTP header `Accept`
+            header_params['Accept'] = self.api_client.\
+                select_header_accept(['application/json', 'application/octet-stream'])
+            if not header_params['Accept']:
+                del header_params['Accept']
+
+            # HTTP header `Content-Type`
+            header_params['Content-Type'] = self.api_client.\
+                select_header_content_type(['application/json'])
+
+            # Authentication setting
+            auth_settings = ['basicAuth']
+
+            response = self.api_client.call_api(resource_path, 'GET',
+                                                path_params,
+                                                query_params,
+                                                header_params,
+                                                body=body_params,
+                                                post_params=form_params,
+                                                files=local_var_files,
+                                                response_type='File',
+                                                auth_settings=auth_settings,
+                                                callback=params.get('callback'))
+            return response
+    
     def get_scratch_file(self, **kwargs):
             """
             Retrieve a file from the scratch directory
@@ -327,7 +433,7 @@ class FileManagementApi(object):
     def get_support_artifacts(self, identifier, **kwargs):
             """
             Retrieve a specific support artifact.
-            Mode: Both Embedded and Proxy. 
+            Mode: Embedded only. 
 
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please define a `callback` function
@@ -419,6 +525,105 @@ class FileManagementApi(object):
                                                 post_params=form_params,
                                                 files=local_var_files,
                                                 response_type='File',
+                                                auth_settings=auth_settings,
+                                                callback=params.get('callback'))
+            return response
+    
+    def remove_private_file(self, id, **kwargs):
+            """
+            Deletes a file from the private file directory
+            
+
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please define a `callback` function
+            to be invoked when receiving the response.
+            >>> def callback_function(response):
+            >>>     pprint(response)
+            >>>
+    
+            >>> thread = api.remove_private_file(id, callback=callback_function)
+    
+    
+
+            :param callback function: The callback function
+                for asynchronous request. (optional)
+    
+            :param str id: The ID of the file to be deleted (required)
+    
+            :return: None
+                     If the method is called asynchronously,
+                     returns the request thread.
+            :raises: ValueError
+                       If the required params are not provided or if the response data format is unknown.
+                     TypeError:
+                        When the data type of response data is different from what we are expecting
+                     ApiException:
+                        Occurs when we get a HTTP error code (422 and above).
+
+            """
+
+            all_params = ['id']
+            all_params.append('callback')
+
+            params = locals()
+            for key, val in iteritems(params['kwargs']):
+                if key not in all_params:
+                    raise TypeError(
+                        "Got an unexpected keyword argument '%s'"
+                        " to method remove_private_file" % key
+                    )
+                params[key] = val
+            del params['kwargs']
+
+    
+    
+            # verify the required parameter 'id' is set
+            if ('id' not in params) or (params['id'] is None):
+                raise ValueError("Missing the required parameter `id` when calling `remove_private_file`")
+    
+    
+
+            resource_path = '/files/private/{id}'.replace('{format}', 'json')
+            path_params = {}
+    
+            if 'id' in params:
+                path_params['id'] = params['id']
+    
+
+            query_params = {}
+    
+
+            header_params = {}
+    
+
+            form_params = []
+            local_var_files = {}
+    
+
+            body_params = None
+    
+
+            # HTTP header `Accept`
+            header_params['Accept'] = self.api_client.\
+                select_header_accept(['application/json'])
+            if not header_params['Accept']:
+                del header_params['Accept']
+
+            # HTTP header `Content-Type`
+            header_params['Content-Type'] = self.api_client.\
+                select_header_content_type(['application/json'])
+
+            # Authentication setting
+            auth_settings = ['basicAuth']
+
+            response = self.api_client.call_api(resource_path, 'DELETE',
+                                                path_params,
+                                                query_params,
+                                                header_params,
+                                                body=body_params,
+                                                post_params=form_params,
+                                                files=local_var_files,
+                                                response_type=None,
                                                 auth_settings=auth_settings,
                                                 callback=params.get('callback'))
             return response
@@ -525,7 +730,7 @@ class FileManagementApi(object):
     def remove_support_artifact(self, identifier, **kwargs):
             """
             Deletes a specific support artifact.
-            Mode: Both Embedded and Proxy. 
+            Mode: Embedded only. 
 
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please define a `callback` function
@@ -712,6 +917,101 @@ class FileManagementApi(object):
                                                 post_params=form_params,
                                                 files=local_var_files,
                                                 response_type='list[FileInfo]',
+                                                auth_settings=auth_settings,
+                                                callback=params.get('callback'))
+            return response
+    
+    def upload_private_file(self, **kwargs):
+            """
+            Upload a private file for later reference in an API call.
+            If the provided multipart form has non-file data, that data will be ignored and only the files will be handled.
+
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please define a `callback` function
+            to be invoked when receiving the response.
+            >>> def callback_function(response):
+            >>>     pprint(response)
+            >>>
+    
+            >>> thread = api.upload_private_file(callback=callback_function)
+    
+    
+
+            :param callback function: The callback function
+                for asynchronous request. (optional)
+    
+            :param file file: file
+    
+            :return: PrivateFileInfo
+                     If the method is called asynchronously,
+                     returns the request thread.
+            :raises: ValueError
+                       If the required params are not provided or if the response data format is unknown.
+                     TypeError:
+                        When the data type of response data is different from what we are expecting
+                     ApiException:
+                        Occurs when we get a HTTP error code (422 and above).
+
+            """
+
+            all_params = ['file']
+            all_params.append('callback')
+
+            params = locals()
+            for key, val in iteritems(params['kwargs']):
+                if key not in all_params:
+                    raise TypeError(
+                        "Got an unexpected keyword argument '%s'"
+                        " to method upload_private_file" % key
+                    )
+                params[key] = val
+            del params['kwargs']
+
+    
+    
+    
+
+            resource_path = '/files/private'.replace('{format}', 'json')
+            path_params = {}
+    
+
+            query_params = {}
+    
+
+            header_params = {}
+    
+
+            form_params = []
+            local_var_files = {}
+    
+            if 'file' in params:
+                local_var_files['file'] = params['file']
+    
+
+            body_params = None
+    
+
+            # HTTP header `Accept`
+            header_params['Accept'] = self.api_client.\
+                select_header_accept(['application/json'])
+            if not header_params['Accept']:
+                del header_params['Accept']
+
+            # HTTP header `Content-Type`
+            header_params['Content-Type'] = self.api_client.\
+                select_header_content_type(['multipart/form-data'])
+
+            # Authentication setting
+            auth_settings = ['basicAuth']
+
+            response = self.api_client.call_api(resource_path, 'POST',
+                                                path_params,
+                                                query_params,
+                                                header_params,
+                                                body=body_params,
+                                                post_params=form_params,
+                                                files=local_var_files,
+                                                response_type='PrivateFileInfo',
                                                 auth_settings=auth_settings,
                                                 callback=params.get('callback'))
             return response

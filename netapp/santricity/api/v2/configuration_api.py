@@ -45,7 +45,7 @@ class ConfigurationApi(object):
     def dispatch_asup_bundle(self, **kwargs):
             """
             Dispatch the ASUP bundle
-            Mode: Both Embedded and Proxy. 
+            
 
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please define a `callback` function
@@ -140,7 +140,7 @@ class ConfigurationApi(object):
     def get_asup_configuration_info(self, **kwargs):
             """
             Retrieve ASUP configuration info
-            Mode: Both Embedded and Proxy. 
+            
 
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please define a `callback` function
@@ -228,7 +228,7 @@ class ConfigurationApi(object):
     def get_configuration_result(self, **kwargs):
             """
             Get the current result data for the last operation, if no operation has been done, an empty body is returned
-            Mode: Both Embedded and Proxy. 
+            Mode: Proxy only. 
 
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please define a `callback` function
@@ -316,7 +316,7 @@ class ConfigurationApi(object):
     def get_configuration_types(self, **kwargs):
             """
             Returns a list of known configuration items that can be used by this server
-            Mode: Both Embedded and Proxy. 
+            Mode: Proxy only. 
 
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please define a `callback` function
@@ -404,7 +404,7 @@ class ConfigurationApi(object):
     def register_asup_bundle(self, **kwargs):
             """
             Register the ASUP bundle
-            Mode: Both Embedded and Proxy. 
+            
 
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please define a `callback` function
@@ -499,7 +499,7 @@ class ConfigurationApi(object):
     def start_configuration(self, **kwargs):
             """
             Starts a new bulk configuration operation. If an operation is already running a 200 is returned. If a new operation is started, a 201 is returned
-            Mode: Both Embedded and Proxy. 
+            Mode: Proxy only. 
 
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please define a `callback` function
@@ -594,7 +594,7 @@ class ConfigurationApi(object):
     def stop_configuration(self, **kwargs):
             """
             Interrupts any current configuration process
-            Mode: Both Embedded and Proxy. 
+            Mode: Proxy only. 
 
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please define a `callback` function
@@ -682,7 +682,7 @@ class ConfigurationApi(object):
     def update_asup_configuration_info(self, **kwargs):
             """
             Update ASUP configuration info
-            Mode: Both Embedded and Proxy. 
+            
 
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please define a `callback` function
@@ -777,7 +777,7 @@ class ConfigurationApi(object):
     def validate_csv_file(self, **kwargs):
             """
             Used to validate an input CSV file previously uploaded
-            Mode: Both Embedded and Proxy. 
+            Mode: Proxy only. 
 
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please define a `callback` function

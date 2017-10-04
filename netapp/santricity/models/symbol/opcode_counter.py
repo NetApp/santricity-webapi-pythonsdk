@@ -37,7 +37,7 @@ class OpcodeCounter(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'opcode': 'str',  # (required parameter)
+            'opcode': 'int',  # (required parameter)
             'count': 'int'
         }
 
@@ -56,7 +56,7 @@ class OpcodeCounter(object):
         A SCSI opcode value.
 
         :return: The opcode of this OpcodeCounter.
-        :rtype: str
+        :rtype: int
         :required/optional: required
         """
         return self._opcode
@@ -68,7 +68,7 @@ class OpcodeCounter(object):
         A SCSI opcode value.
 
         :param opcode: The opcode of this OpcodeCounter.
-        :type: str
+        :type: int
         """
         self._opcode = opcode
 

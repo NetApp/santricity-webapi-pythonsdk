@@ -38,15 +38,18 @@ class ResourceBundle(object):
         """
         self.swagger_types = {
             'locale': 'Locale',  
+            'base_bundle_name': 'str',  
             'keys': 'EnumerationString'
         }
 
         self.attribute_map = {
             'locale': 'locale',  
+            'base_bundle_name': 'baseBundleName',  
             'keys': 'keys'
         }
 
         self._locale = None
+        self._base_bundle_name = None
         self._keys = None
 
     @property
@@ -71,6 +74,29 @@ class ResourceBundle(object):
         :type: Locale
         """
         self._locale = locale
+
+    @property
+    def base_bundle_name(self):
+        """
+        Gets the base_bundle_name of this ResourceBundle.
+
+
+        :return: The base_bundle_name of this ResourceBundle.
+        :rtype: str
+        :required/optional: optional
+        """
+        return self._base_bundle_name
+
+    @base_bundle_name.setter
+    def base_bundle_name(self, base_bundle_name):
+        """
+        Sets the base_bundle_name of this ResourceBundle.
+
+
+        :param base_bundle_name: The base_bundle_name of this ResourceBundle.
+        :type: str
+        """
+        self._base_bundle_name = base_bundle_name
 
     @property
     def keys(self):

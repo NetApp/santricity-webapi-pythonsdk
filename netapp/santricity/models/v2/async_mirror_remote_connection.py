@@ -43,12 +43,12 @@ class AsyncMirrorRemoteConnection(object):
             'local_port_id': 'str',  
             'local_port_number': 'int',  
             'remote_port_number': 'int',  
+            'controller': 'str',  
+            'io_interface_type': 'str',  
             'iscsi_connection_detail': 'IscsiRemoteTargetConnections',  
             'fibre_connection_detail': 'FibreRemoteTargetConnections',  
             'remote_target_connections': 'ScsiRemoteTargetConnections',  
-            'local_port_ref': 'str',  # (required parameter)
-            'controller': 'str',  
-            'io_interface_type': 'str'
+            'local_port_ref': 'str'
         }
 
         self.attribute_map = {
@@ -58,12 +58,12 @@ class AsyncMirrorRemoteConnection(object):
             'local_port_id': 'localPortId',  
             'local_port_number': 'localPortNumber',  
             'remote_port_number': 'remotePortNumber',  
+            'controller': 'controller',  
+            'io_interface_type': 'ioInterfaceType',  
             'iscsi_connection_detail': 'iscsiConnectionDetail',  
             'fibre_connection_detail': 'fibreConnectionDetail',  
             'remote_target_connections': 'remoteTargetConnections',  
-            'local_port_ref': 'localPortRef',  # (required parameter)
-            'controller': 'controller',  
-            'io_interface_type': 'ioInterfaceType'
+            'local_port_ref': 'localPortRef'
         }
 
         self._local_port_name = None
@@ -72,12 +72,12 @@ class AsyncMirrorRemoteConnection(object):
         self._local_port_id = None
         self._local_port_number = None
         self._remote_port_number = None
+        self._controller = None
+        self._io_interface_type = None
         self._iscsi_connection_detail = None
         self._fibre_connection_detail = None
         self._remote_target_connections = None
         self._local_port_ref = None
-        self._controller = None
-        self._io_interface_type = None
 
     @property
     def local_port_name(self):
@@ -218,6 +218,58 @@ class AsyncMirrorRemoteConnection(object):
         self._remote_port_number = remote_port_number
 
     @property
+    def controller(self):
+        """
+        Gets the controller of this AsyncMirrorRemoteConnection.
+
+
+        :return: The controller of this AsyncMirrorRemoteConnection.
+        :rtype: str
+        :required/optional: optional
+        """
+        return self._controller
+
+    @controller.setter
+    def controller(self, controller):
+        """
+        Sets the controller of this AsyncMirrorRemoteConnection.
+
+
+        :param controller: The controller of this AsyncMirrorRemoteConnection.
+        :type: str
+        """
+        self._controller = controller
+
+    @property
+    def io_interface_type(self):
+        """
+        Gets the io_interface_type of this AsyncMirrorRemoteConnection.
+
+
+        :return: The io_interface_type of this AsyncMirrorRemoteConnection.
+        :rtype: str
+        :required/optional: optional
+        """
+        return self._io_interface_type
+
+    @io_interface_type.setter
+    def io_interface_type(self, io_interface_type):
+        """
+        Sets the io_interface_type of this AsyncMirrorRemoteConnection.
+
+
+        :param io_interface_type: The io_interface_type of this AsyncMirrorRemoteConnection.
+        :type: str
+        """
+        allowed_values = ["notImplemented", "scsi", "fc", "sata", "sas", "iscsi", "ib", "fcoe", "nvmeof", "__UNDEFINED", None]
+        if io_interface_type not in allowed_values:
+            raise ValueError(
+                "Invalid value for `io_interface_type`, must be one of {0}"
+                .format(allowed_values)
+            )
+        self._io_interface_type = io_interface_type
+
+    @property
     def iscsi_connection_detail(self):
         """
         Gets the iscsi_connection_detail of this AsyncMirrorRemoteConnection.
@@ -308,58 +360,6 @@ class AsyncMirrorRemoteConnection(object):
         :type: str
         """
         self._local_port_ref = local_port_ref
-
-    @property
-    def controller(self):
-        """
-        Gets the controller of this AsyncMirrorRemoteConnection.
-
-
-        :return: The controller of this AsyncMirrorRemoteConnection.
-        :rtype: str
-        :required/optional: optional
-        """
-        return self._controller
-
-    @controller.setter
-    def controller(self, controller):
-        """
-        Sets the controller of this AsyncMirrorRemoteConnection.
-
-
-        :param controller: The controller of this AsyncMirrorRemoteConnection.
-        :type: str
-        """
-        self._controller = controller
-
-    @property
-    def io_interface_type(self):
-        """
-        Gets the io_interface_type of this AsyncMirrorRemoteConnection.
-
-
-        :return: The io_interface_type of this AsyncMirrorRemoteConnection.
-        :rtype: str
-        :required/optional: optional
-        """
-        return self._io_interface_type
-
-    @io_interface_type.setter
-    def io_interface_type(self, io_interface_type):
-        """
-        Sets the io_interface_type of this AsyncMirrorRemoteConnection.
-
-
-        :param io_interface_type: The io_interface_type of this AsyncMirrorRemoteConnection.
-        :type: str
-        """
-        allowed_values = ["notImplemented", "scsi", "fc", "sata", "sas", "iscsi", "ib", "fcoe", "__UNDEFINED"]
-        if io_interface_type not in allowed_values:
-            raise ValueError(
-                "Invalid value for `io_interface_type`, must be one of {0}"
-                .format(allowed_values)
-            )
-        self._io_interface_type = io_interface_type
 
     def to_dict(self):
         """

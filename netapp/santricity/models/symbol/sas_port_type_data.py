@@ -125,7 +125,7 @@ class SasPortTypeData(object):
         :param routing_type: The routing_type of this SasPortTypeData.
         :type: str
         """
-        allowed_values = ["direct", "table", "subtractive", "__UNDEFINED"]
+        allowed_values = ["direct", "table", "subtractive", "__UNDEFINED", None]
         if routing_type not in allowed_values:
             raise ValueError(
                 "Invalid value for `routing_type`, must be one of {0}"

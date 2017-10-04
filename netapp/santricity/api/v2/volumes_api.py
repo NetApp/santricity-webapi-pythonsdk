@@ -61,7 +61,7 @@ class VolumesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str id:  (required)
     
@@ -178,7 +178,7 @@ class VolumesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str pool_id: Storage pool id (required)
     
@@ -295,7 +295,7 @@ class VolumesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str id:  (required)
     
@@ -393,236 +393,6 @@ class VolumesApi(object):
                                                 callback=params.get('callback'))
             return response
     
-    def expand_thin_volume_capacity_old(self, system_id, id, **kwargs):
-            """
-            .. deprecated:: NOTE: This method has been DEPRECATED
-            
-
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please define a `callback` function
-            to be invoked when receiving the response.
-            >>> def callback_function(response):
-            >>>     pprint(response)
-            >>>
-    
-            >>> thread = api.expand_thin_volume_capacity_old(system_id, id, callback=callback_function)
-    
-    
-
-            :param callback function: The callback function
-                for asynchronous request. (optional)
-    
-            :param str system_id: The id of the storage-system (required)
-    
-            :param str id:  (required)
-    
-            :param ThinVolumeExpansionRequest body: 
-    
-            :return: None
-                     If the method is called asynchronously,
-                     returns the request thread.
-            :raises: ValueError
-                       If the required params are not provided or if the response data format is unknown.
-                     TypeError:
-                        When the data type of response data is different from what we are expecting
-                     ApiException:
-                        Occurs when we get a HTTP error code (422 and above).
-
-            """
-
-            all_params = ['system_id', 'id', 'body']
-            all_params.append('callback')
-
-            params = locals()
-            for key, val in iteritems(params['kwargs']):
-                if key not in all_params:
-                    raise TypeError(
-                        "Got an unexpected keyword argument '%s'"
-                        " to method expand_thin_volume_capacity_old" % key
-                    )
-                params[key] = val
-            del params['kwargs']
-
-    
-    
-            # verify the required parameter 'system_id' is set
-            if ('system_id' not in params) or (params['system_id'] is None):
-                raise ValueError("Missing the required parameter `system_id` when calling `expand_thin_volume_capacity_old`")
-    
-    
-    
-            # verify the required parameter 'id' is set
-            if ('id' not in params) or (params['id'] is None):
-                raise ValueError("Missing the required parameter `id` when calling `expand_thin_volume_capacity_old`")
-    
-    
-    
-    
-
-            resource_path = '/storage-systems/{system-id}/thin-volumes/expand/{id}'.replace('{format}', 'json')
-            path_params = {}
-    
-            if 'system_id' in params:
-                path_params['system-id'] = params['system_id']
-    
-            if 'id' in params:
-                path_params['id'] = params['id']
-    
-
-            query_params = {}
-    
-
-            header_params = {}
-    
-
-            form_params = []
-            local_var_files = {}
-    
-
-            body_params = None
-    
-            if 'body' in params:
-                body_params = params['body']
-    
-
-            # HTTP header `Accept`
-            header_params['Accept'] = self.api_client.\
-                select_header_accept(['application/json'])
-            if not header_params['Accept']:
-                del header_params['Accept']
-
-            # HTTP header `Content-Type`
-            header_params['Content-Type'] = self.api_client.\
-                select_header_content_type(['application/json'])
-
-            # Authentication setting
-            auth_settings = ['basicAuth']
-
-            response = self.api_client.call_api(resource_path, 'POST',
-                                                path_params,
-                                                query_params,
-                                                header_params,
-                                                body=body_params,
-                                                post_params=form_params,
-                                                files=local_var_files,
-                                                response_type=None,
-                                                auth_settings=auth_settings,
-                                                callback=params.get('callback'))
-            return response
-    
-    def export_fde_key(self, system_id, **kwargs):
-            """
-            Export a full disk encryption key 
-            Mode: Both Embedded and Proxy. The response type of this method is a file stream. Use secure pass phrase for additional security instead of pass phrase.
-
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please define a `callback` function
-            to be invoked when receiving the response.
-            >>> def callback_function(response):
-            >>>     pprint(response)
-            >>>
-    
-            >>> thread = api.export_fde_key(system_id, callback=callback_function)
-    
-    
-
-            :param callback function: The callback function
-                for asynchronous request. (optional)
-    
-            :param str system_id: The id of the storage-system (required)
-    
-            :param str pass_phrase: Pass phrase
-    
-            :param str file_name: File name
-    
-            :return: File
-                     If the method is called asynchronously,
-                     returns the request thread.
-            :raises: ValueError
-                       If the required params are not provided or if the response data format is unknown.
-                     TypeError:
-                        When the data type of response data is different from what we are expecting
-                     ApiException:
-                        Occurs when we get a HTTP error code (422 and above).
-
-            """
-
-            all_params = ['system_id', 'pass_phrase', 'file_name']
-            all_params.append('callback')
-
-            params = locals()
-            for key, val in iteritems(params['kwargs']):
-                if key not in all_params:
-                    raise TypeError(
-                        "Got an unexpected keyword argument '%s'"
-                        " to method export_fde_key" % key
-                    )
-                params[key] = val
-            del params['kwargs']
-
-    
-    
-            # verify the required parameter 'system_id' is set
-            if ('system_id' not in params) or (params['system_id'] is None):
-                raise ValueError("Missing the required parameter `system_id` when calling `export_fde_key`")
-    
-    
-    
-    
-    
-    
-
-            resource_path = '/storage-systems/{system-id}/security-key/export'.replace('{format}', 'json')
-            path_params = {}
-    
-            if 'system_id' in params:
-                path_params['system-id'] = params['system_id']
-    
-
-            query_params = {}
-    
-            if 'pass_phrase' in params:
-                query_params['passPhrase'] = params['pass_phrase']
-    
-            if 'file_name' in params:
-                query_params['fileName'] = params['file_name']
-    
-
-            header_params = {}
-    
-
-            form_params = []
-            local_var_files = {}
-    
-
-            body_params = None
-    
-
-            # HTTP header `Accept`
-            header_params['Accept'] = self.api_client.\
-                select_header_accept(['application/octet-stream'])
-            if not header_params['Accept']:
-                del header_params['Accept']
-
-            # HTTP header `Content-Type`
-            header_params['Content-Type'] = self.api_client.\
-                select_header_content_type(['application/json'])
-
-            # Authentication setting
-            auth_settings = ['basicAuth']
-
-            response = self.api_client.call_api(resource_path, 'GET',
-                                                path_params,
-                                                query_params,
-                                                header_params,
-                                                body=body_params,
-                                                post_params=form_params,
-                                                files=local_var_files,
-                                                response_type='File',
-                                                auth_settings=auth_settings,
-                                                callback=params.get('callback'))
-            return response
-    
     def get_access_volume(self, system_id, **kwargs):
             """
             Get the access volume
@@ -642,7 +412,7 @@ class VolumesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :return: AccessVolumeEx
                      If the method is called asynchronously,
@@ -741,7 +511,7 @@ class VolumesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :return: list[LUNMapping]
                      If the method is called asynchronously,
@@ -840,7 +610,7 @@ class VolumesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :return: list[MappableObject]
                      If the method is called asynchronously,
@@ -939,7 +709,7 @@ class VolumesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :return: list[VolumeGroupEx]
                      If the method is called asynchronously,
@@ -1038,7 +808,7 @@ class VolumesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :return: list[ThinVolumeEx]
                      If the method is called asynchronously,
@@ -1137,7 +907,7 @@ class VolumesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :return: list[VolumeEx]
                      If the method is called asynchronously,
@@ -1236,7 +1006,7 @@ class VolumesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str id:  (required)
     
@@ -1346,7 +1116,7 @@ class VolumesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str id:  (required)
     
@@ -1456,7 +1226,7 @@ class VolumesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str id:  (required)
     
@@ -1566,7 +1336,7 @@ class VolumesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str pool_id: Storage pool id (required)
     
@@ -1676,7 +1446,7 @@ class VolumesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str id:  (required)
     
@@ -1786,7 +1556,7 @@ class VolumesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str id:  (required)
     
@@ -1896,7 +1666,7 @@ class VolumesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str id:  (required)
     
@@ -1987,215 +1757,6 @@ class VolumesApi(object):
                                                 callback=params.get('callback'))
             return response
     
-    def get_thin_volume2(self, system_id, id, **kwargs):
-            """
-            .. deprecated:: NOTE: This method has been DEPRECATED
-            
-
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please define a `callback` function
-            to be invoked when receiving the response.
-            >>> def callback_function(response):
-            >>>     pprint(response)
-            >>>
-    
-            >>> thread = api.get_thin_volume2(system_id, id, callback=callback_function)
-    
-    
-
-            :param callback function: The callback function
-                for asynchronous request. (optional)
-    
-            :param str system_id: The id of the storage-system (required)
-    
-            :param str id:  (required)
-    
-            :return: None
-                     If the method is called asynchronously,
-                     returns the request thread.
-            :raises: ValueError
-                       If the required params are not provided or if the response data format is unknown.
-                     TypeError:
-                        When the data type of response data is different from what we are expecting
-                     ApiException:
-                        Occurs when we get a HTTP error code (422 and above).
-
-            """
-
-            all_params = ['system_id', 'id']
-            all_params.append('callback')
-
-            params = locals()
-            for key, val in iteritems(params['kwargs']):
-                if key not in all_params:
-                    raise TypeError(
-                        "Got an unexpected keyword argument '%s'"
-                        " to method get_thin_volume2" % key
-                    )
-                params[key] = val
-            del params['kwargs']
-
-    
-    
-            # verify the required parameter 'system_id' is set
-            if ('system_id' not in params) or (params['system_id'] is None):
-                raise ValueError("Missing the required parameter `system_id` when calling `get_thin_volume2`")
-    
-    
-    
-            # verify the required parameter 'id' is set
-            if ('id' not in params) or (params['id'] is None):
-                raise ValueError("Missing the required parameter `id` when calling `get_thin_volume2`")
-    
-    
-
-            resource_path = '/storage-systems/{system-id}/thin-volumes/expand/{id}'.replace('{format}', 'json')
-            path_params = {}
-    
-            if 'system_id' in params:
-                path_params['system-id'] = params['system_id']
-    
-            if 'id' in params:
-                path_params['id'] = params['id']
-    
-
-            query_params = {}
-    
-
-            header_params = {}
-    
-
-            form_params = []
-            local_var_files = {}
-    
-
-            body_params = None
-    
-
-            # HTTP header `Accept`
-            header_params['Accept'] = self.api_client.\
-                select_header_accept(['application/json'])
-            if not header_params['Accept']:
-                del header_params['Accept']
-
-            # HTTP header `Content-Type`
-            header_params['Content-Type'] = self.api_client.\
-                select_header_content_type(['application/json'])
-
-            # Authentication setting
-            auth_settings = ['basicAuth']
-
-            response = self.api_client.call_api(resource_path, 'GET',
-                                                path_params,
-                                                query_params,
-                                                header_params,
-                                                body=body_params,
-                                                post_params=form_params,
-                                                files=local_var_files,
-                                                response_type=None,
-                                                auth_settings=auth_settings,
-                                                callback=params.get('callback'))
-            return response
-    
-    def get_thin_volumes2(self, system_id, **kwargs):
-            """
-            .. deprecated:: NOTE: This method has been DEPRECATED
-            
-
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please define a `callback` function
-            to be invoked when receiving the response.
-            >>> def callback_function(response):
-            >>>     pprint(response)
-            >>>
-    
-            >>> thread = api.get_thin_volumes2(system_id, callback=callback_function)
-    
-    
-
-            :param callback function: The callback function
-                for asynchronous request. (optional)
-    
-            :param str system_id: The id of the storage-system (required)
-    
-            :return: None
-                     If the method is called asynchronously,
-                     returns the request thread.
-            :raises: ValueError
-                       If the required params are not provided or if the response data format is unknown.
-                     TypeError:
-                        When the data type of response data is different from what we are expecting
-                     ApiException:
-                        Occurs when we get a HTTP error code (422 and above).
-
-            """
-
-            all_params = ['system_id']
-            all_params.append('callback')
-
-            params = locals()
-            for key, val in iteritems(params['kwargs']):
-                if key not in all_params:
-                    raise TypeError(
-                        "Got an unexpected keyword argument '%s'"
-                        " to method get_thin_volumes2" % key
-                    )
-                params[key] = val
-            del params['kwargs']
-
-    
-    
-            # verify the required parameter 'system_id' is set
-            if ('system_id' not in params) or (params['system_id'] is None):
-                raise ValueError("Missing the required parameter `system_id` when calling `get_thin_volumes2`")
-    
-    
-
-            resource_path = '/storage-systems/{system-id}/thin-volumes/expand'.replace('{format}', 'json')
-            path_params = {}
-    
-            if 'system_id' in params:
-                path_params['system-id'] = params['system_id']
-    
-
-            query_params = {}
-    
-
-            header_params = {}
-    
-
-            form_params = []
-            local_var_files = {}
-    
-
-            body_params = None
-    
-
-            # HTTP header `Accept`
-            header_params['Accept'] = self.api_client.\
-                select_header_accept(['application/json'])
-            if not header_params['Accept']:
-                del header_params['Accept']
-
-            # HTTP header `Content-Type`
-            header_params['Content-Type'] = self.api_client.\
-                select_header_content_type(['application/json'])
-
-            # Authentication setting
-            auth_settings = ['basicAuth']
-
-            response = self.api_client.call_api(resource_path, 'GET',
-                                                path_params,
-                                                query_params,
-                                                header_params,
-                                                body=body_params,
-                                                post_params=form_params,
-                                                files=local_var_files,
-                                                response_type=None,
-                                                auth_settings=auth_settings,
-                                                callback=params.get('callback'))
-            return response
-    
     def get_volume(self, system_id, id, **kwargs):
             """
             Get a specific volume
@@ -2215,7 +1776,7 @@ class VolumesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str id:  (required)
     
@@ -2325,7 +1886,7 @@ class VolumesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str id:  (required)
     
@@ -2416,236 +1977,6 @@ class VolumesApi(object):
                                                 callback=params.get('callback'))
             return response
     
-    def get_volume_expansion_progress2(self, system_id, id, **kwargs):
-            """
-            .. deprecated:: NOTE: This method has been DEPRECATED
-            
-
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please define a `callback` function
-            to be invoked when receiving the response.
-            >>> def callback_function(response):
-            >>>     pprint(response)
-            >>>
-    
-            >>> thread = api.get_volume_expansion_progress2(system_id, id, callback=callback_function)
-    
-    
-
-            :param callback function: The callback function
-                for asynchronous request. (optional)
-    
-            :param str system_id: The id of the storage-system (required)
-    
-            :param str id:  (required)
-    
-            :return: None
-                     If the method is called asynchronously,
-                     returns the request thread.
-            :raises: ValueError
-                       If the required params are not provided or if the response data format is unknown.
-                     TypeError:
-                        When the data type of response data is different from what we are expecting
-                     ApiException:
-                        Occurs when we get a HTTP error code (422 and above).
-
-            """
-
-            all_params = ['system_id', 'id']
-            all_params.append('callback')
-
-            params = locals()
-            for key, val in iteritems(params['kwargs']):
-                if key not in all_params:
-                    raise TypeError(
-                        "Got an unexpected keyword argument '%s'"
-                        " to method get_volume_expansion_progress2" % key
-                    )
-                params[key] = val
-            del params['kwargs']
-
-    
-    
-            # verify the required parameter 'system_id' is set
-            if ('system_id' not in params) or (params['system_id'] is None):
-                raise ValueError("Missing the required parameter `system_id` when calling `get_volume_expansion_progress2`")
-    
-    
-    
-            # verify the required parameter 'id' is set
-            if ('id' not in params) or (params['id'] is None):
-                raise ValueError("Missing the required parameter `id` when calling `get_volume_expansion_progress2`")
-    
-    
-
-            resource_path = '/storage-systems/{system-id}/volumes/expand/{id}'.replace('{format}', 'json')
-            path_params = {}
-    
-            if 'system_id' in params:
-                path_params['system-id'] = params['system_id']
-    
-            if 'id' in params:
-                path_params['id'] = params['id']
-    
-
-            query_params = {}
-    
-
-            header_params = {}
-    
-
-            form_params = []
-            local_var_files = {}
-    
-
-            body_params = None
-    
-
-            # HTTP header `Accept`
-            header_params['Accept'] = self.api_client.\
-                select_header_accept(['application/json'])
-            if not header_params['Accept']:
-                del header_params['Accept']
-
-            # HTTP header `Content-Type`
-            header_params['Content-Type'] = self.api_client.\
-                select_header_content_type(['application/json'])
-
-            # Authentication setting
-            auth_settings = ['basicAuth']
-
-            response = self.api_client.call_api(resource_path, 'GET',
-                                                path_params,
-                                                query_params,
-                                                header_params,
-                                                body=body_params,
-                                                post_params=form_params,
-                                                files=local_var_files,
-                                                response_type=None,
-                                                auth_settings=auth_settings,
-                                                callback=params.get('callback'))
-            return response
-    
-    def import_fde_key(self, system_id, **kwargs):
-            """
-            Import a full disk encryption key
-            Mode: Both Embedded and Proxy. Use secure pass phrase for additional security instead of pass phrase.
-
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please define a `callback` function
-            to be invoked when receiving the response.
-            >>> def callback_function(response):
-            >>>     pprint(response)
-            >>>
-    
-            >>> thread = api.import_fde_key(system_id, callback=callback_function)
-    
-    
-
-            :param callback function: The callback function
-                for asynchronous request. (optional)
-    
-            :param str system_id: The id of the storage-system (required)
-    
-            :param str pass_phrase: Pass phrase
-    
-            :param file keyfile: file
-    
-            :param str secure_pass_phrase: Secure pass phrase
-    
-            :return: None
-                     If the method is called asynchronously,
-                     returns the request thread.
-            :raises: ValueError
-                       If the required params are not provided or if the response data format is unknown.
-                     TypeError:
-                        When the data type of response data is different from what we are expecting
-                     ApiException:
-                        Occurs when we get a HTTP error code (422 and above).
-
-            """
-
-            all_params = ['system_id', 'pass_phrase', 'keyfile', 'secure_pass_phrase']
-            all_params.append('callback')
-
-            params = locals()
-            for key, val in iteritems(params['kwargs']):
-                if key not in all_params:
-                    raise TypeError(
-                        "Got an unexpected keyword argument '%s'"
-                        " to method import_fde_key" % key
-                    )
-                params[key] = val
-            del params['kwargs']
-
-    
-    
-            # verify the required parameter 'system_id' is set
-            if ('system_id' not in params) or (params['system_id'] is None):
-                raise ValueError("Missing the required parameter `system_id` when calling `import_fde_key`")
-    
-    
-    
-    
-    
-    
-    
-    
-
-            resource_path = '/storage-systems/{system-id}/security-key/import'.replace('{format}', 'json')
-            path_params = {}
-    
-            if 'system_id' in params:
-                path_params['system-id'] = params['system_id']
-    
-
-            query_params = {}
-    
-            if 'pass_phrase' in params:
-                query_params['passPhrase'] = params['pass_phrase']
-    
-
-            header_params = {}
-    
-
-            form_params = []
-            local_var_files = {}
-    
-            if 'keyfile' in params:
-                local_var_files['keyfile'] = params['keyfile']
-    
-            if 'secure_pass_phrase' in params:
-                form_params.append(('securePassPhrase', params['secure_pass_phrase']))
-    
-
-            body_params = None
-    
-
-            # HTTP header `Accept`
-            header_params['Accept'] = self.api_client.\
-                select_header_accept(['application/json'])
-            if not header_params['Accept']:
-                del header_params['Accept']
-
-            # HTTP header `Content-Type`
-            header_params['Content-Type'] = self.api_client.\
-                select_header_content_type(['multipart/form-data'])
-
-            # Authentication setting
-            auth_settings = ['basicAuth']
-
-            response = self.api_client.call_api(resource_path, 'POST',
-                                                path_params,
-                                                query_params,
-                                                header_params,
-                                                body=body_params,
-                                                post_params=form_params,
-                                                files=local_var_files,
-                                                response_type=None,
-                                                auth_settings=auth_settings,
-                                                callback=params.get('callback'))
-            return response
-    
     def initialize_thin_volume(self, system_id, thin_volume_id, **kwargs):
             """
             Initialize a ThinVolume
@@ -2665,7 +1996,7 @@ class VolumesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str thin_volume_id:  (required)
     
@@ -2775,7 +2106,7 @@ class VolumesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str volume_id:  (required)
     
@@ -2885,7 +2216,7 @@ class VolumesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str mapping_id:  (required)
     
@@ -2983,112 +2314,6 @@ class VolumesApi(object):
                                                 callback=params.get('callback'))
             return response
     
-    def new_fde_key(self, system_id, **kwargs):
-            """
-            Create or change a full disk encryption key
-            Mode: Both Embedded and Proxy. The result of this method is the creation of a new key file. Retrieve with the /file/{filename} endpoint.
-
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please define a `callback` function
-            to be invoked when receiving the response.
-            >>> def callback_function(response):
-            >>>     pprint(response)
-            >>>
-    
-            >>> thread = api.new_fde_key(system_id, callback=callback_function)
-    
-    
-
-            :param callback function: The callback function
-                for asynchronous request. (optional)
-    
-            :param str system_id: The id of the storage-system (required)
-    
-            :param SecureVolumeKeyRequest body: 
-    
-            :return: SecureVolumeKeyResponse
-                     If the method is called asynchronously,
-                     returns the request thread.
-            :raises: ValueError
-                       If the required params are not provided or if the response data format is unknown.
-                     TypeError:
-                        When the data type of response data is different from what we are expecting
-                     ApiException:
-                        Occurs when we get a HTTP error code (422 and above).
-
-            """
-
-            all_params = ['system_id', 'body']
-            all_params.append('callback')
-
-            params = locals()
-            for key, val in iteritems(params['kwargs']):
-                if key not in all_params:
-                    raise TypeError(
-                        "Got an unexpected keyword argument '%s'"
-                        " to method new_fde_key" % key
-                    )
-                params[key] = val
-            del params['kwargs']
-
-    
-    
-            # verify the required parameter 'system_id' is set
-            if ('system_id' not in params) or (params['system_id'] is None):
-                raise ValueError("Missing the required parameter `system_id` when calling `new_fde_key`")
-    
-    
-    
-    
-
-            resource_path = '/storage-systems/{system-id}/security-key'.replace('{format}', 'json')
-            path_params = {}
-    
-            if 'system_id' in params:
-                path_params['system-id'] = params['system_id']
-    
-
-            query_params = {}
-    
-
-            header_params = {}
-    
-
-            form_params = []
-            local_var_files = {}
-    
-
-            body_params = None
-    
-            if 'body' in params:
-                body_params = params['body']
-    
-
-            # HTTP header `Accept`
-            header_params['Accept'] = self.api_client.\
-                select_header_accept(['application/json'])
-            if not header_params['Accept']:
-                del header_params['Accept']
-
-            # HTTP header `Content-Type`
-            header_params['Content-Type'] = self.api_client.\
-                select_header_content_type(['application/json'])
-
-            # Authentication setting
-            auth_settings = ['basicAuth']
-
-            response = self.api_client.call_api(resource_path, 'POST',
-                                                path_params,
-                                                query_params,
-                                                header_params,
-                                                body=body_params,
-                                                post_params=form_params,
-                                                files=local_var_files,
-                                                response_type='SecureVolumeKeyResponse',
-                                                auth_settings=auth_settings,
-                                                callback=params.get('callback'))
-            return response
-    
     def new_lun_mapping(self, system_id, **kwargs):
             """
             Create a new LunMapping
@@ -3108,7 +2333,7 @@ class VolumesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param VolumeMappingCreateRequest body: 
     
@@ -3214,7 +2439,7 @@ class VolumesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param StoragePoolCreateRequest body: 
     
@@ -3320,7 +2545,7 @@ class VolumesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param ThinVolumeCreateRequest body: 
     
@@ -3426,7 +2651,7 @@ class VolumesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param VolumeCreateRequest body: 
     
@@ -3532,7 +2757,7 @@ class VolumesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str id:  (required)
     
@@ -3642,7 +2867,7 @@ class VolumesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str id:  (required)
     
@@ -3759,7 +2984,7 @@ class VolumesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str id:  (required)
     
@@ -3876,7 +3101,7 @@ class VolumesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str id:  (required)
     
@@ -3986,7 +3211,7 @@ class VolumesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str id:  (required)
     
@@ -4096,7 +3321,7 @@ class VolumesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str id:  (required)
     
@@ -4194,123 +3419,6 @@ class VolumesApi(object):
                                                 callback=params.get('callback'))
             return response
     
-    def start_volume_expansion2(self, system_id, id, **kwargs):
-            """
-            .. deprecated:: NOTE: This method has been DEPRECATED
-            
-
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please define a `callback` function
-            to be invoked when receiving the response.
-            >>> def callback_function(response):
-            >>>     pprint(response)
-            >>>
-    
-            >>> thread = api.start_volume_expansion2(system_id, id, callback=callback_function)
-    
-    
-
-            :param callback function: The callback function
-                for asynchronous request. (optional)
-    
-            :param str system_id: The id of the storage-system (required)
-    
-            :param str id:  (required)
-    
-            :param VolumeExpansionRequest body: 
-    
-            :return: None
-                     If the method is called asynchronously,
-                     returns the request thread.
-            :raises: ValueError
-                       If the required params are not provided or if the response data format is unknown.
-                     TypeError:
-                        When the data type of response data is different from what we are expecting
-                     ApiException:
-                        Occurs when we get a HTTP error code (422 and above).
-
-            """
-
-            all_params = ['system_id', 'id', 'body']
-            all_params.append('callback')
-
-            params = locals()
-            for key, val in iteritems(params['kwargs']):
-                if key not in all_params:
-                    raise TypeError(
-                        "Got an unexpected keyword argument '%s'"
-                        " to method start_volume_expansion2" % key
-                    )
-                params[key] = val
-            del params['kwargs']
-
-    
-    
-            # verify the required parameter 'system_id' is set
-            if ('system_id' not in params) or (params['system_id'] is None):
-                raise ValueError("Missing the required parameter `system_id` when calling `start_volume_expansion2`")
-    
-    
-    
-            # verify the required parameter 'id' is set
-            if ('id' not in params) or (params['id'] is None):
-                raise ValueError("Missing the required parameter `id` when calling `start_volume_expansion2`")
-    
-    
-    
-    
-
-            resource_path = '/storage-systems/{system-id}/volumes/expand/{id}'.replace('{format}', 'json')
-            path_params = {}
-    
-            if 'system_id' in params:
-                path_params['system-id'] = params['system_id']
-    
-            if 'id' in params:
-                path_params['id'] = params['id']
-    
-
-            query_params = {}
-    
-
-            header_params = {}
-    
-
-            form_params = []
-            local_var_files = {}
-    
-
-            body_params = None
-    
-            if 'body' in params:
-                body_params = params['body']
-    
-
-            # HTTP header `Accept`
-            header_params['Accept'] = self.api_client.\
-                select_header_accept(['application/json'])
-            if not header_params['Accept']:
-                del header_params['Accept']
-
-            # HTTP header `Content-Type`
-            header_params['Content-Type'] = self.api_client.\
-                select_header_content_type(['application/json'])
-
-            # Authentication setting
-            auth_settings = ['basicAuth']
-
-            response = self.api_client.call_api(resource_path, 'POST',
-                                                path_params,
-                                                query_params,
-                                                header_params,
-                                                body=body_params,
-                                                post_params=form_params,
-                                                files=local_var_files,
-                                                response_type=None,
-                                                auth_settings=auth_settings,
-                                                callback=params.get('callback'))
-            return response
-    
     def update_storage_pool(self, system_id, id, request, **kwargs):
             """
             Update a storage pool
@@ -4330,7 +3438,7 @@ class VolumesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str id:  (required)
     
@@ -4451,7 +3559,7 @@ class VolumesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str id:  (required)
     
@@ -4568,7 +3676,7 @@ class VolumesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str id:  (required)
     
@@ -4662,130 +3770,6 @@ class VolumesApi(object):
                                                 post_params=form_params,
                                                 files=local_var_files,
                                                 response_type='VolumeEx',
-                                                auth_settings=auth_settings,
-                                                callback=params.get('callback'))
-            return response
-    
-    def validate_fde_key(self, system_id, keyfile, **kwargs):
-            """
-            Validate a full disk encryption key
-            Mode: Both Embedded and Proxy. Use secure pass phrase for additional security instead of pass phrase.
-
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please define a `callback` function
-            to be invoked when receiving the response.
-            >>> def callback_function(response):
-            >>>     pprint(response)
-            >>>
-    
-            >>> thread = api.validate_fde_key(system_id, keyfile, callback=callback_function)
-    
-    
-
-            :param callback function: The callback function
-                for asynchronous request. (optional)
-    
-            :param str system_id: The id of the storage-system (required)
-    
-            :param file keyfile: file (required)
-    
-            :param str pass_phrase: Pass phrase
-    
-            :param str secure_pass_phrase: Secure pass phrase
-    
-            :return: None
-                     If the method is called asynchronously,
-                     returns the request thread.
-            :raises: ValueError
-                       If the required params are not provided or if the response data format is unknown.
-                     TypeError:
-                        When the data type of response data is different from what we are expecting
-                     ApiException:
-                        Occurs when we get a HTTP error code (422 and above).
-
-            """
-
-            all_params = ['system_id', 'keyfile', 'pass_phrase', 'secure_pass_phrase']
-            all_params.append('callback')
-
-            params = locals()
-            for key, val in iteritems(params['kwargs']):
-                if key not in all_params:
-                    raise TypeError(
-                        "Got an unexpected keyword argument '%s'"
-                        " to method validate_fde_key" % key
-                    )
-                params[key] = val
-            del params['kwargs']
-
-    
-    
-            # verify the required parameter 'system_id' is set
-            if ('system_id' not in params) or (params['system_id'] is None):
-                raise ValueError("Missing the required parameter `system_id` when calling `validate_fde_key`")
-    
-    
-    
-            # verify the required parameter 'keyfile' is set
-            if ('keyfile' not in params) or (params['keyfile'] is None):
-                raise ValueError("Missing the required parameter `keyfile` when calling `validate_fde_key`")
-    
-    
-    
-    
-    
-    
-
-            resource_path = '/storage-systems/{system-id}/security-key/validate'.replace('{format}', 'json')
-            path_params = {}
-    
-            if 'system_id' in params:
-                path_params['system-id'] = params['system_id']
-    
-
-            query_params = {}
-    
-            if 'pass_phrase' in params:
-                query_params['passPhrase'] = params['pass_phrase']
-    
-
-            header_params = {}
-    
-
-            form_params = []
-            local_var_files = {}
-    
-            if 'keyfile' in params:
-                local_var_files['keyfile'] = params['keyfile']
-    
-            if 'secure_pass_phrase' in params:
-                form_params.append(('securePassPhrase', params['secure_pass_phrase']))
-    
-
-            body_params = None
-    
-
-            # HTTP header `Accept`
-            header_params['Accept'] = self.api_client.\
-                select_header_accept(['application/json'])
-            if not header_params['Accept']:
-                del header_params['Accept']
-
-            # HTTP header `Content-Type`
-            header_params['Content-Type'] = self.api_client.\
-                select_header_content_type(['multipart/form-data'])
-
-            # Authentication setting
-            auth_settings = ['basicAuth']
-
-            response = self.api_client.call_api(resource_path, 'POST',
-                                                path_params,
-                                                query_params,
-                                                header_params,
-                                                body=body_params,
-                                                post_params=form_params,
-                                                files=local_var_files,
-                                                response_type=None,
                                                 auth_settings=auth_settings,
                                                 callback=params.get('callback'))
             return response

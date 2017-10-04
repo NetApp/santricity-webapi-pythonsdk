@@ -52,8 +52,8 @@ class VolumeCopyPair(object):
             'clone_copy': 'bool',  # (required parameter)
             'pg_ref': 'str',  # (required parameter)
             'base_source_volume_id': 'str',  
-            'id': 'str',  
-            'online_copy': 'bool'
+            'online_copy': 'bool',  
+            'id': 'str'
         }
 
         self.attribute_map = {
@@ -72,8 +72,8 @@ class VolumeCopyPair(object):
             'clone_copy': 'cloneCopy',  # (required parameter)
             'pg_ref': 'pgRef',  # (required parameter)
             'base_source_volume_id': 'baseSourceVolumeId',  
-            'id': 'id',  
-            'online_copy': 'onlineCopy'
+            'online_copy': 'onlineCopy',  
+            'id': 'id'
         }
 
         self._world_wide_name = None
@@ -91,8 +91,8 @@ class VolumeCopyPair(object):
         self._clone_copy = None
         self._pg_ref = None
         self._base_source_volume_id = None
-        self._id = None
         self._online_copy = None
+        self._id = None
 
     @property
     def world_wide_name(self):
@@ -452,29 +452,6 @@ class VolumeCopyPair(object):
         self._base_source_volume_id = base_source_volume_id
 
     @property
-    def id(self):
-        """
-        Gets the id of this VolumeCopyPair.
-
-
-        :return: The id of this VolumeCopyPair.
-        :rtype: str
-        :required/optional: optional
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this VolumeCopyPair.
-
-
-        :param id: The id of this VolumeCopyPair.
-        :type: str
-        """
-        self._id = id
-
-    @property
     def online_copy(self):
         """
         Gets the online_copy of this VolumeCopyPair.
@@ -496,6 +473,29 @@ class VolumeCopyPair(object):
         :type: bool
         """
         self._online_copy = online_copy
+
+    @property
+    def id(self):
+        """
+        Gets the id of this VolumeCopyPair.
+
+
+        :return: The id of this VolumeCopyPair.
+        :rtype: str
+        :required/optional: optional
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """
+        Sets the id of this VolumeCopyPair.
+
+
+        :param id: The id of this VolumeCopyPair.
+        :type: str
+        """
+        self._id = id
 
     def to_dict(self):
         """

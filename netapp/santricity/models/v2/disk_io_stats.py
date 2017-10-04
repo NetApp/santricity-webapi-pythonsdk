@@ -170,7 +170,7 @@ class DiskIOStats(object):
     def observed_time(self):
         """
         Gets the observed_time of this DiskIOStats.
-
+        End time for this collection as measured by the number of seconds since baseTime.
 
         :return: The observed_time of this DiskIOStats.
         :rtype: datetime
@@ -182,7 +182,7 @@ class DiskIOStats(object):
     def observed_time(self, observed_time):
         """
         Sets the observed_time of this DiskIOStats.
-
+        End time for this collection as measured by the number of seconds since baseTime.
 
         :param observed_time: The observed_time of this DiskIOStats.
         :type: datetime

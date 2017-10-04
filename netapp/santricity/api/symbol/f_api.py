@@ -61,7 +61,7 @@ class FApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param VolumeOwnershipFailBackRequestDescriptor body: Descriptor containing input parameters for fail back request operation. (required)
     
@@ -185,7 +185,7 @@ class FApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: An object containing all of the required attributes to revive the given disk pool. (required)
     
@@ -309,7 +309,7 @@ class FApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: A SYMbol VolumeGroupRef identifying the volume group to export. (required)
     
@@ -433,7 +433,7 @@ class FApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: The value of the VolumeGroupRef for the volume group that is being restored to the optimal state. (required)
     

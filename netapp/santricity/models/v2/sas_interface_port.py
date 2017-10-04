@@ -51,9 +51,9 @@ class SasInterfacePort(object):
             'bidirectional_max_rate': 'int',  # (required parameter)
             'controller_id': 'str',  
             'interface_id': 'str',  
+            'base_port_address': 'str',  
             'address_id': 'str',  
             'nice_address_id': 'str',  
-            'base_port_address': 'str',  
             'id': 'str'
         }
 
@@ -72,9 +72,9 @@ class SasInterfacePort(object):
             'bidirectional_max_rate': 'bidirectionalMaxRate',  # (required parameter)
             'controller_id': 'controllerId',  
             'interface_id': 'interfaceId',  
+            'base_port_address': 'basePortAddress',  
             'address_id': 'addressId',  
             'nice_address_id': 'niceAddressId',  
-            'base_port_address': 'basePortAddress',  
             'id': 'id'
         }
 
@@ -92,9 +92,9 @@ class SasInterfacePort(object):
         self._bidirectional_max_rate = None
         self._controller_id = None
         self._interface_id = None
+        self._base_port_address = None
         self._address_id = None
         self._nice_address_id = None
-        self._base_port_address = None
         self._id = None
 
     @property
@@ -141,7 +141,7 @@ class SasInterfacePort(object):
         :param current_interface_speed: The current_interface_speed of this SasInterfacePort.
         :type: str
         """
-        allowed_values = ["speedUnknown", "speed1gig", "speed2gig", "speed4gig", "speed10gig", "speed15gig", "speed3gig", "speed10meg", "speed100meg", "speed2pt5Gig", "speed5gig", "speed20gig", "speed30gig", "speed60gig", "speed8gig", "speed6gig", "speed40gig", "speed16gig", "speed56gig", "speed12gig", "__UNDEFINED"]
+        allowed_values = ["speedUnknown", "speed1gig", "speed2gig", "speed4gig", "speed10gig", "speed15gig", "speed3gig", "speed10meg", "speed100meg", "speed2pt5Gig", "speed5gig", "speed20gig", "speed30gig", "speed60gig", "speed8gig", "speed6gig", "speed40gig", "speed16gig", "speed56gig", "speed12gig", "speed25gig", "speed32gig", "speed100gig", "__UNDEFINED"]
         if current_interface_speed not in allowed_values:
             raise ValueError(
                 "Invalid value for `current_interface_speed`, must be one of {0}"
@@ -170,7 +170,7 @@ class SasInterfacePort(object):
         :param maximum_interface_speed: The maximum_interface_speed of this SasInterfacePort.
         :type: str
         """
-        allowed_values = ["speedUnknown", "speed1gig", "speed2gig", "speed4gig", "speed10gig", "speed15gig", "speed3gig", "speed10meg", "speed100meg", "speed2pt5Gig", "speed5gig", "speed20gig", "speed30gig", "speed60gig", "speed8gig", "speed6gig", "speed40gig", "speed16gig", "speed56gig", "speed12gig", "__UNDEFINED"]
+        allowed_values = ["speedUnknown", "speed1gig", "speed2gig", "speed4gig", "speed10gig", "speed15gig", "speed3gig", "speed10meg", "speed100meg", "speed2pt5Gig", "speed5gig", "speed20gig", "speed30gig", "speed60gig", "speed8gig", "speed6gig", "speed40gig", "speed16gig", "speed56gig", "speed12gig", "speed25gig", "speed32gig", "speed100gig", "__UNDEFINED"]
         if maximum_interface_speed not in allowed_values:
             raise ValueError(
                 "Invalid value for `maximum_interface_speed`, must be one of {0}"
@@ -432,6 +432,29 @@ class SasInterfacePort(object):
         self._interface_id = interface_id
 
     @property
+    def base_port_address(self):
+        """
+        Gets the base_port_address of this SasInterfacePort.
+
+
+        :return: The base_port_address of this SasInterfacePort.
+        :rtype: str
+        :required/optional: optional
+        """
+        return self._base_port_address
+
+    @base_port_address.setter
+    def base_port_address(self, base_port_address):
+        """
+        Sets the base_port_address of this SasInterfacePort.
+
+
+        :param base_port_address: The base_port_address of this SasInterfacePort.
+        :type: str
+        """
+        self._base_port_address = base_port_address
+
+    @property
     def address_id(self):
         """
         Gets the address_id of this SasInterfacePort.
@@ -476,29 +499,6 @@ class SasInterfacePort(object):
         :type: str
         """
         self._nice_address_id = nice_address_id
-
-    @property
-    def base_port_address(self):
-        """
-        Gets the base_port_address of this SasInterfacePort.
-
-
-        :return: The base_port_address of this SasInterfacePort.
-        :rtype: str
-        :required/optional: optional
-        """
-        return self._base_port_address
-
-    @base_port_address.setter
-    def base_port_address(self, base_port_address):
-        """
-        Sets the base_port_address of this SasInterfacePort.
-
-
-        :param base_port_address: The base_port_address of this SasInterfacePort.
-        :type: str
-        """
-        self._base_port_address = base_port_address
 
     @property
     def id(self):

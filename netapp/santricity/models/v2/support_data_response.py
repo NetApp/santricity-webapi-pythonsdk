@@ -148,7 +148,7 @@ class SupportDataResponse(object):
         :param type: The type of this SupportDataResponse.
         :type: str
         """
-        allowed_values = ["driveData", "traceBuffers", "ioPathStatistics", "supportBundle", "coreDump", "storageArrayConfiguration", "deviceProfile", "firmwareInventory", "unreadableSectors", "iscsiSessionsConnections"]
+        allowed_values = ["driveData", "traceBuffers", "ioPathStatistics", "supportBundle", "coreDump", "storageArrayConfiguration", "deviceProfile", "firmwareInventory", "unreadableSectors", "iscsiSessionsConnections", None]
         if type not in allowed_values:
             raise ValueError(
                 "Invalid value for `type`, must be one of {0}"

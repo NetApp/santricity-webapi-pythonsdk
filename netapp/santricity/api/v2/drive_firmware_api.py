@@ -61,7 +61,7 @@ class DriveFirmwareApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :return: None
                      If the method is called asynchronously,
@@ -248,7 +248,7 @@ class DriveFirmwareApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :return: DriveFirmwareCompatibilityResponse
                      If the method is called asynchronously,
@@ -453,7 +453,7 @@ class DriveFirmwareApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :return: DriveFirmwareStatus
                      If the method is called asynchronously,
@@ -651,7 +651,7 @@ class DriveFirmwareApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param list[DriveFirmwareUpdateEntry] body: Data for which drives to update. (required)
     

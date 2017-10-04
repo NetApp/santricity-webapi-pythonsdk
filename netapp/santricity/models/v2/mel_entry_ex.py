@@ -52,8 +52,8 @@ class MelEntryEx(object):
             'control_params': 'EventControl',  # (required parameter)
             'description': 'str',  
             'location': 'str',  
-            'id': 'str',  
             'critical': 'bool',  
+            'id': 'str',  
             'asc': 'int',  
             'ascq': 'int'
         }
@@ -74,8 +74,8 @@ class MelEntryEx(object):
             'control_params': 'controlParams',  # (required parameter)
             'description': 'description',  
             'location': 'location',  
-            'id': 'id',  
             'critical': 'critical',  
+            'id': 'id',  
             'asc': 'asc',  
             'ascq': 'ascq'
         }
@@ -95,8 +95,8 @@ class MelEntryEx(object):
         self._control_params = None
         self._description = None
         self._location = None
-        self._id = None
         self._critical = None
+        self._id = None
         self._asc = None
         self._ascq = None
 
@@ -219,7 +219,7 @@ class MelEntryEx(object):
         :param component_type: The component_type of this MelEntryEx.
         :type: str
         """
-        allowed_values = ["unknown", "drive", "powerSply", "fan", "minihub", "tempSensor", "channel", "esm", "controller", "battery", "enclosure", "ups", "chip", "volume", "volumeGrp", "portCru", "interconnectCru", "supportCru", "alarm", "channelPort", "sfpPort", "hostBoard", "newFormat", "ctlrSfp", "ctlrSoc", "initiator", "target", "isnsServer", "hostIoCard", "cacheBackupDevice", "cacheMemDimm", "host", "hostPort", "drawer", "relative", "schedule", "asyncMirrorGroup", "diskPool", "pit", "pitConsistencyGroup", "cgpit", "cgview", "flashCache", "snmpCommunity", "snmpTrapDestination", "fcTarget", "fanOnlyCru", "psuCru", "__UNDEFINED"]
+        allowed_values = ["unknown", "drive", "powerSply", "fan", "minihub", "tempSensor", "channel", "esm", "controller", "battery", "enclosure", "ups", "chip", "volume", "volumeGrp", "portCru", "interconnectCru", "supportCru", "alarm", "channelPort", "sfpPort", "hostBoard", "newFormat", "ctlrSfp", "ctlrSoc", "initiator", "target", "isnsServer", "hostIoCard", "cacheBackupDevice", "cacheMemDimm", "host", "hostPort", "drawer", "relative", "schedule", "asyncMirrorGroup", "diskPool", "pit", "pitConsistencyGroup", "cgpit", "cgview", "flashCache", "snmpCommunity", "snmpTrapDestination", "fcTarget", "blankOne", "blankTwo", "fanOnlyCru", "psuCru", "nvmeInitiator", "__UNDEFINED"]
         if component_type not in allowed_values:
             raise ValueError(
                 "Invalid value for `component_type`, must be one of {0}"
@@ -464,29 +464,6 @@ class MelEntryEx(object):
         self._location = location
 
     @property
-    def id(self):
-        """
-        Gets the id of this MelEntryEx.
-
-
-        :return: The id of this MelEntryEx.
-        :rtype: str
-        :required/optional: optional
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this MelEntryEx.
-
-
-        :param id: The id of this MelEntryEx.
-        :type: str
-        """
-        self._id = id
-
-    @property
     def critical(self):
         """
         Gets the critical of this MelEntryEx.
@@ -508,6 +485,29 @@ class MelEntryEx(object):
         :type: bool
         """
         self._critical = critical
+
+    @property
+    def id(self):
+        """
+        Gets the id of this MelEntryEx.
+
+
+        :return: The id of this MelEntryEx.
+        :rtype: str
+        :required/optional: optional
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """
+        Sets the id of this MelEntryEx.
+
+
+        :param id: The id of this MelEntryEx.
+        :type: str
+        """
+        self._id = id
 
     @property
     def asc(self):
