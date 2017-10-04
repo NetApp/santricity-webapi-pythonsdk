@@ -40,20 +40,23 @@ class AboutResponse(object):
             'running_as_proxy': 'bool',  # (required parameter)
             'version': 'str',  # (required parameter)
             'system_id': 'str',  # (required parameter)
-            'controller_position': 'int'
+            'controller_position': 'int',  # (required parameter)
+            'start_timestamp': 'int'
         }
 
         self.attribute_map = {
             'running_as_proxy': 'runningAsProxy',  # (required parameter)
             'version': 'version',  # (required parameter)
             'system_id': 'systemId',  # (required parameter)
-            'controller_position': 'controllerPosition'
+            'controller_position': 'controllerPosition',  # (required parameter)
+            'start_timestamp': 'startTimestamp'
         }
 
         self._running_as_proxy = None
         self._version = None
         self._system_id = None
         self._controller_position = None
+        self._start_timestamp = None
 
     @property
     def running_as_proxy(self):
@@ -146,6 +149,29 @@ class AboutResponse(object):
         :type: int
         """
         self._controller_position = controller_position
+
+    @property
+    def start_timestamp(self):
+        """
+        Gets the start_timestamp of this AboutResponse.
+        REST API start timestamp in seconds
+
+        :return: The start_timestamp of this AboutResponse.
+        :rtype: int
+        :required/optional: required
+        """
+        return self._start_timestamp
+
+    @start_timestamp.setter
+    def start_timestamp(self, start_timestamp):
+        """
+        Sets the start_timestamp of this AboutResponse.
+        REST API start timestamp in seconds
+
+        :param start_timestamp: The start_timestamp of this AboutResponse.
+        :type: int
+        """
+        self._start_timestamp = start_timestamp
 
     def to_dict(self):
         """

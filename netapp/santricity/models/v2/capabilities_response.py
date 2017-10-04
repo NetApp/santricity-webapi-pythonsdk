@@ -41,6 +41,7 @@ class CapabilitiesResponse(object):
             'capabilities': 'list[str]',  # (required parameter)
             'product_capabilities': 'list[str]',  # (required parameter)
             'feature_states': 'list[FeatureState]',  # (required parameter)
+            'storage_system_attributes': 'StorageSystemAttributes',  # (required parameter)
             'feature_parameters': 'FeatureParams'
         }
 
@@ -49,6 +50,7 @@ class CapabilitiesResponse(object):
             'capabilities': 'capabilities',  # (required parameter)
             'product_capabilities': 'productCapabilities',  # (required parameter)
             'feature_states': 'featureStates',  # (required parameter)
+            'storage_system_attributes': 'storageSystemAttributes',  # (required parameter)
             'feature_parameters': 'featureParameters'
         }
 
@@ -56,6 +58,7 @@ class CapabilitiesResponse(object):
         self._capabilities = None
         self._product_capabilities = None
         self._feature_states = None
+        self._storage_system_attributes = None
         self._feature_parameters = None
 
     @property
@@ -149,6 +152,29 @@ class CapabilitiesResponse(object):
         :type: list[FeatureState]
         """
         self._feature_states = feature_states
+
+    @property
+    def storage_system_attributes(self):
+        """
+        Gets the storage_system_attributes of this CapabilitiesResponse.
+        Configuration parameters, constants, and other useful information for clients that may vary between storage-systems.
+
+        :return: The storage_system_attributes of this CapabilitiesResponse.
+        :rtype: StorageSystemAttributes
+        :required/optional: required
+        """
+        return self._storage_system_attributes
+
+    @storage_system_attributes.setter
+    def storage_system_attributes(self, storage_system_attributes):
+        """
+        Sets the storage_system_attributes of this CapabilitiesResponse.
+        Configuration parameters, constants, and other useful information for clients that may vary between storage-systems.
+
+        :param storage_system_attributes: The storage_system_attributes of this CapabilitiesResponse.
+        :type: StorageSystemAttributes
+        """
+        self._storage_system_attributes = storage_system_attributes
 
     @property
     def feature_parameters(self):

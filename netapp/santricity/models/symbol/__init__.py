@@ -71,6 +71,7 @@ from netapp.santricity.models.symbol.battery import Battery
 from netapp.santricity.models.symbol.battery_pack_icc_failure import BatteryPackICCFailure
 from netapp.santricity.models.symbol.battery_params_update_descriptor import BatteryParamsUpdateDescriptor
 from netapp.santricity.models.symbol.battery_type_data import BatteryTypeData
+from netapp.santricity.models.symbol.block_extent import BlockExtent
 from netapp.santricity.models.symbol.bundle_key import BundleKey
 from netapp.santricity.models.symbol.bundled_feature import BundledFeature
 from netapp.santricity.models.symbol.cache_backup_device import CacheBackupDevice
@@ -78,6 +79,7 @@ from netapp.santricity.models.symbol.cache_backup_device_location import CacheBa
 from netapp.santricity.models.symbol.cache_backup_device_vpd import CacheBackupDeviceVpd
 from netapp.santricity.models.symbol.cache_memory_dimm import CacheMemoryDimm
 from netapp.santricity.models.symbol.cache_memory_dimm_location import CacheMemoryDimmLocation
+from netapp.santricity.models.symbol.cache_mirroring_protection_information_descriptor import CacheMirroringProtectionInformationDescriptor
 from netapp.santricity.models.symbol.candidate_selection_type_data import CandidateSelectionTypeData
 from netapp.santricity.models.symbol.change_query_descriptor import ChangeQueryDescriptor
 from netapp.santricity.models.symbol.change_state import ChangeState
@@ -110,6 +112,8 @@ from netapp.santricity.models.symbol.cluster_performance_limitation_values_retur
 from netapp.santricity.models.symbol.co_w_repository_analysis_request import CoWRepositoryAnalysisRequest
 from netapp.santricity.models.symbol.co_w_repository_analysis_results import CoWRepositoryAnalysisResults
 from netapp.santricity.models.symbol.co_w_repository_analysis_results_returned import CoWRepositoryAnalysisResultsReturned
+from netapp.santricity.models.symbol.command_protocol_properties import CommandProtocolProperties
+from netapp.santricity.models.symbol.command_protocol_properties_list import CommandProtocolPropertiesList
 from netapp.santricity.models.symbol.compatible_firmware import CompatibleFirmware
 from netapp.santricity.models.symbol.component_bundle import ComponentBundle
 from netapp.santricity.models.symbol.component_location import ComponentLocation
@@ -152,6 +156,10 @@ from netapp.santricity.models.symbol.cumulative_statistics_bundle_returned impor
 from netapp.santricity.models.symbol.cumulative_statistics_default_attributes import CumulativeStatisticsDefaultAttributes
 from netapp.santricity.models.symbol.cumulative_statistics_descriptor import CumulativeStatisticsDescriptor
 from netapp.santricity.models.symbol.cumulative_statistics_list_descriptor import CumulativeStatisticsListDescriptor
+from netapp.santricity.models.symbol.current_ssd_wear_life_stats import CurrentSSDWearLifeStats
+from netapp.santricity.models.symbol.current_ssd_wear_life_stats_descriptor import CurrentSSDWearLifeStatsDescriptor
+from netapp.santricity.models.symbol.current_ssd_wear_life_stats_results import CurrentSSDWearLifeStatsResults
+from netapp.santricity.models.symbol.current_ssd_wear_life_stats_return_data import CurrentSSDWearLifeStatsReturnData
 from netapp.santricity.models.symbol.dcbx_summary_data import DCBXSummaryData
 from netapp.santricity.models.symbol.dpl_core_dump_data import DPLCoreDumpData
 from netapp.santricity.models.symbol.dpl_core_dump_detail import DPLCoreDumpDetail
@@ -183,6 +191,7 @@ from netapp.santricity.models.symbol.debug_info import DebugInfo
 from netapp.santricity.models.symbol.debug_info_extent import DebugInfoExtent
 from netapp.santricity.models.symbol.debug_info_returned import DebugInfoReturned
 from netapp.santricity.models.symbol.degraded_path import DegradedPath
+from netapp.santricity.models.symbol.directory_services_domain import DirectoryServicesDomain
 from netapp.santricity.models.symbol.discovery_response import DiscoveryResponse
 from netapp.santricity.models.symbol.discrete_time_series import DiscreteTimeSeries
 from netapp.santricity.models.symbol.discrete_time_series_bundle import DiscreteTimeSeriesBundle
@@ -242,6 +251,7 @@ from netapp.santricity.models.symbol.dual_mirror_primary import DualMirrorPrimar
 from netapp.santricity.models.symbol.dual_mirror_secondary import DualMirrorSecondary
 from netapp.santricity.models.symbol.esm_firmware_update_descriptor import ESMFirmwareUpdateDescriptor
 from netapp.santricity.models.symbol.esm_interface_type_data import ESMInterfaceTypeData
+from netapp.santricity.models.symbol.embedded_external_kms_information import EmbeddedExternalKMSInformation
 from netapp.santricity.models.symbol.embedded_snmp_agent_default_attributes import EmbeddedSNMPAgentDefaultAttributes
 from netapp.santricity.models.symbol.enclosure_state_capture_retrieve_chunk_details import EnclosureStateCaptureRetrieveChunkDetails
 from netapp.santricity.models.symbol.enclosure_state_capture_retrieve_start_details import EnclosureStateCaptureRetrieveStartDetails
@@ -274,6 +284,8 @@ from netapp.santricity.models.symbol.export_dependency import ExportDependency
 from netapp.santricity.models.symbol.export_dependency_type_data import ExportDependencyTypeData
 from netapp.santricity.models.symbol.extended_component_location import ExtendedComponentLocation
 from netapp.santricity.models.symbol.extended_sa_data import ExtendedSAData
+from netapp.santricity.models.symbol.external_kms_endpoint import ExternalKMSEndpoint
+from netapp.santricity.models.symbol.external_kms_parameters_set_descriptor import ExternalKMSParametersSetDescriptor
 from netapp.santricity.models.symbol.external_redundancy_failure import ExternalRedundancyFailure
 from netapp.santricity.models.symbol.factory_defaults_descriptor import FactoryDefaultsDescriptor
 from netapp.santricity.models.symbol.factory_defaults_version_data import FactoryDefaultsVersionData
@@ -348,6 +360,8 @@ from netapp.santricity.models.symbol.host_port_mutable_properties import HostPor
 from netapp.santricity.models.symbol.host_port_properties_update_descriptor import HostPortPropertiesUpdateDescriptor
 from netapp.santricity.models.symbol.host_port_rename_descriptor import HostPortRenameDescriptor
 from netapp.santricity.models.symbol.host_port_type_update_descriptor import HostPortTypeUpdateDescriptor
+from netapp.santricity.models.symbol.host_ports_attributes_update_descriptor import HostPortsAttributesUpdateDescriptor
+from netapp.santricity.models.symbol.host_ports_changeable_attributes import HostPortsChangeableAttributes
 from netapp.santricity.models.symbol.host_properties_update_descriptor import HostPropertiesUpdateDescriptor
 from netapp.santricity.models.symbol.host_redundancy_loss_details import HostRedundancyLossDetails
 from netapp.santricity.models.symbol.host_specific_nvsram_update_descriptor import HostSpecificNVSRAMUpdateDescriptor
@@ -415,6 +429,7 @@ from netapp.santricity.models.symbol.ip_v6_address_data import IpV6AddressData
 from netapp.santricity.models.symbol.ip_v6_address_data_bundle import IpV6AddressDataBundle
 from netapp.santricity.models.symbol.ip_v6_address_state import IpV6AddressState
 from netapp.santricity.models.symbol.ip_vx_address import IpVxAddress
+from netapp.santricity.models.symbol.ip_vx_address_data import IpVxAddressData
 from netapp.santricity.models.symbol.iscsi_cable_diag_channel_results import IscsiCableDiagChannelResults
 from netapp.santricity.models.symbol.iscsi_cable_diag_results import IscsiCableDiagResults
 from netapp.santricity.models.symbol.iscsi_cable_diagnostics_descriptor import IscsiCableDiagnosticsDescriptor
@@ -444,6 +459,11 @@ from netapp.santricity.models.symbol.iscsi_statistics_returned import IscsiStati
 from netapp.santricity.models.symbol.iscsi_target_port_id import IscsiTargetPortId
 from netapp.santricity.models.symbol.iscsi_target_statistics import IscsiTargetStatistics
 from netapp.santricity.models.symbol.isns_server_location import IsnsServerLocation
+from netapp.santricity.models.symbol.kms_certificate_expiration_details import KMSCertificateExpirationDetails
+from netapp.santricity.models.symbol.kms_certificate_file_install_descriptor import KMSCertificateFileInstallDescriptor
+from netapp.santricity.models.symbol.kms_certificate_file_retrieve_descriptor import KMSCertificateFileRetrieveDescriptor
+from netapp.santricity.models.symbol.kms_certificate_file_return import KMSCertificateFileReturn
+from netapp.santricity.models.symbol.kms_client_csr_descriptor import KMSClientCSRDescriptor
 from netapp.santricity.models.symbol.key_id_info import KeyIDInfo
 from netapp.santricity.models.symbol.key_value_tag import KeyValueTag
 from netapp.santricity.models.symbol.key_value_tag_creation_descriptor import KeyValueTagCreationDescriptor
@@ -497,6 +517,17 @@ from netapp.santricity.models.symbol.mirror_volume_candidate_list import MirrorV
 from netapp.santricity.models.symbol.mirror_volume_list import MirrorVolumeList
 from netapp.santricity.models.symbol.mirror_write_mode_descriptor import MirrorWriteModeDescriptor
 from netapp.santricity.models.symbol.miswired_drive_channel_list import MiswiredDriveChannelList
+from netapp.santricity.models.symbol.nv_me_command_protocol_properties import NVMeCommandProtocolProperties
+from netapp.santricity.models.symbol.nv_me_initiator_port_id import NVMeInitiatorPortId
+from netapp.santricity.models.symbol.nv_me_interface_changeable_properties import NVMeInterfaceChangeableProperties
+from netapp.santricity.models.symbol.nv_me_interface_properties_update_descriptor import NVMeInterfacePropertiesUpdateDescriptor
+from netapp.santricity.models.symbol.nv_meo_f_baselined_statistics import NVMeoFBaselinedStatistics
+from netapp.santricity.models.symbol.nv_meo_f_infiniband_properties import NVMeoFInfinibandProperties
+from netapp.santricity.models.symbol.nv_meo_f_interface_statistics import NVMeoFInterfaceStatistics
+from netapp.santricity.models.symbol.nv_meo_f_protocol_properties import NVMeoFProtocolProperties
+from netapp.santricity.models.symbol.nv_meo_f_queue_statistics import NVMeoFQueueStatistics
+from netapp.santricity.models.symbol.nv_meo_f_statistical_data import NVMeoFStatisticalData
+from netapp.santricity.models.symbol.nv_meo_f_statistics_returned import NVMeoFStatisticsReturned
 from netapp.santricity.models.symbol.nvsram_region import NVSRAMRegion
 from netapp.santricity.models.symbol.nvsram_region_id_and_host_index import NVSRAMRegionIdAndHostIndex
 from netapp.santricity.models.symbol.nvsram_region_list import NVSRAMRegionList
@@ -576,6 +607,7 @@ from netapp.santricity.models.symbol.physical_interface_type_data import Physica
 from netapp.santricity.models.symbol.port import Port
 from netapp.santricity.models.symbol.port_idtlv import PortIDTLV
 from netapp.santricity.models.symbol.port_list import PortList
+from netapp.santricity.models.symbol.ports_ref_type_data import PortsRefTypeData
 from netapp.santricity.models.symbol.power_cycle_physical_drive_data_return import PowerCyclePhysicalDriveDataReturn
 from netapp.santricity.models.symbol.power_cycle_physical_drive_descriptor import PowerCyclePhysicalDriveDescriptor
 from netapp.santricity.models.symbol.power_supply import PowerSupply
@@ -630,6 +662,7 @@ from netapp.santricity.models.symbol.repair_policy import RepairPolicy
 from netapp.santricity.models.symbol.repository_utilization import RepositoryUtilization
 from netapp.santricity.models.symbol.repository_utilization_list import RepositoryUtilizationList
 from netapp.santricity.models.symbol.reserve_support_data_returned import ReserveSupportDataReturned
+from netapp.santricity.models.symbol.reset_super_provisioning_boundary_descriptor import ResetSuperProvisioningBoundaryDescriptor
 from netapp.santricity.models.symbol.return_code_with_opaque_data import ReturnCodeWithOpaqueData
 from netapp.santricity.models.symbol.return_code_with_ref import ReturnCodeWithRef
 from netapp.santricity.models.symbol.return_code_with_ref_list import ReturnCodeWithRefList
@@ -671,6 +704,9 @@ from netapp.santricity.models.symbol.snmp_trap_destination_params_update_descrip
 from netapp.santricity.models.symbol.snmp_trap_destination_ref_list import SNMPTrapDestinationRefList
 from netapp.santricity.models.symbol.snmp_trap_destination_test_descriptor import SNMPTrapDestinationTestDescriptor
 from netapp.santricity.models.symbol.snmp_trap_destination_test_descriptor_list import SNMPTrapDestinationTestDescriptorList
+from netapp.santricity.models.symbol.ssd_block_allocation_scan_data import SSDBlockAllocationScanData
+from netapp.santricity.models.symbol.ssd_block_allocation_scan_status_results import SSDBlockAllocationScanStatusResults
+from netapp.santricity.models.symbol.ssd_block_allocation_scan_status_return_data import SSDBlockAllocationScanStatusReturnData
 from netapp.santricity.models.symbol.ssd_wear_life import SSDWearLife
 from netapp.santricity.models.symbol.sy_mbol_ref_pair import SYMbolRefPair
 from netapp.santricity.models.symbol.sy_mbol_ref_with_ual import SYMbolRefWithUAL
@@ -739,6 +775,7 @@ from netapp.santricity.models.symbol.soc_statistics_returned import SocStatistic
 from netapp.santricity.models.symbol.specific_database_metadata import SpecificDatabaseMetadata
 from netapp.santricity.models.symbol.speed_neg_error import SpeedNegError
 from netapp.santricity.models.symbol.staged_firmware import StagedFirmware
+from netapp.santricity.models.symbol.start_ssd_block_allocation_scan_descriptor import StartSSDBlockAllocationScanDescriptor
 from netapp.santricity.models.symbol.stat_stream_id_returned import StatStreamIdReturned
 from netapp.santricity.models.symbol.statistical_container import StatisticalContainer
 from netapp.santricity.models.symbol.statistical_time_data import StatisticalTimeData
@@ -747,6 +784,8 @@ from netapp.santricity.models.symbol.storage_array_changeable_properties import 
 from netapp.santricity.models.symbol.storage_array_properties_update_descriptor import StorageArrayPropertiesUpdateDescriptor
 from netapp.santricity.models.symbol.storage_pool_bundle import StoragePoolBundle
 from netapp.santricity.models.symbol.support_cru import SupportCRU
+from netapp.santricity.models.symbol.symbol_tunnel_reply import SymbolTunnelReply
+from netapp.santricity.models.symbol.symbol_tunnel_request import SymbolTunnelRequest
 from netapp.santricity.models.symbol.syslog_configuration import SyslogConfiguration
 from netapp.santricity.models.symbol.system_attribute_defaults import SystemAttributeDefaults
 from netapp.santricity.models.symbol.system_attribute_defaults_returned import SystemAttributeDefaultsReturned
@@ -788,6 +827,8 @@ from netapp.santricity.models.symbol.tray_ref_list import TrayRefList
 from netapp.santricity.models.symbol.tray_slot import TraySlot
 from netapp.santricity.models.symbol.tray_temperature_returned import TrayTemperatureReturned
 from netapp.santricity.models.symbol.tray_update_descriptor import TrayUpdateDescriptor
+from netapp.santricity.models.symbol.tunnel_key_value import TunnelKeyValue
+from netapp.santricity.models.symbol.tunneling_default_attributes import TunnelingDefaultAttributes
 from netapp.santricity.models.symbol.typed_sy_mbol_reference import TypedSYMbolReference
 from netapp.santricity.models.symbol.unconfigured_initiators_returned import UnconfiguredInitiatorsReturned
 from netapp.santricity.models.symbol.unmatched_pending_host import UnmatchedPendingHost

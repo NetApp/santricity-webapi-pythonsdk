@@ -40,20 +40,23 @@ class IoInterface(object):
             'interface_ref': 'str',  # (required parameter)
             'channel_type': 'str',  # (required parameter)
             'io_interface_type_data': 'IOInterfaceTypeData',  # (required parameter)
-            'controller_ref': 'str'
+            'controller_ref': 'str',  # (required parameter)
+            'command_protocol_properties_list': 'CommandProtocolPropertiesList'
         }
 
         self.attribute_map = {
             'interface_ref': 'interfaceRef',  # (required parameter)
             'channel_type': 'channelType',  # (required parameter)
             'io_interface_type_data': 'ioInterfaceTypeData',  # (required parameter)
-            'controller_ref': 'controllerRef'
+            'controller_ref': 'controllerRef',  # (required parameter)
+            'command_protocol_properties_list': 'commandProtocolPropertiesList'
         }
 
         self._interface_ref = None
         self._channel_type = None
         self._io_interface_type_data = None
         self._controller_ref = None
+        self._command_protocol_properties_list = None
 
     @property
     def interface_ref(self):
@@ -152,6 +155,29 @@ class IoInterface(object):
         :type: str
         """
         self._controller_ref = controller_ref
+
+    @property
+    def command_protocol_properties_list(self):
+        """
+        Gets the command_protocol_properties_list of this IoInterface.
+        The list of properties that describe the command protocol.
+
+        :return: The command_protocol_properties_list of this IoInterface.
+        :rtype: CommandProtocolPropertiesList
+        :required/optional: required
+        """
+        return self._command_protocol_properties_list
+
+    @command_protocol_properties_list.setter
+    def command_protocol_properties_list(self, command_protocol_properties_list):
+        """
+        Sets the command_protocol_properties_list of this IoInterface.
+        The list of properties that describe the command protocol.
+
+        :param command_protocol_properties_list: The command_protocol_properties_list of this IoInterface.
+        :type: CommandProtocolPropertiesList
+        """
+        self._command_protocol_properties_list = command_protocol_properties_list
 
     def to_dict(self):
         """

@@ -61,7 +61,7 @@ class EApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str controller: Controller selection
     
@@ -174,7 +174,7 @@ class EApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body:  (required)
     
@@ -298,7 +298,7 @@ class EApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param FeatureKey body: A key for the \"premium\" feature to be enabled. This key must be obtained from an authorized source in order to be accepted by the array controller. (required)
     
@@ -422,7 +422,7 @@ class EApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body:  (required)
     
@@ -546,7 +546,7 @@ class EApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param VolumeFlashCacheDescriptor body: A reference to the user volume to link to the flash cache proxy, and a reference to the flash cache volume. (required)
     
@@ -670,7 +670,7 @@ class EApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param VolumeCopyCreationDescriptor body: The VolumeCopyCreationDescriptor for the volume copy. (required)
     
@@ -794,7 +794,7 @@ class EApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: A reference to a PiT (required)
     
@@ -918,7 +918,7 @@ class EApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param ConcatVolumeExpansionDescriptor body: A descriptor of the concat volume to be expanded. (required)
     
@@ -1042,7 +1042,7 @@ class EApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param ThinVolumeExpansionDescriptor body: An object containing all of the attributes necessary to expand a thin volume's virtual capacity. (required)
     
@@ -1166,7 +1166,7 @@ class EApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: The wrapped pass phrase used to encrypt the lock key. (required)
     
@@ -1290,7 +1290,7 @@ class EApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: A SYMbol VolumeGroupRef identifying the volume group to export. (required)
     
@@ -1414,7 +1414,7 @@ class EApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: The wrapped pass phrase used to encrypt the lock key. (required)
     

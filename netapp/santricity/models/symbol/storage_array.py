@@ -88,6 +88,9 @@ class StorageArray(object):
             'direct_expansion_port_in_use': 'bool',  # (required parameter)
             'high_resolution_statistics_enabled': 'bool',  # (required parameter)
             'auto_load_balancing_enabled': 'bool',  # (required parameter)
+            'reserved3': 'str',  # (required parameter)
+            'embedded_external_kms_information': 'EmbeddedExternalKMSInformation',  # (required parameter)
+            'is_lun0_restricted_for_default_partition': 'bool',  # (required parameter)
             'vaaienabled': 'bool',  
             'odxenabled': 'bool'
         }
@@ -144,6 +147,9 @@ class StorageArray(object):
             'direct_expansion_port_in_use': 'directExpansionPortInUse',  # (required parameter)
             'high_resolution_statistics_enabled': 'highResolutionStatisticsEnabled',  # (required parameter)
             'auto_load_balancing_enabled': 'autoLoadBalancingEnabled',  # (required parameter)
+            'reserved3': 'reserved3',  # (required parameter)
+            'embedded_external_kms_information': 'embeddedExternalKMSInformation',  # (required parameter)
+            'is_lun0_restricted_for_default_partition': 'isLun0RestrictedForDefaultPartition',  # (required parameter)
             'vaaienabled': 'vaaienabled',  
             'odxenabled': 'odxenabled'
         }
@@ -199,6 +205,9 @@ class StorageArray(object):
         self._direct_expansion_port_in_use = None
         self._high_resolution_statistics_enabled = None
         self._auto_load_balancing_enabled = None
+        self._reserved3 = None
+        self._embedded_external_kms_information = None
+        self._is_lun0_restricted_for_default_partition = None
         self._vaaienabled = None
         self._odxenabled = None
 
@@ -1120,7 +1129,7 @@ class StorageArray(object):
         :param security_external_kms_key_status: The security_external_kms_key_status of this StorageArray.
         :type: str
         """
-        allowed_values = ["ok", "keyNeeded", "newKeyNeeded", "__UNDEFINED"]
+        allowed_values = ["ok", "keyNeeded", "newKeyNeeded", "validationNeeded", "__UNDEFINED"]
         if security_external_kms_key_status not in allowed_values:
             raise ValueError(
                 "Invalid value for `security_external_kms_key_status`, must be one of {0}"
@@ -1386,6 +1395,75 @@ class StorageArray(object):
         :type: bool
         """
         self._auto_load_balancing_enabled = auto_load_balancing_enabled
+
+    @property
+    def reserved3(self):
+        """
+        Gets the reserved3 of this StorageArray.
+        This reserved field is needed to maintain compatibility with host applications.
+
+        :return: The reserved3 of this StorageArray.
+        :rtype: str
+        :required/optional: required
+        """
+        return self._reserved3
+
+    @reserved3.setter
+    def reserved3(self, reserved3):
+        """
+        Sets the reserved3 of this StorageArray.
+        This reserved field is needed to maintain compatibility with host applications.
+
+        :param reserved3: The reserved3 of this StorageArray.
+        :type: str
+        """
+        self._reserved3 = reserved3
+
+    @property
+    def embedded_external_kms_information(self):
+        """
+        Gets the embedded_external_kms_information of this StorageArray.
+        This structure contains the external key management information. See the structure definition for details.
+
+        :return: The embedded_external_kms_information of this StorageArray.
+        :rtype: EmbeddedExternalKMSInformation
+        :required/optional: required
+        """
+        return self._embedded_external_kms_information
+
+    @embedded_external_kms_information.setter
+    def embedded_external_kms_information(self, embedded_external_kms_information):
+        """
+        Sets the embedded_external_kms_information of this StorageArray.
+        This structure contains the external key management information. See the structure definition for details.
+
+        :param embedded_external_kms_information: The embedded_external_kms_information of this StorageArray.
+        :type: EmbeddedExternalKMSInformation
+        """
+        self._embedded_external_kms_information = embedded_external_kms_information
+
+    @property
+    def is_lun0_restricted_for_default_partition(self):
+        """
+        Gets the is_lun0_restricted_for_default_partition of this StorageArray.
+        Provides an indication of whether LUN 0 is restricted (disallowed) for the default storage partition.
+
+        :return: The is_lun0_restricted_for_default_partition of this StorageArray.
+        :rtype: bool
+        :required/optional: required
+        """
+        return self._is_lun0_restricted_for_default_partition
+
+    @is_lun0_restricted_for_default_partition.setter
+    def is_lun0_restricted_for_default_partition(self, is_lun0_restricted_for_default_partition):
+        """
+        Sets the is_lun0_restricted_for_default_partition of this StorageArray.
+        Provides an indication of whether LUN 0 is restricted (disallowed) for the default storage partition.
+
+        :param is_lun0_restricted_for_default_partition: The is_lun0_restricted_for_default_partition of this StorageArray.
+        :type: bool
+        """
+        self._is_lun0_restricted_for_default_partition = is_lun0_restricted_for_default_partition
 
     @property
     def vaaienabled(self):

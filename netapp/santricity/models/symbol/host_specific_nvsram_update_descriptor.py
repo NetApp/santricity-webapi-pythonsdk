@@ -76,7 +76,7 @@ class HostSpecificNVSRAMUpdateDescriptor(object):
         :param region_id: The region_id of this HostSpecificNVSRAMUpdateDescriptor.
         :type: str
         """
-        allowed_values = ["allRegions", "nonUserConfigData", "subsystemId", "subsystemFaultData", "driveFaultData", "hostManagedData", "hostInterfaceData", "userConfigData", "bootpData", "extUserConfigData", "hostTypeDependentData", "__UNDEFINED"]
+        allowed_values = ["allRegions", "nonUserConfigData", "subsystemId", "subsystemFaultData", "driveFaultData", "hostManagedData", "hostInterfaceData", "userConfigData", "bootpData", "extUserConfigData", "hostTypeDependentData", "userConfig2Data", "__UNDEFINED"]
         if region_id not in allowed_values:
             raise ValueError(
                 "Invalid value for `region_id`, must be one of {0}"

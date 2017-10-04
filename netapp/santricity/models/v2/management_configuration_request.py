@@ -345,7 +345,7 @@ class ManagementConfigurationRequest(object):
         :param ipv4_address_config_method: The ipv4_address_config_method of this ManagementConfigurationRequest.
         :type: str
         """
-        allowed_values = ["configDhcp", "configStatic", "__UNDEFINED"]
+        allowed_values = ["configDhcp", "configStatic", "__UNDEFINED", None]
         if ipv4_address_config_method not in allowed_values:
             raise ValueError(
                 "Invalid value for `ipv4_address_config_method`, must be one of {0}"
@@ -420,7 +420,7 @@ class ManagementConfigurationRequest(object):
         :param ipv6_address_config_method: The ipv6_address_config_method of this ManagementConfigurationRequest.
         :type: str
         """
-        allowed_values = ["configStatic", "configStateless", "__UNDEFINED"]
+        allowed_values = ["configStatic", "configStateless", "__UNDEFINED", None]
         if ipv6_address_config_method not in allowed_values:
             raise ValueError(
                 "Invalid value for `ipv6_address_config_method`, must be one of {0}"
@@ -449,7 +449,7 @@ class ManagementConfigurationRequest(object):
         :param speed_setting: The speed_setting of this ManagementConfigurationRequest.
         :type: str
         """
-        allowed_values = ["speedNone", "speedAutoNegotiated", "speed10MbitHalfDuplex", "speed10MbitFullDuplex", "speed100MbitHalfDuplex", "speed100MbitFullDuplex", "speed1000MbitHalfDuplex", "speed1000MbitFullDuplex", "__UNDEFINED"]
+        allowed_values = ["speedNone", "speedAutoNegotiated", "speed10MbitHalfDuplex", "speed10MbitFullDuplex", "speed100MbitHalfDuplex", "speed100MbitFullDuplex", "speed1000MbitHalfDuplex", "speed1000MbitFullDuplex", "__UNDEFINED", None]
         if speed_setting not in allowed_values:
             raise ValueError(
                 "Invalid value for `speed_setting`, must be one of {0}"

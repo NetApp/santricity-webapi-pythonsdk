@@ -41,7 +41,8 @@ class SACache(object):
             'demand_flush_amount': 'int',  # (required parameter)
             'demand_flush_threshold': 'int',  # (required parameter)
             'reserved1': 'str',  
-            'reserved2': 'str'
+            'reserved2': 'str',  
+            'cache_mirroring_protection_information': 'bool'
         }
 
         self.attribute_map = {
@@ -49,7 +50,8 @@ class SACache(object):
             'demand_flush_amount': 'demandFlushAmount',  # (required parameter)
             'demand_flush_threshold': 'demandFlushThreshold',  # (required parameter)
             'reserved1': 'reserved1',  
-            'reserved2': 'reserved2'
+            'reserved2': 'reserved2',  
+            'cache_mirroring_protection_information': 'cacheMirroringProtectionInformation'
         }
 
         self._cache_blk_size = None
@@ -57,6 +59,7 @@ class SACache(object):
         self._demand_flush_threshold = None
         self._reserved1 = None
         self._reserved2 = None
+        self._cache_mirroring_protection_information = None
 
     @property
     def cache_blk_size(self):
@@ -172,6 +175,29 @@ class SACache(object):
         :type: str
         """
         self._reserved2 = reserved2
+
+    @property
+    def cache_mirroring_protection_information(self):
+        """
+        Gets the cache_mirroring_protection_information of this SACache.
+        True if checking of protection information during cache mirroring is enabled, false otherwise.
+
+        :return: The cache_mirroring_protection_information of this SACache.
+        :rtype: bool
+        :required/optional: required
+        """
+        return self._cache_mirroring_protection_information
+
+    @cache_mirroring_protection_information.setter
+    def cache_mirroring_protection_information(self, cache_mirroring_protection_information):
+        """
+        Sets the cache_mirroring_protection_information of this SACache.
+        True if checking of protection information during cache mirroring is enabled, false otherwise.
+
+        :param cache_mirroring_protection_information: The cache_mirroring_protection_information of this SACache.
+        :type: bool
+        """
+        self._cache_mirroring_protection_information = cache_mirroring_protection_information
 
     def to_dict(self):
         """

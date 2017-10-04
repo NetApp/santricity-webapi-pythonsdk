@@ -73,7 +73,7 @@ class AsyncMirrorGroupConnectivityTestRequest(object):
         :param requested_test_type: The requested_test_type of this AsyncMirrorGroupConnectivityTestRequest.
         :type: str
         """
-        allowed_values = ["connectivityTestUnknown", "basicConnectivityTest", "linkLatencyTest", "linkBandwidthTest", "__UNDEFINED"]
+        allowed_values = ["connectivityTestUnknown", "basicConnectivityTest", "linkLatencyTest", "linkBandwidthTest", "__UNDEFINED", None]
         if requested_test_type not in allowed_values:
             raise ValueError(
                 "Invalid value for `requested_test_type`, must be one of {0}"

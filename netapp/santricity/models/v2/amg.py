@@ -476,7 +476,7 @@ class Amg(object):
         :param connection_type: The connection_type of this Amg.
         :type: str
         """
-        allowed_values = ["notImplemented", "scsi", "fc", "sata", "sas", "iscsi", "ib", "fcoe", "__UNDEFINED"]
+        allowed_values = ["notImplemented", "scsi", "fc", "sata", "sas", "iscsi", "ib", "fcoe", "nvmeof", "__UNDEFINED", None]
         if connection_type not in allowed_values:
             raise ValueError(
                 "Invalid value for `connection_type`, must be one of {0}"

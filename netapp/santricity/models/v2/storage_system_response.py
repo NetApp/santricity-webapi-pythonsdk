@@ -45,6 +45,7 @@ class StorageSystemResponse(object):
             'status': 'str',  # (required parameter)
             'ip1': 'str',  # (required parameter)
             'ip2': 'str',  # (required parameter)
+            'management_paths': 'list[str]',  # (required parameter)
             'drive_count': 'int',  # (required parameter)
             'tray_count': 'int',  # (required parameter)
             'trace_enabled': 'bool',  # (required parameter)
@@ -59,7 +60,7 @@ class StorageSystemResponse(object):
             'host_spare_count_in_standby': 'int',  # (required parameter)
             'hot_spare_count': 'int',  # (required parameter)
             'host_spares_used': 'int',  # (required parameter)
-            'boot_time': 'datetime',  # (required parameter)
+            'boot_time': 'datetime',  
             'fw_version': 'str',  # (required parameter)
             'app_version': 'str',  # (required parameter)
             'boot_version': 'str',  # (required parameter)
@@ -75,6 +76,7 @@ class StorageSystemResponse(object):
             'fc_remote_mirroring_state': 'str',  # (required parameter)
             'asup_enabled': 'bool',  # (required parameter)
             'security_key_enabled': 'bool',  # (required parameter)
+            'external_key_enabled': 'bool',  # (required parameter)
             'last_contacted': 'datetime',  
             'defined_partition_count': 'int',  
             'simplex_mode_enabled': 'bool',  
@@ -93,6 +95,7 @@ class StorageSystemResponse(object):
             'status': 'status',  # (required parameter)
             'ip1': 'ip1',  # (required parameter)
             'ip2': 'ip2',  # (required parameter)
+            'management_paths': 'managementPaths',  # (required parameter)
             'drive_count': 'driveCount',  # (required parameter)
             'tray_count': 'trayCount',  # (required parameter)
             'trace_enabled': 'traceEnabled',  # (required parameter)
@@ -107,7 +110,7 @@ class StorageSystemResponse(object):
             'host_spare_count_in_standby': 'hostSpareCountInStandby',  # (required parameter)
             'hot_spare_count': 'hotSpareCount',  # (required parameter)
             'host_spares_used': 'hostSparesUsed',  # (required parameter)
-            'boot_time': 'bootTime',  # (required parameter)
+            'boot_time': 'bootTime',  
             'fw_version': 'fwVersion',  # (required parameter)
             'app_version': 'appVersion',  # (required parameter)
             'boot_version': 'bootVersion',  # (required parameter)
@@ -123,6 +126,7 @@ class StorageSystemResponse(object):
             'fc_remote_mirroring_state': 'fcRemoteMirroringState',  # (required parameter)
             'asup_enabled': 'asupEnabled',  # (required parameter)
             'security_key_enabled': 'securityKeyEnabled',  # (required parameter)
+            'external_key_enabled': 'externalKeyEnabled',  # (required parameter)
             'last_contacted': 'lastContacted',  
             'defined_partition_count': 'definedPartitionCount',  
             'simplex_mode_enabled': 'simplexModeEnabled',  
@@ -140,6 +144,7 @@ class StorageSystemResponse(object):
         self._status = None
         self._ip1 = None
         self._ip2 = None
+        self._management_paths = None
         self._drive_count = None
         self._tray_count = None
         self._trace_enabled = None
@@ -170,6 +175,7 @@ class StorageSystemResponse(object):
         self._fc_remote_mirroring_state = None
         self._asup_enabled = None
         self._security_key_enabled = None
+        self._external_key_enabled = None
         self._last_contacted = None
         self._defined_partition_count = None
         self._simplex_mode_enabled = None
@@ -268,7 +274,7 @@ class StorageSystemResponse(object):
         :param password_status: The password_status of this StorageSystemResponse.
         :type: str
         """
-        allowed_values = ["unknown", "invalid", "valid"]
+        allowed_values = ["unknown", "invalid", "valid", "securityLockout"]
         if password_status not in allowed_values:
             raise ValueError(
                 "Invalid value for `password_status`, must be one of {0}"
@@ -373,6 +379,29 @@ class StorageSystemResponse(object):
         :type: str
         """
         self._ip2 = ip2
+
+    @property
+    def management_paths(self):
+        """
+        Gets the management_paths of this StorageSystemResponse.
+
+
+        :return: The management_paths of this StorageSystemResponse.
+        :rtype: list[str]
+        :required/optional: required
+        """
+        return self._management_paths
+
+    @management_paths.setter
+    def management_paths(self, management_paths):
+        """
+        Sets the management_paths of this StorageSystemResponse.
+
+
+        :param management_paths: The management_paths of this StorageSystemResponse.
+        :type: list[str]
+        """
+        self._management_paths = management_paths
 
     @property
     def drive_count(self):
@@ -700,11 +729,11 @@ class StorageSystemResponse(object):
     def boot_time(self):
         """
         Gets the boot_time of this StorageSystemResponse.
-
+        Deprecated: The controller boot time.
 
         :return: The boot_time of this StorageSystemResponse.
         :rtype: datetime
-        :required/optional: required
+        :required/optional: optional
         """
         return self._boot_time
 
@@ -712,7 +741,7 @@ class StorageSystemResponse(object):
     def boot_time(self, boot_time):
         """
         Sets the boot_time of this StorageSystemResponse.
-
+        Deprecated: The controller boot time.
 
         :param boot_time: The boot_time of this StorageSystemResponse.
         :type: datetime
@@ -1069,6 +1098,29 @@ class StorageSystemResponse(object):
         :type: bool
         """
         self._security_key_enabled = security_key_enabled
+
+    @property
+    def external_key_enabled(self):
+        """
+        Gets the external_key_enabled of this StorageSystemResponse.
+
+
+        :return: The external_key_enabled of this StorageSystemResponse.
+        :rtype: bool
+        :required/optional: required
+        """
+        return self._external_key_enabled
+
+    @external_key_enabled.setter
+    def external_key_enabled(self, external_key_enabled):
+        """
+        Sets the external_key_enabled of this StorageSystemResponse.
+
+
+        :param external_key_enabled: The external_key_enabled of this StorageSystemResponse.
+        :type: bool
+        """
+        self._external_key_enabled = external_key_enabled
 
     @property
     def last_contacted(self):

@@ -128,7 +128,7 @@ class PasswordStatusEvent(object):
         :param event_type: The event_type of this PasswordStatusEvent.
         :type: str
         """
-        allowed_values = ["objectGraphChangeEvent", "passwordStatusEvent", "storageSystemStatusEvent", "storageSystemMDChangeEvent", "folderEvent", "metadataTagEvent", "softwareDownloadEvent", "softwareReloadEvent", "asupConfigChangeEvent", "iomConfigChangeEvent", "alertConfigChangeEvent", "firmwareDownloadEvent", "criticalMelChangeEvent", "statisticsCollectionEvent", "melClearEvent", "workload"]
+        allowed_values = ["objectGraphChangeEvent", "passwordStatusEvent", "storageSystemStatusEvent", "storageSystemMDChangeEvent", "folderEvent", "metadataTagEvent", "softwareDownloadEvent", "softwareReloadEvent", "asupConfigChangeEvent", "iomConfigChangeEvent", "alertConfigChangeEvent", "firmwareDownloadEvent", "criticalMelChangeEvent", "statisticsCollectionEvent", "melClearEvent", "workload", "ldapConfigChangeEvent", "symbolPortChangeEvent", "keyStoreChangeEvent", "trustStoreChangeEvent", "externalCertChangeEvent", "sslReloadCompleteEvent", "sessionTimeoutChangeEvent"]
         if event_type not in allowed_values:
             raise ValueError(
                 "Invalid value for `event_type`, must be one of {0}"
@@ -157,7 +157,7 @@ class PasswordStatusEvent(object):
         :param previous_status: The previous_status of this PasswordStatusEvent.
         :type: str
         """
-        allowed_values = ["unknown", "invalid", "valid"]
+        allowed_values = ["unknown", "invalid", "valid", "securityLockout"]
         if previous_status not in allowed_values:
             raise ValueError(
                 "Invalid value for `previous_status`, must be one of {0}"
@@ -186,7 +186,7 @@ class PasswordStatusEvent(object):
         :param current_status: The current_status of this PasswordStatusEvent.
         :type: str
         """
-        allowed_values = ["unknown", "invalid", "valid"]
+        allowed_values = ["unknown", "invalid", "valid", "securityLockout"]
         if current_status not in allowed_values:
             raise ValueError(
                 "Invalid value for `current_status`, must be one of {0}"

@@ -119,7 +119,7 @@ class ConcatVolumeCandidateRequest(object):
         :param concat_volume_type: The concat_volume_type of this ConcatVolumeCandidateRequest.
         :type: str
         """
-        allowed_values = ["snapshot", "thinVolume", "asyncMirror", "other"]
+        allowed_values = ["snapshot", "thinVolume", "asyncMirror", "other", None]
         if concat_volume_type not in allowed_values:
             raise ValueError(
                 "Invalid value for `concat_volume_type`, must be one of {0}"

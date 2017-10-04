@@ -61,7 +61,7 @@ class FirmwareApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param CfwActivationRequest body: 
     
@@ -150,8 +150,8 @@ class FirmwareApi(object):
     
     def activate_staged_firmware(self, **kwargs):
             """
-            Activates a previously staged Firmware
-            Mode: Embedded only. 
+            Activates previously staged firmware.
+            Mode: Embedded only. A successful activation will shut the web server down which may result in the request to timeout, be canceled, or return with a 503 Service Unavailable before the success response could be returned.
 
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please define a `callback` function
@@ -530,7 +530,7 @@ class FirmwareApi(object):
     
             :param file file: 
     
-            :return: None
+            :return: EmbeddedCompatibilityCheckResponse
                      If the method is called asynchronously,
                      returns the request thread.
             :raises: ValueError
@@ -608,7 +608,7 @@ class FirmwareApi(object):
                                                 body=body_params,
                                                 post_params=form_params,
                                                 files=local_var_files,
-                                                response_type=None,
+                                                response_type='EmbeddedCompatibilityCheckResponse',
                                                 auth_settings=auth_settings,
                                                 callback=params.get('callback'))
             return response
@@ -636,7 +636,7 @@ class FirmwareApi(object):
     
             :param file file: 
     
-            :return: None
+            :return: EmbeddedCompatibilityCheckResponse
                      If the method is called asynchronously,
                      returns the request thread.
             :raises: ValueError
@@ -714,7 +714,7 @@ class FirmwareApi(object):
                                                 body=body_params,
                                                 post_params=form_params,
                                                 files=local_var_files,
-                                                response_type=None,
+                                                response_type='EmbeddedCompatibilityCheckResponse',
                                                 auth_settings=auth_settings,
                                                 callback=params.get('callback'))
             return response
@@ -738,7 +738,7 @@ class FirmwareApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :return: None
                      If the method is called asynchronously,
@@ -1020,7 +1020,7 @@ class FirmwareApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :return: CfwUpgradeResponse
                      If the method is called asynchronously,
@@ -1102,7 +1102,7 @@ class FirmwareApi(object):
     
     def get_embedded_firmware_information(self, **kwargs):
             """
-            Get last successful firmware updgrade timestamps and firmware upgrade logs
+            Get last successful firmware upgrade timestamps and firmware upgrade logs
             Mode: Embedded only. 
 
             This method makes a synchronous HTTP request by default. To make an
@@ -1125,6 +1125,8 @@ class FirmwareApi(object):
     
             :param bool drive_upgrade: Drive Firmware Upgrade
     
+            :param bool nvsram_upgrade: NVSRAM Upgrade
+    
             :param bool include_logs: Include firmware log 
     
             :return: EmbeddedFirmwareResponse
@@ -1139,7 +1141,7 @@ class FirmwareApi(object):
 
             """
 
-            all_params = ['cfw_upgrade', 'iom_upgrade', 'drive_upgrade', 'include_logs']
+            all_params = ['cfw_upgrade', 'iom_upgrade', 'drive_upgrade', 'nvsram_upgrade', 'include_logs']
             all_params.append('callback')
 
             params = locals()
@@ -1152,6 +1154,8 @@ class FirmwareApi(object):
                 params[key] = val
             del params['kwargs']
 
+    
+    
     
     
     
@@ -1176,6 +1180,9 @@ class FirmwareApi(object):
     
             if 'drive_upgrade' in params:
                 query_params['driveUpgrade'] = params['drive_upgrade']
+    
+            if 'nvsram_upgrade' in params:
+                query_params['nvsramUpgrade'] = params['nvsram_upgrade']
     
             if 'include_logs' in params:
                 query_params['includeLogs'] = params['include_logs']
@@ -1417,7 +1424,7 @@ class FirmwareApi(object):
     def get_health_check_status(self, **kwargs):
             """
             Get health check status
-            Mode: Both Embedded and Proxy. 
+            This endpoint should be utilized to retrieve the results of the health check. There are multiple parts to the health check process. If a critical portion fails, the entire check will be set to failed. If an invalid password is detected or a controller cannot be contacted, the check will return without completing additional unnecessary steps.
 
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please define a `callback` function
@@ -1715,7 +1722,7 @@ class FirmwareApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :return: StagedFirmwareResponse
                      If the method is called asynchronously,
@@ -2012,7 +2019,7 @@ class FirmwareApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param CfwUpgradeRequest body: 
     
@@ -2308,7 +2315,7 @@ class FirmwareApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param bool staged: set to true to indicate  to stage
+            :param bool staged: set to true to indicate to stage
     
             :param bool nvsram: set to true to NVSRAM is included, and if so it must be first.  If this is true and a DLP file is included, it must be  first.  If not,  an error is generated
     
@@ -2514,7 +2521,7 @@ class FirmwareApi(object):
     def upload_nvsram_file(self, system_id, **kwargs):
             """
             Upload a nvsram file.
-            Mode: Embedded only. Upload endpoint for nvsram to download to the controller.
+            Mode: Embedded only. Upload endpoint for nvsram to download to the controller. Controllers will reboot when operation completes
 
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please define a `callback` function

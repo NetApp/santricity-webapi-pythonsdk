@@ -67,7 +67,7 @@ class DiagnosticDataRequest(object):
         :param request_type: The request_type of this DiagnosticDataRequest.
         :type: str
         """
-        allowed_values = ["deviceProfile", "firmwareInventory"]
+        allowed_values = ["deviceProfile", "firmwareInventory", None]
         if request_type not in allowed_values:
             raise ValueError(
                 "Invalid value for `request_type`, must be one of {0}"

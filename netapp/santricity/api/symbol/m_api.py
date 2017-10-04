@@ -61,7 +61,7 @@ class MApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param ScheduleUpdateDescriptorList body: A list of schedule update descriptors. (required)
     
@@ -185,7 +185,7 @@ class MApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param SYMbolRefPair body: A SYMbolRefPair object. The itemRef field of the argument is a HostRef that identifies the host being modified, and the containerRef field is a ClusterRef that identifies the cluster to which the host is to be moved. (required)
     
@@ -309,7 +309,7 @@ class MApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param SYMbolRefPair body: A SYMbolRefPair object. The itemRef field of the argument is a HostPortRef that identifies the host port being modified, and the containerRef field is a HostRef that identifies the host to which the port is to be moved. (required)
     
@@ -433,7 +433,7 @@ class MApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param LUNMappingUpdateDescriptor body: A LUNMappingUpdateDescriptor that provides the new values for the LUN used to access the mapped value, as well as the host/cluster for which the mapping applies. (required)
     
@@ -557,7 +557,7 @@ class MApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param SYMbolRefPair body:  (required)
     

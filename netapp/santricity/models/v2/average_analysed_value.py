@@ -39,21 +39,21 @@ class AverageAnalysedValue(object):
         self.swagger_types = {
             'min': 'float',  # (required parameter)
             'max': 'float',  # (required parameter)
-            'value': 'float',  # (required parameter)
-            'std': 'float'
+            'std': 'float',  # (required parameter)
+            'value': 'float'
         }
 
         self.attribute_map = {
             'min': 'min',  # (required parameter)
             'max': 'max',  # (required parameter)
-            'value': 'value',  # (required parameter)
-            'std': 'std'
+            'std': 'std',  # (required parameter)
+            'value': 'value'
         }
 
         self._min = None
         self._max = None
-        self._value = None
         self._std = None
+        self._value = None
 
     @property
     def min(self):
@@ -102,29 +102,6 @@ class AverageAnalysedValue(object):
         self._max = max
 
     @property
-    def value(self):
-        """
-        Gets the value of this AverageAnalysedValue.
-
-
-        :return: The value of this AverageAnalysedValue.
-        :rtype: float
-        :required/optional: required
-        """
-        return self._value
-
-    @value.setter
-    def value(self, value):
-        """
-        Sets the value of this AverageAnalysedValue.
-
-
-        :param value: The value of this AverageAnalysedValue.
-        :type: float
-        """
-        self._value = value
-
-    @property
     def std(self):
         """
         Gets the std of this AverageAnalysedValue.
@@ -146,6 +123,29 @@ class AverageAnalysedValue(object):
         :type: float
         """
         self._std = std
+
+    @property
+    def value(self):
+        """
+        Gets the value of this AverageAnalysedValue.
+
+
+        :return: The value of this AverageAnalysedValue.
+        :rtype: float
+        :required/optional: required
+        """
+        return self._value
+
+    @value.setter
+    def value(self, value):
+        """
+        Sets the value of this AverageAnalysedValue.
+
+
+        :param value: The value of this AverageAnalysedValue.
+        :type: float
+        """
+        self._value = value
 
     def to_dict(self):
         """

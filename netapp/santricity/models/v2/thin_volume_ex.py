@@ -78,19 +78,19 @@ class ThinVolumeEx(object):
             'metadata': 'list[VolumeMetadataItem]',  
             'data_assurance': 'bool',  
             'object_type': 'str',  
-            'name': 'str',  
-            'id': 'str',  
             'wwn': 'str',  
+            'segment_size': 'int',  
+            'total_size_in_bytes': 'int',  
+            'current_controller_id': 'str',  
             'disk_pool': 'bool',  
             'cache_settings': 'VolumeCache',  # (required parameter)
             'thin_provisioned': 'bool',  
-            'segment_size': 'int',  
             'list_of_mappings': 'list[LUNMapping]',  
             'mapped': 'bool',  # (required parameter)
-            'current_controller_id': 'str',  
             'preferred_controller_id': 'str',  
             'online_volume_copy': 'bool',  
-            'total_size_in_bytes': 'int'
+            'name': 'str',  
+            'id': 'str'
         }
 
         self.attribute_map = {
@@ -135,19 +135,19 @@ class ThinVolumeEx(object):
             'metadata': 'metadata',  
             'data_assurance': 'dataAssurance',  
             'object_type': 'objectType',  
-            'name': 'name',  
-            'id': 'id',  
             'wwn': 'wwn',  
+            'segment_size': 'segmentSize',  
+            'total_size_in_bytes': 'totalSizeInBytes',  
+            'current_controller_id': 'currentControllerId',  
             'disk_pool': 'diskPool',  
             'cache_settings': 'cacheSettings',  # (required parameter)
             'thin_provisioned': 'thinProvisioned',  
-            'segment_size': 'segmentSize',  
             'list_of_mappings': 'listOfMappings',  
             'mapped': 'mapped',  # (required parameter)
-            'current_controller_id': 'currentControllerId',  
             'preferred_controller_id': 'preferredControllerId',  
             'online_volume_copy': 'onlineVolumeCopy',  
-            'total_size_in_bytes': 'totalSizeInBytes'
+            'name': 'name',  
+            'id': 'id'
         }
 
         self._volume_handle = None
@@ -191,19 +191,19 @@ class ThinVolumeEx(object):
         self._metadata = None
         self._data_assurance = None
         self._object_type = None
-        self._name = None
-        self._id = None
         self._wwn = None
+        self._segment_size = None
+        self._total_size_in_bytes = None
+        self._current_controller_id = None
         self._disk_pool = None
         self._cache_settings = None
         self._thin_provisioned = None
-        self._segment_size = None
         self._list_of_mappings = None
         self._mapped = None
-        self._current_controller_id = None
         self._preferred_controller_id = None
         self._online_volume_copy = None
-        self._total_size_in_bytes = None
+        self._name = None
+        self._id = None
 
     @property
     def volume_handle(self):
@@ -1170,59 +1170,13 @@ class ThinVolumeEx(object):
         :param object_type: The object_type of this ThinVolumeEx.
         :type: str
         """
-        allowed_values = ["volume", "pool", "host", "lunMapping", "hostGroup", "thinVolume", "drive", "volumeCopy", "pit", "pitView", "snapshotGroup", "snapshot", "accessVolume", "legacySnapshot", "hostType", "metadataTag", "managementUrl", "folder", "asyncMirrorGroup", "asyncMirrorGroupMember", "asyncMirrorGroupIncompleteMember", "consistencyGroup", "consistencyGroupView", "fan", "battery", "storageSystem", "controller", "powerSupply", "minihub", "esm", "drawer", "hostBoard", "interconnectCRU", "cacheBackupDevice", "tray", "supportCRU", "hostPort", "initiator", "snapshotSchedule", "thermalSensor", "sfp", "flashCache", "featureAttribute", "featureState", "lockKeyId", "remoteVolume", "mirrorVolume", "vaultMirrorVolume", "vaultMirrorGroup", "metadataVolume", "sasPort", "sasExpander", "channelPort", "speedNegError", "snmpAgentBundle", "stagedFirmware", "workload"]
+        allowed_values = ["unknown", "volume", "pool", "host", "lunMapping", "hostGroup", "thinVolume", "drive", "volumeCopy", "pit", "pitView", "snapshotGroup", "snapshot", "accessVolume", "legacySnapshot", "hostType", "metadataTag", "managementUrl", "folder", "asyncMirrorGroup", "asyncMirrorGroupMember", "asyncMirrorGroupIncompleteMember", "consistencyGroup", "consistencyGroupView", "fan", "battery", "storageSystem", "controller", "powerSupply", "minihub", "esm", "drawer", "hostBoard", "interconnectCRU", "cacheBackupDevice", "tray", "supportCRU", "hostPort", "initiator", "snapshotSchedule", "thermalSensor", "sfp", "flashCache", "featureAttribute", "featureState", "lockKeyId", "remoteVolume", "mirrorVolume", "vaultMirrorVolume", "vaultMirrorGroup", "metadataVolume", "sasPort", "sasExpander", "channelPort", "speedNegError", "snmpAgentBundle", "stagedFirmware", "workload", None]
         if object_type not in allowed_values:
             raise ValueError(
                 "Invalid value for `object_type`, must be one of {0}"
                 .format(allowed_values)
             )
         self._object_type = object_type
-
-    @property
-    def name(self):
-        """
-        Gets the name of this ThinVolumeEx.
-
-
-        :return: The name of this ThinVolumeEx.
-        :rtype: str
-        :required/optional: optional
-        """
-        return self._name
-
-    @name.setter
-    def name(self, name):
-        """
-        Sets the name of this ThinVolumeEx.
-
-
-        :param name: The name of this ThinVolumeEx.
-        :type: str
-        """
-        self._name = name
-
-    @property
-    def id(self):
-        """
-        Gets the id of this ThinVolumeEx.
-
-
-        :return: The id of this ThinVolumeEx.
-        :rtype: str
-        :required/optional: optional
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this ThinVolumeEx.
-
-
-        :param id: The id of this ThinVolumeEx.
-        :type: str
-        """
-        self._id = id
 
     @property
     def wwn(self):
@@ -1246,6 +1200,75 @@ class ThinVolumeEx(object):
         :type: str
         """
         self._wwn = wwn
+
+    @property
+    def segment_size(self):
+        """
+        Gets the segment_size of this ThinVolumeEx.
+
+
+        :return: The segment_size of this ThinVolumeEx.
+        :rtype: int
+        :required/optional: optional
+        """
+        return self._segment_size
+
+    @segment_size.setter
+    def segment_size(self, segment_size):
+        """
+        Sets the segment_size of this ThinVolumeEx.
+
+
+        :param segment_size: The segment_size of this ThinVolumeEx.
+        :type: int
+        """
+        self._segment_size = segment_size
+
+    @property
+    def total_size_in_bytes(self):
+        """
+        Gets the total_size_in_bytes of this ThinVolumeEx.
+
+
+        :return: The total_size_in_bytes of this ThinVolumeEx.
+        :rtype: int
+        :required/optional: optional
+        """
+        return self._total_size_in_bytes
+
+    @total_size_in_bytes.setter
+    def total_size_in_bytes(self, total_size_in_bytes):
+        """
+        Sets the total_size_in_bytes of this ThinVolumeEx.
+
+
+        :param total_size_in_bytes: The total_size_in_bytes of this ThinVolumeEx.
+        :type: int
+        """
+        self._total_size_in_bytes = total_size_in_bytes
+
+    @property
+    def current_controller_id(self):
+        """
+        Gets the current_controller_id of this ThinVolumeEx.
+
+
+        :return: The current_controller_id of this ThinVolumeEx.
+        :rtype: str
+        :required/optional: optional
+        """
+        return self._current_controller_id
+
+    @current_controller_id.setter
+    def current_controller_id(self, current_controller_id):
+        """
+        Sets the current_controller_id of this ThinVolumeEx.
+
+
+        :param current_controller_id: The current_controller_id of this ThinVolumeEx.
+        :type: str
+        """
+        self._current_controller_id = current_controller_id
 
     @property
     def disk_pool(self):
@@ -1317,29 +1340,6 @@ class ThinVolumeEx(object):
         self._thin_provisioned = thin_provisioned
 
     @property
-    def segment_size(self):
-        """
-        Gets the segment_size of this ThinVolumeEx.
-
-
-        :return: The segment_size of this ThinVolumeEx.
-        :rtype: int
-        :required/optional: optional
-        """
-        return self._segment_size
-
-    @segment_size.setter
-    def segment_size(self, segment_size):
-        """
-        Sets the segment_size of this ThinVolumeEx.
-
-
-        :param segment_size: The segment_size of this ThinVolumeEx.
-        :type: int
-        """
-        self._segment_size = segment_size
-
-    @property
     def list_of_mappings(self):
         """
         Gets the list_of_mappings of this ThinVolumeEx.
@@ -1384,29 +1384,6 @@ class ThinVolumeEx(object):
         :type: bool
         """
         self._mapped = mapped
-
-    @property
-    def current_controller_id(self):
-        """
-        Gets the current_controller_id of this ThinVolumeEx.
-
-
-        :return: The current_controller_id of this ThinVolumeEx.
-        :rtype: str
-        :required/optional: optional
-        """
-        return self._current_controller_id
-
-    @current_controller_id.setter
-    def current_controller_id(self, current_controller_id):
-        """
-        Sets the current_controller_id of this ThinVolumeEx.
-
-
-        :param current_controller_id: The current_controller_id of this ThinVolumeEx.
-        :type: str
-        """
-        self._current_controller_id = current_controller_id
 
     @property
     def preferred_controller_id(self):
@@ -1455,27 +1432,50 @@ class ThinVolumeEx(object):
         self._online_volume_copy = online_volume_copy
 
     @property
-    def total_size_in_bytes(self):
+    def name(self):
         """
-        Gets the total_size_in_bytes of this ThinVolumeEx.
+        Gets the name of this ThinVolumeEx.
 
 
-        :return: The total_size_in_bytes of this ThinVolumeEx.
-        :rtype: int
+        :return: The name of this ThinVolumeEx.
+        :rtype: str
         :required/optional: optional
         """
-        return self._total_size_in_bytes
+        return self._name
 
-    @total_size_in_bytes.setter
-    def total_size_in_bytes(self, total_size_in_bytes):
+    @name.setter
+    def name(self, name):
         """
-        Sets the total_size_in_bytes of this ThinVolumeEx.
+        Sets the name of this ThinVolumeEx.
 
 
-        :param total_size_in_bytes: The total_size_in_bytes of this ThinVolumeEx.
-        :type: int
+        :param name: The name of this ThinVolumeEx.
+        :type: str
         """
-        self._total_size_in_bytes = total_size_in_bytes
+        self._name = name
+
+    @property
+    def id(self):
+        """
+        Gets the id of this ThinVolumeEx.
+
+
+        :return: The id of this ThinVolumeEx.
+        :rtype: str
+        :required/optional: optional
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """
+        Sets the id of this ThinVolumeEx.
+
+
+        :param id: The id of this ThinVolumeEx.
+        :type: str
+        """
+        self._id = id
 
     def to_dict(self):
         """

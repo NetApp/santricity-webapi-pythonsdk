@@ -39,6 +39,7 @@ class StorageSystemCreateRequest(object):
         self.swagger_types = {
             'id': 'str',  
             'controller_addresses': 'list[str]',  # (required parameter)
+            'validate': 'bool',  
             'password': 'str',  
             'wwn': 'str',  
             'enable_trace': 'bool',  
@@ -48,6 +49,7 @@ class StorageSystemCreateRequest(object):
         self.attribute_map = {
             'id': 'id',  
             'controller_addresses': 'controllerAddresses',  # (required parameter)
+            'validate': 'validate',  
             'password': 'password',  
             'wwn': 'wwn',  
             'enable_trace': 'enableTrace',  
@@ -56,6 +58,7 @@ class StorageSystemCreateRequest(object):
 
         self._id = None
         self._controller_addresses = None
+        self._validate = None
         self._password = None
         self._wwn = None
         self._enable_trace = None
@@ -106,6 +109,29 @@ class StorageSystemCreateRequest(object):
         :type: list[str]
         """
         self._controller_addresses = controller_addresses
+
+    @property
+    def validate(self):
+        """
+        Gets the validate of this StorageSystemCreateRequest.
+        Enables validation of the added storage array. Returns errors if there are wwn mismatches or if the storage array cannot be contacted.
+
+        :return: The validate of this StorageSystemCreateRequest.
+        :rtype: bool
+        :required/optional: optional
+        """
+        return self._validate
+
+    @validate.setter
+    def validate(self, validate):
+        """
+        Sets the validate of this StorageSystemCreateRequest.
+        Enables validation of the added storage array. Returns errors if there are wwn mismatches or if the storage array cannot be contacted.
+
+        :param validate: The validate of this StorageSystemCreateRequest.
+        :type: bool
+        """
+        self._validate = validate
 
     @property
     def password(self):

@@ -43,14 +43,14 @@ class AccessVolumeEx(object):
             'access_volume_ref': 'str',  # (required parameter)
             'reserved1': 'str',  
             'object_type': 'str',  
-            'name': 'str',  
-            'id': 'str',  
             'wwn': 'str',  
+            'total_size_in_bytes': 'int',  
+            'current_controller_id': 'str',  
             'list_of_mappings': 'list[LUNMapping]',  
             'mapped': 'bool',  # (required parameter)
-            'current_controller_id': 'str',  
             'preferred_controller_id': 'str',  
-            'total_size_in_bytes': 'int'
+            'name': 'str',  
+            'id': 'str'
         }
 
         self.attribute_map = {
@@ -60,14 +60,14 @@ class AccessVolumeEx(object):
             'access_volume_ref': 'accessVolumeRef',  # (required parameter)
             'reserved1': 'reserved1',  
             'object_type': 'objectType',  
-            'name': 'name',  
-            'id': 'id',  
             'wwn': 'wwn',  
+            'total_size_in_bytes': 'totalSizeInBytes',  
+            'current_controller_id': 'currentControllerId',  
             'list_of_mappings': 'listOfMappings',  
             'mapped': 'mapped',  # (required parameter)
-            'current_controller_id': 'currentControllerId',  
             'preferred_controller_id': 'preferredControllerId',  
-            'total_size_in_bytes': 'totalSizeInBytes'
+            'name': 'name',  
+            'id': 'id'
         }
 
         self._enabled = None
@@ -76,14 +76,14 @@ class AccessVolumeEx(object):
         self._access_volume_ref = None
         self._reserved1 = None
         self._object_type = None
-        self._name = None
-        self._id = None
         self._wwn = None
+        self._total_size_in_bytes = None
+        self._current_controller_id = None
         self._list_of_mappings = None
         self._mapped = None
-        self._current_controller_id = None
         self._preferred_controller_id = None
-        self._total_size_in_bytes = None
+        self._name = None
+        self._id = None
 
     @property
     def enabled(self):
@@ -221,59 +221,13 @@ class AccessVolumeEx(object):
         :param object_type: The object_type of this AccessVolumeEx.
         :type: str
         """
-        allowed_values = ["volume", "pool", "host", "lunMapping", "hostGroup", "thinVolume", "drive", "volumeCopy", "pit", "pitView", "snapshotGroup", "snapshot", "accessVolume", "legacySnapshot", "hostType", "metadataTag", "managementUrl", "folder", "asyncMirrorGroup", "asyncMirrorGroupMember", "asyncMirrorGroupIncompleteMember", "consistencyGroup", "consistencyGroupView", "fan", "battery", "storageSystem", "controller", "powerSupply", "minihub", "esm", "drawer", "hostBoard", "interconnectCRU", "cacheBackupDevice", "tray", "supportCRU", "hostPort", "initiator", "snapshotSchedule", "thermalSensor", "sfp", "flashCache", "featureAttribute", "featureState", "lockKeyId", "remoteVolume", "mirrorVolume", "vaultMirrorVolume", "vaultMirrorGroup", "metadataVolume", "sasPort", "sasExpander", "channelPort", "speedNegError", "snmpAgentBundle", "stagedFirmware", "workload"]
+        allowed_values = ["unknown", "volume", "pool", "host", "lunMapping", "hostGroup", "thinVolume", "drive", "volumeCopy", "pit", "pitView", "snapshotGroup", "snapshot", "accessVolume", "legacySnapshot", "hostType", "metadataTag", "managementUrl", "folder", "asyncMirrorGroup", "asyncMirrorGroupMember", "asyncMirrorGroupIncompleteMember", "consistencyGroup", "consistencyGroupView", "fan", "battery", "storageSystem", "controller", "powerSupply", "minihub", "esm", "drawer", "hostBoard", "interconnectCRU", "cacheBackupDevice", "tray", "supportCRU", "hostPort", "initiator", "snapshotSchedule", "thermalSensor", "sfp", "flashCache", "featureAttribute", "featureState", "lockKeyId", "remoteVolume", "mirrorVolume", "vaultMirrorVolume", "vaultMirrorGroup", "metadataVolume", "sasPort", "sasExpander", "channelPort", "speedNegError", "snmpAgentBundle", "stagedFirmware", "workload", None]
         if object_type not in allowed_values:
             raise ValueError(
                 "Invalid value for `object_type`, must be one of {0}"
                 .format(allowed_values)
             )
         self._object_type = object_type
-
-    @property
-    def name(self):
-        """
-        Gets the name of this AccessVolumeEx.
-
-
-        :return: The name of this AccessVolumeEx.
-        :rtype: str
-        :required/optional: optional
-        """
-        return self._name
-
-    @name.setter
-    def name(self, name):
-        """
-        Sets the name of this AccessVolumeEx.
-
-
-        :param name: The name of this AccessVolumeEx.
-        :type: str
-        """
-        self._name = name
-
-    @property
-    def id(self):
-        """
-        Gets the id of this AccessVolumeEx.
-
-
-        :return: The id of this AccessVolumeEx.
-        :rtype: str
-        :required/optional: optional
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this AccessVolumeEx.
-
-
-        :param id: The id of this AccessVolumeEx.
-        :type: str
-        """
-        self._id = id
 
     @property
     def wwn(self):
@@ -297,6 +251,52 @@ class AccessVolumeEx(object):
         :type: str
         """
         self._wwn = wwn
+
+    @property
+    def total_size_in_bytes(self):
+        """
+        Gets the total_size_in_bytes of this AccessVolumeEx.
+
+
+        :return: The total_size_in_bytes of this AccessVolumeEx.
+        :rtype: int
+        :required/optional: optional
+        """
+        return self._total_size_in_bytes
+
+    @total_size_in_bytes.setter
+    def total_size_in_bytes(self, total_size_in_bytes):
+        """
+        Sets the total_size_in_bytes of this AccessVolumeEx.
+
+
+        :param total_size_in_bytes: The total_size_in_bytes of this AccessVolumeEx.
+        :type: int
+        """
+        self._total_size_in_bytes = total_size_in_bytes
+
+    @property
+    def current_controller_id(self):
+        """
+        Gets the current_controller_id of this AccessVolumeEx.
+
+
+        :return: The current_controller_id of this AccessVolumeEx.
+        :rtype: str
+        :required/optional: optional
+        """
+        return self._current_controller_id
+
+    @current_controller_id.setter
+    def current_controller_id(self, current_controller_id):
+        """
+        Sets the current_controller_id of this AccessVolumeEx.
+
+
+        :param current_controller_id: The current_controller_id of this AccessVolumeEx.
+        :type: str
+        """
+        self._current_controller_id = current_controller_id
 
     @property
     def list_of_mappings(self):
@@ -345,29 +345,6 @@ class AccessVolumeEx(object):
         self._mapped = mapped
 
     @property
-    def current_controller_id(self):
-        """
-        Gets the current_controller_id of this AccessVolumeEx.
-
-
-        :return: The current_controller_id of this AccessVolumeEx.
-        :rtype: str
-        :required/optional: optional
-        """
-        return self._current_controller_id
-
-    @current_controller_id.setter
-    def current_controller_id(self, current_controller_id):
-        """
-        Sets the current_controller_id of this AccessVolumeEx.
-
-
-        :param current_controller_id: The current_controller_id of this AccessVolumeEx.
-        :type: str
-        """
-        self._current_controller_id = current_controller_id
-
-    @property
     def preferred_controller_id(self):
         """
         Gets the preferred_controller_id of this AccessVolumeEx.
@@ -391,27 +368,50 @@ class AccessVolumeEx(object):
         self._preferred_controller_id = preferred_controller_id
 
     @property
-    def total_size_in_bytes(self):
+    def name(self):
         """
-        Gets the total_size_in_bytes of this AccessVolumeEx.
+        Gets the name of this AccessVolumeEx.
 
 
-        :return: The total_size_in_bytes of this AccessVolumeEx.
-        :rtype: int
+        :return: The name of this AccessVolumeEx.
+        :rtype: str
         :required/optional: optional
         """
-        return self._total_size_in_bytes
+        return self._name
 
-    @total_size_in_bytes.setter
-    def total_size_in_bytes(self, total_size_in_bytes):
+    @name.setter
+    def name(self, name):
         """
-        Sets the total_size_in_bytes of this AccessVolumeEx.
+        Sets the name of this AccessVolumeEx.
 
 
-        :param total_size_in_bytes: The total_size_in_bytes of this AccessVolumeEx.
-        :type: int
+        :param name: The name of this AccessVolumeEx.
+        :type: str
         """
-        self._total_size_in_bytes = total_size_in_bytes
+        self._name = name
+
+    @property
+    def id(self):
+        """
+        Gets the id of this AccessVolumeEx.
+
+
+        :return: The id of this AccessVolumeEx.
+        :rtype: str
+        :required/optional: optional
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """
+        Sets the id of this AccessVolumeEx.
+
+
+        :param id: The id of this AccessVolumeEx.
+        :type: str
+        """
+        self._id = id
 
     def to_dict(self):
         """

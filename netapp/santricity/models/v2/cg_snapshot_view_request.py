@@ -125,7 +125,7 @@ class CGSnapshotViewRequest(object):
         :param access_mode: The access_mode of this CGSnapshotViewRequest.
         :type: str
         """
-        allowed_values = ["modeUnknown", "readWrite", "readOnly", "__UNDEFINED"]
+        allowed_values = ["modeUnknown", "readWrite", "readOnly", "__UNDEFINED", None]
         if access_mode not in allowed_values:
             raise ValueError(
                 "Invalid value for `access_mode`, must be one of {0}"

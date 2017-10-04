@@ -41,7 +41,8 @@ class SCSIInitiatorPortId(object):
             'port_name': 'str',  
             'ib_port_name': 'str',  
             'iscsi_port_name': 'IscsiInitiatorPortId',  
-            'sas_port_name': 'str'
+            'sas_port_name': 'str',  
+            'nvme_initiator_port_id': 'NVMeInitiatorPortId'
         }
 
         self.attribute_map = {
@@ -49,7 +50,8 @@ class SCSIInitiatorPortId(object):
             'port_name': 'portName',  
             'ib_port_name': 'ibPortName',  
             'iscsi_port_name': 'iscsiPortName',  
-            'sas_port_name': 'sasPortName'
+            'sas_port_name': 'sasPortName',  
+            'nvme_initiator_port_id': 'nvmeInitiatorPortId'
         }
 
         self._io_interface_type = None
@@ -57,6 +59,7 @@ class SCSIInitiatorPortId(object):
         self._ib_port_name = None
         self._iscsi_port_name = None
         self._sas_port_name = None
+        self._nvme_initiator_port_id = None
 
     @property
     def io_interface_type(self):
@@ -79,7 +82,7 @@ class SCSIInitiatorPortId(object):
         :param io_interface_type: The io_interface_type of this SCSIInitiatorPortId.
         :type: str
         """
-        allowed_values = ["notImplemented", "scsi", "fc", "sata", "sas", "iscsi", "ib", "fcoe", "__UNDEFINED"]
+        allowed_values = ["notImplemented", "scsi", "fc", "sata", "sas", "iscsi", "ib", "fcoe", "nvmeof", "__UNDEFINED"]
         if io_interface_type not in allowed_values:
             raise ValueError(
                 "Invalid value for `io_interface_type`, must be one of {0}"
@@ -178,6 +181,29 @@ class SCSIInitiatorPortId(object):
         :type: str
         """
         self._sas_port_name = sas_port_name
+
+    @property
+    def nvme_initiator_port_id(self):
+        """
+        Gets the nvme_initiator_port_id of this SCSIInitiatorPortId.
+        Initiator Port ID for an NVMe over Fabrics host
+
+        :return: The nvme_initiator_port_id of this SCSIInitiatorPortId.
+        :rtype: NVMeInitiatorPortId
+        :required/optional: optional
+        """
+        return self._nvme_initiator_port_id
+
+    @nvme_initiator_port_id.setter
+    def nvme_initiator_port_id(self, nvme_initiator_port_id):
+        """
+        Sets the nvme_initiator_port_id of this SCSIInitiatorPortId.
+        Initiator Port ID for an NVMe over Fabrics host
+
+        :param nvme_initiator_port_id: The nvme_initiator_port_id of this SCSIInitiatorPortId.
+        :type: NVMeInitiatorPortId
+        """
+        self._nvme_initiator_port_id = nvme_initiator_port_id
 
     def to_dict(self):
         """

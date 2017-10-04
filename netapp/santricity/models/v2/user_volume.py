@@ -39,69 +39,69 @@ class UserVolume(object):
         self.swagger_types = {
             'metadata': 'list[VolumeMetadataItem]',  
             'volume_group_ref': 'str',  
+            'segment_size': 'int',  
+            'media_scan': 'VolumeMediaScanParams',  
+            'blk_size': 'int',  
+            'protection_type': 'str',  
             'disk_pool': 'bool',  
             'cache_settings': 'VolumeCache',  # (required parameter)
             'flash_cached': 'bool',  
             'thin_provisioned': 'bool',  
             'data_assurance': 'bool',  
-            'blk_size': 'int',  
-            'segment_size': 'int',  
-            'media_scan': 'VolumeMediaScanParams',  
-            'protection_type': 'str',  
             'object_type': 'str',  
-            'name': 'str',  
-            'id': 'str',  
             'wwn': 'str',  
+            'total_size_in_bytes': 'int',  
+            'current_controller_id': 'str',  
             'list_of_mappings': 'list[LUNMapping]',  
             'mapped': 'bool',  # (required parameter)
-            'current_controller_id': 'str',  
             'preferred_controller_id': 'str',  
-            'total_size_in_bytes': 'int'
+            'name': 'str',  
+            'id': 'str'
         }
 
         self.attribute_map = {
             'metadata': 'metadata',  
             'volume_group_ref': 'volumeGroupRef',  
+            'segment_size': 'segmentSize',  
+            'media_scan': 'mediaScan',  
+            'blk_size': 'blkSize',  
+            'protection_type': 'protectionType',  
             'disk_pool': 'diskPool',  
             'cache_settings': 'cacheSettings',  # (required parameter)
             'flash_cached': 'flashCached',  
             'thin_provisioned': 'thinProvisioned',  
             'data_assurance': 'dataAssurance',  
-            'blk_size': 'blkSize',  
-            'segment_size': 'segmentSize',  
-            'media_scan': 'mediaScan',  
-            'protection_type': 'protectionType',  
             'object_type': 'objectType',  
-            'name': 'name',  
-            'id': 'id',  
             'wwn': 'wwn',  
+            'total_size_in_bytes': 'totalSizeInBytes',  
+            'current_controller_id': 'currentControllerId',  
             'list_of_mappings': 'listOfMappings',  
             'mapped': 'mapped',  # (required parameter)
-            'current_controller_id': 'currentControllerId',  
             'preferred_controller_id': 'preferredControllerId',  
-            'total_size_in_bytes': 'totalSizeInBytes'
+            'name': 'name',  
+            'id': 'id'
         }
 
         self._metadata = None
         self._volume_group_ref = None
+        self._segment_size = None
+        self._media_scan = None
+        self._blk_size = None
+        self._protection_type = None
         self._disk_pool = None
         self._cache_settings = None
         self._flash_cached = None
         self._thin_provisioned = None
         self._data_assurance = None
-        self._blk_size = None
-        self._segment_size = None
-        self._media_scan = None
-        self._protection_type = None
         self._object_type = None
-        self._name = None
-        self._id = None
         self._wwn = None
+        self._total_size_in_bytes = None
+        self._current_controller_id = None
         self._list_of_mappings = None
         self._mapped = None
-        self._current_controller_id = None
         self._preferred_controller_id = None
-        self._total_size_in_bytes = None
+        self._name = None
+        self._id = None
 
     @property
     def metadata(self):
@@ -148,6 +148,104 @@ class UserVolume(object):
         :type: str
         """
         self._volume_group_ref = volume_group_ref
+
+    @property
+    def segment_size(self):
+        """
+        Gets the segment_size of this UserVolume.
+
+
+        :return: The segment_size of this UserVolume.
+        :rtype: int
+        :required/optional: optional
+        """
+        return self._segment_size
+
+    @segment_size.setter
+    def segment_size(self, segment_size):
+        """
+        Sets the segment_size of this UserVolume.
+
+
+        :param segment_size: The segment_size of this UserVolume.
+        :type: int
+        """
+        self._segment_size = segment_size
+
+    @property
+    def media_scan(self):
+        """
+        Gets the media_scan of this UserVolume.
+
+
+        :return: The media_scan of this UserVolume.
+        :rtype: VolumeMediaScanParams
+        :required/optional: optional
+        """
+        return self._media_scan
+
+    @media_scan.setter
+    def media_scan(self, media_scan):
+        """
+        Sets the media_scan of this UserVolume.
+
+
+        :param media_scan: The media_scan of this UserVolume.
+        :type: VolumeMediaScanParams
+        """
+        self._media_scan = media_scan
+
+    @property
+    def blk_size(self):
+        """
+        Gets the blk_size of this UserVolume.
+
+
+        :return: The blk_size of this UserVolume.
+        :rtype: int
+        :required/optional: optional
+        """
+        return self._blk_size
+
+    @blk_size.setter
+    def blk_size(self, blk_size):
+        """
+        Sets the blk_size of this UserVolume.
+
+
+        :param blk_size: The blk_size of this UserVolume.
+        :type: int
+        """
+        self._blk_size = blk_size
+
+    @property
+    def protection_type(self):
+        """
+        Gets the protection_type of this UserVolume.
+
+
+        :return: The protection_type of this UserVolume.
+        :rtype: str
+        :required/optional: optional
+        """
+        return self._protection_type
+
+    @protection_type.setter
+    def protection_type(self, protection_type):
+        """
+        Sets the protection_type of this UserVolume.
+
+
+        :param protection_type: The protection_type of this UserVolume.
+        :type: str
+        """
+        allowed_values = ["type0Protection", "type1Protection", "type2Protection", "type3Protection", "__UNDEFINED", None]
+        if protection_type not in allowed_values:
+            raise ValueError(
+                "Invalid value for `protection_type`, must be one of {0}"
+                .format(allowed_values)
+            )
+        self._protection_type = protection_type
 
     @property
     def disk_pool(self):
@@ -265,104 +363,6 @@ class UserVolume(object):
         self._data_assurance = data_assurance
 
     @property
-    def blk_size(self):
-        """
-        Gets the blk_size of this UserVolume.
-
-
-        :return: The blk_size of this UserVolume.
-        :rtype: int
-        :required/optional: optional
-        """
-        return self._blk_size
-
-    @blk_size.setter
-    def blk_size(self, blk_size):
-        """
-        Sets the blk_size of this UserVolume.
-
-
-        :param blk_size: The blk_size of this UserVolume.
-        :type: int
-        """
-        self._blk_size = blk_size
-
-    @property
-    def segment_size(self):
-        """
-        Gets the segment_size of this UserVolume.
-
-
-        :return: The segment_size of this UserVolume.
-        :rtype: int
-        :required/optional: optional
-        """
-        return self._segment_size
-
-    @segment_size.setter
-    def segment_size(self, segment_size):
-        """
-        Sets the segment_size of this UserVolume.
-
-
-        :param segment_size: The segment_size of this UserVolume.
-        :type: int
-        """
-        self._segment_size = segment_size
-
-    @property
-    def media_scan(self):
-        """
-        Gets the media_scan of this UserVolume.
-
-
-        :return: The media_scan of this UserVolume.
-        :rtype: VolumeMediaScanParams
-        :required/optional: optional
-        """
-        return self._media_scan
-
-    @media_scan.setter
-    def media_scan(self, media_scan):
-        """
-        Sets the media_scan of this UserVolume.
-
-
-        :param media_scan: The media_scan of this UserVolume.
-        :type: VolumeMediaScanParams
-        """
-        self._media_scan = media_scan
-
-    @property
-    def protection_type(self):
-        """
-        Gets the protection_type of this UserVolume.
-
-
-        :return: The protection_type of this UserVolume.
-        :rtype: str
-        :required/optional: optional
-        """
-        return self._protection_type
-
-    @protection_type.setter
-    def protection_type(self, protection_type):
-        """
-        Sets the protection_type of this UserVolume.
-
-
-        :param protection_type: The protection_type of this UserVolume.
-        :type: str
-        """
-        allowed_values = ["type0Protection", "type1Protection", "type2Protection", "type3Protection", "__UNDEFINED"]
-        if protection_type not in allowed_values:
-            raise ValueError(
-                "Invalid value for `protection_type`, must be one of {0}"
-                .format(allowed_values)
-            )
-        self._protection_type = protection_type
-
-    @property
     def object_type(self):
         """
         Gets the object_type of this UserVolume.
@@ -383,59 +383,13 @@ class UserVolume(object):
         :param object_type: The object_type of this UserVolume.
         :type: str
         """
-        allowed_values = ["volume", "pool", "host", "lunMapping", "hostGroup", "thinVolume", "drive", "volumeCopy", "pit", "pitView", "snapshotGroup", "snapshot", "accessVolume", "legacySnapshot", "hostType", "metadataTag", "managementUrl", "folder", "asyncMirrorGroup", "asyncMirrorGroupMember", "asyncMirrorGroupIncompleteMember", "consistencyGroup", "consistencyGroupView", "fan", "battery", "storageSystem", "controller", "powerSupply", "minihub", "esm", "drawer", "hostBoard", "interconnectCRU", "cacheBackupDevice", "tray", "supportCRU", "hostPort", "initiator", "snapshotSchedule", "thermalSensor", "sfp", "flashCache", "featureAttribute", "featureState", "lockKeyId", "remoteVolume", "mirrorVolume", "vaultMirrorVolume", "vaultMirrorGroup", "metadataVolume", "sasPort", "sasExpander", "channelPort", "speedNegError", "snmpAgentBundle", "stagedFirmware", "workload"]
+        allowed_values = ["unknown", "volume", "pool", "host", "lunMapping", "hostGroup", "thinVolume", "drive", "volumeCopy", "pit", "pitView", "snapshotGroup", "snapshot", "accessVolume", "legacySnapshot", "hostType", "metadataTag", "managementUrl", "folder", "asyncMirrorGroup", "asyncMirrorGroupMember", "asyncMirrorGroupIncompleteMember", "consistencyGroup", "consistencyGroupView", "fan", "battery", "storageSystem", "controller", "powerSupply", "minihub", "esm", "drawer", "hostBoard", "interconnectCRU", "cacheBackupDevice", "tray", "supportCRU", "hostPort", "initiator", "snapshotSchedule", "thermalSensor", "sfp", "flashCache", "featureAttribute", "featureState", "lockKeyId", "remoteVolume", "mirrorVolume", "vaultMirrorVolume", "vaultMirrorGroup", "metadataVolume", "sasPort", "sasExpander", "channelPort", "speedNegError", "snmpAgentBundle", "stagedFirmware", "workload", None]
         if object_type not in allowed_values:
             raise ValueError(
                 "Invalid value for `object_type`, must be one of {0}"
                 .format(allowed_values)
             )
         self._object_type = object_type
-
-    @property
-    def name(self):
-        """
-        Gets the name of this UserVolume.
-
-
-        :return: The name of this UserVolume.
-        :rtype: str
-        :required/optional: optional
-        """
-        return self._name
-
-    @name.setter
-    def name(self, name):
-        """
-        Sets the name of this UserVolume.
-
-
-        :param name: The name of this UserVolume.
-        :type: str
-        """
-        self._name = name
-
-    @property
-    def id(self):
-        """
-        Gets the id of this UserVolume.
-
-
-        :return: The id of this UserVolume.
-        :rtype: str
-        :required/optional: optional
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this UserVolume.
-
-
-        :param id: The id of this UserVolume.
-        :type: str
-        """
-        self._id = id
 
     @property
     def wwn(self):
@@ -459,6 +413,52 @@ class UserVolume(object):
         :type: str
         """
         self._wwn = wwn
+
+    @property
+    def total_size_in_bytes(self):
+        """
+        Gets the total_size_in_bytes of this UserVolume.
+
+
+        :return: The total_size_in_bytes of this UserVolume.
+        :rtype: int
+        :required/optional: optional
+        """
+        return self._total_size_in_bytes
+
+    @total_size_in_bytes.setter
+    def total_size_in_bytes(self, total_size_in_bytes):
+        """
+        Sets the total_size_in_bytes of this UserVolume.
+
+
+        :param total_size_in_bytes: The total_size_in_bytes of this UserVolume.
+        :type: int
+        """
+        self._total_size_in_bytes = total_size_in_bytes
+
+    @property
+    def current_controller_id(self):
+        """
+        Gets the current_controller_id of this UserVolume.
+
+
+        :return: The current_controller_id of this UserVolume.
+        :rtype: str
+        :required/optional: optional
+        """
+        return self._current_controller_id
+
+    @current_controller_id.setter
+    def current_controller_id(self, current_controller_id):
+        """
+        Sets the current_controller_id of this UserVolume.
+
+
+        :param current_controller_id: The current_controller_id of this UserVolume.
+        :type: str
+        """
+        self._current_controller_id = current_controller_id
 
     @property
     def list_of_mappings(self):
@@ -507,29 +507,6 @@ class UserVolume(object):
         self._mapped = mapped
 
     @property
-    def current_controller_id(self):
-        """
-        Gets the current_controller_id of this UserVolume.
-
-
-        :return: The current_controller_id of this UserVolume.
-        :rtype: str
-        :required/optional: optional
-        """
-        return self._current_controller_id
-
-    @current_controller_id.setter
-    def current_controller_id(self, current_controller_id):
-        """
-        Sets the current_controller_id of this UserVolume.
-
-
-        :param current_controller_id: The current_controller_id of this UserVolume.
-        :type: str
-        """
-        self._current_controller_id = current_controller_id
-
-    @property
     def preferred_controller_id(self):
         """
         Gets the preferred_controller_id of this UserVolume.
@@ -553,27 +530,50 @@ class UserVolume(object):
         self._preferred_controller_id = preferred_controller_id
 
     @property
-    def total_size_in_bytes(self):
+    def name(self):
         """
-        Gets the total_size_in_bytes of this UserVolume.
+        Gets the name of this UserVolume.
 
 
-        :return: The total_size_in_bytes of this UserVolume.
-        :rtype: int
+        :return: The name of this UserVolume.
+        :rtype: str
         :required/optional: optional
         """
-        return self._total_size_in_bytes
+        return self._name
 
-    @total_size_in_bytes.setter
-    def total_size_in_bytes(self, total_size_in_bytes):
+    @name.setter
+    def name(self, name):
         """
-        Sets the total_size_in_bytes of this UserVolume.
+        Sets the name of this UserVolume.
 
 
-        :param total_size_in_bytes: The total_size_in_bytes of this UserVolume.
-        :type: int
+        :param name: The name of this UserVolume.
+        :type: str
         """
-        self._total_size_in_bytes = total_size_in_bytes
+        self._name = name
+
+    @property
+    def id(self):
+        """
+        Gets the id of this UserVolume.
+
+
+        :return: The id of this UserVolume.
+        :rtype: str
+        :required/optional: optional
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """
+        Sets the id of this UserVolume.
+
+
+        :param id: The id of this UserVolume.
+        :type: str
+        """
+        self._id = id
 
     def to_dict(self):
         """

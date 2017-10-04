@@ -118,7 +118,7 @@ class AsupUpdateRequest(object):
     def schedule_type_req(self):
         """
         Gets the schedule_type_req of this AsupUpdateRequest.
-        The schedule type
+        The schedule type = ['0' is a daily schedule, '1' is a weekly schedule, '2' is a monthly schedule]
 
         :return: The schedule_type_req of this AsupUpdateRequest.
         :rtype: int
@@ -130,7 +130,7 @@ class AsupUpdateRequest(object):
     def schedule_type_req(self, schedule_type_req):
         """
         Sets the schedule_type_req of this AsupUpdateRequest.
-        The schedule type
+        The schedule type = ['0' is a daily schedule, '1' is a weekly schedule, '2' is a monthly schedule]
 
         :param schedule_type_req: The schedule_type_req of this AsupUpdateRequest.
         :type: int
@@ -210,7 +210,7 @@ class AsupUpdateRequest(object):
     def delivery_type(self):
         """
         Gets the delivery_type of this AsupUpdateRequest.
-        Delivery method
+        The Delivery method = ['0' is unknown, '1' is https (default), '2' is http, '3' is smtp]
 
         :return: The delivery_type of this AsupUpdateRequest.
         :rtype: int
@@ -222,7 +222,7 @@ class AsupUpdateRequest(object):
     def delivery_type(self, delivery_type):
         """
         Sets the delivery_type of this AsupUpdateRequest.
-        Delivery method
+        The Delivery method = ['0' is unknown, '1' is https (default), '2' is http, '3' is smtp]
 
         :param delivery_type: The delivery_type of this AsupUpdateRequest.
         :type: int
@@ -233,7 +233,7 @@ class AsupUpdateRequest(object):
     def http_delivery_type(self):
         """
         Gets the http_delivery_type of this AsupUpdateRequest.
-        Http delivery method
+        Http delivery method = ['0' is a unknown, '1' is direct (default), '2' is proxy server, '3' is proxy configuration script]
 
         :return: The http_delivery_type of this AsupUpdateRequest.
         :rtype: int
@@ -245,7 +245,7 @@ class AsupUpdateRequest(object):
     def http_delivery_type(self, http_delivery_type):
         """
         Sets the http_delivery_type of this AsupUpdateRequest.
-        Http delivery method
+        Http delivery method = ['0' is a unknown, '1' is direct (default), '2' is proxy server, '3' is proxy configuration script]
 
         :param http_delivery_type: The http_delivery_type of this AsupUpdateRequest.
         :type: int

@@ -61,7 +61,7 @@ class BApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param ControllerDescriptor body: A descriptor value that identifies the controller to which all further requests on this RPC connection should be routed. (required)
     

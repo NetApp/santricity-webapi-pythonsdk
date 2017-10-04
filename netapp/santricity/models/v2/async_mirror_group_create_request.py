@@ -226,7 +226,7 @@ class AsyncMirrorGroupCreateRequest(object):
         :param interface_type: The interface_type of this AsyncMirrorGroupCreateRequest.
         :type: str
         """
-        allowed_values = ["fibre", "iscsi"]
+        allowed_values = ["fibre", "iscsi", None]
         if interface_type not in allowed_values:
             raise ValueError(
                 "Invalid value for `interface_type`, must be one of {0}"

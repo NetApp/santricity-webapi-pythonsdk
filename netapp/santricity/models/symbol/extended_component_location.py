@@ -46,7 +46,9 @@ class ExtendedComponentLocation(object):
             'pit_sequence': 'int',  
             'comp_reference': 'str',  
             'controller_reference': 'str',  
-            'location_label': 'str'
+            'location_label': 'str',  
+            'volume_group_label': 'str',  
+            'disk_pool_label': 'str'
         }
 
         self.attribute_map = {
@@ -59,7 +61,9 @@ class ExtendedComponentLocation(object):
             'pit_sequence': 'pitSequence',  
             'comp_reference': 'compReference',  
             'controller_reference': 'controllerReference',  
-            'location_label': 'locationLabel'
+            'location_label': 'locationLabel',  
+            'volume_group_label': 'volumeGroupLabel',  
+            'disk_pool_label': 'diskPoolLabel'
         }
 
         self._ext_loc_type = None
@@ -72,6 +76,8 @@ class ExtendedComponentLocation(object):
         self._comp_reference = None
         self._controller_reference = None
         self._location_label = None
+        self._volume_group_label = None
+        self._disk_pool_label = None
 
     @property
     def ext_loc_type(self):
@@ -94,7 +100,7 @@ class ExtendedComponentLocation(object):
         :param ext_loc_type: The ext_loc_type of this ExtendedComponentLocation.
         :type: str
         """
-        allowed_values = ["unknown", "tray", "trayslot", "minihub", "channel", "volume", "pit", "controller", "ref", "label", "__UNDEFINED"]
+        allowed_values = ["unknown", "tray", "trayslot", "minihub", "channel", "volume", "pit", "controller", "ref", "label", "volumeGrp", "diskPool", "__UNDEFINED"]
         if ext_loc_type not in allowed_values:
             raise ValueError(
                 "Invalid value for `ext_loc_type`, must be one of {0}"
@@ -308,6 +314,52 @@ class ExtendedComponentLocation(object):
         :type: str
         """
         self._location_label = location_label
+
+    @property
+    def volume_group_label(self):
+        """
+        Gets the volume_group_label of this ExtendedComponentLocation.
+        This field is present only if the ExtendedComponentLocationType value is EXT_COMP_LOCTYPE_VOLUME_GRP.
+
+        :return: The volume_group_label of this ExtendedComponentLocation.
+        :rtype: str
+        :required/optional: optional
+        """
+        return self._volume_group_label
+
+    @volume_group_label.setter
+    def volume_group_label(self, volume_group_label):
+        """
+        Sets the volume_group_label of this ExtendedComponentLocation.
+        This field is present only if the ExtendedComponentLocationType value is EXT_COMP_LOCTYPE_VOLUME_GRP.
+
+        :param volume_group_label: The volume_group_label of this ExtendedComponentLocation.
+        :type: str
+        """
+        self._volume_group_label = volume_group_label
+
+    @property
+    def disk_pool_label(self):
+        """
+        Gets the disk_pool_label of this ExtendedComponentLocation.
+        This field is present only if the ExtendedComponentLocationType value is EXT_COMP_LOCTYPE_DISK_POOL.
+
+        :return: The disk_pool_label of this ExtendedComponentLocation.
+        :rtype: str
+        :required/optional: optional
+        """
+        return self._disk_pool_label
+
+    @disk_pool_label.setter
+    def disk_pool_label(self, disk_pool_label):
+        """
+        Sets the disk_pool_label of this ExtendedComponentLocation.
+        This field is present only if the ExtendedComponentLocationType value is EXT_COMP_LOCTYPE_DISK_POOL.
+
+        :param disk_pool_label: The disk_pool_label of this ExtendedComponentLocation.
+        :type: str
+        """
+        self._disk_pool_label = disk_pool_label
 
     def to_dict(self):
         """

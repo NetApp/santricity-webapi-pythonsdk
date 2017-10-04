@@ -43,7 +43,8 @@ class SystemAttributeDefaults(object):
             'arvm_default_attributes': 'ARVMDefaultAttributes',  # (required parameter)
             'concat_default_attributes': 'ConcatVolumeDefaultAttributes',  # (required parameter)
             'snmp_agent_default_attributes': 'EmbeddedSNMPAgentDefaultAttributes',  # (required parameter)
-            'statistics_default_attributes': 'CumulativeStatisticsDefaultAttributes'
+            'statistics_default_attributes': 'CumulativeStatisticsDefaultAttributes',  # (required parameter)
+            'tunneling_default_attributes': 'TunnelingDefaultAttributes'
         }
 
         self.attribute_map = {
@@ -53,7 +54,8 @@ class SystemAttributeDefaults(object):
             'arvm_default_attributes': 'arvmDefaultAttributes',  # (required parameter)
             'concat_default_attributes': 'concatDefaultAttributes',  # (required parameter)
             'snmp_agent_default_attributes': 'snmpAgentDefaultAttributes',  # (required parameter)
-            'statistics_default_attributes': 'statisticsDefaultAttributes'
+            'statistics_default_attributes': 'statisticsDefaultAttributes',  # (required parameter)
+            'tunneling_default_attributes': 'tunnelingDefaultAttributes'
         }
 
         self._disk_pool_default_attributes = None
@@ -63,6 +65,7 @@ class SystemAttributeDefaults(object):
         self._concat_default_attributes = None
         self._snmp_agent_default_attributes = None
         self._statistics_default_attributes = None
+        self._tunneling_default_attributes = None
 
     @property
     def disk_pool_default_attributes(self):
@@ -224,6 +227,29 @@ class SystemAttributeDefaults(object):
         :type: CumulativeStatisticsDefaultAttributes
         """
         self._statistics_default_attributes = statistics_default_attributes
+
+    @property
+    def tunneling_default_attributes(self):
+        """
+        Gets the tunneling_default_attributes of this SystemAttributeDefaults.
+        Supplies default attributes used for the HTTP UTM tunneling API.
+
+        :return: The tunneling_default_attributes of this SystemAttributeDefaults.
+        :rtype: TunnelingDefaultAttributes
+        :required/optional: required
+        """
+        return self._tunneling_default_attributes
+
+    @tunneling_default_attributes.setter
+    def tunneling_default_attributes(self, tunneling_default_attributes):
+        """
+        Sets the tunneling_default_attributes of this SystemAttributeDefaults.
+        Supplies default attributes used for the HTTP UTM tunneling API.
+
+        :param tunneling_default_attributes: The tunneling_default_attributes of this SystemAttributeDefaults.
+        :type: TunnelingDefaultAttributes
+        """
+        self._tunneling_default_attributes = tunneling_default_attributes
 
     def to_dict(self):
         """

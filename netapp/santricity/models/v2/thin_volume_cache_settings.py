@@ -119,7 +119,7 @@ class ThinVolumeCacheSettings(object):
         :param cache_flush_modifier: The cache_flush_modifier of this ThinVolumeCacheSettings.
         :type: str
         """
-        allowed_values = ["flushImmediate", "flush250Msec", "flush500Msec", "flush750Msec", "flush1Sec", "flush1500Msec", "flush2Sec", "flush5Sec", "flush10Sec", "flush20Sec", "flush60Sec", "flush120Sec", "flush300Sec", "flush1200Sec", "flush3600Sec", "flushInfinite", "__UNDEFINED"]
+        allowed_values = ["flushImmediate", "flush250Msec", "flush500Msec", "flush750Msec", "flush1Sec", "flush1500Msec", "flush2Sec", "flush5Sec", "flush10Sec", "flush20Sec", "flush60Sec", "flush120Sec", "flush300Sec", "flush1200Sec", "flush3600Sec", "flushInfinite", "__UNDEFINED", None]
         if cache_flush_modifier not in allowed_values:
             raise ValueError(
                 "Invalid value for `cache_flush_modifier`, must be one of {0}"

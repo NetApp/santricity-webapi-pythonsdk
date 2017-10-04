@@ -61,7 +61,7 @@ class HardwareApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :return: None
                      If the method is called asynchronously,
@@ -160,7 +160,7 @@ class HardwareApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :return: list[Controller]
                      If the method is called asynchronously,
@@ -259,7 +259,7 @@ class HardwareApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :return: list[DriveEx]
                      If the method is called asynchronously,
@@ -358,7 +358,7 @@ class HardwareApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str controller_id:  (required)
     
@@ -468,7 +468,7 @@ class HardwareApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str id:  (required)
     
@@ -578,7 +578,7 @@ class HardwareApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :return: EsmPortConnectionResponse
                      If the method is called asynchronously,
@@ -677,7 +677,7 @@ class HardwareApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :return: HardwareInventoryResponse
                      If the method is called asynchronously,
@@ -776,7 +776,7 @@ class HardwareApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :return: IscsiEntityResponse
                      If the method is called asynchronously,
@@ -875,7 +875,7 @@ class HardwareApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :return: Target
                      If the method is called asynchronously,
@@ -955,6 +955,204 @@ class HardwareApi(object):
                                                 callback=params.get('callback'))
             return response
     
+    def get_nvmeof_entity(self, system_id, **kwargs):
+            """
+            Get NVMeoF entity
+            Mode: Both Embedded and Proxy.
+
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please define a `callback` function
+            to be invoked when receiving the response.
+            >>> def callback_function(response):
+            >>>     pprint(response)
+            >>>
+    
+            >>> thread = api.get_nvmeof_entity(system_id, callback=callback_function)
+    
+    
+
+            :param callback function: The callback function
+                for asynchronous request. (optional)
+    
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
+    
+            :return: list[IoInterface]
+                     If the method is called asynchronously,
+                     returns the request thread.
+            :raises: ValueError
+                       If the required params are not provided or if the response data format is unknown.
+                     TypeError:
+                        When the data type of response data is different from what we are expecting
+                     ApiException:
+                        Occurs when we get a HTTP error code (422 and above).
+
+            """
+
+            all_params = ['system_id']
+            all_params.append('callback')
+
+            params = locals()
+            for key, val in iteritems(params['kwargs']):
+                if key not in all_params:
+                    raise TypeError(
+                        "Got an unexpected keyword argument '%s'"
+                        " to method get_nvmeof_entity" % key
+                    )
+                params[key] = val
+            del params['kwargs']
+
+    
+    
+            # verify the required parameter 'system_id' is set
+            if ('system_id' not in params) or (params['system_id'] is None):
+                raise ValueError("Missing the required parameter `system_id` when calling `get_nvmeof_entity`")
+    
+    
+
+            resource_path = '/storage-systems/{system-id}/nvmeof/entity'.replace('{format}', 'json')
+            path_params = {}
+    
+            if 'system_id' in params:
+                path_params['system-id'] = params['system_id']
+    
+
+            query_params = {}
+    
+
+            header_params = {}
+    
+
+            form_params = []
+            local_var_files = {}
+    
+
+            body_params = None
+    
+
+            # HTTP header `Accept`
+            header_params['Accept'] = self.api_client.\
+                select_header_accept(['application/json'])
+            if not header_params['Accept']:
+                del header_params['Accept']
+
+            # HTTP header `Content-Type`
+            header_params['Content-Type'] = self.api_client.\
+                select_header_content_type(['application/json'])
+
+            # Authentication setting
+            auth_settings = ['basicAuth']
+
+            response = self.api_client.call_api(resource_path, 'GET',
+                                                path_params,
+                                                query_params,
+                                                header_params,
+                                                body=body_params,
+                                                post_params=form_params,
+                                                files=local_var_files,
+                                                response_type='list[IoInterface]',
+                                                auth_settings=auth_settings,
+                                                callback=params.get('callback'))
+            return response
+    
+    def get_nvmeof_initiator_settings(self, system_id, **kwargs):
+            """
+            Get NVMeoF initiator settings
+            Mode: Both Embedded and Proxy.
+
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please define a `callback` function
+            to be invoked when receiving the response.
+            >>> def callback_function(response):
+            >>>     pprint(response)
+            >>>
+    
+            >>> thread = api.get_nvmeof_initiator_settings(system_id, callback=callback_function)
+    
+    
+
+            :param callback function: The callback function
+                for asynchronous request. (optional)
+    
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
+    
+            :return: Target
+                     If the method is called asynchronously,
+                     returns the request thread.
+            :raises: ValueError
+                       If the required params are not provided or if the response data format is unknown.
+                     TypeError:
+                        When the data type of response data is different from what we are expecting
+                     ApiException:
+                        Occurs when we get a HTTP error code (422 and above).
+
+            """
+
+            all_params = ['system_id']
+            all_params.append('callback')
+
+            params = locals()
+            for key, val in iteritems(params['kwargs']):
+                if key not in all_params:
+                    raise TypeError(
+                        "Got an unexpected keyword argument '%s'"
+                        " to method get_nvmeof_initiator_settings" % key
+                    )
+                params[key] = val
+            del params['kwargs']
+
+    
+    
+            # verify the required parameter 'system_id' is set
+            if ('system_id' not in params) or (params['system_id'] is None):
+                raise ValueError("Missing the required parameter `system_id` when calling `get_nvmeof_initiator_settings`")
+    
+    
+
+            resource_path = '/storage-systems/{system-id}/nvmeof/initiator-settings'.replace('{format}', 'json')
+            path_params = {}
+    
+            if 'system_id' in params:
+                path_params['system-id'] = params['system_id']
+    
+
+            query_params = {}
+    
+
+            header_params = {}
+    
+
+            form_params = []
+            local_var_files = {}
+    
+
+            body_params = None
+    
+
+            # HTTP header `Accept`
+            header_params['Accept'] = self.api_client.\
+                select_header_accept(['application/json'])
+            if not header_params['Accept']:
+                del header_params['Accept']
+
+            # HTTP header `Content-Type`
+            header_params['Content-Type'] = self.api_client.\
+                select_header_content_type(['application/json'])
+
+            # Authentication setting
+            auth_settings = ['basicAuth']
+
+            response = self.api_client.call_api(resource_path, 'GET',
+                                                path_params,
+                                                query_params,
+                                                header_params,
+                                                body=body_params,
+                                                post_params=form_params,
+                                                files=local_var_files,
+                                                response_type='Target',
+                                                auth_settings=auth_settings,
+                                                callback=params.get('callback'))
+            return response
+    
     def get_unreadable_sectors_list(self, system_id, **kwargs):
             """
             Get the list of unreadable sectors
@@ -974,7 +1172,7 @@ class HardwareApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :return: UnreadableSectorResponse
                      If the method is called asynchronously,
@@ -1057,7 +1255,7 @@ class HardwareApi(object):
     def select_drives(self, system_id, **kwargs):
             """
             Select drives for storage-pool creation
-            Mode: Both Embedded and Proxy. Retrieve a list of drives based on provided selection criteria. If the number of drives you have selected is not available based on the request parameters, an empty list is returned.
+            Mode: Both Embedded and Proxy. Retrieve a list of drives based on provided selection criteria. If the number of drives you have selected is not available based on the request parameters, then a 204 is returned.
 
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please define a `callback` function
@@ -1073,7 +1271,7 @@ class HardwareApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param DriveSelectionRequest body: 
     
@@ -1160,6 +1358,112 @@ class HardwareApi(object):
                                                 callback=params.get('callback'))
             return response
     
+    def set_nvmeof_entity(self, system_id, **kwargs):
+            """
+            Update NVMeoF entity
+            Mode: Both Embedded and Proxy.
+
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please define a `callback` function
+            to be invoked when receiving the response.
+            >>> def callback_function(response):
+            >>>     pprint(response)
+            >>>
+    
+            >>> thread = api.set_nvmeof_entity(system_id, callback=callback_function)
+    
+    
+
+            :param callback function: The callback function
+                for asynchronous request. (optional)
+    
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
+    
+            :param NVMeoFEntityUpdateRequest body: 
+    
+            :return: list[IoInterface]
+                     If the method is called asynchronously,
+                     returns the request thread.
+            :raises: ValueError
+                       If the required params are not provided or if the response data format is unknown.
+                     TypeError:
+                        When the data type of response data is different from what we are expecting
+                     ApiException:
+                        Occurs when we get a HTTP error code (422 and above).
+
+            """
+
+            all_params = ['system_id', 'body']
+            all_params.append('callback')
+
+            params = locals()
+            for key, val in iteritems(params['kwargs']):
+                if key not in all_params:
+                    raise TypeError(
+                        "Got an unexpected keyword argument '%s'"
+                        " to method set_nvmeof_entity" % key
+                    )
+                params[key] = val
+            del params['kwargs']
+
+    
+    
+            # verify the required parameter 'system_id' is set
+            if ('system_id' not in params) or (params['system_id'] is None):
+                raise ValueError("Missing the required parameter `system_id` when calling `set_nvmeof_entity`")
+    
+    
+    
+    
+
+            resource_path = '/storage-systems/{system-id}/nvmeof/entity'.replace('{format}', 'json')
+            path_params = {}
+    
+            if 'system_id' in params:
+                path_params['system-id'] = params['system_id']
+    
+
+            query_params = {}
+    
+
+            header_params = {}
+    
+
+            form_params = []
+            local_var_files = {}
+    
+
+            body_params = None
+    
+            if 'body' in params:
+                body_params = params['body']
+    
+
+            # HTTP header `Accept`
+            header_params['Accept'] = self.api_client.\
+                select_header_accept(['application/json'])
+            if not header_params['Accept']:
+                del header_params['Accept']
+
+            # HTTP header `Content-Type`
+            header_params['Content-Type'] = self.api_client.\
+                select_header_content_type(['application/json'])
+
+            # Authentication setting
+            auth_settings = ['basicAuth']
+
+            response = self.api_client.call_api(resource_path, 'POST',
+                                                path_params,
+                                                query_params,
+                                                header_params,
+                                                body=body_params,
+                                                post_params=form_params,
+                                                files=local_var_files,
+                                                response_type='list[IoInterface]',
+                                                auth_settings=auth_settings,
+                                                callback=params.get('callback'))
+            return response
+    
     def start_hardware_identification(self, system_id, **kwargs):
             """
             Start hardware identification
@@ -1179,7 +1483,7 @@ class HardwareApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param IdentificationRequest body: 
     
@@ -1285,7 +1589,7 @@ class HardwareApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param IscsiEntityUpdateRequest body: 
     
@@ -1391,7 +1695,7 @@ class HardwareApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param IscsiTargetUpdateRequest body: 
     

@@ -58,6 +58,7 @@ class IbInterface(object):
             'phys_port_state': 'str',  # (required parameter)
             'one_way_max_rate': 'int',  # (required parameter)
             'bidirectional_max_rate': 'int',  # (required parameter)
+            'is_nv_me_supported': 'bool',  # (required parameter)
             'id': 'str'
         }
 
@@ -83,6 +84,7 @@ class IbInterface(object):
             'phys_port_state': 'physPortState',  # (required parameter)
             'one_way_max_rate': 'oneWayMaxRate',  # (required parameter)
             'bidirectional_max_rate': 'bidirectionalMaxRate',  # (required parameter)
+            'is_nv_me_supported': 'isNVMeSupported',  # (required parameter)
             'id': 'id'
         }
 
@@ -107,6 +109,7 @@ class IbInterface(object):
         self._phys_port_state = None
         self._one_way_max_rate = None
         self._bidirectional_max_rate = None
+        self._is_nv_me_supported = None
         self._id = None
 
     @property
@@ -326,7 +329,7 @@ class IbInterface(object):
         :param current_speed: The current_speed of this IbInterface.
         :type: str
         """
-        allowed_values = ["speedUnknown", "speed1gig", "speed2gig", "speed4gig", "speed10gig", "speed15gig", "speed3gig", "speed10meg", "speed100meg", "speed2pt5Gig", "speed5gig", "speed20gig", "speed30gig", "speed60gig", "speed8gig", "speed6gig", "speed40gig", "speed16gig", "speed56gig", "speed12gig", "__UNDEFINED"]
+        allowed_values = ["speedUnknown", "speed1gig", "speed2gig", "speed4gig", "speed10gig", "speed15gig", "speed3gig", "speed10meg", "speed100meg", "speed2pt5Gig", "speed5gig", "speed20gig", "speed30gig", "speed60gig", "speed8gig", "speed6gig", "speed40gig", "speed16gig", "speed56gig", "speed12gig", "speed25gig", "speed32gig", "speed100gig", "__UNDEFINED"]
         if current_speed not in allowed_values:
             raise ValueError(
                 "Invalid value for `current_speed`, must be one of {0}"
@@ -621,6 +624,29 @@ class IbInterface(object):
         :type: int
         """
         self._bidirectional_max_rate = bidirectional_max_rate
+
+    @property
+    def is_nv_me_supported(self):
+        """
+        Gets the is_nv_me_supported of this IbInterface.
+        Indicates if the interface is configured to support NVMe over Fabrics protocol
+
+        :return: The is_nv_me_supported of this IbInterface.
+        :rtype: bool
+        :required/optional: required
+        """
+        return self._is_nv_me_supported
+
+    @is_nv_me_supported.setter
+    def is_nv_me_supported(self, is_nv_me_supported):
+        """
+        Sets the is_nv_me_supported of this IbInterface.
+        Indicates if the interface is configured to support NVMe over Fabrics protocol
+
+        :param is_nv_me_supported: The is_nv_me_supported of this IbInterface.
+        :type: bool
+        """
+        self._is_nv_me_supported = is_nv_me_supported
 
     @property
     def id(self):

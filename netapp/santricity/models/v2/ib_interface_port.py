@@ -58,7 +58,9 @@ class IBInterfacePort(object):
             'phys_port_state': 'str',  # (required parameter)
             'one_way_max_rate': 'int',  # (required parameter)
             'bidirectional_max_rate': 'int',  # (required parameter)
+            'is_nv_me_supported': 'bool',  # (required parameter)
             'controller_id': 'str',  
+            'command_protocol_properties': 'list[CommandProtocolProperties]',  
             'interface_id': 'str',  
             'address_id': 'str',  
             'nice_address_id': 'str',  
@@ -87,7 +89,9 @@ class IBInterfacePort(object):
             'phys_port_state': 'physPortState',  # (required parameter)
             'one_way_max_rate': 'oneWayMaxRate',  # (required parameter)
             'bidirectional_max_rate': 'bidirectionalMaxRate',  # (required parameter)
+            'is_nv_me_supported': 'isNVMeSupported',  # (required parameter)
             'controller_id': 'controllerId',  
+            'command_protocol_properties': 'commandProtocolProperties',  
             'interface_id': 'interfaceId',  
             'address_id': 'addressId',  
             'nice_address_id': 'niceAddressId',  
@@ -115,7 +119,9 @@ class IBInterfacePort(object):
         self._phys_port_state = None
         self._one_way_max_rate = None
         self._bidirectional_max_rate = None
+        self._is_nv_me_supported = None
         self._controller_id = None
+        self._command_protocol_properties = None
         self._interface_id = None
         self._address_id = None
         self._nice_address_id = None
@@ -338,7 +344,7 @@ class IBInterfacePort(object):
         :param current_speed: The current_speed of this IBInterfacePort.
         :type: str
         """
-        allowed_values = ["speedUnknown", "speed1gig", "speed2gig", "speed4gig", "speed10gig", "speed15gig", "speed3gig", "speed10meg", "speed100meg", "speed2pt5Gig", "speed5gig", "speed20gig", "speed30gig", "speed60gig", "speed8gig", "speed6gig", "speed40gig", "speed16gig", "speed56gig", "speed12gig", "__UNDEFINED"]
+        allowed_values = ["speedUnknown", "speed1gig", "speed2gig", "speed4gig", "speed10gig", "speed15gig", "speed3gig", "speed10meg", "speed100meg", "speed2pt5Gig", "speed5gig", "speed20gig", "speed30gig", "speed60gig", "speed8gig", "speed6gig", "speed40gig", "speed16gig", "speed56gig", "speed12gig", "speed25gig", "speed32gig", "speed100gig", "__UNDEFINED"]
         if current_speed not in allowed_values:
             raise ValueError(
                 "Invalid value for `current_speed`, must be one of {0}"
@@ -635,6 +641,29 @@ class IBInterfacePort(object):
         self._bidirectional_max_rate = bidirectional_max_rate
 
     @property
+    def is_nv_me_supported(self):
+        """
+        Gets the is_nv_me_supported of this IBInterfacePort.
+        Indicates if the interface is configured to support NVMe over Fabrics protocol
+
+        :return: The is_nv_me_supported of this IBInterfacePort.
+        :rtype: bool
+        :required/optional: required
+        """
+        return self._is_nv_me_supported
+
+    @is_nv_me_supported.setter
+    def is_nv_me_supported(self, is_nv_me_supported):
+        """
+        Sets the is_nv_me_supported of this IBInterfacePort.
+        Indicates if the interface is configured to support NVMe over Fabrics protocol
+
+        :param is_nv_me_supported: The is_nv_me_supported of this IBInterfacePort.
+        :type: bool
+        """
+        self._is_nv_me_supported = is_nv_me_supported
+
+    @property
     def controller_id(self):
         """
         Gets the controller_id of this IBInterfacePort.
@@ -656,6 +685,29 @@ class IBInterfacePort(object):
         :type: str
         """
         self._controller_id = controller_id
+
+    @property
+    def command_protocol_properties(self):
+        """
+        Gets the command_protocol_properties of this IBInterfacePort.
+        List of properties that describe the command protocol.
+
+        :return: The command_protocol_properties of this IBInterfacePort.
+        :rtype: list[CommandProtocolProperties]
+        :required/optional: optional
+        """
+        return self._command_protocol_properties
+
+    @command_protocol_properties.setter
+    def command_protocol_properties(self, command_protocol_properties):
+        """
+        Sets the command_protocol_properties of this IBInterfacePort.
+        List of properties that describe the command protocol.
+
+        :param command_protocol_properties: The command_protocol_properties of this IBInterfacePort.
+        :type: list[CommandProtocolProperties]
+        """
+        self._command_protocol_properties = command_protocol_properties
 
     @property
     def interface_id(self):

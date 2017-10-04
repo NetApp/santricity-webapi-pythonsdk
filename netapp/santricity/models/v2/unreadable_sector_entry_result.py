@@ -38,34 +38,34 @@ class UnreadableSectorEntryResult(object):
         """
         self.swagger_types = {
             'drive_ref': 'str',  
+            'time_stamp': 'int',  
+            'volume_ref': 'str',  
             'record_type': 'str',  
-            'slot_no': 'int',  
+            'drive_lba': 'int',  
             'tray_no': 'int',  
             'volume_lba': 'int',  
-            'drive_lba': 'int',  
-            'volume_ref': 'str',  
-            'time_stamp': 'int'
+            'slot_no': 'int'
         }
 
         self.attribute_map = {
             'drive_ref': 'driveRef',  
+            'time_stamp': 'timeStamp',  
+            'volume_ref': 'volumeRef',  
             'record_type': 'recordType',  
-            'slot_no': 'slotNo',  
+            'drive_lba': 'driveLBA',  
             'tray_no': 'trayNo',  
             'volume_lba': 'volumeLBA',  
-            'drive_lba': 'driveLBA',  
-            'volume_ref': 'volumeRef',  
-            'time_stamp': 'timeStamp'
+            'slot_no': 'slotNo'
         }
 
         self._drive_ref = None
+        self._time_stamp = None
+        self._volume_ref = None
         self._record_type = None
-        self._slot_no = None
+        self._drive_lba = None
         self._tray_no = None
         self._volume_lba = None
-        self._drive_lba = None
-        self._volume_ref = None
-        self._time_stamp = None
+        self._slot_no = None
 
     @property
     def drive_ref(self):
@@ -91,6 +91,52 @@ class UnreadableSectorEntryResult(object):
         self._drive_ref = drive_ref
 
     @property
+    def time_stamp(self):
+        """
+        Gets the time_stamp of this UnreadableSectorEntryResult.
+
+
+        :return: The time_stamp of this UnreadableSectorEntryResult.
+        :rtype: int
+        :required/optional: optional
+        """
+        return self._time_stamp
+
+    @time_stamp.setter
+    def time_stamp(self, time_stamp):
+        """
+        Sets the time_stamp of this UnreadableSectorEntryResult.
+
+
+        :param time_stamp: The time_stamp of this UnreadableSectorEntryResult.
+        :type: int
+        """
+        self._time_stamp = time_stamp
+
+    @property
+    def volume_ref(self):
+        """
+        Gets the volume_ref of this UnreadableSectorEntryResult.
+
+
+        :return: The volume_ref of this UnreadableSectorEntryResult.
+        :rtype: str
+        :required/optional: optional
+        """
+        return self._volume_ref
+
+    @volume_ref.setter
+    def volume_ref(self, volume_ref):
+        """
+        Sets the volume_ref of this UnreadableSectorEntryResult.
+
+
+        :param volume_ref: The volume_ref of this UnreadableSectorEntryResult.
+        :type: str
+        """
+        self._volume_ref = volume_ref
+
+    @property
     def record_type(self):
         """
         Gets the record_type of this UnreadableSectorEntryResult.
@@ -111,7 +157,7 @@ class UnreadableSectorEntryResult(object):
         :param record_type: The record_type of this UnreadableSectorEntryResult.
         :type: str
         """
-        allowed_values = ["physical", "logical", "injected", "edcError", "inconsistent", "piError", "__UNDEFINED"]
+        allowed_values = ["physical", "logical", "injected", "edcError", "inconsistent", "piError", "__UNDEFINED", None]
         if record_type not in allowed_values:
             raise ValueError(
                 "Invalid value for `record_type`, must be one of {0}"
@@ -120,27 +166,27 @@ class UnreadableSectorEntryResult(object):
         self._record_type = record_type
 
     @property
-    def slot_no(self):
+    def drive_lba(self):
         """
-        Gets the slot_no of this UnreadableSectorEntryResult.
+        Gets the drive_lba of this UnreadableSectorEntryResult.
 
 
-        :return: The slot_no of this UnreadableSectorEntryResult.
+        :return: The drive_lba of this UnreadableSectorEntryResult.
         :rtype: int
         :required/optional: optional
         """
-        return self._slot_no
+        return self._drive_lba
 
-    @slot_no.setter
-    def slot_no(self, slot_no):
+    @drive_lba.setter
+    def drive_lba(self, drive_lba):
         """
-        Sets the slot_no of this UnreadableSectorEntryResult.
+        Sets the drive_lba of this UnreadableSectorEntryResult.
 
 
-        :param slot_no: The slot_no of this UnreadableSectorEntryResult.
+        :param drive_lba: The drive_lba of this UnreadableSectorEntryResult.
         :type: int
         """
-        self._slot_no = slot_no
+        self._drive_lba = drive_lba
 
     @property
     def tray_no(self):
@@ -189,73 +235,27 @@ class UnreadableSectorEntryResult(object):
         self._volume_lba = volume_lba
 
     @property
-    def drive_lba(self):
+    def slot_no(self):
         """
-        Gets the drive_lba of this UnreadableSectorEntryResult.
+        Gets the slot_no of this UnreadableSectorEntryResult.
 
 
-        :return: The drive_lba of this UnreadableSectorEntryResult.
+        :return: The slot_no of this UnreadableSectorEntryResult.
         :rtype: int
         :required/optional: optional
         """
-        return self._drive_lba
+        return self._slot_no
 
-    @drive_lba.setter
-    def drive_lba(self, drive_lba):
+    @slot_no.setter
+    def slot_no(self, slot_no):
         """
-        Sets the drive_lba of this UnreadableSectorEntryResult.
+        Sets the slot_no of this UnreadableSectorEntryResult.
 
 
-        :param drive_lba: The drive_lba of this UnreadableSectorEntryResult.
+        :param slot_no: The slot_no of this UnreadableSectorEntryResult.
         :type: int
         """
-        self._drive_lba = drive_lba
-
-    @property
-    def volume_ref(self):
-        """
-        Gets the volume_ref of this UnreadableSectorEntryResult.
-
-
-        :return: The volume_ref of this UnreadableSectorEntryResult.
-        :rtype: str
-        :required/optional: optional
-        """
-        return self._volume_ref
-
-    @volume_ref.setter
-    def volume_ref(self, volume_ref):
-        """
-        Sets the volume_ref of this UnreadableSectorEntryResult.
-
-
-        :param volume_ref: The volume_ref of this UnreadableSectorEntryResult.
-        :type: str
-        """
-        self._volume_ref = volume_ref
-
-    @property
-    def time_stamp(self):
-        """
-        Gets the time_stamp of this UnreadableSectorEntryResult.
-
-
-        :return: The time_stamp of this UnreadableSectorEntryResult.
-        :rtype: int
-        :required/optional: optional
-        """
-        return self._time_stamp
-
-    @time_stamp.setter
-    def time_stamp(self, time_stamp):
-        """
-        Sets the time_stamp of this UnreadableSectorEntryResult.
-
-
-        :param time_stamp: The time_stamp of this UnreadableSectorEntryResult.
-        :type: int
-        """
-        self._time_stamp = time_stamp
+        self._slot_no = slot_no
 
     def to_dict(self):
         """

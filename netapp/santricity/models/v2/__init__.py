@@ -35,6 +35,11 @@ from netapp.santricity.models.v2.async_mirror_group_role_update_request import A
 from netapp.santricity.models.v2.async_mirror_group_sync_request import AsyncMirrorGroupSyncRequest
 from netapp.santricity.models.v2.async_mirror_group_update_request import AsyncMirrorGroupUpdateRequest
 from netapp.santricity.models.v2.async_mirror_remote_connection import AsyncMirrorRemoteConnection
+from netapp.santricity.models.v2.audit_log_configuration import AuditLogConfiguration
+from netapp.santricity.models.v2.audit_log_delete_response import AuditLogDeleteResponse
+from netapp.santricity.models.v2.audit_log_get_response import AuditLogGetResponse
+from netapp.santricity.models.v2.audit_log_info_response import AuditLogInfoResponse
+from netapp.santricity.models.v2.audit_log_record import AuditLogRecord
 from netapp.santricity.models.v2.average_analysed_application_stats import AverageAnalysedApplicationStats
 from netapp.santricity.models.v2.average_analysed_controller_stats import AverageAnalysedControllerStats
 from netapp.santricity.models.v2.average_analysed_drive_stats import AverageAnalysedDriveStats
@@ -47,6 +52,7 @@ from netapp.santricity.models.v2.average_analysed_value import AverageAnalysedVa
 from netapp.santricity.models.v2.average_analysed_volume_stats import AverageAnalysedVolumeStats
 from netapp.santricity.models.v2.average_analysed_workload_stats import AverageAnalysedWorkloadStats
 from netapp.santricity.models.v2.battery_ex import BatteryEx
+from netapp.santricity.models.v2.bind_lookup_user import BindLookupUser
 from netapp.santricity.models.v2.cfw_package_metadata import CFWPackageMetadata
 from netapp.santricity.models.v2.cg_snapshot_view_request import CGSnapshotViewRequest
 from netapp.santricity.models.v2.cv_candidate_multiple_selection_request import CVCandidateMultipleSelectionRequest
@@ -94,8 +100,15 @@ from netapp.santricity.models.v2.drive_firmware_compatibility_response import Dr
 from netapp.santricity.models.v2.drive_firmware_compatiblity_set import DriveFirmwareCompatiblitySet
 from netapp.santricity.models.v2.drive_firmware_update_entry import DriveFirmwareUpdateEntry
 from netapp.santricity.models.v2.drive_selection_request import DriveSelectionRequest
+from netapp.santricity.models.v2.ekms_communication_response import EKMSCommunicationResponse
 from netapp.santricity.models.v2.embedded_compatibility_check_response import EmbeddedCompatibilityCheckResponse
 from netapp.santricity.models.v2.embedded_firmware_response import EmbeddedFirmwareResponse
+from netapp.santricity.models.v2.embedded_local_user_info_response import EmbeddedLocalUserInfoResponse
+from netapp.santricity.models.v2.embedded_local_user_request import EmbeddedLocalUserRequest
+from netapp.santricity.models.v2.embedded_local_user_response import EmbeddedLocalUserResponse
+from netapp.santricity.models.v2.embedded_local_users_min_password_request import EmbeddedLocalUsersMinPasswordRequest
+from netapp.santricity.models.v2.enable_disable_ekms_request import EnableDisableEkmsRequest
+from netapp.santricity.models.v2.enable_external_key_server_request import EnableExternalKeyServerRequest
 from netapp.santricity.models.v2.enumeration_string import EnumerationString
 from netapp.santricity.models.v2.esm_fibre_port_connection import EsmFibrePortConnection
 from netapp.santricity.models.v2.esm_port_connection_response import EsmPortConnectionResponse
@@ -103,6 +116,7 @@ from netapp.santricity.models.v2.esm_sas_port_connection import EsmSasPortConnec
 from netapp.santricity.models.v2.event import Event
 from netapp.santricity.models.v2.event_object_identifier import EventObjectIdentifier
 from netapp.santricity.models.v2.exclusive_operation_check import ExclusiveOperationCheck
+from netapp.santricity.models.v2.external_key_manager_csr import ExternalKeyManagerCSR
 from netapp.santricity.models.v2.failure_data import FailureData
 from netapp.santricity.models.v2.fibre_interface_port import FibreInterfacePort
 from netapp.santricity.models.v2.file_based_configuration_request import FileBasedConfigurationRequest
@@ -119,6 +133,7 @@ from netapp.santricity.models.v2.folder import Folder
 from netapp.santricity.models.v2.folder_create_request import FolderCreateRequest
 from netapp.santricity.models.v2.folder_event import FolderEvent
 from netapp.santricity.models.v2.folder_update_request import FolderUpdateRequest
+from netapp.santricity.models.v2.group_mapping import GroupMapping
 from netapp.santricity.models.v2.hardware_inventory_response import HardwareInventoryResponse
 from netapp.santricity.models.v2.health_check_failure_response import HealthCheckFailureResponse
 from netapp.santricity.models.v2.health_check_request import HealthCheckRequest
@@ -149,10 +164,14 @@ from netapp.santricity.models.v2.iscsi_target_response import IscsiTargetRespons
 from netapp.santricity.models.v2.iscsi_target_update_request import IscsiTargetUpdateRequest
 from netapp.santricity.models.v2.job_progress import JobProgress
 from netapp.santricity.models.v2.key_value import KeyValue
+from netapp.santricity.models.v2.ldap_configuration import LdapConfiguration
+from netapp.santricity.models.v2.ldap_domain import LdapDomain
+from netapp.santricity.models.v2.ldap_domain_test_response import LdapDomainTestResponse
 from netapp.santricity.models.v2.legacy_snapshot_create_request import LegacySnapshotCreateRequest
 from netapp.santricity.models.v2.legacy_snapshot_ex import LegacySnapshotEx
 from netapp.santricity.models.v2.legacy_snapshot_update_request import LegacySnapshotUpdateRequest
 from netapp.santricity.models.v2.level import Level
+from netapp.santricity.models.v2.local_user_password_request import LocalUserPasswordRequest
 from netapp.santricity.models.v2.locale import Locale
 from netapp.santricity.models.v2.localized_log_message import LocalizedLogMessage
 from netapp.santricity.models.v2.lockdown_status_response import LockdownStatusResponse
@@ -164,6 +183,7 @@ from netapp.santricity.models.v2.mappable_object import MappableObject
 from netapp.santricity.models.v2.mel_entry_ex import MelEntryEx
 from netapp.santricity.models.v2.mel_event_health_check import MelEventHealthCheck
 from netapp.santricity.models.v2.metadata_change_event import MetadataChangeEvent
+from netapp.santricity.models.v2.nv_meo_f_entity_update_request import NVMeoFEntityUpdateRequest
 from netapp.santricity.models.v2.nvsram_package_metadata import NvsramPackageMetadata
 from netapp.santricity.models.v2.object_change_event import ObjectChangeEvent
 from netapp.santricity.models.v2.object_graph_change_event import ObjectGraphChangeEvent
@@ -176,9 +196,12 @@ from netapp.santricity.models.v2.password_status_response import PasswordStatusR
 from netapp.santricity.models.v2.pit_view_ex import PitViewEx
 from netapp.santricity.models.v2.pool_qos_response import PoolQosResponse
 from netapp.santricity.models.v2.pool_statistics import PoolStatistics
+from netapp.santricity.models.v2.private_file_info import PrivateFileInfo
 from netapp.santricity.models.v2.progress import Progress
 from netapp.santricity.models.v2.raid_migration_request import RaidMigrationRequest
 from netapp.santricity.models.v2.raw_stats_response import RawStatsResponse
+from netapp.santricity.models.v2.relative_distinguished_name import RelativeDistinguishedName
+from netapp.santricity.models.v2.relative_distinguished_name_attribute import RelativeDistinguishedNameAttribute
 from netapp.santricity.models.v2.remote_candidate import RemoteCandidate
 from netapp.santricity.models.v2.remote_communication_data import RemoteCommunicationData
 from netapp.santricity.models.v2.remote_mirror_candidate import RemoteMirrorCandidate
@@ -187,14 +210,19 @@ from netapp.santricity.models.v2.remote_volume_mirror_create_request import Remo
 from netapp.santricity.models.v2.remote_volume_mirror_update_request import RemoteVolumeMirrorUpdateRequest
 from netapp.santricity.models.v2.removable_drive_response import RemovableDriveResponse
 from netapp.santricity.models.v2.resource_bundle import ResourceBundle
+from netapp.santricity.models.v2.role_permission_data import RolePermissionData
+from netapp.santricity.models.v2.roles_response import RolesResponse
 from netapp.santricity.models.v2.rule import Rule
 from netapp.santricity.models.v2.ssl_cert_configuration import SSLCertConfiguration
 from netapp.santricity.models.v2.sas_interface_port import SasInterfacePort
 from netapp.santricity.models.v2.save_config_spec import SaveConfigSpec
 from netapp.santricity.models.v2.schedule_create_request import ScheduleCreateRequest
+from netapp.santricity.models.v2.secure_volume_external_key_response import SecureVolumeExternalKeyResponse
 from netapp.santricity.models.v2.secure_volume_key_request import SecureVolumeKeyRequest
 from netapp.santricity.models.v2.secure_volume_key_response import SecureVolumeKeyResponse
 from netapp.santricity.models.v2.serializable import Serializable
+from netapp.santricity.models.v2.session_settings import SessionSettings
+from netapp.santricity.models.v2.session_settings_response import SessionSettingsResponse
 from netapp.santricity.models.v2.single_number_value import SingleNumberValue
 from netapp.santricity.models.v2.snapshot import Snapshot
 from netapp.santricity.models.v2.snapshot_create_request import SnapshotCreateRequest
@@ -216,6 +244,7 @@ from netapp.santricity.models.v2.storage_device_status_event import StorageDevic
 from netapp.santricity.models.v2.storage_pool_create_request import StoragePoolCreateRequest
 from netapp.santricity.models.v2.storage_pool_expansion_request import StoragePoolExpansionRequest
 from netapp.santricity.models.v2.storage_pool_update_request import StoragePoolUpdateRequest
+from netapp.santricity.models.v2.storage_system_attributes import StorageSystemAttributes
 from netapp.santricity.models.v2.storage_system_config_response import StorageSystemConfigResponse
 from netapp.santricity.models.v2.storage_system_config_update_request import StorageSystemConfigUpdateRequest
 from netapp.santricity.models.v2.storage_system_controller_stats import StorageSystemControllerStats
@@ -228,6 +257,8 @@ from netapp.santricity.models.v2.support_artifact import SupportArtifact
 from netapp.santricity.models.v2.support_artifacts import SupportArtifacts
 from netapp.santricity.models.v2.support_data_request import SupportDataRequest
 from netapp.santricity.models.v2.support_data_response import SupportDataResponse
+from netapp.santricity.models.v2.symbol_port_request import SymbolPortRequest
+from netapp.santricity.models.v2.symbol_port_response import SymbolPortResponse
 from netapp.santricity.models.v2.tag_event import TagEvent
 from netapp.santricity.models.v2.thin_volume_cache_settings import ThinVolumeCacheSettings
 from netapp.santricity.models.v2.thin_volume_create_request import ThinVolumeCreateRequest
@@ -267,4 +298,5 @@ from netapp.santricity.models.v2.workload_model import WorkloadModel
 from netapp.santricity.models.v2.workload_statistics import WorkloadStatistics
 from netapp.santricity.models.v2.workload_update_request import WorkloadUpdateRequest
 from netapp.santricity.models.v2.x509_cert_info import X509CertInfo
+from netapp.santricity.models.v2.x509_external_cert_info import X509ExternalCertInfo
 

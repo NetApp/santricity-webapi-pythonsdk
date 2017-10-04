@@ -96,7 +96,7 @@ class ValidateConfigurationFileResponseItem(object):
         :param type: The type of this ValidateConfigurationFileResponseItem.
         :type: str
         """
-        allowed_values = ["systemSerialNumber", "controllerAPort1IP4", "controllerAPort2IP4", "controllerBPort1IP4", "controllerBPort2IP4", "controllerAPort1IP6", "controllerAPort2IP6", "controllerBPort1IP6", "controllerBPort2IP6", "controllerAPort1Netmask4", "controllerAPort2Netmask4", "controllerBPort1Netmask4", "controllerBPort2Netmask4", "controllerAPort1Netmask6", "controllerAPort2Netmask6", "controllerBPort1Netmask6", "controllerBPort2Netmask6", "controllerAIPv4GW", "controllerAIPv6GW", "controllerBIPv4GW", "controllerBIPv6GW", "systemLabel", "saPassword", "systemKey", "metaData"]
+        allowed_values = ["systemSerialNumber", "controllerAPort1IP4", "controllerAPort2IP4", "controllerBPort1IP4", "controllerBPort2IP4", "controllerAPort1IP6", "controllerAPort2IP6", "controllerBPort1IP6", "controllerBPort2IP6", "controllerAPort1Netmask4", "controllerAPort2Netmask4", "controllerBPort1Netmask4", "controllerBPort2Netmask4", "controllerAPort1Netmask6", "controllerAPort2Netmask6", "controllerBPort1Netmask6", "controllerBPort2Netmask6", "controllerAIPv4GW", "controllerAIPv6GW", "controllerBIPv4GW", "controllerBIPv6GW", "systemLabel", "saPassword", "systemKey", "metaData", None]
         if type not in allowed_values:
             raise ValueError(
                 "Invalid value for `type`, must be one of {0}"

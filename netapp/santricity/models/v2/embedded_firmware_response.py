@@ -40,26 +40,32 @@ class EmbeddedFirmwareResponse(object):
             'cfw_upgrade_ts': 'datetime',  # (required parameter)
             'iom_upgrade_ts': 'datetime',  # (required parameter)
             'drive_upgrade_ts': 'datetime',  # (required parameter)
+            'nvsram_upgrade_ts': 'datetime',  # (required parameter)
             'cfw_log': 'list[LogRecord]',  # (required parameter)
             'iom_log': 'list[LogRecord]',  # (required parameter)
-            'drive_log': 'list[LogRecord]'
+            'drive_log': 'list[LogRecord]',  # (required parameter)
+            'nvsram_log': 'list[LogRecord]'
         }
 
         self.attribute_map = {
             'cfw_upgrade_ts': 'cfwUpgradeTS',  # (required parameter)
             'iom_upgrade_ts': 'iomUpgradeTS',  # (required parameter)
             'drive_upgrade_ts': 'driveUpgradeTS',  # (required parameter)
+            'nvsram_upgrade_ts': 'nvsramUpgradeTS',  # (required parameter)
             'cfw_log': 'cfwLog',  # (required parameter)
             'iom_log': 'iomLog',  # (required parameter)
-            'drive_log': 'driveLog'
+            'drive_log': 'driveLog',  # (required parameter)
+            'nvsram_log': 'nvsramLog'
         }
 
         self._cfw_upgrade_ts = None
         self._iom_upgrade_ts = None
         self._drive_upgrade_ts = None
+        self._nvsram_upgrade_ts = None
         self._cfw_log = None
         self._iom_log = None
         self._drive_log = None
+        self._nvsram_log = None
 
     @property
     def cfw_upgrade_ts(self):
@@ -131,6 +137,29 @@ class EmbeddedFirmwareResponse(object):
         self._drive_upgrade_ts = drive_upgrade_ts
 
     @property
+    def nvsram_upgrade_ts(self):
+        """
+        Gets the nvsram_upgrade_ts of this EmbeddedFirmwareResponse.
+        Timestamp of the last successful NVSRAM upgrade
+
+        :return: The nvsram_upgrade_ts of this EmbeddedFirmwareResponse.
+        :rtype: datetime
+        :required/optional: required
+        """
+        return self._nvsram_upgrade_ts
+
+    @nvsram_upgrade_ts.setter
+    def nvsram_upgrade_ts(self, nvsram_upgrade_ts):
+        """
+        Sets the nvsram_upgrade_ts of this EmbeddedFirmwareResponse.
+        Timestamp of the last successful NVSRAM upgrade
+
+        :param nvsram_upgrade_ts: The nvsram_upgrade_ts of this EmbeddedFirmwareResponse.
+        :type: datetime
+        """
+        self._nvsram_upgrade_ts = nvsram_upgrade_ts
+
+    @property
     def cfw_log(self):
         """
         Gets the cfw_log of this EmbeddedFirmwareResponse.
@@ -198,6 +227,29 @@ class EmbeddedFirmwareResponse(object):
         :type: list[LogRecord]
         """
         self._drive_log = drive_log
+
+    @property
+    def nvsram_log(self):
+        """
+        Gets the nvsram_log of this EmbeddedFirmwareResponse.
+        Array of log records NVSRAM upgrades
+
+        :return: The nvsram_log of this EmbeddedFirmwareResponse.
+        :rtype: list[LogRecord]
+        :required/optional: required
+        """
+        return self._nvsram_log
+
+    @nvsram_log.setter
+    def nvsram_log(self, nvsram_log):
+        """
+        Sets the nvsram_log of this EmbeddedFirmwareResponse.
+        Array of log records NVSRAM upgrades
+
+        :param nvsram_log: The nvsram_log of this EmbeddedFirmwareResponse.
+        :type: list[LogRecord]
+        """
+        self._nvsram_log = nvsram_log
 
     def to_dict(self):
         """

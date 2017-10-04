@@ -79,7 +79,7 @@ class LocalizedLogMessage(object):
         :param logger_type: The logger_type of this LocalizedLogMessage.
         :type: str
         """
-        allowed_values = ["cfwUpgradeLogger", "driveUpgradeLogger", "iomServiceLogger", "cfwUpgradeTimestamp", "driveUpgradeTimestamp", "iomServiceTimestamp"]
+        allowed_values = ["cfwUpgradeLogger", "driveUpgradeLogger", "iomServiceLogger", "nvsramUpgradeLogger", "cfwUpgradeTimestamp", "driveUpgradeTimestamp", "iomServiceTimestamp", "nvsramUpgradeTimestamp", "auditLogLogger"]
         if logger_type not in allowed_values:
             raise ValueError(
                 "Invalid value for `logger_type`, must be one of {0}"

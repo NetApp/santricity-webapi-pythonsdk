@@ -61,7 +61,7 @@ class CopyServicesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str view_id:  (required)
     
@@ -178,7 +178,7 @@ class CopyServicesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str id:  (required)
     
@@ -295,7 +295,7 @@ class CopyServicesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :return: list[ConcatRepositoryVolume]
                      If the method is called asynchronously,
@@ -394,7 +394,7 @@ class CopyServicesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :return: list[PITCGMember]
                      If the method is called asynchronously,
@@ -493,7 +493,7 @@ class CopyServicesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str cg_id:  (required)
     
@@ -603,7 +603,7 @@ class CopyServicesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :return: list[PITConsistencyGroupView]
                      If the method is called asynchronously,
@@ -702,7 +702,7 @@ class CopyServicesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str cg_id:  (required)
     
@@ -812,7 +812,7 @@ class CopyServicesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str cg_id:  (required)
     
@@ -922,7 +922,7 @@ class CopyServicesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :return: list[PITConsistencyGroup]
                      If the method is called asynchronously,
@@ -1021,7 +1021,7 @@ class CopyServicesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :return: list[VolumeCopyProgress]
                      If the method is called asynchronously,
@@ -1120,7 +1120,7 @@ class CopyServicesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :return: list[RepositoryUtilization]
                      If the method is called asynchronously,
@@ -1219,7 +1219,7 @@ class CopyServicesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :return: list[LegacySnapshotEx]
                      If the method is called asynchronously,
@@ -1302,7 +1302,7 @@ class CopyServicesApi(object):
     def get_all_snapshot_group_repo_stats(self, system_id, **kwargs):
             """
             Retrieve the repository usage statistics for all SnapshotGroups.
-            Mode: Both Embedded and Proxy. 
+            
 
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please define a `callback` function
@@ -1318,7 +1318,7 @@ class CopyServicesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :return: list[PITGroupRepositoryUtilization]
                      If the method is called asynchronously,
@@ -1401,7 +1401,7 @@ class CopyServicesApi(object):
     def get_all_snapshot_groups(self, system_id, **kwargs):
             """
             Get all Snapshot Groups
-            Mode: Both Embedded and Proxy. 
+            
 
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please define a `callback` function
@@ -1417,7 +1417,7 @@ class CopyServicesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :return: list[SnapshotGroup]
                      If the method is called asynchronously,
@@ -1516,7 +1516,7 @@ class CopyServicesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :return: list[ScheduleInstance]
                      If the method is called asynchronously,
@@ -1615,7 +1615,7 @@ class CopyServicesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :return: list[PITViewRepositoryUtilization]
                      If the method is called asynchronously,
@@ -1714,7 +1714,7 @@ class CopyServicesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :return: list[PitViewEx]
                      If the method is called asynchronously,
@@ -1797,7 +1797,7 @@ class CopyServicesApi(object):
     def get_all_snapshots(self, system_id, **kwargs):
             """
             Get all Snapshots
-            Mode: Both Embedded and Proxy. 
+            
 
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please define a `callback` function
@@ -1813,7 +1813,7 @@ class CopyServicesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :return: list[Snapshot]
                      If the method is called asynchronously,
@@ -1912,7 +1912,7 @@ class CopyServicesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :return: list[VolumeCopyPair]
                      If the method is called asynchronously,
@@ -2011,7 +2011,7 @@ class CopyServicesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str id:  (required)
     
@@ -2121,7 +2121,7 @@ class CopyServicesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param CVCandidateSelectionRequest body: 
     
@@ -2227,7 +2227,7 @@ class CopyServicesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str id:  (required)
     
@@ -2337,7 +2337,7 @@ class CopyServicesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str cg_id:  (required)
     
@@ -2458,7 +2458,7 @@ class CopyServicesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str cg_id:  (required)
     
@@ -2579,7 +2579,7 @@ class CopyServicesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str cg_id:  (required)
     
@@ -2700,7 +2700,7 @@ class CopyServicesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str cg_id:  (required)
     
@@ -2821,7 +2821,7 @@ class CopyServicesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str id:  (required)
     
@@ -2931,7 +2931,7 @@ class CopyServicesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str id:  (required)
     
@@ -3041,7 +3041,7 @@ class CopyServicesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str id:  (required)
     
@@ -3151,7 +3151,7 @@ class CopyServicesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param CVCandidateMultipleSelectionRequest body: 
     
@@ -3241,7 +3241,7 @@ class CopyServicesApi(object):
     def get_snapshot(self, system_id, id, **kwargs):
             """
             Get a Snapshot Volume
-            Mode: Both Embedded and Proxy. 
+            
 
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please define a `callback` function
@@ -3257,7 +3257,7 @@ class CopyServicesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str id:  (required)
     
@@ -3351,7 +3351,7 @@ class CopyServicesApi(object):
     def get_snapshot_group(self, system_id, id, **kwargs):
             """
             Get a Snapshot Group
-            Mode: Both Embedded and Proxy. 
+            
 
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please define a `callback` function
@@ -3367,7 +3367,7 @@ class CopyServicesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str id:  (required)
     
@@ -3461,7 +3461,7 @@ class CopyServicesApi(object):
     def get_snapshot_group_repo_stats(self, system_id, id, **kwargs):
             """
             Retrieve the repository usage statistics for a single SnapshotGroup.
-            Mode: Both Embedded and Proxy. 
+            
 
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please define a `callback` function
@@ -3477,7 +3477,7 @@ class CopyServicesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str id:  (required)
     
@@ -3587,7 +3587,7 @@ class CopyServicesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str id:  (required)
     
@@ -3697,7 +3697,7 @@ class CopyServicesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str id:  (required)
     
@@ -3807,7 +3807,7 @@ class CopyServicesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str id:  (required)
     
@@ -3917,7 +3917,7 @@ class CopyServicesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str vc_id:  (required)
     
@@ -4027,7 +4027,7 @@ class CopyServicesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param ConsistencyGroupCreateRequest body: 
     
@@ -4133,7 +4133,7 @@ class CopyServicesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str cg_id:  (required)
     
@@ -4250,7 +4250,7 @@ class CopyServicesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str cg_id:  (required)
     
@@ -4367,7 +4367,7 @@ class CopyServicesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str cg_id:  (required)
     
@@ -4484,7 +4484,7 @@ class CopyServicesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str cg_id:  (required)
     
@@ -4601,7 +4601,7 @@ class CopyServicesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param LegacySnapshotCreateRequest body: 
     
@@ -4707,7 +4707,7 @@ class CopyServicesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str cg_id:  (required)
     
@@ -4808,7 +4808,7 @@ class CopyServicesApi(object):
     def new_snapshot(self, system_id, **kwargs):
             """
             Create a Snapshot
-            Mode: Both Embedded and Proxy. 
+            
 
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please define a `callback` function
@@ -4824,7 +4824,7 @@ class CopyServicesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param SnapshotCreateRequest body: 
     
@@ -4914,7 +4914,7 @@ class CopyServicesApi(object):
     def new_snapshot_group(self, system_id, **kwargs):
             """
             Create a Snapshot Group
-            Mode: Both Embedded and Proxy. 
+            
 
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please define a `callback` function
@@ -4930,7 +4930,7 @@ class CopyServicesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param SnapshotGroupCreateRequest body: 
     
@@ -5036,7 +5036,7 @@ class CopyServicesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param SnapshotViewCreateRequest body: 
     
@@ -5142,7 +5142,7 @@ class CopyServicesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param VolumeCopyCreateRequest body: 
     
@@ -5248,7 +5248,7 @@ class CopyServicesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str id:  (required)
     
@@ -5358,7 +5358,7 @@ class CopyServicesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str cg_id:  (required)
     
@@ -5486,7 +5486,7 @@ class CopyServicesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str cg_id:  (required)
     
@@ -5607,7 +5607,7 @@ class CopyServicesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str cg_id:  (required)
     
@@ -5728,7 +5728,7 @@ class CopyServicesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str id:  (required)
     
@@ -5822,7 +5822,7 @@ class CopyServicesApi(object):
     def remove_snapshot(self, system_id, id, **kwargs):
             """
             Delete a Snapshot Volume
-            Mode: Both Embedded and Proxy. 
+            
 
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please define a `callback` function
@@ -5838,7 +5838,7 @@ class CopyServicesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str id:  (required)
     
@@ -5932,7 +5932,7 @@ class CopyServicesApi(object):
     def remove_snapshot_group(self, system_id, id, **kwargs):
             """
             Delete a Snapshot Group
-            Mode: Both Embedded and Proxy. 
+            
 
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please define a `callback` function
@@ -5948,7 +5948,7 @@ class CopyServicesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str id:  (required)
     
@@ -6058,7 +6058,7 @@ class CopyServicesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str id:  (required)
     
@@ -6168,7 +6168,7 @@ class CopyServicesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str vc_id:  (required)
     
@@ -6285,7 +6285,7 @@ class CopyServicesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str cg_id:  (required)
     
@@ -6406,7 +6406,7 @@ class CopyServicesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str id:  (required)
     
@@ -6523,7 +6523,7 @@ class CopyServicesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str ids: A comma separated list of id's (required)
     
@@ -6644,7 +6644,7 @@ class CopyServicesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str id:  (required)
     
@@ -6745,7 +6745,7 @@ class CopyServicesApi(object):
     def update_snapshot_group(self, system_id, id, **kwargs):
             """
             Update a Snapshot Group
-            Mode: Both Embedded and Proxy. 
+            
 
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please define a `callback` function
@@ -6761,7 +6761,7 @@ class CopyServicesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str id:  (required)
     
@@ -6878,7 +6878,7 @@ class CopyServicesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str id:  (required)
     
@@ -6995,7 +6995,7 @@ class CopyServicesApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id: The id of the storage-system (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str vc_id:  (required)
     

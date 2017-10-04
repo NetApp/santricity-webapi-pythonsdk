@@ -301,7 +301,13 @@ class FailureTypeEntry(object):
             'misconfigured_host': 'str',  
             'host_redundancy_loss_details': 'HostRedundancyLossDetails',  
             'excessive_reboots_detected': 'ExcessiveRebootsDetected',  
-            'ctlr_with_dirty_cache_not_flushed': 'ControllerWithDirtyCacheDetails'
+            'ctlr_with_dirty_cache_not_flushed': 'ControllerWithDirtyCacheDetails',  
+            'kms_expiring_certificate': 'KMSCertificateExpirationDetails',  
+            'kms_expired_certificate': 'KMSCertificateExpirationDetails',  
+            'kms_conn_failure_endpoint': 'ExternalKMSEndpoint',  
+            'kms_server_error_endpoint': 'ExternalKMSEndpoint',  
+            'directory_services_domain': 'DirectoryServicesDomain',  
+            'kms_key_req_endpoint': 'ExternalKMSEndpoint'
         }
 
         self.attribute_map = {
@@ -569,7 +575,13 @@ class FailureTypeEntry(object):
             'misconfigured_host': 'misconfiguredHost',  
             'host_redundancy_loss_details': 'hostRedundancyLossDetails',  
             'excessive_reboots_detected': 'excessiveRebootsDetected',  
-            'ctlr_with_dirty_cache_not_flushed': 'ctlrWithDirtyCacheNotFlushed'
+            'ctlr_with_dirty_cache_not_flushed': 'ctlrWithDirtyCacheNotFlushed',  
+            'kms_expiring_certificate': 'kmsExpiringCertificate',  
+            'kms_expired_certificate': 'kmsExpiredCertificate',  
+            'kms_conn_failure_endpoint': 'kmsConnFailureEndpoint',  
+            'kms_server_error_endpoint': 'kmsServerErrorEndpoint',  
+            'directory_services_domain': 'directoryServicesDomain',  
+            'kms_key_req_endpoint': 'kmsKeyReqEndpoint'
         }
 
         self._rec_failure_type = None
@@ -837,6 +849,12 @@ class FailureTypeEntry(object):
         self._host_redundancy_loss_details = None
         self._excessive_reboots_detected = None
         self._ctlr_with_dirty_cache_not_flushed = None
+        self._kms_expiring_certificate = None
+        self._kms_expired_certificate = None
+        self._kms_conn_failure_endpoint = None
+        self._kms_server_error_endpoint = None
+        self._directory_services_domain = None
+        self._kms_key_req_endpoint = None
 
     @property
     def rec_failure_type(self):
@@ -859,7 +877,7 @@ class FailureTypeEntry(object):
         :param rec_failure_type: The rec_failure_type of this FailureTypeEntry.
         :type: str
         """
-        allowed_values = ["unknownFailure", "failedFan", "failedPowerSupply", "failedMinihub", "failedEsm", "batteryNearExpiration", "failedBattery", "nominalTempExceeded", "maxTempExceeded", "upsOnBattery", "nonPreferredPath", "memParityError", "failedDriveScsiChannel", "degradedVolume", "failedVolumeInterruptedWrite", "failedModifyingVolume", "failedModifyingMultiRaid", "failedVolume", "failedVolumeMultiRaid", "impairedVolume", "failedVolumeAwaitingInit", "volumeHotSpareInUse", "offlineVolumeGroup", "failedDrive", "impendingDriveFailureRiskHigh", "impendingDriveFailureRiskMed", "impendingDriveFailureRiskLow", "uncertifiedDrive", "offlineCtl", "passiveCtl", "partitionsNotCompliant", "esmCodeVersionMismatch", "lostRedundancyDrive", "lostRedundancyTray", "lostRedundancyEsm", "trayidMismatch", "trayidConflict", "failedTransceiverModule", "channelMiswire", "nonFruBatteryNearExpiration", "nonFruFailedBattery", "rpaErrCtl", "repositoryOverThreshold", "repositoryFull", "snapshotFailed", "unsupportedMinihub", "esmMiswire", "ghostVolume", "snapshotNotCompliant", "rvmNotCompliant", "metadataOffline", "mirrorDualPrimary", "mirrorDualSecondary", "mirrorUnsynchronized", "remoteNoLun", "remoteNoArray", "remoteNoFabric", "remoteWwnChangeFailed", "fanUnknownStat", "powerSupplyUnknownStat", "esmUnknownStat", "tempSensorUnknownStat", "transModUnknownStat", "driveBypassedSpeedMismatch", "driveBypassedCauseUnknown", "minihubSpeedMismatch", "removedEsm", "removedBattery", "nonFruRemovedBattery", "volcopyFailed", "volcopyNotCompliant", "channelDegraded", "unsupportedTray", "speedNegError", "usmDatabaseFull", "usmUnreadableSectorsExist", "pathDegraded", "netSetupError", "mismatchedDriveType", "ctlMismatch", "failedDiscreteLine", "channelFailed", "linkSpeedDetectionMismatch", "uncertifiedEsm", "removedFan", "removedPowerSupply", "removedTempSensor", "removedIccCru", "removedSupportCru", "failedIccCru", "failedSupportCru", "batteryUnknownStat", "driveTraysNotGroupedTogether", "goldKeyNotCompliant", "mismatchedMdtSettings", "mismatchedGoldKeySettings", "ctlMiswire", "supportCruNoinput", "submodelNotSupported", "submodelNotSet", "submodelMismatch", "failedBatterySystem", "removedBatteryPack", "batteryConfigMismatch", "esmHardwareMismatch", "hostBoardFault", "ddcAvailable", "replacedDriveWrongType", "redundantPsRequired", "driveTraysNotCompliant", "sasDeviceLimitExceeded", "sasPortMiswired", "sasPortDegraded", "sasPortFailed", "corruptVpdEeprom", "failedI2cBus", "enclosureMisconfigured", "featureBundleNotCompliant", "driveBypassedSinglePort", "esmFactoryDefaultsMismatch", "hostBoardUnknownStat", "failedHostIoCard", "batteryWarn", "volumeGroupPartiallyComplete", "volumeGroupIncomplete", "volumeGroupMissing", "hotspareDriveMissing", "driveIncompatibleUprevDacstore", "driveIncompatibleDownrevDacstore", "iccCruUnknownStat", "removedAlarm", "supportCruUnknownStat", "performanceTierNotCompliant", "raid6NotCompliant", "driveIncompatibleSectorSize", "foreignDriveInconsistent", "foreignDriveRefersToNativeDrive", "nativeVgRefersToForeignDrive", "nativeVgForeignDriveMutualRef", "vgCloned", "foreignDriveHasInconsistentRole", "vgDrivePartOfMultipleVgs", "incompatibleFailedLegacyDrive", "unsupportedCacheMemorySize", "dedicatedMirrorChannelFailed", "vgHasDrivePartOfMultipleVgs", "ddfDriveOtherVendor", "multipleConfigDatabasesDetected", "adoptionFailedRaidLevelUnsupported", "dbAdoptionHardLimitExceeded", "legacyVgNotOptimal", "cacheMemSizeMismatch", "altCtlrBoardIdUnreadable", "cacheBackupDeviceFailed", "cacheBackupDeviceWriteProtected", "cacheBackupDeviceInsufficientCapacity", "expiredBattery", "expiredIntegratedBattery", "procMemTooSmallForCache", "batteryOvertemp", "invalidHostTypeIndex", "insufficientProcMemory", "ctlFailedCacheBackupDev", "removedController", "degradedHostIoCard", "ldFwVersionMismatch", "ldIncompatibleDatabase", "hostBoardIdMismatch", "iccMissing", "linkSpeedMismatch", "unsupportedHostBoard", "writebackCachingDisabled", "securityGetKey", "securityKeyInconsistent", "securityNotCompliant", "mixedDriveEnclosureMiswire", "unsuccessIsolationRedunMismatch", "thresExcdedMismatchCorrected", "inactiveHostPort", "inactiveInitiator", "protectionInformationNotCompliant", "protectionInformationNotSupported", "replacedInsufficientDriveCapacity", "drawerFailed", "drawerOpened", "ssdNotCompliant", "ssdAtEndOfLife", "fibreTrunkMiswire", "fibreTrunkIncompatibleEsm", "driveSlotLimitNotCompliant", "securityGetNewKey", "externalKmsNotCompliant", "sbbValidationFailure", "invalidPowerSupply", "enclosureThermalShutdown", "wbCachingForciblyDisabled", "driveUnsupportedProtocolConnection", "failedTwiBus", "mismatchedMidplaneEeproms", "driveUnsupportedCapacity", "evaluationLicenseExpirationImminent", "externalKmsKeyInvalid", "multipleMismatchedKeyIdsFound", "securityKeyValidationLock", "cacheDataLoss", "baseControllerDiagFailed", "featureNotCompliant", "driveIncompatiblePiType", "drawerDegraded", "offlineCtlIocFail", "invalidSataFlashConfiguration", "iocDiagFail", "sasPhyDisabledLocalWidePortDegraded", "sasPhyDisabledSharedWidePortDegraded", "drawerInvalid", "drawerRemoved", "driveUnsupportedInterposerFwVersion", "redundancyGroupNotConsistentDuringReconfig", "snapshotRollbackPaused", "pitRollbackPaused", "pitGroupRepositoryOverThreshold", "pitViewRepositoryOverThreshold", "pitGroupRepositoryFull", "pitViewRepositoryFull", "pitGroupFailed", "pitViewFailed", "pitPurged", "arvmDegradedMirrorGroup", "arvmFailedMirror", "arvmSyncIntervalTimeOverThreshold", "arvmRepositoryOverWarnThreshold", "arvmMirrorGroupRoleConflict", "incompatibleVolumeGroupSecurity", "arvmOrphanGroup", "arvmOrphanMember", "arvmMirrorGroupRecoveryPointLost", "diskPoolPartiallyPresent", "diskPoolIncomplete", "diskPoolMissing", "diskPoolReconstructionDriveCountBelowThreshold", "diskPoolUtilizationWarning", "diskPoolUtilizationCritical", "pendingPitCreationFailed", "pendingCgpitCreationFailed", "tpvRepositoryOverThreshold", "tpvRepositoryFull", "tpvFailed", "arvmSecondaryRepositoryFull", "arvmSyncInternallySuspended", "databaseRecoveryMode", "arvmPrimaryRepositoryFull", "incompatibleSataDrive", "diskPoolCapacityDepleted", "driveIncompatibleModelNumberUnsupported", "flashCacheNonOptimalDrives", "flashCacheHotSpareInUse", "allDrivesBypassedIncompatibleNvsram", "diskPoolDriveFailure", "diskPoolInsufficientMemory", "arvmOrphanIncompleteMember", "arvmSyncPausedAltState", "arvmRoleChangePaused", "driveIncompatibleAlignmentForEmulationDrive", "lossOfExternalRedundancy", "rvmWriteModeInconsistent", "sasHostMiswire", "sasCrossMiswire", "sasLoopMiswire", "copyThenFailWaitingOnHotSpare", "missingDriveLockdown", "hicConfigurationOoc", "copyThenFailWaitingOnDdpCapacity", "piErrorServiceMode", "piErrorLockdown", "sasPortDiscoveryError", "netNtpResolutionFail", "netNtpQueryFail", "netNtpServiceUnavailable", "multipathConfigurationError", "hostRedundancyLost", "excessiveRebootsDetected", "cacheNotFlushedOnOnlyCtlr", "__UNDEFINED"]
+        allowed_values = ["unknownFailure", "failedFan", "failedPowerSupply", "failedMinihub", "failedEsm", "batteryNearExpiration", "failedBattery", "nominalTempExceeded", "maxTempExceeded", "upsOnBattery", "nonPreferredPath", "memParityError", "failedDriveScsiChannel", "degradedVolume", "failedVolumeInterruptedWrite", "failedModifyingVolume", "failedModifyingMultiRaid", "failedVolume", "failedVolumeMultiRaid", "impairedVolume", "failedVolumeAwaitingInit", "volumeHotSpareInUse", "offlineVolumeGroup", "failedDrive", "impendingDriveFailureRiskHigh", "impendingDriveFailureRiskMed", "impendingDriveFailureRiskLow", "uncertifiedDrive", "offlineCtl", "passiveCtl", "partitionsNotCompliant", "esmCodeVersionMismatch", "lostRedundancyDrive", "lostRedundancyTray", "lostRedundancyEsm", "trayidMismatch", "trayidConflict", "failedTransceiverModule", "channelMiswire", "nonFruBatteryNearExpiration", "nonFruFailedBattery", "rpaErrCtl", "repositoryOverThreshold", "repositoryFull", "snapshotFailed", "unsupportedMinihub", "esmMiswire", "ghostVolume", "snapshotNotCompliant", "rvmNotCompliant", "metadataOffline", "mirrorDualPrimary", "mirrorDualSecondary", "mirrorUnsynchronized", "remoteNoLun", "remoteNoArray", "remoteNoFabric", "remoteWwnChangeFailed", "fanUnknownStat", "powerSupplyUnknownStat", "esmUnknownStat", "tempSensorUnknownStat", "transModUnknownStat", "driveBypassedSpeedMismatch", "driveBypassedCauseUnknown", "minihubSpeedMismatch", "removedEsm", "removedBattery", "nonFruRemovedBattery", "volcopyFailed", "volcopyNotCompliant", "channelDegraded", "unsupportedTray", "speedNegError", "usmDatabaseFull", "usmUnreadableSectorsExist", "pathDegraded", "netSetupError", "mismatchedDriveType", "ctlMismatch", "failedDiscreteLine", "channelFailed", "linkSpeedDetectionMismatch", "uncertifiedEsm", "removedFan", "removedPowerSupply", "removedTempSensor", "removedIccCru", "removedSupportCru", "failedIccCru", "failedSupportCru", "batteryUnknownStat", "driveTraysNotGroupedTogether", "goldKeyNotCompliant", "mismatchedMdtSettings", "mismatchedGoldKeySettings", "ctlMiswire", "supportCruNoinput", "submodelNotSupported", "submodelNotSet", "submodelMismatch", "failedBatterySystem", "removedBatteryPack", "batteryConfigMismatch", "esmHardwareMismatch", "hostBoardFault", "ddcAvailable", "replacedDriveWrongType", "redundantPsRequired", "driveTraysNotCompliant", "sasDeviceLimitExceeded", "sasPortMiswired", "sasPortDegraded", "sasPortFailed", "corruptVpdEeprom", "failedI2cBus", "enclosureMisconfigured", "featureBundleNotCompliant", "driveBypassedSinglePort", "esmFactoryDefaultsMismatch", "hostBoardUnknownStat", "failedHostIoCard", "batteryWarn", "volumeGroupPartiallyComplete", "volumeGroupIncomplete", "volumeGroupMissing", "hotspareDriveMissing", "driveIncompatibleUprevDacstore", "driveIncompatibleDownrevDacstore", "iccCruUnknownStat", "removedAlarm", "supportCruUnknownStat", "performanceTierNotCompliant", "raid6NotCompliant", "driveIncompatibleSectorSize", "foreignDriveInconsistent", "foreignDriveRefersToNativeDrive", "nativeVgRefersToForeignDrive", "nativeVgForeignDriveMutualRef", "vgCloned", "foreignDriveHasInconsistentRole", "vgDrivePartOfMultipleVgs", "incompatibleFailedLegacyDrive", "unsupportedCacheMemorySize", "dedicatedMirrorChannelFailed", "vgHasDrivePartOfMultipleVgs", "ddfDriveOtherVendor", "multipleConfigDatabasesDetected", "adoptionFailedRaidLevelUnsupported", "dbAdoptionHardLimitExceeded", "legacyVgNotOptimal", "cacheMemSizeMismatch", "altCtlrBoardIdUnreadable", "cacheBackupDeviceFailed", "cacheBackupDeviceWriteProtected", "cacheBackupDeviceInsufficientCapacity", "expiredBattery", "expiredIntegratedBattery", "procMemTooSmallForCache", "batteryOvertemp", "invalidHostTypeIndex", "insufficientProcMemory", "ctlFailedCacheBackupDev", "removedController", "degradedHostIoCard", "ldFwVersionMismatch", "ldIncompatibleDatabase", "hostBoardIdMismatch", "iccMissing", "linkSpeedMismatch", "unsupportedHostBoard", "writebackCachingDisabled", "securityGetKey", "securityKeyInconsistent", "securityNotCompliant", "mixedDriveEnclosureMiswire", "unsuccessIsolationRedunMismatch", "thresExcdedMismatchCorrected", "inactiveHostPort", "inactiveInitiator", "protectionInformationNotCompliant", "protectionInformationNotSupported", "replacedInsufficientDriveCapacity", "drawerFailed", "drawerOpened", "ssdNotCompliant", "ssdAtEndOfLife", "fibreTrunkMiswire", "fibreTrunkIncompatibleEsm", "driveSlotLimitNotCompliant", "securityGetNewKey", "externalKmsNotCompliant", "sbbValidationFailure", "invalidPowerSupply", "enclosureThermalShutdown", "wbCachingForciblyDisabled", "driveUnsupportedProtocolConnection", "failedTwiBus", "mismatchedMidplaneEeproms", "driveUnsupportedCapacity", "evaluationLicenseExpirationImminent", "externalKmsKeyInvalid", "multipleMismatchedKeyIdsFound", "securityKeyValidationLock", "cacheDataLoss", "baseControllerDiagFailed", "featureNotCompliant", "driveIncompatiblePiType", "drawerDegraded", "offlineCtlIocFail", "invalidSataFlashConfiguration", "iocDiagFail", "sasPhyDisabledLocalWidePortDegraded", "sasPhyDisabledSharedWidePortDegraded", "drawerInvalid", "drawerRemoved", "driveUnsupportedInterposerFwVersion", "redundancyGroupNotConsistentDuringReconfig", "snapshotRollbackPaused", "pitRollbackPaused", "pitGroupRepositoryOverThreshold", "pitViewRepositoryOverThreshold", "pitGroupRepositoryFull", "pitViewRepositoryFull", "pitGroupFailed", "pitViewFailed", "pitPurged", "arvmDegradedMirrorGroup", "arvmFailedMirror", "arvmSyncIntervalTimeOverThreshold", "arvmRepositoryOverWarnThreshold", "arvmMirrorGroupRoleConflict", "incompatibleVolumeGroupSecurity", "arvmOrphanGroup", "arvmOrphanMember", "arvmMirrorGroupRecoveryPointLost", "diskPoolPartiallyPresent", "diskPoolIncomplete", "diskPoolMissing", "diskPoolReconstructionDriveCountBelowThreshold", "diskPoolUtilizationWarning", "diskPoolUtilizationCritical", "pendingPitCreationFailed", "pendingCgpitCreationFailed", "tpvRepositoryOverThreshold", "tpvRepositoryFull", "tpvFailed", "arvmSecondaryRepositoryFull", "arvmSyncInternallySuspended", "databaseRecoveryMode", "arvmPrimaryRepositoryFull", "incompatibleSataDrive", "diskPoolCapacityDepleted", "driveIncompatibleModelNumberUnsupported", "flashCacheNonOptimalDrives", "flashCacheHotSpareInUse", "allDrivesBypassedIncompatibleNvsram", "diskPoolDriveFailure", "diskPoolInsufficientMemory", "arvmOrphanIncompleteMember", "arvmSyncPausedAltState", "arvmRoleChangePaused", "driveIncompatibleAlignmentForEmulationDrive", "lossOfExternalRedundancy", "rvmWriteModeInconsistent", "sasHostMiswire", "sasCrossMiswire", "sasLoopMiswire", "copyThenFailWaitingOnHotSpare", "missingDriveLockdown", "hicConfigurationOoc", "copyThenFailWaitingOnDdpCapacity", "piErrorServiceMode", "piErrorLockdown", "sasPortDiscoveryError", "netNtpResolutionFail", "netNtpQueryFail", "netNtpServiceUnavailable", "multipathConfigurationError", "hostRedundancyLost", "excessiveRebootsDetected", "cacheNotFlushedOnOnlyCtlr", "securityAuditLogFull", "securityAuditLogWarnThresh", "directoryServicesConfigError", "kmipServerCertificateNearingExpiration", "kmipServerCertificateExpired", "kmipServerDnsError", "kmipServerCertificateError", "kmipServerAuthenticationFailure", "kmipServerConnectionFailure", "kmipServerError", "kmipServerKeyRequirementNotMet", "__UNDEFINED"]
         if rec_failure_type not in allowed_values:
             raise ValueError(
                 "Invalid value for `rec_failure_type`, must be one of {0}"
@@ -2412,7 +2430,7 @@ class FailureTypeEntry(object):
     def icc_missing(self):
         """
         Gets the icc_missing of this FailureTypeEntry.
-        This field is present only if the recFailureType is equal to REC_ICC_MISSING. It identifies a controller enclosure having a missing interconnect cannister, which caused the other controller to lock down.
+        This field is present only if the recFailureType is equal to REC_ICC_MISSING. It identifies a controller enclosure having a missing interconnect canister, which caused the other controller to lock down.
 
         :return: The icc_missing of this FailureTypeEntry.
         :rtype: str
@@ -2424,7 +2442,7 @@ class FailureTypeEntry(object):
     def icc_missing(self, icc_missing):
         """
         Sets the icc_missing of this FailureTypeEntry.
-        This field is present only if the recFailureType is equal to REC_ICC_MISSING. It identifies a controller enclosure having a missing interconnect cannister, which caused the other controller to lock down.
+        This field is present only if the recFailureType is equal to REC_ICC_MISSING. It identifies a controller enclosure having a missing interconnect canister, which caused the other controller to lock down.
 
         :param icc_missing: The icc_missing of this FailureTypeEntry.
         :type: str
@@ -6938,6 +6956,144 @@ class FailureTypeEntry(object):
         :type: ControllerWithDirtyCacheDetails
         """
         self._ctlr_with_dirty_cache_not_flushed = ctlr_with_dirty_cache_not_flushed
+
+    @property
+    def kms_expiring_certificate(self):
+        """
+        Gets the kms_expiring_certificate of this FailureTypeEntry.
+        A KMS certificate is nearing its expiration and should be updated prior to expiration to prevent a potential loss of data access.
+
+        :return: The kms_expiring_certificate of this FailureTypeEntry.
+        :rtype: KMSCertificateExpirationDetails
+        :required/optional: optional
+        """
+        return self._kms_expiring_certificate
+
+    @kms_expiring_certificate.setter
+    def kms_expiring_certificate(self, kms_expiring_certificate):
+        """
+        Sets the kms_expiring_certificate of this FailureTypeEntry.
+        A KMS certificate is nearing its expiration and should be updated prior to expiration to prevent a potential loss of data access.
+
+        :param kms_expiring_certificate: The kms_expiring_certificate of this FailureTypeEntry.
+        :type: KMSCertificateExpirationDetails
+        """
+        self._kms_expiring_certificate = kms_expiring_certificate
+
+    @property
+    def kms_expired_certificate(self):
+        """
+        Gets the kms_expired_certificate of this FailureTypeEntry.
+        A KMS certificate has expired resulting in a loss of access with the KMIP server.
+
+        :return: The kms_expired_certificate of this FailureTypeEntry.
+        :rtype: KMSCertificateExpirationDetails
+        :required/optional: optional
+        """
+        return self._kms_expired_certificate
+
+    @kms_expired_certificate.setter
+    def kms_expired_certificate(self, kms_expired_certificate):
+        """
+        Sets the kms_expired_certificate of this FailureTypeEntry.
+        A KMS certificate has expired resulting in a loss of access with the KMIP server.
+
+        :param kms_expired_certificate: The kms_expired_certificate of this FailureTypeEntry.
+        :type: KMSCertificateExpirationDetails
+        """
+        self._kms_expired_certificate = kms_expired_certificate
+
+    @property
+    def kms_conn_failure_endpoint(self):
+        """
+        Gets the kms_conn_failure_endpoint of this FailureTypeEntry.
+        A connection failure occurred while attempting to communicate with the KMIP server.
+
+        :return: The kms_conn_failure_endpoint of this FailureTypeEntry.
+        :rtype: ExternalKMSEndpoint
+        :required/optional: optional
+        """
+        return self._kms_conn_failure_endpoint
+
+    @kms_conn_failure_endpoint.setter
+    def kms_conn_failure_endpoint(self, kms_conn_failure_endpoint):
+        """
+        Sets the kms_conn_failure_endpoint of this FailureTypeEntry.
+        A connection failure occurred while attempting to communicate with the KMIP server.
+
+        :param kms_conn_failure_endpoint: The kms_conn_failure_endpoint of this FailureTypeEntry.
+        :type: ExternalKMSEndpoint
+        """
+        self._kms_conn_failure_endpoint = kms_conn_failure_endpoint
+
+    @property
+    def kms_server_error_endpoint(self):
+        """
+        Gets the kms_server_error_endpoint of this FailureTypeEntry.
+        An error occurred while communicating with the KMIP server.
+
+        :return: The kms_server_error_endpoint of this FailureTypeEntry.
+        :rtype: ExternalKMSEndpoint
+        :required/optional: optional
+        """
+        return self._kms_server_error_endpoint
+
+    @kms_server_error_endpoint.setter
+    def kms_server_error_endpoint(self, kms_server_error_endpoint):
+        """
+        Sets the kms_server_error_endpoint of this FailureTypeEntry.
+        An error occurred while communicating with the KMIP server.
+
+        :param kms_server_error_endpoint: The kms_server_error_endpoint of this FailureTypeEntry.
+        :type: ExternalKMSEndpoint
+        """
+        self._kms_server_error_endpoint = kms_server_error_endpoint
+
+    @property
+    def directory_services_domain(self):
+        """
+        Gets the directory_services_domain of this FailureTypeEntry.
+        The Directory Services Server is misconfigured or unreachable.
+
+        :return: The directory_services_domain of this FailureTypeEntry.
+        :rtype: DirectoryServicesDomain
+        :required/optional: optional
+        """
+        return self._directory_services_domain
+
+    @directory_services_domain.setter
+    def directory_services_domain(self, directory_services_domain):
+        """
+        Sets the directory_services_domain of this FailureTypeEntry.
+        The Directory Services Server is misconfigured or unreachable.
+
+        :param directory_services_domain: The directory_services_domain of this FailureTypeEntry.
+        :type: DirectoryServicesDomain
+        """
+        self._directory_services_domain = directory_services_domain
+
+    @property
+    def kms_key_req_endpoint(self):
+        """
+        Gets the kms_key_req_endpoint of this FailureTypeEntry.
+        A requirement of the key has not been satisfied on the KMIP server (e.g., key owner has not been set.)
+
+        :return: The kms_key_req_endpoint of this FailureTypeEntry.
+        :rtype: ExternalKMSEndpoint
+        :required/optional: optional
+        """
+        return self._kms_key_req_endpoint
+
+    @kms_key_req_endpoint.setter
+    def kms_key_req_endpoint(self, kms_key_req_endpoint):
+        """
+        Sets the kms_key_req_endpoint of this FailureTypeEntry.
+        A requirement of the key has not been satisfied on the KMIP server (e.g., key owner has not been set.)
+
+        :param kms_key_req_endpoint: The kms_key_req_endpoint of this FailureTypeEntry.
+        :type: ExternalKMSEndpoint
+        """
+        self._kms_key_req_endpoint = kms_key_req_endpoint
 
     def to_dict(self):
         """

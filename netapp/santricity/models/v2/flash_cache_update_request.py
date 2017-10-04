@@ -93,7 +93,7 @@ class FlashCacheUpdateRequest(object):
         :param config_type: The config_type of this FlashCacheUpdateRequest.
         :type: str
         """
-        allowed_values = ["unknown", "filesystem", "database", "multimedia", "__UNDEFINED"]
+        allowed_values = ["unknown", "filesystem", "database", "multimedia", "__UNDEFINED", None]
         if config_type not in allowed_values:
             raise ValueError(
                 "Invalid value for `config_type`, must be one of {0}"

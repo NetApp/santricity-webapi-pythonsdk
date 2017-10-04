@@ -46,7 +46,9 @@ class DiskPoolDefaultAttributes(object):
             'max_dce_drive_count': 'int',  # (required parameter)
             'repos_granularity': 'int',  # (required parameter)
             'max_total_disk_pool_support_in_megabytes': 'int',  # (required parameter)
-            'max_volume_synchronous_creation_in_megabytes': 'int'
+            'max_volume_synchronous_creation_in_megabytes': 'int',  # (required parameter)
+            'max_dcr_drive_count': 'int',  # (required parameter)
+            'minimum_drive_count': 'int'
         }
 
         self.attribute_map = {
@@ -59,7 +61,9 @@ class DiskPoolDefaultAttributes(object):
             'max_dce_drive_count': 'maxDCEDriveCount',  # (required parameter)
             'repos_granularity': 'reposGranularity',  # (required parameter)
             'max_total_disk_pool_support_in_megabytes': 'maxTotalDiskPoolSupportInMegabytes',  # (required parameter)
-            'max_volume_synchronous_creation_in_megabytes': 'maxVolumeSynchronousCreationInMegabytes'
+            'max_volume_synchronous_creation_in_megabytes': 'maxVolumeSynchronousCreationInMegabytes',  # (required parameter)
+            'max_dcr_drive_count': 'maxDCRDriveCount',  # (required parameter)
+            'minimum_drive_count': 'minimumDriveCount'
         }
 
         self._pool_utilization_warning_threshold = None
@@ -72,6 +76,8 @@ class DiskPoolDefaultAttributes(object):
         self._repos_granularity = None
         self._max_total_disk_pool_support_in_megabytes = None
         self._max_volume_synchronous_creation_in_megabytes = None
+        self._max_dcr_drive_count = None
+        self._minimum_drive_count = None
 
     @property
     def pool_utilization_warning_threshold(self):
@@ -320,6 +326,52 @@ class DiskPoolDefaultAttributes(object):
         :type: int
         """
         self._max_volume_synchronous_creation_in_megabytes = max_volume_synchronous_creation_in_megabytes
+
+    @property
+    def max_dcr_drive_count(self):
+        """
+        Gets the max_dcr_drive_count of this DiskPoolDefaultAttributes.
+        This element contains the maximum number of drives that can be removed in a Disk Capacity Reduction (DCR) operation.
+
+        :return: The max_dcr_drive_count of this DiskPoolDefaultAttributes.
+        :rtype: int
+        :required/optional: required
+        """
+        return self._max_dcr_drive_count
+
+    @max_dcr_drive_count.setter
+    def max_dcr_drive_count(self, max_dcr_drive_count):
+        """
+        Sets the max_dcr_drive_count of this DiskPoolDefaultAttributes.
+        This element contains the maximum number of drives that can be removed in a Disk Capacity Reduction (DCR) operation.
+
+        :param max_dcr_drive_count: The max_dcr_drive_count of this DiskPoolDefaultAttributes.
+        :type: int
+        """
+        self._max_dcr_drive_count = max_dcr_drive_count
+
+    @property
+    def minimum_drive_count(self):
+        """
+        Gets the minimum_drive_count of this DiskPoolDefaultAttributes.
+        Minimum drive count required for defining a disk pool
+
+        :return: The minimum_drive_count of this DiskPoolDefaultAttributes.
+        :rtype: int
+        :required/optional: required
+        """
+        return self._minimum_drive_count
+
+    @minimum_drive_count.setter
+    def minimum_drive_count(self, minimum_drive_count):
+        """
+        Sets the minimum_drive_count of this DiskPoolDefaultAttributes.
+        Minimum drive count required for defining a disk pool
+
+        :param minimum_drive_count: The minimum_drive_count of this DiskPoolDefaultAttributes.
+        :type: int
+        """
+        self._minimum_drive_count = minimum_drive_count
 
     def to_dict(self):
         """

@@ -120,7 +120,7 @@ class DeviceAsupDelivery(object):
         :param routing_type: The routing_type of this DeviceAsupDelivery.
         :type: str
         """
-        allowed_values = ["none", "direct", "proxyServer", "proxyScript"]
+        allowed_values = ["none", "direct", "proxyServer", "proxyScript", None]
         if routing_type not in allowed_values:
             raise ValueError(
                 "Invalid value for `routing_type`, must be one of {0}"

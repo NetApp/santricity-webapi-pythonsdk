@@ -316,7 +316,7 @@ class ThinVolumeCreateRequest(object):
         :param expansion_policy: The expansion_policy of this ThinVolumeCreateRequest.
         :type: str
         """
-        allowed_values = ["unknown", "manual", "automatic", "__UNDEFINED"]
+        allowed_values = ["unknown", "manual", "automatic", "__UNDEFINED", None]
         if expansion_policy not in allowed_values:
             raise ValueError(
                 "Invalid value for `expansion_policy`, must be one of {0}"
@@ -328,7 +328,7 @@ class ThinVolumeCreateRequest(object):
     def cache_read_ahead(self):
         """
         Gets the cache_read_ahead of this ThinVolumeCreateRequest.
-        Enable/Disable automatic cache read-ahead
+        Deprecated(This field is no longer valid for thin volumes): Enable/Disable automatic cache read-ahead
 
         :return: The cache_read_ahead of this ThinVolumeCreateRequest.
         :rtype: bool
@@ -340,7 +340,7 @@ class ThinVolumeCreateRequest(object):
     def cache_read_ahead(self, cache_read_ahead):
         """
         Sets the cache_read_ahead of this ThinVolumeCreateRequest.
-        Enable/Disable automatic cache read-ahead
+        Deprecated(This field is no longer valid for thin volumes): Enable/Disable automatic cache read-ahead
 
         :param cache_read_ahead: The cache_read_ahead of this ThinVolumeCreateRequest.
         :type: bool

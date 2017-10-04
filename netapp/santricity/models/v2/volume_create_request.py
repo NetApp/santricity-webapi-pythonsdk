@@ -39,7 +39,7 @@ class VolumeCreateRequest(object):
         self.swagger_types = {
             'pool_id': 'str',  # (required parameter)
             'name': 'str',  # (required parameter)
-            'size_unit': 'str',  # (required parameter)
+            'size_unit': 'str',  
             'size': 'int',  # (required parameter)
             'seg_size': 'int',  # (required parameter)
             'data_assurance_enabled': 'bool',  
@@ -50,7 +50,7 @@ class VolumeCreateRequest(object):
         self.attribute_map = {
             'pool_id': 'poolId',  # (required parameter)
             'name': 'name',  # (required parameter)
-            'size_unit': 'sizeUnit',  # (required parameter)
+            'size_unit': 'sizeUnit',  
             'size': 'size',  # (required parameter)
             'seg_size': 'segSize',  # (required parameter)
             'data_assurance_enabled': 'dataAssuranceEnabled',  
@@ -121,7 +121,7 @@ class VolumeCreateRequest(object):
 
         :return: The size_unit of this VolumeCreateRequest.
         :rtype: str
-        :required/optional: required
+        :required/optional: optional
         """
         return self._size_unit
 
@@ -134,7 +134,7 @@ class VolumeCreateRequest(object):
         :param size_unit: The size_unit of this VolumeCreateRequest.
         :type: str
         """
-        allowed_values = ["bytes", "b", "kb", "mb", "gb", "tb", "pb", "eb", "zb", "yb"]
+        allowed_values = ["bytes", "b", "kb", "mb", "gb", "tb", "pb", "eb", "zb", "yb", None]
         if size_unit not in allowed_values:
             raise ValueError(
                 "Invalid value for `size_unit`, must be one of {0}"
@@ -169,7 +169,7 @@ class VolumeCreateRequest(object):
     def seg_size(self):
         """
         Gets the seg_size of this VolumeCreateRequest.
-        The segment size of the volume.
+        The segment size (KB) of the volume. A zero value will set a system-specific default value.
 
         :return: The seg_size of this VolumeCreateRequest.
         :rtype: int
@@ -181,7 +181,7 @@ class VolumeCreateRequest(object):
     def seg_size(self, seg_size):
         """
         Sets the seg_size of this VolumeCreateRequest.
-        The segment size of the volume.
+        The segment size (KB) of the volume. A zero value will set a system-specific default value.
 
         :param seg_size: The seg_size of this VolumeCreateRequest.
         :type: int

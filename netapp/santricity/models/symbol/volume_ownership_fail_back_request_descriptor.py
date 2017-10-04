@@ -76,7 +76,7 @@ class VolumeOwnershipFailBackRequestDescriptor(object):
     def both_controllers(self):
         """
         Gets the both_controllers of this VolumeOwnershipFailBackRequestDescriptor.
-        If true, the fail back operation will apply to volumes whose preferred owner is either controller, othewise the fail-back operation will apply only to those volumes with a preferred owner on the controller receiving the request.
+        If true, the fail back operation will apply to volumes whose preferred owner is either controller, otherwise the fail-back operation will apply only to those volumes with a preferred owner on the controller receiving the request.
 
         :return: The both_controllers of this VolumeOwnershipFailBackRequestDescriptor.
         :rtype: bool
@@ -88,7 +88,7 @@ class VolumeOwnershipFailBackRequestDescriptor(object):
     def both_controllers(self, both_controllers):
         """
         Sets the both_controllers of this VolumeOwnershipFailBackRequestDescriptor.
-        If true, the fail back operation will apply to volumes whose preferred owner is either controller, othewise the fail-back operation will apply only to those volumes with a preferred owner on the controller receiving the request.
+        If true, the fail back operation will apply to volumes whose preferred owner is either controller, otherwise the fail-back operation will apply only to those volumes with a preferred owner on the controller receiving the request.
 
         :param both_controllers: The both_controllers of this VolumeOwnershipFailBackRequestDescriptor.
         :type: bool

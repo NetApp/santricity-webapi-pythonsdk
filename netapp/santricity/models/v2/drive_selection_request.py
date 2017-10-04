@@ -186,7 +186,7 @@ class DriveSelectionRequest(object):
         :param drive_type: The drive_type of this DriveSelectionRequest.
         :type: str
         """
-        allowed_values = ["ssd", "hdd"]
+        allowed_values = ["ssd", "hdd", None]
         if drive_type not in allowed_values:
             raise ValueError(
                 "Invalid value for `drive_type`, must be one of {0}"
@@ -215,7 +215,7 @@ class DriveSelectionRequest(object):
         :param interface_type: The interface_type of this DriveSelectionRequest.
         :type: str
         """
-        allowed_values = ["fibre", "sas", "sata"]
+        allowed_values = ["fibre", "sas", "sata", None]
         if interface_type not in allowed_values:
             raise ValueError(
                 "Invalid value for `interface_type`, must be one of {0}"
@@ -267,7 +267,7 @@ class DriveSelectionRequest(object):
         :param size_unit: The size_unit of this DriveSelectionRequest.
         :type: str
         """
-        allowed_values = ["bytes", "b", "kb", "mb", "gb", "tb", "pb", "eb", "zb", "yb"]
+        allowed_values = ["bytes", "b", "kb", "mb", "gb", "tb", "pb", "eb", "zb", "yb", None]
         if size_unit not in allowed_values:
             raise ValueError(
                 "Invalid value for `size_unit`, must be one of {0}"
@@ -296,7 +296,7 @@ class DriveSelectionRequest(object):
         :param raid_level: The raid_level of this DriveSelectionRequest.
         :type: str
         """
-        allowed_values = ["raidUnsupported", "raidAll", "raid0", "raid1", "raid3", "raid5", "raid6", "raidDiskPool", "__UNDEFINED"]
+        allowed_values = ["raidUnsupported", "raidAll", "raid0", "raid1", "raid3", "raid5", "raid6", "raidDiskPool", "__UNDEFINED", None]
         if raid_level not in allowed_values:
             raise ValueError(
                 "Invalid value for `raid_level`, must be one of {0}"

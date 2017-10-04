@@ -56,7 +56,8 @@ class AsupResponse(object):
             'mail_sender_addr': 'str',  
             'mail_reply_addr': 'str',  
             'log': 'str',  
-            'sequence': 'int'
+            'sequence': 'int',  
+            'default': 'bool'
         }
 
         self.attribute_map = {
@@ -79,7 +80,8 @@ class AsupResponse(object):
             'mail_sender_addr': 'mailSenderAddr',  
             'mail_reply_addr': 'mailReplyAddr',  
             'log': 'log',  
-            'sequence': 'sequence'
+            'sequence': 'sequence',  
+            'default': 'default'
         }
 
         self._enabled = None
@@ -102,6 +104,7 @@ class AsupResponse(object):
         self._mail_reply_addr = None
         self._log = None
         self._sequence = None
+        self._default = None
 
     @property
     def enabled(self):
@@ -130,7 +133,7 @@ class AsupResponse(object):
     def schedule_type(self):
         """
         Gets the schedule_type of this AsupResponse.
-        The schedule frequency
+        The schedule frequency = ['0' is a daily schedule, '1' is a weekly schedule, '2' is a monthly schedule]
 
         :return: The schedule_type of this AsupResponse.
         :rtype: int
@@ -142,7 +145,7 @@ class AsupResponse(object):
     def schedule_type(self, schedule_type):
         """
         Sets the schedule_type of this AsupResponse.
-        The schedule frequency
+        The schedule frequency = ['0' is a daily schedule, '1' is a weekly schedule, '2' is a monthly schedule]
 
         :param schedule_type: The schedule_type of this AsupResponse.
         :type: int
@@ -222,7 +225,7 @@ class AsupResponse(object):
     def delivery_type(self):
         """
         Gets the delivery_type of this AsupResponse.
-        Delivery method
+        The Delivery method = ['0' is unknown, '1' is https (default), '2' is http, '3' is smtp]
 
         :return: The delivery_type of this AsupResponse.
         :rtype: int
@@ -234,7 +237,7 @@ class AsupResponse(object):
     def delivery_type(self, delivery_type):
         """
         Sets the delivery_type of this AsupResponse.
-        Delivery method
+        The Delivery method = ['0' is unknown, '1' is https (default), '2' is http, '3' is smtp]
 
         :param delivery_type: The delivery_type of this AsupResponse.
         :type: int
@@ -291,7 +294,7 @@ class AsupResponse(object):
     def http_delivery_type(self):
         """
         Gets the http_delivery_type of this AsupResponse.
-        Http delivery method
+        Http delivery method = ['0' is a unknown, '1' is direct (default), '2' is proxy server, '3' is proxy configuration script]
 
         :return: The http_delivery_type of this AsupResponse.
         :rtype: int
@@ -303,7 +306,7 @@ class AsupResponse(object):
     def http_delivery_type(self, http_delivery_type):
         """
         Sets the http_delivery_type of this AsupResponse.
-        Http delivery method
+        Http delivery method = ['0' is a unknown, '1' is direct (default), '2' is proxy server, '3' is proxy configuration script]
 
         :param http_delivery_type: The http_delivery_type of this AsupResponse.
         :type: int
@@ -562,6 +565,29 @@ class AsupResponse(object):
         :type: int
         """
         self._sequence = sequence
+
+    @property
+    def default(self):
+        """
+        Gets the default of this AsupResponse.
+
+
+        :return: The default of this AsupResponse.
+        :rtype: bool
+        :required/optional: optional
+        """
+        return self._default
+
+    @default.setter
+    def default(self, default):
+        """
+        Sets the default of this AsupResponse.
+
+
+        :param default: The default of this AsupResponse.
+        :type: bool
+        """
+        self._default = default
 
     def to_dict(self):
         """

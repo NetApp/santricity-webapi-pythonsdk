@@ -61,7 +61,7 @@ class DApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param int body: A StatStreamId object that identifies the discrete time series to deactivate. (required)
     
@@ -185,7 +185,7 @@ class DApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str controller: Controller selection
     
@@ -298,7 +298,7 @@ class DApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param int body: A StatStreamId object that identifies the histogram set to deactivate. (required)
     
@@ -422,7 +422,7 @@ class DApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str controller: Controller selection
     
@@ -535,7 +535,7 @@ class DApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param DriveRefList body: A list of DriveRef values that identifies all drives to be affected by this operation. (required)
     
@@ -659,7 +659,7 @@ class DApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param AsyncMirrorGroupDeletionDescriptor body: An object containing all of the required attributes to delete an Asynchronous Mirror Group. (required)
     
@@ -783,7 +783,7 @@ class DApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: An object with all of the required attributes to delete an incomplete member of an Asynchronous Mirror Group. (required)
     
@@ -907,7 +907,7 @@ class DApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param PITConsistencyGroupPITDeletionDescriptor body: Structure containing information about the consistency group PiT to delete. (required)
     
@@ -1012,130 +1012,6 @@ class DApi(object):
                                                 callback=params.get('callback'))
             return response
     
-    def symbol_delete_client_mgmt_records_no_password(self, system_id, body, **kwargs):
-            """
-            This procedure deletes a range of (i.e. one or more) specified MgmtClientRecords.
-            Documented return codes: ok, noHeap, volumeNotExist, databaseError. 
-
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please define a `callback` function
-            to be invoked when receiving the response.
-            >>> def callback_function(response):
-            >>>     pprint(response)
-            >>>
-    
-            >>> thread = api.symbol_delete_client_mgmt_records_no_password(system_id, body, callback=callback_function)
-    
-    
-
-            :param callback function: The callback function
-                for asynchronous request. (optional)
-    
-            :param str system_id:  (required)
-    
-            :param MgmtClientRecordDeleteDescriptor body: The MgmtClientRecordDeleteDescriptor value. (required)
-    
-            :param str controller: Controller selection
-    
-            :param bool verbose_error_response: 
-    
-            :return: str
-                     If the method is called asynchronously,
-                     returns the request thread.
-            :raises: ValueError
-                       If the required params are not provided or if the response data format is unknown.
-                     TypeError:
-                        When the data type of response data is different from what we are expecting
-                     ApiException:
-                        Occurs when we get a HTTP error code (422 and above).
-
-            """
-
-            all_params = ['system_id', 'body', 'controller', 'verbose_error_response']
-            all_params.append('callback')
-
-            params = locals()
-            for key, val in iteritems(params['kwargs']):
-                if key not in all_params:
-                    raise TypeError(
-                        "Got an unexpected keyword argument '%s'"
-                        " to method symbol_delete_client_mgmt_records_no_password" % key
-                    )
-                params[key] = val
-            del params['kwargs']
-
-    
-    
-            # verify the required parameter 'system_id' is set
-            if ('system_id' not in params) or (params['system_id'] is None):
-                raise ValueError("Missing the required parameter `system_id` when calling `symbol_delete_client_mgmt_records_no_password`")
-    
-    
-    
-            # verify the required parameter 'body' is set
-            if ('body' not in params) or (params['body'] is None):
-                raise ValueError("Missing the required parameter `body` when calling `symbol_delete_client_mgmt_records_no_password`")
-    
-    
-    
-    
-    
-    
-
-            resource_path = '/storage-systems/{system-id}/symbol/deleteClientMgmtRecordsNoPassword'.replace('{format}', 'json')
-            path_params = {}
-    
-            if 'system_id' in params:
-                path_params['system-id'] = params['system_id']
-    
-
-            query_params = {}
-    
-            if 'controller' in params:
-                query_params['controller'] = params['controller']
-    
-            if 'verbose_error_response' in params:
-                query_params['verboseErrorResponse'] = params['verbose_error_response']
-    
-
-            header_params = {}
-    
-
-            form_params = []
-            local_var_files = {}
-    
-
-            body_params = None
-    
-            if 'body' in params:
-                body_params = params['body']
-    
-
-            # HTTP header `Accept`
-            header_params['Accept'] = self.api_client.\
-                select_header_accept(['application/json'])
-            if not header_params['Accept']:
-                del header_params['Accept']
-
-            # HTTP header `Content-Type`
-            header_params['Content-Type'] = self.api_client.\
-                select_header_content_type(['application/json'])
-
-            # Authentication setting
-            auth_settings = ['basicAuth']
-
-            response = self.api_client.call_api(resource_path, 'POST',
-                                                path_params,
-                                                query_params,
-                                                header_params,
-                                                body=body_params,
-                                                post_params=form_params,
-                                                files=local_var_files,
-                                                response_type='str',
-                                                auth_settings=auth_settings,
-                                                callback=params.get('callback'))
-            return response
-    
     def symbol_delete_cluster(self, system_id, body, **kwargs):
             """
             This procedure causes the Cluster object identified by the argument value to be deleted from the Storage Partitions configuration.
@@ -1155,7 +1031,7 @@ class DApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: The ClusterRef value for the cluster to be deleted. (required)
     
@@ -1279,7 +1155,7 @@ class DApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: A reference to the volume group to be deleted. (required)
     
@@ -1403,7 +1279,7 @@ class DApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: A reference to the flash cache object to delete. (required)
     
@@ -1527,7 +1403,7 @@ class DApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: The HostRef value for the host to be deleted. (required)
     
@@ -1651,7 +1527,7 @@ class DApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: The HostPortRef value for the host port to be deleted. (required)
     
@@ -1775,7 +1651,7 @@ class DApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: A ScsiNodeRef object that identifies the initiator to delete. (required)
     
@@ -1899,7 +1775,7 @@ class DApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param KeyValueTagRefList body: The input identifies the key-value pairs to be deleted from the array. Unknown references are ignored. (required)
     
@@ -2023,7 +1899,7 @@ class DApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param KeyValueTagMappingDeletionDescriptorList body: The input is a list of references to Volumes (or Workloads). For each in the list, all references to Key-Value tags are deleted. (required)
     
@@ -2147,7 +2023,7 @@ class DApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: The LUNMappingRef value for the mapping to be deleted. (required)
     
@@ -2271,7 +2147,7 @@ class DApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param MgmtClientRecordDeleteDescriptor body: The MgmtClientRecordDeleteDescriptor value. (required)
     
@@ -2395,7 +2271,7 @@ class DApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param PITRefList body: Structure containing a list of PiTs. (required)
     
@@ -2519,7 +2395,7 @@ class DApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param PITConsistencyGroupDeletionDescriptor body: Descriptor for the consistency group to be deleted. (required)
     
@@ -2643,7 +2519,7 @@ class DApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param PITConsistencyGroupViewDeletionDescriptor body: An object containing all of the attributes required to delete a PiT Consistency Group View. (required)
     
@@ -2767,7 +2643,7 @@ class DApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param PITGroupDeletionDescriptor body: Structure containing PiT group reference data. (required)
     
@@ -2891,7 +2767,7 @@ class DApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param PITViewDeletionDescriptor body: Structure containing information about the PiT View to delete. (required)
     
@@ -3015,7 +2891,7 @@ class DApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body:  (required)
     
@@ -3139,7 +3015,7 @@ class DApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param ScheduleRefList body: A list of schedule references. (required)
     
@@ -3263,7 +3139,7 @@ class DApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: A SYMbol reference to the snapshot volume that is to be deleted. (required)
     
@@ -3387,7 +3263,7 @@ class DApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: The value of the AbstractVolRef for the volume to be deleted. (required)
     
@@ -3511,7 +3387,7 @@ class DApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param VolumeDeletionDescriptor body: A VolumeDeletionDescriptor which contains (1) a reference to the volume to delete and (2) a boolean indicator, which indicates whether to delete or retain the volume group when the last volume in the group is deleted. (required)
     
@@ -3635,7 +3511,7 @@ class DApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: A reference to the volume group that is to be deleted. (required)
     
@@ -3759,7 +3635,7 @@ class DApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param WorkloadRefList body: A list of SYMbol application awareness workload references. (required)
     
@@ -3883,7 +3759,7 @@ class DApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param WorkloadVolumeDeleteMappingDescriptorList body: A list of unique identifiers to the workload to volume mappings to be deleted. (required)
     
@@ -4007,7 +3883,7 @@ class DApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str controller: Controller selection
     
@@ -4120,7 +3996,7 @@ class DApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body:  (required)
     
@@ -4244,7 +4120,7 @@ class DApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: The Capability value for the \"premium\" feature to be disabled. (required)
     
@@ -4368,7 +4244,7 @@ class DApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: A reference to the feature to disable. (required)
     
@@ -4492,7 +4368,7 @@ class DApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: A reference to the volume to disable. (required)
     
@@ -4616,7 +4492,7 @@ class DApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body: The SnapshotRef of the snapshot volume on which the operation is to be performed. (required)
     
@@ -4740,7 +4616,7 @@ class DApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param SnapshotRefList body: A SnapshotRefList structure identifying the snapshot volume that are to be disabled. The list may contain as few as one snapshot reference or up to MAX_SNAPSHOT_COLLECTION_SIZE references. (required)
     
@@ -4864,7 +4740,7 @@ class DApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str body:  (required)
     
@@ -4988,7 +4864,7 @@ class DApi(object):
             :param callback function: The callback function
                 for asynchronous request. (optional)
     
-            :param str system_id:  (required)
+            :param str system_id: The unique identifier of the storage-system. This may be the id or the WWN. (required)
     
             :param str controller: Controller selection
     

@@ -154,7 +154,7 @@ class SnapshotViewCreateRequest(object):
         :param view_mode: The view_mode of this SnapshotViewCreateRequest.
         :type: str
         """
-        allowed_values = ["modeUnknown", "readWrite", "readOnly", "__UNDEFINED"]
+        allowed_values = ["modeUnknown", "readWrite", "readOnly", "__UNDEFINED", None]
         if view_mode not in allowed_values:
             raise ValueError(
                 "Invalid value for `view_mode`, must be one of {0}"

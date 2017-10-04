@@ -4,7 +4,7 @@ import sys
 from setuptools import setup, find_packages
 
 NAME = "netapp.santricity"
-VERSION = "1.0"
+VERSION = "1.1"
 
 
 

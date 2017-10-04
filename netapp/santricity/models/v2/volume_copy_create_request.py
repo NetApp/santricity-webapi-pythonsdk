@@ -41,7 +41,6 @@ class VolumeCopyCreateRequest(object):
             'target_id': 'str',  # (required parameter)
             'copy_priority': 'str',  
             'target_write_protected': 'bool',  
-            'disable_snapshot': 'bool',  
             'online_copy': 'bool',  
             'repository_candidate': 'ConcatVolumeCandidate'
         }
@@ -51,7 +50,6 @@ class VolumeCopyCreateRequest(object):
             'target_id': 'targetId',  # (required parameter)
             'copy_priority': 'copyPriority',  
             'target_write_protected': 'targetWriteProtected',  
-            'disable_snapshot': 'disableSnapshot',  
             'online_copy': 'onlineCopy',  
             'repository_candidate': 'repositoryCandidate'
         }
@@ -60,7 +58,6 @@ class VolumeCopyCreateRequest(object):
         self._target_id = None
         self._copy_priority = None
         self._target_write_protected = None
-        self._disable_snapshot = None
         self._online_copy = None
         self._repository_candidate = None
 
@@ -131,7 +128,7 @@ class VolumeCopyCreateRequest(object):
         :param copy_priority: The copy_priority of this VolumeCopyCreateRequest.
         :type: str
         """
-        allowed_values = ["priority0", "priority1", "priority2", "priority3", "priority4", "__UNDEFINED"]
+        allowed_values = ["priority0", "priority1", "priority2", "priority3", "priority4", "__UNDEFINED", None]
         if copy_priority not in allowed_values:
             raise ValueError(
                 "Invalid value for `copy_priority`, must be one of {0}"
@@ -161,29 +158,6 @@ class VolumeCopyCreateRequest(object):
         :type: bool
         """
         self._target_write_protected = target_write_protected
-
-    @property
-    def disable_snapshot(self):
-        """
-        Gets the disable_snapshot of this VolumeCopyCreateRequest.
-        Deprecated, this value is ignored.
-
-        :return: The disable_snapshot of this VolumeCopyCreateRequest.
-        :rtype: bool
-        :required/optional: optional
-        """
-        return self._disable_snapshot
-
-    @disable_snapshot.setter
-    def disable_snapshot(self, disable_snapshot):
-        """
-        Sets the disable_snapshot of this VolumeCopyCreateRequest.
-        Deprecated, this value is ignored.
-
-        :param disable_snapshot: The disable_snapshot of this VolumeCopyCreateRequest.
-        :type: bool
-        """
-        self._disable_snapshot = disable_snapshot
 
     @property
     def online_copy(self):

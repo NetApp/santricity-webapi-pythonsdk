@@ -148,7 +148,7 @@ class CallResponse(object):
         :param code_type: The code_type of this CallResponse.
         :type: str
         """
-        allowed_values = ["symbol", "webservice", "systemerror", "devicemgrerror"]
+        allowed_values = ["symbol", "systemerror", "devicemgrerror"]
         if code_type not in allowed_values:
             raise ValueError(
                 "Invalid value for `code_type`, must be one of {0}"

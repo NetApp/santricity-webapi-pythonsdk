@@ -42,6 +42,7 @@ class FirmwareUpgradeHealthCheckResult(object):
             'storage_device_wwn': 'str',  # (required parameter)
             'processing_time_ms': 'int',  # (required parameter)
             'rerun': 'bool',  # (required parameter)
+            'successful': 'bool',  # (required parameter)
             'storage_device_accessible': 'StorageDeviceHealthCheck',  # (required parameter)
             'spm_database_verification': 'SpmDatabaseHealthCheck',  # (required parameter)
             'configuration_database_check': 'ConfigurationDbValidationCheck',  # (required parameter)
@@ -54,8 +55,7 @@ class FirmwareUpgradeHealthCheckResult(object):
             'exclusive_operations': 'ExclusiveOperationCheck',  # (required parameter)
             'failed_drives_present': 'StorageDeviceHealthCheck',  # (required parameter)
             'valid_password_set': 'StorageDeviceHealthCheck',  # (required parameter)
-            'mel_check': 'MelEventHealthCheck',  # (required parameter)
-            'successful': 'bool'
+            'mel_check': 'MelEventHealthCheck'
         }
 
         self.attribute_map = {
@@ -64,6 +64,7 @@ class FirmwareUpgradeHealthCheckResult(object):
             'storage_device_wwn': 'storageDeviceWWN',  # (required parameter)
             'processing_time_ms': 'processingTimeMS',  # (required parameter)
             'rerun': 'rerun',  # (required parameter)
+            'successful': 'successful',  # (required parameter)
             'storage_device_accessible': 'storageDeviceAccessible',  # (required parameter)
             'spm_database_verification': 'spmDatabaseVerification',  # (required parameter)
             'configuration_database_check': 'configurationDatabaseCheck',  # (required parameter)
@@ -76,8 +77,7 @@ class FirmwareUpgradeHealthCheckResult(object):
             'exclusive_operations': 'exclusiveOperations',  # (required parameter)
             'failed_drives_present': 'failedDrivesPresent',  # (required parameter)
             'valid_password_set': 'validPasswordSet',  # (required parameter)
-            'mel_check': 'melCheck',  # (required parameter)
-            'successful': 'successful'
+            'mel_check': 'melCheck'
         }
 
         self._storage_device_id = None
@@ -85,6 +85,7 @@ class FirmwareUpgradeHealthCheckResult(object):
         self._storage_device_wwn = None
         self._processing_time_ms = None
         self._rerun = None
+        self._successful = None
         self._storage_device_accessible = None
         self._spm_database_verification = None
         self._configuration_database_check = None
@@ -98,7 +99,6 @@ class FirmwareUpgradeHealthCheckResult(object):
         self._failed_drives_present = None
         self._valid_password_set = None
         self._mel_check = None
-        self._successful = None
 
     @property
     def storage_device_id(self):
@@ -214,6 +214,29 @@ class FirmwareUpgradeHealthCheckResult(object):
         :type: bool
         """
         self._rerun = rerun
+
+    @property
+    def successful(self):
+        """
+        Gets the successful of this FirmwareUpgradeHealthCheckResult.
+
+
+        :return: The successful of this FirmwareUpgradeHealthCheckResult.
+        :rtype: bool
+        :required/optional: required
+        """
+        return self._successful
+
+    @successful.setter
+    def successful(self, successful):
+        """
+        Sets the successful of this FirmwareUpgradeHealthCheckResult.
+
+
+        :param successful: The successful of this FirmwareUpgradeHealthCheckResult.
+        :type: bool
+        """
+        self._successful = successful
 
     @property
     def storage_device_accessible(self):
@@ -513,29 +536,6 @@ class FirmwareUpgradeHealthCheckResult(object):
         :type: MelEventHealthCheck
         """
         self._mel_check = mel_check
-
-    @property
-    def successful(self):
-        """
-        Gets the successful of this FirmwareUpgradeHealthCheckResult.
-
-
-        :return: The successful of this FirmwareUpgradeHealthCheckResult.
-        :rtype: bool
-        :required/optional: required
-        """
-        return self._successful
-
-    @successful.setter
-    def successful(self, successful):
-        """
-        Sets the successful of this FirmwareUpgradeHealthCheckResult.
-
-
-        :param successful: The successful of this FirmwareUpgradeHealthCheckResult.
-        :type: bool
-        """
-        self._successful = successful
 
     def to_dict(self):
         """

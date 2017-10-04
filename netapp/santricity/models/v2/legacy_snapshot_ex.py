@@ -71,13 +71,13 @@ class LegacySnapshotEx(object):
             'remote_mirror_source': 'bool',  
             'remote_mirror_target': 'bool',  
             'object_type': 'str',  
-            'name': 'str',  
-            'id': 'str',  
             'wwn': 'str',  
+            'current_controller_id': 'str',  
             'list_of_mappings': 'list[LUNMapping]',  
             'mapped': 'bool',  # (required parameter)
-            'current_controller_id': 'str',  
-            'online_volume_copy': 'bool'
+            'online_volume_copy': 'bool',  
+            'name': 'str',  
+            'id': 'str'
         }
 
         self.attribute_map = {
@@ -115,13 +115,13 @@ class LegacySnapshotEx(object):
             'remote_mirror_source': 'remoteMirrorSource',  
             'remote_mirror_target': 'remoteMirrorTarget',  
             'object_type': 'objectType',  
-            'name': 'name',  
-            'id': 'id',  
             'wwn': 'wwn',  
+            'current_controller_id': 'currentControllerId',  
             'list_of_mappings': 'listOfMappings',  
             'mapped': 'mapped',  # (required parameter)
-            'current_controller_id': 'currentControllerId',  
-            'online_volume_copy': 'onlineVolumeCopy'
+            'online_volume_copy': 'onlineVolumeCopy',  
+            'name': 'name',  
+            'id': 'id'
         }
 
         self._world_wide_name = None
@@ -158,13 +158,13 @@ class LegacySnapshotEx(object):
         self._remote_mirror_source = None
         self._remote_mirror_target = None
         self._object_type = None
-        self._name = None
-        self._id = None
         self._wwn = None
+        self._current_controller_id = None
         self._list_of_mappings = None
         self._mapped = None
-        self._current_controller_id = None
         self._online_volume_copy = None
+        self._name = None
+        self._id = None
 
     @property
     def world_wide_name(self):
@@ -901,7 +901,7 @@ class LegacySnapshotEx(object):
         :param protection_type: The protection_type of this LegacySnapshotEx.
         :type: str
         """
-        allowed_values = ["type0Protection", "type1Protection", "type2Protection", "type3Protection", "__UNDEFINED"]
+        allowed_values = ["type0Protection", "type1Protection", "type2Protection", "type3Protection", "__UNDEFINED", None]
         if protection_type not in allowed_values:
             raise ValueError(
                 "Invalid value for `protection_type`, must be one of {0}"
@@ -976,59 +976,13 @@ class LegacySnapshotEx(object):
         :param object_type: The object_type of this LegacySnapshotEx.
         :type: str
         """
-        allowed_values = ["volume", "pool", "host", "lunMapping", "hostGroup", "thinVolume", "drive", "volumeCopy", "pit", "pitView", "snapshotGroup", "snapshot", "accessVolume", "legacySnapshot", "hostType", "metadataTag", "managementUrl", "folder", "asyncMirrorGroup", "asyncMirrorGroupMember", "asyncMirrorGroupIncompleteMember", "consistencyGroup", "consistencyGroupView", "fan", "battery", "storageSystem", "controller", "powerSupply", "minihub", "esm", "drawer", "hostBoard", "interconnectCRU", "cacheBackupDevice", "tray", "supportCRU", "hostPort", "initiator", "snapshotSchedule", "thermalSensor", "sfp", "flashCache", "featureAttribute", "featureState", "lockKeyId", "remoteVolume", "mirrorVolume", "vaultMirrorVolume", "vaultMirrorGroup", "metadataVolume", "sasPort", "sasExpander", "channelPort", "speedNegError", "snmpAgentBundle", "stagedFirmware", "workload"]
+        allowed_values = ["unknown", "volume", "pool", "host", "lunMapping", "hostGroup", "thinVolume", "drive", "volumeCopy", "pit", "pitView", "snapshotGroup", "snapshot", "accessVolume", "legacySnapshot", "hostType", "metadataTag", "managementUrl", "folder", "asyncMirrorGroup", "asyncMirrorGroupMember", "asyncMirrorGroupIncompleteMember", "consistencyGroup", "consistencyGroupView", "fan", "battery", "storageSystem", "controller", "powerSupply", "minihub", "esm", "drawer", "hostBoard", "interconnectCRU", "cacheBackupDevice", "tray", "supportCRU", "hostPort", "initiator", "snapshotSchedule", "thermalSensor", "sfp", "flashCache", "featureAttribute", "featureState", "lockKeyId", "remoteVolume", "mirrorVolume", "vaultMirrorVolume", "vaultMirrorGroup", "metadataVolume", "sasPort", "sasExpander", "channelPort", "speedNegError", "snmpAgentBundle", "stagedFirmware", "workload", None]
         if object_type not in allowed_values:
             raise ValueError(
                 "Invalid value for `object_type`, must be one of {0}"
                 .format(allowed_values)
             )
         self._object_type = object_type
-
-    @property
-    def name(self):
-        """
-        Gets the name of this LegacySnapshotEx.
-
-
-        :return: The name of this LegacySnapshotEx.
-        :rtype: str
-        :required/optional: optional
-        """
-        return self._name
-
-    @name.setter
-    def name(self, name):
-        """
-        Sets the name of this LegacySnapshotEx.
-
-
-        :param name: The name of this LegacySnapshotEx.
-        :type: str
-        """
-        self._name = name
-
-    @property
-    def id(self):
-        """
-        Gets the id of this LegacySnapshotEx.
-
-
-        :return: The id of this LegacySnapshotEx.
-        :rtype: str
-        :required/optional: optional
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """
-        Sets the id of this LegacySnapshotEx.
-
-
-        :param id: The id of this LegacySnapshotEx.
-        :type: str
-        """
-        self._id = id
 
     @property
     def wwn(self):
@@ -1052,6 +1006,29 @@ class LegacySnapshotEx(object):
         :type: str
         """
         self._wwn = wwn
+
+    @property
+    def current_controller_id(self):
+        """
+        Gets the current_controller_id of this LegacySnapshotEx.
+
+
+        :return: The current_controller_id of this LegacySnapshotEx.
+        :rtype: str
+        :required/optional: optional
+        """
+        return self._current_controller_id
+
+    @current_controller_id.setter
+    def current_controller_id(self, current_controller_id):
+        """
+        Sets the current_controller_id of this LegacySnapshotEx.
+
+
+        :param current_controller_id: The current_controller_id of this LegacySnapshotEx.
+        :type: str
+        """
+        self._current_controller_id = current_controller_id
 
     @property
     def list_of_mappings(self):
@@ -1100,29 +1077,6 @@ class LegacySnapshotEx(object):
         self._mapped = mapped
 
     @property
-    def current_controller_id(self):
-        """
-        Gets the current_controller_id of this LegacySnapshotEx.
-
-
-        :return: The current_controller_id of this LegacySnapshotEx.
-        :rtype: str
-        :required/optional: optional
-        """
-        return self._current_controller_id
-
-    @current_controller_id.setter
-    def current_controller_id(self, current_controller_id):
-        """
-        Sets the current_controller_id of this LegacySnapshotEx.
-
-
-        :param current_controller_id: The current_controller_id of this LegacySnapshotEx.
-        :type: str
-        """
-        self._current_controller_id = current_controller_id
-
-    @property
     def online_volume_copy(self):
         """
         Gets the online_volume_copy of this LegacySnapshotEx.
@@ -1144,6 +1098,52 @@ class LegacySnapshotEx(object):
         :type: bool
         """
         self._online_volume_copy = online_volume_copy
+
+    @property
+    def name(self):
+        """
+        Gets the name of this LegacySnapshotEx.
+
+
+        :return: The name of this LegacySnapshotEx.
+        :rtype: str
+        :required/optional: optional
+        """
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        """
+        Sets the name of this LegacySnapshotEx.
+
+
+        :param name: The name of this LegacySnapshotEx.
+        :type: str
+        """
+        self._name = name
+
+    @property
+    def id(self):
+        """
+        Gets the id of this LegacySnapshotEx.
+
+
+        :return: The id of this LegacySnapshotEx.
+        :rtype: str
+        :required/optional: optional
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """
+        Sets the id of this LegacySnapshotEx.
+
+
+        :param id: The id of this LegacySnapshotEx.
+        :type: str
+        """
+        self._id = id
 
     def to_dict(self):
         """
