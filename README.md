@@ -1,17 +1,21 @@
-#NetApp SANtricity WebAPI - Python SDK
+# NetApp SANtricity WebAPI - Python SDK
+
+## Deprecation Notice
+
+We've decided to deprecate this project due to the lack of interest and concentrate more heavily on our Java and PowerShell SDK's. Overall Python is a much simpler language for interacting with such API's and this SDK doesn't provide as much to a user as the other SDK's.
 
 [![Build Status](https://travis-ci.org/NetApp/santricity-webapi-pythonsdk.svg?branch=master)](https://travis-ci.org/NetApp/santricity-webapi-pythonsdk) [![PyPI version](https://badge.fury.io/py/netapp.santricity.svg)](https://badge.fury.io/py/netapp.santricity)
 
-##Requirements
+## Requirements
 
 The NetApp SANtricity WebAPI - Python SDK client library requires Python 2.7 or later.
 
-##Installation
-###From PyPI
+## Installation
+### From PyPI
 ```python
 pip install netapp.santricity
 ```
-###setuptools Installation
+### setuptools Installation
 
 Installation of the Python bindings can be performed through [setuptools](http://pypi.python.org/pypi/setuptools).
 
@@ -21,7 +25,7 @@ Once downloaded, enter the following command:
 python setup.py install
 ```
 
-###Manual Installation
+### Manual Installation
 
 If you chose not install the Python bindings through setuptools, you can perform the
 installation manually by first downloading the latest release of the package. Once
@@ -31,7 +35,7 @@ downloaded, enter the following command to import the package:
 import netapp.santricity
 ```
 
-###Getting started
+### Getting started
 
 To get started using the NetApp SANtricity WebAPI - Python SDK, access the ``api_client.py`` file and specify
 the host URL for your REST service.
